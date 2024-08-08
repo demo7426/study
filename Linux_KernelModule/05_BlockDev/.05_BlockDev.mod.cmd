@@ -1,1 +1,0 @@
-cmd_/home/alientek/qianrui/Linux_KernelModule/05_BlockDev/05_BlockDev.mod := { echo  /home/alientek/qianrui/Linux_KernelModule/05_BlockDev/05_BlockDev.o;  echo; } > /home/alientek/qianrui/Linux_KernelModule/05_BlockDev/05_BlockDev.mod
