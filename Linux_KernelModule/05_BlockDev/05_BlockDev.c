@@ -113,14 +113,14 @@ static void Blk_Dev_Request(struct request_queue* _pRequestQue)
     {
         struct bio_vec tBio_Vec;
         struct req_iterator tReq_Iterator;
-        sector_t nSectorOffset;                                            //用户读取的起始地址的扇区偏移数量
+        sector_t nSectorOffset;                                             //用户读取的起始地址的扇区偏移数量
         unsigned int unOperateLen = 0;                                      //用户操作数据的长度
         u8* pchStartBuf = NULL;                                             //用户传入的缓冲区起始地址
 
         nSectorOffset = blk_rq_pos(ptRequset);
         unOperateLen = blk_rq_cur_sectors(ptRequset) * SECTOR_SIZE;
 
-        rq_for_each_segment(tBio_Vec, ptRequset, tReq_Iterator);
+        rq_for_each_segment(tBio_Vec, ptRequset, tReq_Iterator)
         {
             pchStartBuf = page_address(tBio_Vec.bv_page) + tBio_Vec.bv_offset;
             if(rq_data_dir(ptRequset) == READ)
@@ -164,7 +164,7 @@ void Blk_Delete_Dev(void)
 /// @return 
 static int __init Blk_Init(void)
 {
-    g_tBlkDev_Info.m_pchDevData = vmalloc(DEVICE_CAPACITY * SECTOR_SIZE);
+    g_tBlkDev_Info.m_pchDevData = vmalloc(DEVICE_CAPACITY * SECTOR_SIZE);       //分配一大块内存，用于模拟块设备驱动缓冲
     if(g_tBlkDev_Info.m_pchDevData == NULL)
     {
         LOG(KERN_ERR "Blk_Init vmalloc is err.\n");

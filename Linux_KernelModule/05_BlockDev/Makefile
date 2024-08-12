@@ -8,10 +8,10 @@ else
 
 default:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
-	$(CXX) Test.cpp -o Test.elf
+	$(CXX)  -g -Wall -O2 Test.cpp -o Test.elf
 
 clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	make -C $(KERNELDIR) M=$(PWD) clean
 	$(RM) -rf Test.elf
 
 endif
