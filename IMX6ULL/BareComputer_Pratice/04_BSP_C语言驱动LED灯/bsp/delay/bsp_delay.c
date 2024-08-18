@@ -25,7 +25,7 @@ void Bsp_Delay(volatile unsigned int _Millsecond)
     if(_Millsecond == 0)            
         return;
 
-    int nFreq = 0x7ff;              //根据cpu主频计算出的延时参数
+    volatile int nFreq = 0x7ff;              //根据cpu主频计算出的延时参数
     while (_Millsecond--)
     {
         while(nFreq--){};
