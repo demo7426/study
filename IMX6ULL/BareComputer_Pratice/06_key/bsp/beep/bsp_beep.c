@@ -15,7 +15,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 *************************************************/
 #include "fsl_iomuxc.h"
 #include "MCIMX6Y2.h"
-
+#include "bsp_beep.h"
 
 int Bsp_BeepInit(void)
 {
