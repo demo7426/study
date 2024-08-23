@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionnew"/>
+    <addaction name="separator"/>
+    <addaction name="actionopen"/>
+    <addaction name="separator"/>
+    <addaction name="actionerror"/>
+    <addaction name="separator"/>
+    <addaction name="actioninfomation"/>
+    <addaction name="separator"/>
+    <addaction name="actionquestion"/>
+    <addaction name="separator"/>
+    <addaction name="actionwarning"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="actioncolorDialog"/>
+    <addaction name="separator"/>
+    <addaction name="actionfileDialog"/>
+    <addaction name="separator"/>
+    <addaction name="actionfontDialog"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
+  </widget>
+  <action name="actionnew">
+   <property name="text">
+    <string>新建</string>
+   </property>
+  </action>
+  <action name="actionopen">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="actionerror">
+   <property name="text">
+    <string>错误提示</string>
+   </property>
+  </action>
+  <action name="actioninfomation">
+   <property name="text">
+    <string>信息提示</string>
+   </property>
+  </action>
+  <action name="actionquestion">
+   <property name="text">
+    <string>询问提示</string>
+   </property>
+  </action>
+  <action name="actionwarning">
+   <property name="text">
+    <string>警告提示</string>
+   </property>
+  </action>
+  <action name="actioncolorDialog">
+   <property name="text">
+    <string>colorDialog</string>
+   </property>
+  </action>
+  <action name="actionfileDialog">
+   <property name="text">
+    <string>fileDialog</string>
+   </property>
+  </action>
+  <action name="actionfontDialog">
+   <property name="text">
+    <string>fontDialog</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

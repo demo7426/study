@@ -1,0 +1,11 @@
+#include "assignedvalue.h"
+
+AssignedValue::AssignedValue(QObject *parent) : QObject(parent)
+{
+
+}
+
+void AssignedValue::Assignment(QString Text)
+{
+
+}
