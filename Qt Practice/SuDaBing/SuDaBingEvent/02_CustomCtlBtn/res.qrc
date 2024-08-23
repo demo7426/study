@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>img/age-restriction-sixteen.png</file>
+        <file>img/heart.png</file>
+        <file>img/twitter.png</file>
+    </qresource>
+</RCC>

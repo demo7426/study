@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>img/android-chrome-192x192.png</file>
+        <file>img/android-chrome-512x512.png</file>
+        <file>img/apple-touch-icon.png</file>
+        <file alias="favicon">img/favicon.ico</file>
+    </qresource>
+</RCC>
