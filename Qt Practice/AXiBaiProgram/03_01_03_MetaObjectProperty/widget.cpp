@@ -13,7 +13,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       版本:V0.1.0
 
 *************************************************/
-
+#include <QMetaClassInfo>
 #include "widget.h"
 #include "ui_widget.h"
 
@@ -95,10 +95,18 @@ void Widget::InitSignalSlots(void) noexcept
 
 int Widget::RefreshCurPlainTextEditData(void) noexcept
 {
+    const QMetaObject *pcMeta = m_cPersonBoy.metaObject();
+
     QString strName = m_cPersonBoy.property("Name").toString();
     bool bSex = m_cPersonBoy.property("Sex").toBool();
     qint32 nAge = m_cPersonBoy.property("Age").toInt();
     qint32 nScore = m_cPersonBoy.property("Score").toInt();
+
+    for(int i = pcMeta->classInfoOffset(); i < pcMeta->classInfoCount(); ++i)
+    {
+        QMetaClassInfo cMetaClassInfo = pcMeta->classInfo(i);
+        ui->plainTextEdit->appendPlainText(QString("%1: %2").arg(cMetaClassInfo.name()).arg(cMetaClassInfo.value()));
+    }
 
     ui->plainTextEdit->appendPlainText(QString("姓氏: %1").arg(strName));
     if(bSex)
@@ -108,10 +116,18 @@ int Widget::RefreshCurPlainTextEditData(void) noexcept
     ui->plainTextEdit->appendPlainText(QString("年龄: %1").arg(nAge));
     ui->plainTextEdit->appendPlainText(QString("分数: %1\n").arg(nScore));
 
+    pcMeta = m_cPersonGirl.metaObject();
+
     strName = m_cPersonGirl.property("Name").toString();
     bSex = m_cPersonGirl.property("Sex").toBool();
     nAge = m_cPersonGirl.property("Age").toInt();
     nScore = m_cPersonGirl.property("Score").toInt();
+
+    for(int i = pcMeta->classInfoOffset(); i < pcMeta->classInfoCount(); ++i)
+    {
+        QMetaClassInfo cMetaClassInfo = pcMeta->classInfo(i);
+        ui->plainTextEdit->appendPlainText(QString("%1: %2").arg(cMetaClassInfo.name()).arg(cMetaClassInfo.value()));
+    }
 
     ui->plainTextEdit->appendPlainText(QString("姓氏: %1").arg(strName));
     if(bSex)
