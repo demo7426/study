@@ -99,3 +99,84 @@ void Widget::on_pushButton_36_clicked()
     ui->lineEditEndResult->setText(str01.trimmed());                //删除字符串的头尾空格符
 }
 
+
+void Widget::on_pushButton_24_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->lineEditEndResult->setText(QString::asprintf("%lld", str01.count()));
+}
+
+
+void Widget::on_pushButton_25_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->lineEditEndResult->setText(QString::asprintf("%llu", str01.size()));
+}
+
+
+void Widget::on_pushButton_26_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->lineEditEndResult->setText(QString::asprintf("%llu", str01.indexOf('Q')));
+}
+
+
+void Widget::on_pushButton_27_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->lineEditEndResult->setText(QString::asprintf("%llu", str01.lastIndexOf('Q')));
+}
+
+
+void Widget::on_pushButton_19_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->checkBox->setChecked(str01.endsWith("cpp"));
+}
+
+
+void Widget::on_pushButton_20_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->checkBox->setChecked(str01.startsWith("G"));
+}
+
+
+void Widget::on_pushButton_21_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->checkBox->setChecked(str01.contains("Study"));
+}
+
+
+void Widget::on_pushButton_22_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->checkBox->setChecked(str01.isNull());
+}
+
+
+void Widget::on_pushButton_23_clicked()
+{
+    QString str01;
+
+    str01 = ui->comboBoxStr01->currentText();
+    ui->checkBox->setChecked(str01.isEmpty());
+}
+

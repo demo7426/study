@@ -36,6 +36,24 @@ private slots:
 
     void on_pushButton_36_clicked();
 
+    void on_pushButton_24_clicked();
+
+    void on_pushButton_25_clicked();
+
+    void on_pushButton_26_clicked();
+
+    void on_pushButton_27_clicked();
+
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_20_clicked();
+
+    void on_pushButton_21_clicked();
+
+    void on_pushButton_22_clicked();
+
+    void on_pushButton_23_clicked();
+
 private:
     Ui::Widget *ui;
 };
