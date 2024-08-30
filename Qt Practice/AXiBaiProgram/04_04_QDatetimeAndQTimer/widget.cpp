@@ -16,6 +16,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QTime>
 #include <QDate>
 #include <QDateTime>
+#include <QCalendarWidget>
 
 #include "widget.h"
 #include "ui_widget.h"
@@ -81,6 +82,13 @@ void Widget::InitSignalSlots() noexcept
         ui->pushBtnTimerStart->setEnabled(true);
         ui->pushBtnSetTimePeriod->setEnabled(true);
         ui->pushBtnTimerStop->setEnabled(false);
+    });
+
+    connect(ui->calendarWidget, &QCalendarWidget::selectionChanged, this, [=](){
+        QCalendarWidget* pcCalendarWidget = qobject_cast<QCalendarWidget*>(sender());
+        QDate cDate = pcCalendarWidget->selectedDate();
+
+        ui->lineEditSelectDateTime->setText(cDate.toString("yyyy/MM/dd"));
     });
 }
 
