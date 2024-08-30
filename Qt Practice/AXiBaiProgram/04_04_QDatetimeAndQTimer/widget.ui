@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>828</width>
+    <height>506</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>日期时间</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QPushButton" name="pushBtnReadCurDatetime">
+        <property name="text">
+         <string>读取当前日期时间</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>字符串显示</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>时间</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEditCurTime">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QTimeEdit" name="timeEdit">
+        <property name="displayFormat">
+         <string>HH:mm:ss</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="pushBtnTime">
+        <property name="text">
+         <string>设置时间</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>日期</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEditCurDate"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="displayFormat">
+         <string>yyyy/MM/dd</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="pushBtnDate">
+        <property name="text">
+         <string>设置日期</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>日期时间</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEditCurDateTime"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QDateTimeEdit" name="dateTimeEdit">
+        <property name="minimumSize">
+         <size>
+          <width>170</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="displayFormat">
+         <string>yyyy/MM/dd HH:mm:ss</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="pushBtnDateTime">
+        <property name="text">
+         <string>设置日期时间</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>日历选择</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>选择的日期</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEditSelectDateTime">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QCalendarWidget" name="calendarWidget"/>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QPushButton" name="pushBtnQuit">
+        <property name="text">
+         <string>退出</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>定时器</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0" colspan="2">
+       <widget class="QPushButton" name="pushBtnTimerStart">
+        <property name="text">
+         <string>开始</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" colspan="2">
+       <widget class="QPushButton" name="pushBtnTimerStop">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>停止</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>流逝时间</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLabel" name="labelElapsedTime">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>定时周期</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QSpinBox" name="spinBox">
+        <property name="maximum">
+         <number>999999999</number>
+        </property>
+        <property name="value">
+         <number>1000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>ms</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4" colspan="2">
+       <widget class="QPushButton" name="pushBtnSetTimePeriod">
+        <property name="text">
+         <string>设置定时周期</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="6">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLCDNumber" name="lcdNumHour">
+          <property name="digitCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcdNumMinute">
+          <property name="digitCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcdNumSecond">
+          <property name="digitCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0" colspan="6">
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushBtnQuit</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>660</x>
+     <y>443</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>716</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
