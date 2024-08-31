@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
+    <width>516</width>
     <height>365</height>
    </rect>
   </property>
@@ -45,7 +45,14 @@
        </widget>
       </item>
       <item row="1" column="0" colspan="3">
-       <widget class="QComboBox" name="comboBoxCity"/>
+       <widget class="QComboBox" name="comboBoxCity">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -64,7 +71,47 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="comboBoxCityAreaCode"/>
+       <widget class="QComboBox" name="comboBoxCityAreaCode">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>兰州</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/icon/imgs/city.png</normaloff>:/icon/imgs/city.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>呼和浩特</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/icon/imgs/city.png</normaloff>:/icon/imgs/city.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>长沙</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/icon/imgs/city.png</normaloff>:/icon/imgs/city.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>福州</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imgs.qrc">
+           <normaloff>:/icon/imgs/city.png</normaloff>:/icon/imgs/city.png</iconset>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -97,13 +144,19 @@
        </widget>
       </item>
       <item row="1" column="0" colspan="3">
-       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+       <widget class="QPlainTextEdit" name="plainTextEdit">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="imgs.qrc"/>
+ </resources>
  <connections/>
 </ui>

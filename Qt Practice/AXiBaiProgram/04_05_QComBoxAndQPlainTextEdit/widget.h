@@ -35,5 +35,27 @@ public:
 
 private:
     Ui::Widget *ui;
+
+private:
+    /// <summary>
+    /// 初始化ui界面
+    /// </summary>
+    void InitUi(void) noexcept;
+
+    /// <summary>
+    /// 初始化信号槽
+    /// </summary>
+    void InitSignalSlots(void) noexcept;
+
+private slots:
+    /// <summary>
+    /// 初始化ComboBox
+    /// </summary>
+    void InitComboBox(void) noexcept;
+
+    /// <summary>
+    /// 将PlainText添加到ComboBox中去
+    /// </summary>
+    void PlainTextToComboBox(void) noexcept;
 };
 #endif // WIDGET_H
