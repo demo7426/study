@@ -1,0 +1,14 @@
+﻿  源.cpp
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(158,58): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(181,58): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(213,58): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(226,20): warning C4477: “sprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“SOCKET”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(226,20): message : 请考虑在格式字符串中使用“%lld”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(226,20): message : 请考虑在格式字符串中使用“%Id”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(226,20): message : 请考虑在格式字符串中使用“%I64d”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(228,20): warning C4477: “sprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“SOCKET”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(228,20): message : 请考虑在格式字符串中使用“%lld”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(228,20): message : 请考虑在格式字符串中使用“%Id”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(228,20): message : 请考虑在格式字符串中使用“%I64d”
+D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\AsyncSelectProject\源.cpp(230,58): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  AsyncSelectProject.vcxproj -> D:\C++Pratice\windows网络编程（C3程序猿）\异步选择模型(消息队列)\AsyncSelectSolution\x64\Debug\AsyncSelectProject.exe

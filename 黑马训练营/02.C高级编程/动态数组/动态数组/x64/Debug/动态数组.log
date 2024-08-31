@@ -1,0 +1,7 @@
+﻿  DynamicArray.c
+D:\C++练习\黑马训练营\02.C高级编程\动态数组\动态数组\DynamicArray.c(9,22): warning C4047: “return”:“PDYNAMICARRAY”与“int”的间接级别不同
+D:\C++练习\黑马训练营\02.C高级编程\动态数组\动态数组\DynamicArray.c(16,22): warning C4047: “return”:“PDYNAMICARRAY”与“int”的间接级别不同
+D:\C++练习\黑马训练营\02.C高级编程\动态数组\动态数组\DynamicArray.c(56,43): warning C4018: “>=”: 有符号/无符号不匹配
+  Test.c
+  正在生成代码...
+  动态数组.vcxproj -> D:\C++练习\黑马训练营\02.C高级编程\动态数组\x64\Debug\动态数组.exe

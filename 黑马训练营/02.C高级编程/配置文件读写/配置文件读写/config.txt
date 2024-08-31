@@ -1,0 +1,22 @@
+#英雄ID  注释
+heroId:1
+#英雄姓名  
+heroName:琦玉
+#英雄攻击力
+heroAtk:9999999
+#英雄防御力
+heroDef:1000
+#英雄简介
+heroInfo:无敌
+
+
+
+aaaaaaaaa
+baflalsdf
+strstr
+struct ConfigInfo
+{
+   char key[64];
+   char value[64];
+}
+//根据key值能够访问到对应的value

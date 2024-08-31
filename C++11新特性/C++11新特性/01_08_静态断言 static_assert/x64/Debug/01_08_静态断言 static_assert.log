@@ -1,0 +1,2 @@
+﻿  01_08_静态断言 static_assert.cpp
+D:\C++Pratice\C++11新特性\C++11新特性\01_08_静态断言 static_assert\01_08_静态断言 static_assert.cpp(13,32): error C2338: static_assert failed: '当前系统并非为Linux 64 位操作系统'

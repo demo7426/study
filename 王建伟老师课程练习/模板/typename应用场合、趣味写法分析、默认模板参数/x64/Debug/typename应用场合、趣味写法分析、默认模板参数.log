@@ -1,0 +1,5 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(typename应用场合、趣味写法分析、默认模板参数.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  Template_FunWritingAnalysis.cpp
+  03_typename应用场合、趣味写法分析、默认模板参数.cpp
+  正在生成代码...
+  typename应用场合、趣味写法分析、默认模板参数.vcxproj -> D:\C++Pratice\王建伟老师课程练习\模板\x64\Debug\03_typename应用场合、趣味写法分析、默认模板参数.exe

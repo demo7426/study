@@ -1,0 +1,42 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.88.130”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  Server.c
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(18): warning : "__USE_BSD" redefined [enabled by default]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(18): warning :  #define __USE_BSD
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(18): warning :  ^
+/usr/include/features.h(309): message : this is the location of the previous definition
+/usr/include/features.h(309): message :  # define __USE_BSD 1
+/usr/include/features.h(309): message :  ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(165,28): warning : conversion to ‘int’ from ‘ssize_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(165,28): warning :   while ((nRecvLength = recv(pFd_Info->Fd, chTmpBuf, sizeof chTmpBuf, 0)) > 0)
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(165,28): warning :                             ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(169,4): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(169,4): warning :     memcpy(chTotalBuf + nPos, chTmpBuf, nRecvLength);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(169,4): warning :     ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(245,81): warning : conversion to ‘int’ from ‘__off_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(245,81): warning :    SendHeadMsg(_ClientFd, 200, "OK", AccordFileType_GetFileMsg(chFilePath), tstat.st_size);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(245,81): warning :                                                                                  ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(290,69): warning : conversion to ‘int’ from ‘size_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(290,69): warning :    nFilePathLength = strlen(pptdirent[i]->d_name) + strlen(_DirPath) + 2;
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(290,69): warning :                                                                      ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(291,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(291,3): warning :    pchFilePath = (char*)malloc(nFilePathLength);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(291,3): warning :    ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(292,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(292,3): warning :    memset(pchFilePath, 0, nFilePathLength);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(292,3): warning :    ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(354,23): warning : conversion to ‘int’ from ‘__off_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(354,23): warning :   int nFileSize = lseek(nOpenFd, 0, SEEK_END);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(354,23): warning :                        ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(360,52): warning : conversion to ‘size_t’ from ‘off_t’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(360,52): warning :    sendfile(_ClientFd, nOpenFd, &lOffset, nFileSize - lOffset);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(360,52): warning :                                                     ^
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(454,35): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(454,35): warning :     *_Des = HexToDec(_Src[1]) * 16 + HexToDec(_Src[2]);
+D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\Server.c(454,35): warning :                                    ^
+  正在链接对象
+  SimpleHttp_Project.vcxproj -> D:\C++Pratice\LinuxPractice\SimpleHttp_Solution\SimpleHttp_Project\bin\x64\Debug\SimpleHttp_Project.out

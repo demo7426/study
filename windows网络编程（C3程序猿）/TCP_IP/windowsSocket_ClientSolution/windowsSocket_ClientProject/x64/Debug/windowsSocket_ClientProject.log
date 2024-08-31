@@ -1,0 +1,4 @@
+﻿  windowsSocket_ClientProject.cpp
+D:\C++Pratice\windows网络编程（C3程序猿）\windowsSocket_ClientSolution\windowsSocket_ClientProject\windowsSocket_ClientProject.cpp(153): warning C4715: “Test02”: 不是所有的控件路径都返回值
+D:\C++Pratice\windows网络编程（C3程序猿）\windowsSocket_ClientSolution\windowsSocket_ClientProject\windowsSocket_ClientProject.cpp(82): warning C4715: “Test01”: 不是所有的控件路径都返回值
+  windowsSocket_ClientProject.vcxproj -> D:\C++Pratice\windows网络编程（C3程序猿）\windowsSocket_ClientSolution\x64\Debug\windowsSocket_ClientProject.exe

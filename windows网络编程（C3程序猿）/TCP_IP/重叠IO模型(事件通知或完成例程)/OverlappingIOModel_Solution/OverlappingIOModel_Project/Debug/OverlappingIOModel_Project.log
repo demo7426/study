@@ -1,0 +1,3 @@
+﻿  重叠IO(完成例程).c
+D:\C++Pratice\windows网络编程（C3程序猿）\重叠IO模型(事件通知或完成例程)\OverlappingIOModel_Solution\OverlappingIOModel_Project\重叠IO(完成例程).c(314): warning C4716: “SetConsoleCallFunc”: 必须返回一个值
+  OverlappingIOModel_Project.vcxproj -> D:\C++Pratice\windows网络编程（C3程序猿）\重叠IO模型(事件通知或完成例程)\OverlappingIOModel_Solution\Debug\OverlappingIOModel_Project.exe

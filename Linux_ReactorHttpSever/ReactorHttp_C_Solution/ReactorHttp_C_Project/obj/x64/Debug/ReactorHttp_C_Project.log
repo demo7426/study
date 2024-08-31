@@ -1,0 +1,234 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.88.130”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  Buffer.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(20,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(20,2): warning :   pBuffer_Info->pStartPtr = (char*)calloc(_Capcity, sizeof(char));
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(20,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(53,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(53,2): warning :   memcpy(_pBuffer_Info->pStartPtr + _pBuffer_Info->WritePos, _pData, _Size);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(53,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(61,20): warning : conversion to ‘int’ from ‘size_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(61,20): warning :   int nSize = strlen(_pData);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(61,20): warning :                     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(74,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(74,2): warning :   tiovecs[0].iov_len = nCanWriteSize;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(74,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(80,25): warning : conversion to ‘int’ from ‘ssize_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(80,25): warning :   int nRecvLength = readv(_Fd, tiovecs, sizeof(tiovecs) / sizeof(tiovecs[0]));
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(80,25): warning :                          ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,3): warning :    nSendCount = send(_Fd, _pBuffer_Info->pStartPtr + _pBuffer_Info->ReadPos, nValidSendLength, 0);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,20): warning : conversion to ‘int’ from ‘ssize_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,20): warning :    nSendCount = send(_Fd, _pBuffer_Info->pStartPtr + _pBuffer_Info->ReadPos, nValidSendLength, 0);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(103,20): warning :                     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(121,94): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(121,94): warning :   return memmem(_pBuffer_Info->pStartPtr + _pBuffer_Info->ReadPos, GetBufferContinuousReadSize(_pBuffer_Info), "\r\n", 2);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(121,94): warning :                                                                                               ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(133,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(133,3): warning :    memcpy(_pBuffer_Info->pStartPtr, _pBuffer_Info->pStartPtr + _pBuffer_Info->ReadPos, nReadSize);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(133,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(139,83): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(139,83): warning :    char* pchBuf = (char*)realloc(_pBuffer_Info->pStartPtr, _pBuffer_Info->Capacity + _WriteSize);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(139,83): warning :                                                                                    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(143,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(143,3): warning :    memset(pchBuf + _pBuffer_Info->Capacity, 0, _WriteSize);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Buffer.c(143,3): warning :    ^
+  Channel.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Channel.c(32,3): warning : negative integer implicitly converted to unsigned type [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Channel.c(32,3): warning :    _ChannelInfo->Events &= ~WRITEEVENT;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\Channel.c(32,3): warning :    ^
+  ChanneMap.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(14,2): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(14,2): warning :   pChannelMap_Info->List = (PCHANNEL_INFO*)malloc(sizeof(PCHANNEL_INFO) * _Capacity);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(14,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(22,2): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(22,2): warning :   memset(pChannelMap_Info->List, 0, sizeof(PCHANNEL_INFO) * _Capacity);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(22,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(54,2): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(54,2): warning :   pInfo_Tmp = realloc(_ChannelMap_Info->List, sizeof(PCHANNEL_INFO) * _NewCap);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(54,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(71,85): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(71,85): warning :   memset(pInfo_Tmp + _ChannelMap_Info->Capacity, 0, sizeof(PCHANNEL_INFO) * (_NewCap - _ChannelMap_Info->Capacity));
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(71,85): warning :                                                                                      ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(72,25): warning : assignment from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(72,25): warning :   _ChannelMap_Info->List = pInfo_Tmp;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ChanneMap.c(72,25): warning :                          ^
+  EpollDispatcher.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning :   EpollInit, EpollAdd, EpollDelete, EpollModify, EpollDispatch, EpollClear
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : (near initialization for ‘g_tEpollDis_Info.Add’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : (near initialization for ‘g_tEpollDis_Info.Delete’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : (near initialization for ‘g_tEpollDis_Info.Modify’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(39,2): warning : (near initialization for ‘g_tEpollDis_Info.Dispatch’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(40,1): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(40,1): warning :  };
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(40,1): warning :  ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(40,1): warning : (near initialization for ‘g_tEpollDis_Info.Clear’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(96,41): warning : conversion to ‘int’ from ‘uint32_t’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(96,41): warning :    int nEvent = ptChannel_Info->Events[i].events;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(96,41): warning :                                          ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(101,4): warning : passing argument 1 of ‘EpollDelete’ from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(101,4): warning :     EpollDelete(_EventLoop_Info->pChMap_Info, _EventLoop_Info);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(101,4): warning :     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(75,12): message : expected ‘PCHANNEL_INFO’ but argument is of type ‘PCHANNELMAP_INFO’
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(75,12): message :  static int EpollDelete(PCHANNEL_INFO _Channel_Info, PEVENTLOOP_INFO _EventLoop_Info)
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(75,12): message :             ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(126,1): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(126,1): warning :  }
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EpollDispatcher.c(126,1): warning :  ^
+  EventLoop.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(72,3): warning : passing argument 1 of ‘ptDispatchr_Info->Dispatch’ from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(72,3): warning :    ptDispatchr_Info->Dispatch(_pEventLoop_Info, 2000);      //��ʱʱ������Ϊ2000ms
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(72,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(72,3): message : expected ‘struct EVENTLOOP_INFO *’ but argument is of type ‘PEVENTLOOP_INFO’
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(209,3): warning : passing argument 2 of ‘_pEventLoop_Info->pDispatcher_Info->Add’ from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(209,3): warning :    _pEventLoop_Info->pDispatcher_Info->Add(_pChannel_Info, _pEventLoop_Info);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(209,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(209,3): message : expected ‘struct EVENTLOOP_INFO *’ but argument is of type ‘PEVENTLOOP_INFO’
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(225,2): warning : passing argument 2 of ‘_pEventLoop_Info->pDispatcher_Info->Delete’ from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(225,2): warning :   return _pEventLoop_Info->pDispatcher_Info->Delete(_pChannel_Info, _pEventLoop_Info);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(225,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(225,2): message : expected ‘struct EVENTLOOP_INFO *’ but argument is of type ‘PEVENTLOOP_INFO’
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(238,2): warning : passing argument 2 of ‘_pEventLoop_Info->pDispatcher_Info->Modify’ from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(238,2): warning :   return _pEventLoop_Info->pDispatcher_Info->Modify(_pChannel_Info, _pEventLoop_Info);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(238,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\EventLoop.c(238,2): message : expected ‘struct EVENTLOOP_INFO *’ but argument is of type ‘PEVENTLOOP_INFO’
+  HttpResponse.c
+  main.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(15,29): warning : conversion to ‘short int’ from ‘int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(15,29): warning :      const short sPort = atoi(argv[1]);   //�����˿�
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(15,29): warning :                              ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(21,5): warning : conversion to ‘short unsigned int’ from ‘short int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(21,5): warning :      PTCPSERVER_INFO ptTcpServer_Info = TcpServerInit(sPort, 4);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\main.c(21,5): warning :      ^
+  HttpRequest.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(154,25): warning : conversion to ‘int’ from ‘size_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(154,25): warning :   int nKeyLength = strlen(_Key);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(154,25): warning :                          ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(155,27): warning : conversion to ‘int’ from ‘size_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(155,27): warning :   int nValueLength = strlen(_Value);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(155,27): warning :                            ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(157,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(157,2): warning :   _pHttpRequest_Info->pHttpHeader_Info[_pHttpRequest_Info->HttpHeaderValidNum].Key = (char*)malloc(nKeyLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(157,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(158,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(158,2): warning :   _pHttpRequest_Info->pHttpHeader_Info[_pHttpRequest_Info->HttpHeaderValidNum].Value = (char*)malloc(nValueLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(158,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(170,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(170,2): warning :   memcpy(_pHttpRequest_Info->pHttpHeader_Info[_pHttpRequest_Info->HttpHeaderValidNum].Key, _Key, nKeyLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(170,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(171,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(171,2): warning :   memcpy(_pHttpRequest_Info->pHttpHeader_Info[_pHttpRequest_Info->HttpHeaderValidNum].Value, _Value, nValueLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(171,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(193,25): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(193,25): warning :   int nLength = _pEndPos - _pStartPos;                //��Ч����
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(193,25): warning :                          ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,48): warning : conversion to ‘size_t’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,48): warning :    nLength = (char*)memmem(_pStartPos, _pEndPos - _pStartPos, _pSerchData, strlen(_pSerchData)) - _pStartPos;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,48): warning :                                                 ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,96): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,96): warning :    nLength = (char*)memmem(_pStartPos, _pEndPos - _pStartPos, _pSerchData, strlen(_pSerchData)) - _pStartPos;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(196,96): warning :                                                                                                 ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(198,39): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(198,39): warning :   char* pChTmp = (char*)calloc(nLength + 1, 1);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(198,39): warning :                                        ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(201,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(201,2): warning :   strncpy(pChTmp, _pStartPos, nLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(201,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(205,2): warning : return discards ‘const’ qualifier from pointer target type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(205,2): warning :   return _pStartPos + nLength + 1;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(205,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(217,34): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(217,34): warning :   int nHttpLineLength = pchEndPos - pchStartPos;              //���������ݿ��С
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(217,34): warning :                                   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(270,36): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(270,36): warning :   int nHttpHeaderLength = pchEndPos - pchStartPos;             //����ͷ���ݿ��С
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(270,36): warning :                                     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(272,2): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(273,26): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(273,26): warning :   int nKeyLength = pchTmp - pchStartPos;                //key����
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(273,26): warning :                           ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(276,36): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(276,36): warning :    char* pchKey = calloc(nKeyLength + 1, 1);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(276,36): warning :                                     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(283,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(283,3): warning :    strncpy(pchKey, pchStartPos, nKeyLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(283,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(285,52): warning : conversion to ‘size_t’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(285,52): warning :    char* pchValue = calloc(pchEndPos - (pchTmp + 2) + 1, 1);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(285,52): warning :                                                     ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(293,43): warning : conversion to ‘size_t’ from ‘long int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(293,43): warning :    strncpy(pchValue, pchTmp + 2, pchEndPos - (pchTmp + 2));
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(293,43): warning :                                            ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(334,35): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(334,35): warning :     *_Des = HexToDec(_Src[1]) * 16 + HexToDec(_Src[2]);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(334,35): warning :                                    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(435,70): warning : conversion to ‘int’ from ‘size_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(435,70): warning :    nFilePathLength = strlen(pptdirent[i]->d_name) + strlen(_pDirPath) + 2;
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(435,70): warning :                                                                       ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(436,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(436,3): warning :    pchFilePath = (char*)malloc(nFilePathLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(436,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(437,3): warning : conversion to ‘size_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(437,3): warning :    memset(pchFilePath, 0, nFilePathLength);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(437,3): warning :    ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(512,23): warning : conversion to ‘int’ from ‘__off_t’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(512,23): warning :   int nFileSize = lseek(nOpenFd, 0, SEEK_END);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(512,23): warning :                        ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(518,52): warning : conversion to ‘size_t’ from ‘off_t’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(518,52): warning :    sendfile(_SocketFd, nOpenFd, &lOffset, nFileSize - lOffset);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\HttpRequest.c(518,52): warning :                                                     ^
+  PollDispatcher.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning :   PollInit, PollAdd, PollDelete, PollModify, PollDispatch, PollClear
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : (near initialization for ‘g_tPollDis_Info.Add’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : (near initialization for ‘g_tPollDis_Info.Delete’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : (near initialization for ‘g_tPollDis_Info.Modify’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(36,2): warning : (near initialization for ‘g_tPollDis_Info.Dispatch’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(37,1): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(37,1): warning :  };
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(37,1): warning :  ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(37,1): warning : (near initialization for ‘g_tPollDis_Info.Clear’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(141,61): warning : conversion to ‘nfds_t’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(141,61): warning :   if (poll(ptPollData->Pollfds, ptPollData->MaxClientFdIndex + 1, _TimeOut) == -1)
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(141,61): warning :                                                              ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(174,1): warning : no return statement in function returning non-void [-Wreturn-type]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(174,1): warning :  }
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\PollDispatcher.c(174,1): warning :  ^
+  SelectDispatcher.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning :   SelectInit, SelectAdd, SelectDelete, SelectModify, SelectDispatch, SelectClear
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : (near initialization for ‘g_tSelectDis_Info.Add’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : (near initialization for ‘g_tSelectDis_Info.Delete’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : (near initialization for ‘g_tSelectDis_Info.Modify’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(35,2): warning : (near initialization for ‘g_tSelectDis_Info.Dispatch’) [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(36,1): warning : initialization from incompatible pointer type [enabled by default]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(36,1): warning :  };
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(36,1): warning :  ^
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\SelectDispatcher.c(36,1): warning : (near initialization for ‘g_tSelectDis_Info.Clear’) [enabled by default]
+  TcpConnection.c
+  TcpServer.c
+  ThreadPool.c
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ThreadPool.c(17,2): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ThreadPool.c(17,2): warning :   ptThreadPool_Info->pWorkThread_Info = (PWORKTHREAD_INFO)malloc(sizeof(WORKTHREAD_INFO) * _SubThreadNum);
+D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\ThreadPool.c(17,2): warning :   ^
+  WorkThread.c
+  正在链接对象
+  ReactorHttp_C_Project.vcxproj -> D:\C++Pratice\LinuxPractice\ReactorHttp_C_Solution\ReactorHttp_C_Project\bin\x64\Debug\ReactorHttp_C_Project.out

@@ -1,0 +1,8 @@
+﻿  main.c
+D:\C++Pratice\windows网络编程（C3程序猿）\TCP_IP\windowsSocket_ServerSolution\windowsSocket_ServerProject\main.c(6,5): warning C4013: “Test_EventSelect_OptimizedCode”未定义；假设外部返回 int
+  windowsSocket_ServerProject.c
+  windowsSocket_ServerProject_EventSelect.c
+D:\C++Pratice\windows网络编程（C3程序猿）\TCP_IP\windowsSocket_ServerSolution\windowsSocket_ServerProject\windowsSocket_ServerProject_EventSelect.c(298,100): warning C4267: “初始化”: 从“size_t”转换到“DWORD”，可能丢失数据
+  windowsSocket_ServerProject_Select.c
+  正在生成代码...
+  windowsSocket_ServerProject.vcxproj -> D:\C++Pratice\windows网络编程（C3程序猿）\TCP_IP\windowsSocket_ServerSolution\x64\Debug\windowsSocket_ServerProject.exe

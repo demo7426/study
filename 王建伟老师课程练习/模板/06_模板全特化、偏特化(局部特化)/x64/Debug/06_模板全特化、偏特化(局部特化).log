@@ -1,0 +1,20 @@
+﻿  06_模板全特化、偏特化(局部特化).cpp
+  Template_Specialization.cpp
+D:\C++Pratice\王建伟老师课程练习\模板\06_模板全特化、偏特化(局部特化)\Template_Specialization.h(97,13): warning C4244: “return”: 从“U”转换到“T”，可能丢失数据
+          with
+          [
+              U=float
+          ]
+          and
+          [
+              T=int
+          ]
+D:\C++Pratice\王建伟老师课程练习\模板\06_模板全特化、偏特化(局部特化)\Template_Specialization.cpp(26): message : 查看对正在编译的函数 模板 实例化“T Template_Specialization_NameSpace::Mul<int,float,float>(U,W)”的引用
+          with
+          [
+              T=int,
+              U=float,
+              W=float
+          ]
+  正在生成代码...
+  06_模板全特化、偏特化(局部特化).vcxproj -> D:\C++Pratice\王建伟老师课程练习\模板\x64\Debug\06_模板全特化、偏特化(局部特化).exe

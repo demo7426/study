@@ -1,0 +1,1 @@
+g++ -o "/home/qianrui/projects/SimpleHttp_Project/bin/x64/Debug/SimpleHttp_Project.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/qianrui/projects/SimpleHttp_Project/obj/x64/Debug/main.o /home/qianrui/projects/SimpleHttp_Project/obj/x64/Debug/Server.o -lpthread

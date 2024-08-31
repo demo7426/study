@@ -1,0 +1,8 @@
+﻿  06_01_通过duration创建一个时间段.cpp
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(32,26): warning C4101: “cMinutes01”: 未引用的局部变量
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(44,30): warning C4101: “cNanoSec01”: 未引用的局部变量
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(41,31): warning C4101: “cMicSec01”: 未引用的局部变量
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(38,31): warning C4101: “cMilSec01”: 未引用的局部变量
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(35,26): warning C4101: “cSec01”: 未引用的局部变量
+D:\C++Pratice\C++11新特性\C++11新特性\06_01_通过duration创建一个时间段\06_01_通过duration创建一个时间段.cpp(29,24): warning C4101: “cHour01”: 未引用的局部变量
+  06_01_通过duration创建一个时间段.vcxproj -> D:\C++Pratice\C++11新特性\C++11新特性\x64\Debug\06_01_通过duration创建一个时间段.exe

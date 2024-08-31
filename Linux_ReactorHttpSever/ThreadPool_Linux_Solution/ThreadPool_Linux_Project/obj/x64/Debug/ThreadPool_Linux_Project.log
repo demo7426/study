@@ -1,0 +1,18 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.88.130”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  main.c
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\ThreadPool.h(46,8): warning : extra tokens at end of #endif directive [enabled by default]
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\ThreadPool.h(46,8): warning :  #endif _THREADPOOL_H// !_THREADPOOL_H
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\ThreadPool.h(46,8): warning :         ^
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(12,2): warning : implicit declaration of function ‘usleep’ [-Wimplicit-function-declaration]
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(12,2): warning :   usleep(100000);
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(12,2): warning :   ^
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(19,2): warning : conversion to ‘long unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(19,2): warning :   int* pnNum = (int*)malloc(sizeof(int) * nLength);
+D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\main.c(19,2): warning :   ^
+  正在链接对象
+  ThreadPool_Linux_Project.vcxproj -> D:\C++Pratice\LinuxPractice\ThreadPool_Linux_Solution\ThreadPool_Linux_Project\bin\x64\Debug\ThreadPool_Linux_Project.out

@@ -1,0 +1,6 @@
+﻿  06_23_编写一个任务队列.cpp
+D:\C++Pratice\C++11新特性\C++11新特性\06_23_编写一个任务队列\TaskQueue.h(53,24): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+  TaskQueue.cpp
+D:\C++Pratice\C++11新特性\C++11新特性\06_23_编写一个任务队列\TaskQueue.h(53,24): warning C4267: “return”: 从“size_t”转换到“unsigned int”，可能丢失数据
+  正在生成代码...
+  06_23_编写一个任务队列.vcxproj -> D:\C++Pratice\C++11新特性\C++11新特性\x64\Debug\06_23_编写一个任务队列.exe

@@ -1,0 +1,4 @@
+﻿  UDPServer_EventSelect.c
+D:\C++Pratice\windows网络编程（C3程序猿）\UDP_IP\UDPServer_Solution\UDPServer_Project\UDPServer_EventSelect.c(172,51): warning C4022: “CreateThread”: 指针与实参 4 不匹配
+D:\C++Pratice\windows网络编程（C3程序猿）\UDP_IP\UDPServer_Solution\UDPServer_Project\UDPServer_EventSelect.c(103): warning C4716: “ConsoleCtl_CallFunc”: 必须返回一个值
+  UDPServer_Project.vcxproj -> D:\C++Pratice\windows网络编程（C3程序猿）\UDP_IP\UDPServer_Solution\Debug\UDPServer_Project.exe

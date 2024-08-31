@@ -1,0 +1,12 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.88.130”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  main.cpp
+D:\C++Pratice\LinuxPractice\ReactorHttp_CPP_Solution\ReactorHttp_CPP_Project\main.cpp(16,37): warning : conversion to ‘short int’ from ‘int’ may alter its value [-Wconversion]
+D:\C++Pratice\LinuxPractice\ReactorHttp_CPP_Solution\ReactorHttp_CPP_Project\main.cpp(16,37): warning :      const short sPort = atoi(argv[1]);   //�����˿�
+D:\C++Pratice\LinuxPractice\ReactorHttp_CPP_Solution\ReactorHttp_CPP_Project\main.cpp(16,37): warning :                                      ^
+  正在链接对象
+  ReactorHttp_CPP_Project.vcxproj -> D:\C++Pratice\LinuxPractice\ReactorHttp_CPP_Solution\ReactorHttp_CPP_Project\bin\x64\Debug\ReactorHttp_CPP_Project.out

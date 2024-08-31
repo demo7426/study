@@ -1,0 +1,4 @@
+﻿  01-源.c
+E:\C++练习\黑马训练营\C语言基础\fprintf和fscanf\fprintf和fscanf\01-源.c(15,12): warning C4098: “WriteFileFunc”:“void”函数返回值
+E:\C++练习\黑马训练营\C语言基础\fprintf和fscanf\fprintf和fscanf\01-源.c(33,12): warning C4098: “ReadFileFunc”:“void”函数返回值
+  fprintf和fscanf.vcxproj -> E:\C++练习\黑马训练营\C语言基础\fprintf和fscanf\Debug\fprintf和fscanf.exe

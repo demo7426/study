@@ -1,0 +1,4 @@
+﻿  gets函数和fgets函数、puts函数和fputs函数.c
+D:\C++练习\黑马训练营\01.C语言基础\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数.c(12,2): warning C4013: “gets”未定义；假设外部返回 int
+D:\C++练习\黑马训练营\01.C语言基础\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数.c(22,2): warning C4013: “system”未定义；假设外部返回 int
+  gets函数和fgets函数、puts函数和fputs函数.vcxproj -> D:\C++练习\黑马训练营\01.C语言基础\gets函数和fgets函数、puts函数和fputs函数\gets函数和fgets函数、puts函数和fputs函数\Debug\gets函数和fgets函数、puts函数和fputs函数.exe

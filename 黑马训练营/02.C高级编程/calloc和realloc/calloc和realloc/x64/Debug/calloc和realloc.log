@@ -1,0 +1,4 @@
+﻿  源.c
+D:\C++练习\黑马训练营\02.C高级编程\calloc和realloc\calloc和realloc\源.c(146,9): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 2 拥有了类型“char *”
+D:\C++练习\黑马训练营\02.C高级编程\calloc和realloc\calloc和realloc\源.c(146,9): warning C4313: "printf": 格式字符串中的 "%x" 与类型为 "char *" 的参数 2 冲突
+  calloc和realloc.vcxproj -> D:\C++练习\黑马训练营\02.C高级编程\calloc和realloc\x64\Debug\calloc和realloc.exe

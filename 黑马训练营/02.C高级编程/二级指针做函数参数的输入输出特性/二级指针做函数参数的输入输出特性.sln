@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_二级指针做函数参数的输入特性", "二级指针做函数参数的输入输出特性\二级指针做函数参数的输入输出特性.vcxproj", "{164A951E-FEE7-4B14-BAE3-28F3142210DA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_二级指针做函数参数的输出特性", "二级指针做函数参数的输出特性\二级指针做函数参数的输出特性.vcxproj", "{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Debug|x64.ActiveCfg = Debug|x64
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Debug|x64.Build.0 = Debug|x64
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Debug|x86.ActiveCfg = Debug|Win32
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Debug|x86.Build.0 = Debug|Win32
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Release|x64.ActiveCfg = Release|x64
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Release|x64.Build.0 = Release|x64
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Release|x86.ActiveCfg = Release|Win32
+		{164A951E-FEE7-4B14-BAE3-28F3142210DA}.Release|x86.Build.0 = Release|Win32
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Debug|x64.ActiveCfg = Debug|x64
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Debug|x64.Build.0 = Debug|x64
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Debug|x86.Build.0 = Debug|Win32
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Release|x64.ActiveCfg = Release|x64
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Release|x64.Build.0 = Release|x64
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Release|x86.ActiveCfg = Release|Win32
+		{F7FAD93A-77DD-48C5-913E-224AEDCCF4AE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1BAB177-101C-4384-9DE7-1F6492539605}
+	EndGlobalSection
+EndGlobal
