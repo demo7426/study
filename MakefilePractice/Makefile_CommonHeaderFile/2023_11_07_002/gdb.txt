@@ -1,0 +1,25 @@
+Breakpoint 1 at 0x400525: file ./main.c, line 8.
+Starting program: /home/qianrui/CppPractice/Makefile_CommonHeaderFile/2023_11_07_002/./main.out 
+
+Breakpoint 1, main () at ./main.c:8
+8	    int nValue[2] = {10, 20};
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64
+$1 = -7664
+$2 = -7664
+$3 = 32767
+9	    Func01();
+$4 = 20
+$5 = 10
+$6 = 10
+The program being debugged has been started already.
+Start it from the beginning? (y or n) EOF [assumed Y]
+Starting program: /home/qianrui/CppPractice/Makefile_CommonHeaderFile/2023_11_07_002/./main.out 
+
+Breakpoint 1, main () at ./main.c:8
+8	    int nValue[2] = {10, 20};
+Quit
+A debugging session is active.
+
+	Inferior 1 [process 17032] will be killed.
+
+Quit anyway? (y or n) 

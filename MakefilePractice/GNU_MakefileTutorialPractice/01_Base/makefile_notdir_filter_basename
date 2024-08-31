@@ -1,0 +1,11 @@
+#makefile常用函数测试 notdir、filter、basename
+
+C_SRC:=$(shell find ./ -name "*.c")
+C_SRC_NOTDIR:=$(notdir $(C_SRC))				#去掉字符串目录结构
+C_SRC_FILTER:=$(filter %.c,$(C_SRC))			#过滤字符串
+C_SRC_BASENAME:=$(basename $(C_SRC_NOTDIR))		#去掉字符串后缀
+
+debug:
+	@echo $(C_SRC_FILTER)
+
+.PHONY: debug

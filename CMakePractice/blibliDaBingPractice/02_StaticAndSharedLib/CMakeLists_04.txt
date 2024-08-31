@@ -1,0 +1,20 @@
+#[[
+    变量操作测试
+]]
+
+cmake_minimum_required(VERSION 3.6.2)
+
+project(Test)
+
+set(CMAKE_CXX_STANDARD 11)
+
+file(GLOB src_cpps ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+
+
+list(APPEND src_cpps ${src_cpps})       #添加新元素到列表中
+list(REMOVE_ITEM src_cpps ${CMAKE_CURRENT_SOURCE_DIR}/src/Add.cpp)  #移除列表中的匹配的元素
+
+message(STATUS ${src_cpps})
+
+set(src_cpps "Hello " "world")          #字符串拼接
+message(STATUS ${src_cpps})

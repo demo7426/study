@@ -1,0 +1,3 @@
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/build/CMakeFiles/edit_cache.dir
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/build/CMakeFiles/rebuild_cache.dir
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/build/CMakeFiles/main.out.dir

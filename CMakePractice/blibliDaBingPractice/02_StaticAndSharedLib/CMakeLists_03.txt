@@ -1,0 +1,20 @@
+#[[
+    测试使用动态链接库
+]]
+
+cmake_minimum_required(VERSION 3.6.2)
+
+project(Test)
+
+set(CMAKE_CXX_STANDARD 11)
+
+file(GLOB src_cpps ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+add_definitions(-D_QR_DBG)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
+
+set(EXECUTABLE_OUTPUT_PATH ../bin)
+add_executable(main.out ${src_cpps})
+
+target_link_libraries(main.out Cal)     #CMake链接动态库操作必须是在生成了链接对象之后

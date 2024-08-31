@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Add.hpp
+
+../include/Minus.hpp
+
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Add.cpp
+Add.hpp
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Add.hpp
+
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Minus.cpp
+Minus.hpp
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Minus.hpp
+
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/main.cpp
+stdio.h
+-
+Add.hpp
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Add.hpp
+Minus.hpp
+/home/qianrui/CMakePractice/blibliDaBingPractice/01_CMakePractice/src/Minus.hpp
+

@@ -1,0 +1,3 @@
+/home/qianrui/CMakePractice/blibliDaBingPractice/02_StaticAndSharedLib/build/CMakeFiles/edit_cache.dir
+/home/qianrui/CMakePractice/blibliDaBingPractice/02_StaticAndSharedLib/build/CMakeFiles/rebuild_cache.dir
+/home/qianrui/CMakePractice/blibliDaBingPractice/02_StaticAndSharedLib/build/CMakeFiles/main.out.dir

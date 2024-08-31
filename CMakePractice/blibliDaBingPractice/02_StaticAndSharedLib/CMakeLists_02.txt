@@ -1,0 +1,20 @@
+#[[
+    测试使用静态链接库
+]]
+
+cmake_minimum_required(VERSION 3.6.2)
+
+project(Test)
+
+set(CMAKE_CXX_STANDARD 11)                          #设置g++工具链标准
+
+file(GLOB src_cpps ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+link_libraries(Cal)                                 #链接静态库    
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)   #设置库查找路径
+
+
+set(EXECUTABLE_OUTPUT_PATH ../bin)
+add_executable(main.out ${src_cpps})
+

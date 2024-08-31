@@ -1,0 +1,23 @@
+#文件注释：makefile公共头文件
+
+SHELL_LS=$(shell ls)#使用shell命令，必须先将命令放入自定义变量中
+TARGET=main.out
+SUORCE=$(wildcard ./*.cpp ./*.c)
+OBJ=$(patsubst %.cpp,%.o,$(SUORCE))
+OBJ:=$(patsubst %.c,%.o,$(OBJ))#不能自己给自己最终赋值，因为无法展开数据结构，但是可以立即赋值
+
+.PHONY:clean show
+
+$(TARGET):$(OBJ)
+	$(CXX) $^ -o $@
+
+%.o:%.c
+	$(CXX) -c $^ -o $@
+
+show:
+	@echo $(SUORCE)
+	echo $(SHELL_LS)
+
+clean:
+	$(RM) *.o *.out
+	@echo "成功删除所有编译、链接生成的文件。"

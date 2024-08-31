@@ -1,0 +1,13 @@
+main:MyMax.o MySub.o
+	gcc -lstdc++ MyMax.o MySub.o main.cpp -o main.out
+	@echo "最后一步"
+
+MyMax.o:MyMax.cpp
+	gcc -c MyMax.cpp -o MyMax.o
+MySub.o:MySub.cpp
+	gcc -c MySub.cpp -o MySub.o
+	
+clean:
+	@echo "清除编译后的文件"
+	@rm -f *.o
+	@rm -f *.out

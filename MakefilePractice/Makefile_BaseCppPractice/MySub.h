@@ -1,0 +1,2 @@
+
+int MySubFunc(int, int);

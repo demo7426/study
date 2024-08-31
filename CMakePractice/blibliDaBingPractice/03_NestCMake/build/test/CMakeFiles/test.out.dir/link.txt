@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/test.out.dir/main.cpp.o  -o ../../bin/test.out  -L/home/qianrui/CMakePractice/blibliDaBingPractice/03_NestCMake/lib ../../lib/libCal.a -Wl,-rpath,/home/qianrui/CMakePractice/blibliDaBingPractice/03_NestCMake/lib 

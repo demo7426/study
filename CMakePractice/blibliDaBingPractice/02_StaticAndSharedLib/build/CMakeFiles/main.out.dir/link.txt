@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/main.out.dir/main.cpp.o  -o ../bin/main.out  -L/home/qianrui/CMakePractice/blibliDaBingPractice/02_StaticAndSharedLib/lib -lCal -Wl,-rpath,/home/qianrui/CMakePractice/blibliDaBingPractice/02_StaticAndSharedLib/lib 

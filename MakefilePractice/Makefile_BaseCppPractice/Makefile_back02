@@ -1,0 +1,22 @@
+#该文档使用系统常量、系统变量、自定义变量编写Makefile
+
+OBJ=MyMax.o MySub.o main.o
+TARGET=main.out
+
+main:$(OBJ)
+	@echo "最后一步"
+	$(CXX) -lstdc++ $^ -o $(TARGET)
+	
+MyMax.o:MyMax.cpp
+	$(CXX) -c $^ -o $@
+MySub.o:MySub.cpp
+	$(CXX) -c $^ -o $@
+main.o:main.cpp
+	$(CXX) -c $^ -o $@
+
+show:
+	@ls -l | grep ".cpp"
+	@ls -l | grep ".h"
+clean:
+	@echo "清除编译后的文件"
+	@rm -f *.o *.out

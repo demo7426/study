@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libCal.a  CMakeFiles/Cal.dir/Add.cpp.o CMakeFiles/Cal.dir/Minus.cpp.o
+/usr/bin/ranlib ../../lib/libCal.a
