@@ -44,10 +44,19 @@ private:
         TYPE = 1,
     };
 
+    enum class ZOOMTYPE:short                            //变焦图片
+    {
+        IN = 0,                                         //缩小
+        OUT,                                            //放大
+        REALSIZE,                                       //原本的大小
+        SUITABLEHeIGHT,                                 //适合的高度
+        SUITABLEWIDTH                                   //适合的宽度
+    };
+
     QVBoxLayout* m_pcVBoxLayout = nullptr;
     QLabel* m_pcLabel_Pixmap = nullptr;                  //用于显示图像
     QPixmap* m_pcPixmap = nullptr;                       //加载图片
-
+    QSize m_cPixmapSize;
 
 private:
     Ui::MainWindow *ui;
@@ -79,6 +88,14 @@ private slots:
     /// </summary>
     void TreeWidgetTraversalItems(QTreeWidgetItem* _pCurTreeWidgetItem) noexcept;
 
+    /// <summary>
+    /// 响应TreeWidget当前节点改变
+    /// </summary>
     void CurrentItemChanged(QTreeWidgetItem *pCurrent, QTreeWidgetItem *_Previous);
+
+    /// <summary>
+    /// 变焦图片
+    /// </summary>
+    void ZoomPicture(ZOOMTYPE _Flag) noexcept;
 };
 #endif // MAINWINDOW_H

@@ -41,6 +41,8 @@ void MainWindow::InitUi(void) noexcept
     m_pcLabel_Pixmap = new QLabel();
     m_pcPixmap = new QPixmap();
     m_pcVBoxLayout = new QVBoxLayout();
+
+    ui->dockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 }
 
 
@@ -56,6 +58,52 @@ void MainWindow::InitSignalSlots(void) noexcept
     });
 
     connect(ui->treeWidget, &QTreeWidget::currentItemChanged, this, &MainWindow::CurrentItemChanged);
+
+    connect(ui->actDockVisible, &QAction::triggered, this, [=](bool _Checked){
+        if(!_Checked)
+            ui->dockWidget->hide();
+        else
+            ui->dockWidget->show();
+    });
+
+    connect(ui->actDockFloat, &QAction::triggered, this, [=](bool _Checked){
+        ui->dockWidget->setFloating(_Checked);
+    });
+
+    connect(ui->actZoomIn, &QAction::triggered, this, [this](){
+        this->ZoomPicture(ZOOMTYPE::IN);
+        qDebug() << "2";
+    });
+
+    connect(ui->actZoomOut, &QAction::triggered, this, [this](){
+        this->ZoomPicture(ZOOMTYPE::OUT);
+    });
+
+    connect(ui->actZoomRealSize, &QAction::triggered, this, [this](){
+        this->ZoomPicture(ZOOMTYPE::REALSIZE);
+    });
+
+    connect(ui->actZoomFitH, &QAction::triggered, this, [this](){
+        this->ZoomPicture(ZOOMTYPE::SUITABLEHeIGHT);
+    });
+
+    connect(ui->actZoomFitW, &QAction::triggered, this, [this](){
+        this->ZoomPicture(ZOOMTYPE::SUITABLEWIDTH);
+    });
+
+    connect(ui->actDeleteItem, &QAction::triggered, this, [this](){
+        QTreeWidgetItem* pcCurItem = ui->treeWidget->currentItem();
+        qint32 nCount = pcCurItem->childCount();
+
+        for (int i = 0; i < nCount; ++i)
+        {
+            delete pcCurItem->child(i);
+        }
+
+        delete pcCurItem;
+    });
+
+
 }
 
 void MainWindow::TreeWidgetAddFolder() noexcept
@@ -151,7 +199,9 @@ void MainWindow::CurrentItemChanged(QTreeWidgetItem *pCurrent, QTreeWidgetItem *
 
     if(pCurrent == nullptr)
     {
-       qDebug() << "CurrentItemChanged inputparam is err.";
+        qDebug() << "CurrentItemChanged inputparam is err.";
+
+        ui->actDeleteItem->setEnabled(false);
         return;
     }
 
@@ -160,8 +210,11 @@ void MainWindow::CurrentItemChanged(QTreeWidgetItem *pCurrent, QTreeWidgetItem *
     if(strFilePath.isEmpty())
     {
         qDebug() << "CurrentItemChanged strFilePath is empty.";
+
         return;
     }
+
+    ui->actDeleteItem->setEnabled(true);
 
     if(strFilePath.contains(".jpg") || strFilePath.contains(".bmp") || strFilePath.contains(".png"))
     {
@@ -170,9 +223,77 @@ void MainWindow::CurrentItemChanged(QTreeWidgetItem *pCurrent, QTreeWidgetItem *
         m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
         m_pcVBoxLayout->addWidget(m_pcLabel_Pixmap);
         ui->scrollArea->setLayout(m_pcVBoxLayout);
+
+        ui->actZoomIn->setEnabled(true);
+        ui->actZoomOut->setEnabled(true);
+        ui->actZoomFitH->setEnabled(true);
+        ui->actZoomFitW->setEnabled(true);
+        ui->actZoomRealSize->setEnabled(true);
         // ui->scrollAreaWidgetContents->setLayout(m_pcVBoxLayout);
         // ui->scrollArea->setWidget(ui->scrollAreaWidgetContents);
     }
-    else{}
+    else
+    {
+        ui->actZoomIn->setEnabled(false);
+        ui->actZoomOut->setEnabled(false);
+        ui->actZoomFitH->setEnabled(false);
+        ui->actZoomFitW->setEnabled(false);
+        ui->actZoomRealSize->setEnabled(false);
+    }
 
+}
+
+void MainWindow::ZoomPicture(ZOOMTYPE _Flag) noexcept
+{
+    QString strFilePath = ui->treeWidget->currentItem()->data(static_cast<qint32>(COLUMNTYPE::VALUE), Qt::DisplayRole).toString();
+
+    switch (_Flag)
+    {
+    case ZOOMTYPE::IN:                  //缩小图片
+    {
+        qDebug() << "1";
+        m_cPixmapSize = m_pcPixmap->size() * 0.8;
+        m_pcPixmap->load(strFilePath);
+        *m_pcPixmap = m_pcPixmap->scaled(m_cPixmapSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
+    }
+    break;
+    case ZOOMTYPE::OUT:                 //放大图片
+    {
+        qDebug() << "1";
+        m_cPixmapSize = m_pcPixmap->size() / 0.8;
+        m_pcPixmap->load(strFilePath);
+        *m_pcPixmap = m_pcPixmap->scaled(m_cPixmapSize, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
+    }
+    break;
+    case ZOOMTYPE::REALSIZE:            //还原真实大小
+    {
+        m_pcPixmap->load(strFilePath);
+        m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
+    }
+    break;
+    case ZOOMTYPE::SUITABLEHeIGHT:      //适合的高度
+    {
+        m_pcPixmap->load(strFilePath);
+
+        *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcPixmap->width() * (m_pcPixmap->height() / m_pcLabel_Pixmap->height()));
+        *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcLabel_Pixmap->height());
+
+        m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
+    }
+    break;
+    case ZOOMTYPE::SUITABLEWIDTH:       //适合宽度
+    {
+        m_pcPixmap->load(strFilePath);
+
+        *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcPixmap->height() * (m_pcPixmap->width() / m_pcLabel_Pixmap->width()));
+        *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcLabel_Pixmap->width());
+
+        m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
+    }
+    break;
+    default:
+        break;
+    }
 }

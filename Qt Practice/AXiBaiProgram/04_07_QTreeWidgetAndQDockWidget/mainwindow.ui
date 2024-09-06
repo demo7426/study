@@ -64,8 +64,8 @@
     <property name="title">
      <string>视图</string>
     </property>
-    <addaction name="actZoomIn"/>
     <addaction name="actZoomOut"/>
+    <addaction name="actZoomIn"/>
     <addaction name="actZoomRealSize"/>
     <addaction name="separator"/>
     <addaction name="actZoomFitW"/>
@@ -92,8 +92,8 @@
    <addaction name="actAddFiles"/>
    <addaction name="actScanItems"/>
    <addaction name="actDeleteItem"/>
-   <addaction name="actZoomIn"/>
    <addaction name="actZoomOut"/>
+   <addaction name="actZoomIn"/>
    <addaction name="actZoomRealSize"/>
    <addaction name="actZoomFitW"/>
    <addaction name="actZoomFitH"/>
@@ -177,7 +177,7 @@
     <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="actZoomIn">
+  <action name="actZoomOut">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -195,7 +195,7 @@
     <string>Ctrl+I</string>
    </property>
   </action>
-  <action name="actZoomOut">
+  <action name="actZoomIn">
    <property name="enabled">
     <bool>false</bool>
    </property>
