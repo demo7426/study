@@ -103,7 +103,13 @@ void MainWindow::InitSignalSlots(void) noexcept
         delete pcCurItem;
     });
 
+    connect(ui->dockWidget, &QDockWidget::topLevelChanged, this, [=](bool _TopLevel){
+        ui->actDockFloat->setChecked(_TopLevel);
+    });
 
+    connect(ui->dockWidget, &QDockWidget::visibilityChanged, this, [=](bool _TopLevel){
+        ui->actDockVisible->setChecked(_TopLevel);
+    });
 }
 
 void MainWindow::TreeWidgetAddFolder() noexcept
@@ -277,8 +283,16 @@ void MainWindow::ZoomPicture(ZOOMTYPE _Flag) noexcept
     {
         m_pcPixmap->load(strFilePath);
 
-        *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcPixmap->width() * (m_pcPixmap->height() / m_pcLabel_Pixmap->height()));
-        *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcLabel_Pixmap->height());
+        if(m_pcLabel_Pixmap->height() < m_pcPixmap->height())
+        {
+            *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcPixmap->width() * (m_pcPixmap->height() / m_pcLabel_Pixmap->height()));
+            *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcLabel_Pixmap->height());
+        }
+        else
+        {
+            *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcPixmap->width() * (m_pcLabel_Pixmap->height() / m_pcPixmap->height()));
+            *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcLabel_Pixmap->height());
+        }
 
         m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
     }
@@ -287,8 +301,16 @@ void MainWindow::ZoomPicture(ZOOMTYPE _Flag) noexcept
     {
         m_pcPixmap->load(strFilePath);
 
-        *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcPixmap->height() * (m_pcPixmap->width() / m_pcLabel_Pixmap->width()));
-        *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcLabel_Pixmap->width());
+        if(m_pcLabel_Pixmap->width() < m_pcPixmap->width())
+        {
+            *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcPixmap->height() * (m_pcPixmap->width() / m_pcLabel_Pixmap->width()));
+            *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcLabel_Pixmap->width());
+        }
+        else
+        {
+            *m_pcPixmap = m_pcPixmap->scaledToHeight(m_pcPixmap->height() * (m_pcLabel_Pixmap->width() / m_pcPixmap->width()));
+            *m_pcPixmap = m_pcPixmap->scaledToWidth(m_pcLabel_Pixmap->width());
+        }
 
         m_pcLabel_Pixmap->setPixmap(*m_pcPixmap);
     }
