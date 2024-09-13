@@ -43,6 +43,9 @@ private:
     QLabel* m_pcLabel_FilePath = nullptr;
     QLabel* m_pcLabel_Pos = nullptr;
     QLabel* m_pcLabel_Text = nullptr;
+
+    constexpr static quint32 m_unRowCount = 10;                             //行数
+    constexpr static quint32 m_unColumnCount = 8;                           //列数
 private:
     Ui::MainWindow *ui;
 
@@ -59,5 +62,35 @@ private:
 
 private slots:
     void CurrentChanged(const QModelIndex &_Current, const QModelIndex &_Previous);
+
+    /// <summary>
+    /// 加载文件数据
+    /// </summary>
+    void LoadFileData(void);
+
+    /// <summary>
+    /// 保存数据到文件
+    /// </summary>
+    void SaveDataToFile(void);
+
+    /// <summary>
+    /// 模型数据预览
+    /// </summary>
+    void ModelDataPreview(void);
+
+    /// <summary>
+    /// 向QStandardItemModel插入一行数据
+    /// </summary>
+    void InsertRow(QStandardItemModel* _pStandardItemModel, const QModelIndex &_Current);
+
+    /// <summary>
+    /// 向QStandardItemModel添加一行数据
+    /// </summary>
+    void AppendRow(QStandardItemModel* _pStandardItemModel, const QModelIndex &_Current);
+
+    /// <summary>
+    /// 向QStandardItemModel删除一行数据
+    /// </summary>
+    inline void DeleteRow(QStandardItemModel* _pStandardItemModel, const QModelIndex &_Current);
 };
 #endif // MAINWINDOW_H

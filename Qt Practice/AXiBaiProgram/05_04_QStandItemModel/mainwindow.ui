@@ -77,7 +77,8 @@
    <addaction name="actDelete"/>
    <addaction name="separator"/>
    <addaction name="actAlignLeft"/>
-   <addaction name="actAlignCenter"/>
+   <addaction name="actAlignHCenter"/>
+   <addaction name="actAlignVCenter"/>
    <addaction name="actAlignRight"/>
    <addaction name="actFontBold"/>
    <addaction name="separator"/>
@@ -168,6 +169,9 @@
    </property>
   </action>
   <action name="actModelData">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/icons/import1.bmp</normaloff>:/images/icons/import1.bmp</iconset>
@@ -180,6 +184,12 @@
    </property>
   </action>
   <action name="actAlignLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/icons/508.bmp</normaloff>:/images/icons/508.bmp</iconset>
@@ -191,19 +201,31 @@
     <string>文字左对齐</string>
    </property>
   </action>
-  <action name="actAlignCenter">
+  <action name="actAlignHCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/icons/510.bmp</normaloff>:/images/icons/510.bmp</iconset>
    </property>
    <property name="text">
-    <string>居中</string>
+    <string>水平居中</string>
    </property>
    <property name="toolTip">
-    <string>文字居中</string>
+    <string>设置文字水平居中</string>
    </property>
   </action>
   <action name="actAlignRight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/icons/512.bmp</normaloff>:/images/icons/512.bmp</iconset>
@@ -219,6 +241,12 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/images/icons/500.bmp</normaloff>:/images/icons/500.bmp</iconset>
@@ -228,6 +256,30 @@
    </property>
    <property name="toolTip">
     <string>粗体字体</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actAlignVCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/510.bmp</normaloff>:/images/icons/510.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>垂直居中</string>
+   </property>
+   <property name="toolTip">
+    <string>设置文字垂直居中</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
  </widget>
