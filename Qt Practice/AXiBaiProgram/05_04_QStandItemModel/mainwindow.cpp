@@ -93,10 +93,11 @@ void MainWindow::InitSignalSlots() noexcept
         for (int i = 0; i < cModelIndexList.size(); ++i)
         {
             pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndexList[i]);
-            pcStandardItem->setTextAlignment(Qt::AlignLeft);
+            pcStandardItem->setTextAlignment(pcStandardItem->textAlignment() & Qt::AlignVCenter | Qt::AlignLeft);
         }
 
         ui->actAlignRight->setChecked(Qt::Unchecked);
+        ui->actAlignHCenter->setChecked(Qt::Unchecked);
     });
 
     connect(ui->actAlignHCenter, &QAction::triggered, this, [this](){
@@ -106,23 +107,28 @@ void MainWindow::InitSignalSlots() noexcept
         for (int i = 0; i < cModelIndexList.size(); ++i)
         {
             pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndexList[i]);
-            pcStandardItem->setTextAlignment(Qt::AlignHCenter);
+
+            pcStandardItem->setTextAlignment(pcStandardItem->textAlignment() & Qt::AlignVCenter | Qt::AlignHCenter);
         }
 
-        ui->actAlignVCenter->setChecked(Qt::Unchecked);
+        ui->actAlignLeft->setChecked(Qt::Unchecked);
+        ui->actAlignRight->setChecked(Qt::Unchecked);
     });
 
-    connect(ui->actAlignVCenter, &QAction::triggered, this, [this](){
+    connect(ui->actAlignVCenter, &QAction::triggered, this, [this](bool _Checked){
         QModelIndexList cModelIndexList = m_pcItemSelectionModel->selectedIndexes();
         QStandardItem* pcStandardItem;
 
         for (int i = 0; i < cModelIndexList.size(); ++i)
         {
             pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndexList[i]);
-            pcStandardItem->setTextAlignment(Qt::AlignVCenter);
+
+            if(_Checked)
+                pcStandardItem->setTextAlignment(pcStandardItem->textAlignment() | Qt::AlignVCenter);
+            else
+                pcStandardItem->setTextAlignment(pcStandardItem->textAlignment() & ~Qt::AlignVCenter);
         }
 
-        ui->actAlignHCenter->setChecked(Qt::Unchecked);
     });
 
     connect(ui->actAlignRight, &QAction::triggered, this, [this](){
@@ -132,14 +138,15 @@ void MainWindow::InitSignalSlots() noexcept
         for (int i = 0; i < cModelIndexList.size(); ++i)
         {
             pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndexList[i]);
-            pcStandardItem->setTextAlignment(Qt::AlignRight);
+            pcStandardItem->setTextAlignment(pcStandardItem->textAlignment() & Qt::AlignVCenter | Qt::AlignRight);
         }
 
-        ui->actAlignRight->setChecked(Qt::Unchecked);
+        ui->actAlignLeft->setChecked(Qt::Unchecked);
+        ui->actAlignHCenter->setChecked(Qt::Unchecked);
     });
 
 
-    connect(ui->actFontBold, &QAction::triggered, this, [this](){
+    connect(ui->actFontBold, &QAction::triggered, this, [this](bool _Checked){
         QModelIndexList cModelIndexList = m_pcItemSelectionModel->selectedIndexes();
         QStandardItem* pcStandardItem;
         QFont cFont;
@@ -149,7 +156,11 @@ void MainWindow::InitSignalSlots() noexcept
             pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndexList[i]);
 
             cFont = pcStandardItem->font();
-            cFont.setBold(true);
+
+            if(_Checked)
+                cFont.setBold(true);
+            else
+                cFont.setBold(false);
 
             pcStandardItem->setFont(cFont);
         }
@@ -171,23 +182,23 @@ void MainWindow::CurrentChanged(const QModelIndex &_Current, const QModelIndex &
     else
         ui->actFontBold->setChecked(false);
 
-    if(pcStandardItem->textAlignment() == Qt::AlignLeft)
+    if(pcStandardItem->textAlignment() & Qt::AlignLeft)
         ui->actAlignLeft->setChecked(Qt::Checked);
     else
         ui->actAlignLeft->setChecked(Qt::Unchecked);
 
 
-    if(pcStandardItem->textAlignment() == Qt::AlignHCenter)
+    if(pcStandardItem->textAlignment() & Qt::AlignHCenter)
         ui->actAlignHCenter->setChecked(Qt::Checked);
     else
         ui->actAlignHCenter->setChecked(Qt::Unchecked);
 
-    if(pcStandardItem->textAlignment() == Qt::AlignVCenter)
+    if(pcStandardItem->textAlignment() & Qt::AlignVCenter)
         ui->actAlignVCenter->setChecked(Qt::Checked);
     else
         ui->actAlignVCenter->setChecked(Qt::Unchecked);
 
-    if(pcStandardItem->textAlignment() == Qt::AlignRight)
+    if(pcStandardItem->textAlignment() & Qt::AlignRight)
         ui->actAlignRight->setChecked(Qt::Checked);
     else
         ui->actAlignRight->setChecked(Qt::Unchecked);
