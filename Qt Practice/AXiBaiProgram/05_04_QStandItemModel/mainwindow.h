@@ -22,6 +22,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QItemSelectionModel>
 #include <QLabel>
 
+#include "SpinIntDelegate.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -37,6 +39,7 @@ public:
     ~MainWindow();
 
 private:
+    QStyledItemDelegate* m_pcStyledItemDelegate = nullptr;                  //tableView代理
     QStandardItemModel* m_pcStandardItemModel = nullptr;                    //tableView数据模型
     QItemSelectionModel* m_pcItemSelectionModel = nullptr;                  //tableView选择模型
 

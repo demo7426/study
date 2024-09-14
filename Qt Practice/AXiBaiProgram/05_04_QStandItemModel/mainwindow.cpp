@@ -34,6 +34,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 
+    if(m_pcStyledItemDelegate != nullptr)
+        delete m_pcStyledItemDelegate;
+
     if(m_pcStandardItemModel != nullptr)
         delete m_pcStandardItemModel;
 
@@ -52,11 +55,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::InitUi() noexcept
 {
+    m_pcStyledItemDelegate = new CSpinIntDelegate(this);
     m_pcStandardItemModel = new QStandardItemModel(m_unRowCount, m_unColumnCount, this);
     m_pcItemSelectionModel = new QItemSelectionModel(m_pcStandardItemModel);                //将QItemSelectionModel和QStandardItemModel联系起来
 
-    ui->tableView->setModel(m_pcStandardItemModel);
-    ui->tableView->setSelectionModel(m_pcItemSelectionModel);
+    ui->tableView->setItemDelegateForColumn(2, m_pcStyledItemDelegate);                     //注册代理
+    ui->tableView->setModel(m_pcStandardItemModel);                                         //注册model模型
+    ui->tableView->setSelectionModel(m_pcItemSelectionModel);                               //注册选择模型
 
     m_pcLabel_FilePath = new QLabel("当前路径:", this);
     m_pcLabel_Pos = new QLabel("当前位置:", this);
