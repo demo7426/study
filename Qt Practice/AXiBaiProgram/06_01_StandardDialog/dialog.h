@@ -77,5 +77,25 @@ private slots:
     /// 选择文本字体
     /// </summary>
     void SelectTextFont(void);
+
+    /// <summary>
+    /// 输入字符串
+    /// </summary>
+    void InputString(void);
+
+    /// <summary>
+    /// 输入整数
+    /// </summary>
+    void InputInt(void);
+
+    /// <summary>
+    /// 输入浮点数
+    /// </summary>
+    void InputFloat(void);
+
+    /// <summary>
+    /// 输入选择条目
+    /// </summary>
+    void InputSelectItem(void);
 };
 #endif // DIALOG_H

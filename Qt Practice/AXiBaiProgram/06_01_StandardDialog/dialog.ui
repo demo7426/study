@@ -180,6 +180,9 @@
      <property name="lineWrapMode">
       <enum>QPlainTextEdit::LineWrapMode::WidgetWidth</enum>
      </property>
+     <property name="plainText">
+      <string/>
+     </property>
     </widget>
    </item>
   </layout>

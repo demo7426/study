@@ -17,6 +17,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
+#include <QInputDialog>
+#include <QMessageBox>
 
 #include "dialog.h"
 #include "ui_dialog.h"
@@ -49,6 +51,39 @@ void Dialog::InitSignalSlots() noexcept
     connect(ui->btnSave, &QPushButton::clicked, this, &Dialog::SaveFile);
     connect(ui->btnColor, &QPushButton::clicked, this, &Dialog::SelectTextColor);
     connect(ui->btnFont, &QPushButton::clicked, this, &Dialog::SelectTextFont);
+
+    connect(ui->btnInputString, &QPushButton::clicked, this, &Dialog::InputString);
+    connect(ui->btnInputInt, &QPushButton::clicked, this, &Dialog::InputInt);
+    connect(ui->btnInputFloat, &QPushButton::clicked, this, &Dialog::InputFloat);
+    connect(ui->btnInputItem, &QPushButton::clicked, this, &Dialog::InputSelectItem);
+
+    connect(ui->btnMsgQuestion, &QPushButton::clicked, this, [this](){
+        QMessageBox::question(this, "问题窗口", "提示");
+    });
+
+    connect(ui->btnMsgInformation, &QPushButton::clicked, this, [this](){
+        QMessageBox::information(this, "信息窗口", "提示");
+    });
+
+    connect(ui->btnMsgWarning, &QPushButton::clicked, this, [this](){
+        QMessageBox::warning(this, "警告窗口", "提示");
+    });
+
+    connect(ui->btnMsgCritical, &QPushButton::clicked, this, [this](){
+        QMessageBox::critical(this, "错误窗口", "提示");
+    });
+
+    connect(ui->btnMsgAbout, &QPushButton::clicked, this, [this](){
+        QMessageBox::about(this, "版本窗口", "V0.1.0");
+    });
+
+    connect(ui->btnMsgAboutQt, &QPushButton::clicked, this, [this](){
+        QMessageBox::aboutQt(this, "Qt版本窗口");
+    });
+
+    connect(ui->btnClearText, &QPushButton::clicked, this, [this](){
+        ui->plainTextEdit->clear();
+    });
 }
 
 void Dialog::OpenFile()
@@ -126,6 +161,54 @@ void Dialog::SelectTextFont()
         return;
 
     ui->plainTextEdit->setFont(cFont);
+}
+
+void Dialog::InputString()
+{
+    QString strInputContent = QInputDialog::getText(this, "输入文本", "文本内容");
+    ui->plainTextEdit->clear();
+    ui->plainTextEdit->appendPlainText(strInputContent);
+}
+
+void Dialog::InputInt()
+{
+    bool bOK = false;
+    int nInputValue = QInputDialog::getInt(this, "输入整型", "输入", 0, 0, 100, 1, &bOK);
+
+    if(!bOK)
+        return;
+
+    ui->plainTextEdit->clear();
+    ui->plainTextEdit->appendPlainText(QString::asprintf("%d", nInputValue));
+}
+
+void Dialog::InputFloat()
+{
+    bool bOK = false;
+    qint32 nDecimals = 2;           //浮点数精度
+    double dbInputValue = QInputDialog::getDouble(this, "输入浮点", "输入", 0, 0, 100, nDecimals, &bOK);
+
+    if(!bOK)
+        return;
+
+    ui->plainTextEdit->clear();
+    ui->plainTextEdit->appendPlainText(QString::asprintf("%.02f", dbInputValue));
+}
+
+void Dialog::InputSelectItem()
+{
+    bool bOK = false;
+    QStringList strListItem;
+
+    strListItem << "条目00" << "条目01" << "条目02" << "条目03";
+
+    QString strInputContent = QInputDialog::getItem(this, "选择条目", "条目", strListItem, 0, false, &bOK);
+
+    if(!bOK)
+        return;
+
+    ui->plainTextEdit->clear();
+    ui->plainTextEdit->appendPlainText(strInputContent);
 }
 
 
