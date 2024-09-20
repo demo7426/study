@@ -1,8 +1,8 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
-文件名:	dialogsetsize.h
+文件名:	dialogheaders.h
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.09.20
-描  述:	用于设置QTableView的行数、列数
+描  述:	用于设置QTableView的表头
 备  注:
 修改记录:
 
@@ -14,31 +14,38 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 *************************************************/
 
-#ifndef DIALOGSETSIZE_H
-#define DIALOGSETSIZE_H
+#ifndef DIALOGHEADERS_H
+#define DIALOGHEADERS_H
 
 #include <QDialog>
+#include <QStringList>
+#include <QStringListModel>
 
 namespace Ui {
-class CDialogSetSize;
+class CDialogHeaders;
 }
 
-class CDialogSetSize : public QDialog
+class CDialogHeaders : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CDialogSetSize(QWidget *parent = nullptr);
-    ~CDialogSetSize();
-
-    void SetRowAndColumnCount(quint32 _RowCount, quint32 _ColumnCount); //设置显示的行数列数
-
-signals:
-    void RowAndColumnChanged(quint32 _RowCount, quint32 _ColumnCount, bool _IsFlag = true);
-
+    explicit CDialogHeaders(QWidget *parent = nullptr);
+    ~CDialogHeaders();
 
 private:
-    Ui::CDialogSetSize *ui;
+    QStringListModel* m_pcStringListModel = nullptr;
+
+private:
+    Ui::CDialogHeaders *ui;
+
+signals:
+    //表头数据被修改
+    void ListViewChanged(const QStringList _StrList);
+
+public:
+    //设置表头数据
+    void SetListView(const QStringList _StrList);
 
 private:
     /// <summary>
@@ -52,4 +59,4 @@ private:
     void InitSignalSlots(void) noexcept;
 };
 
-#endif // DIALOGSETSIZE_H
+#endif // DIALOGHEADERS_H

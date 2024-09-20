@@ -21,7 +21,9 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
 
+#include "dialogheaders.h"
 #include "dialogsetsize.h"
+#include "dialoglocate.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -39,6 +41,8 @@ public:
 
 private:
     CDialogSetSize *m_pcDialogSetSize = nullptr;
+    CDialogHeaders *m_pcDialogHeaders = nullptr;
+    CDialogLocate *m_pcDialogLocate = nullptr;
 
     QStandardItemModel *m_pcStandardItemModel = nullptr;
     QItemSelectionModel *m_pcItemSelectionModel = nullptr;
@@ -57,6 +61,16 @@ private:
     void InitSignalSlots(void) noexcept;
 
 private slots:
+
+    /// <summary>
+    /// 显示设置当前表格内容对话框
+    /// </summary>
+    void ShowDialogLocate(void);
+
+    /// <summary>
+    /// 显示设置表头对话框
+    /// </summary>
+    void ShowDialogSetHeaders(void);
 
     /// <summary>
     /// 显示设置行数列数对话框
