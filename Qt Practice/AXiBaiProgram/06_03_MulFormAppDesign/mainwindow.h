@@ -34,7 +34,7 @@ public:
     ~MainWindow();
 
 private:
-    quint32 m_unWidgetIndex = 0;
+    quint32 m_unTabWidgetIndex = 0;
 
 private:
     Ui::MainWindow *ui;
@@ -59,6 +59,11 @@ private:
     /// 添加嵌入式窗口
     /// </summary>
     void AddEmbeddedWidget(void);
+
+    /// <summary>
+    /// 添加嵌入式窗口
+    /// </summary>
+    void AddEmbeddedMainWindow(void);
 
     /// <summary>
     /// 响应TabWidget的gclose请求

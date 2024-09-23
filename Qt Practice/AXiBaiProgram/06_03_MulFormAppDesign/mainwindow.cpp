@@ -19,6 +19,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "userwidget.h"
+#include "usermainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -44,6 +45,24 @@ void MainWindow::InitUi() noexcept
 void MainWindow::InitSignalSlots() noexcept
 {
     connect(ui->actWidgetInsite, &QAction::triggered, this, &MainWindow::AddEmbeddedWidget);
+    connect(ui->actWindowInsite, &QAction::triggered, this, &MainWindow::AddEmbeddedMainWindow);
+
+
+    connect(ui->actWidget, &QAction::triggered, this, [](){
+        CUserWidget *pcUserWidget = new CUserWidget();                  //CUserWidget *pcUserWidget = new CUserWidget(this);错误：不能放置在对象树上，会导致无法正常显示
+
+        pcUserWidget->setAttribute(Qt::WA_DeleteOnClose);
+        pcUserWidget->setWindowOpacity(0.7);
+        pcUserWidget->show();
+    });
+    connect(ui->actWindow, &QAction::triggered, this, [](){
+        CUserMainWindow *pcUserMainWindow = new CUserMainWindow();      //CUserMainWindow *pcUserMainWindow = new CUserMainWindow(this);错误：不能放置在对象树上，会导致无法正常显示
+        pcUserMainWindow->setAttribute(Qt::WA_DeleteOnClose);
+        pcUserMainWindow->setWindowOpacity(0.7);
+        pcUserMainWindow->show();
+    });
+
+
     connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::ResponseTabClose);
 }
 
@@ -60,7 +79,16 @@ void MainWindow::AddEmbeddedWidget()
 {
     CUserWidget *pcUserWidget = new CUserWidget(this);
 
-    qint32 nCurIndex = ui->tabWidget->addTab(pcUserWidget, QString::asprintf("嵌入式widget:%u", m_unWidgetIndex++));
+    qint32 nCurIndex = ui->tabWidget->addTab(pcUserWidget, QString::asprintf("嵌入式widget:%u", m_unTabWidgetIndex++));
+    ui->tabWidget->setVisible(true);
+    ui->tabWidget->setCurrentIndex(nCurIndex);
+}
+
+void MainWindow::AddEmbeddedMainWindow()
+{
+    CUserMainWindow *pcUserMainWindow = new CUserMainWindow(this);
+
+    qint32 nCurIndex = ui->tabWidget->addTab(pcUserMainWindow, QString::asprintf("嵌入式mainwindow:%u", m_unTabWidgetIndex++));
     ui->tabWidget->setVisible(true);
     ui->tabWidget->setCurrentIndex(nCurIndex);
 }
@@ -80,5 +108,5 @@ void MainWindow::ResponseTabClose(int index)
     delete pcWidget;
     pcWidget = nullptr;
 
-    m_unWidgetIndex = 0;
+    m_unTabWidgetIndex = 0;
 }
