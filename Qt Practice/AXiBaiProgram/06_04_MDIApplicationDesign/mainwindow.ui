@@ -211,6 +211,11 @@
     <string>关闭所有窗口</string>
    </property>
   </action>
+  <action name="action20">
+   <property name="text">
+    <string>20</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="res.qrc"/>

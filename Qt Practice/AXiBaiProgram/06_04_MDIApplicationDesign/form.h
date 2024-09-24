@@ -40,6 +40,12 @@ public:
         return m_strLoadFilePath.isEmpty()? false: true;
     }
 
+    //获取加载文件的路径
+    inline QString GetLoadFilePath(void) const noexcept
+    {
+        return m_strLoadFilePath;
+    }
+
     //加载文件到文本中显示
     void LoadFileToText(QString _FilePath);
 

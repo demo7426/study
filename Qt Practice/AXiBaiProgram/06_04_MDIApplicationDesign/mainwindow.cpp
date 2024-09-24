@@ -109,6 +109,10 @@ void MainWindow::InitSignalSlots(void) noexcept
     });
 
     connect(ui->mdiArea, &QMdiArea::subWindowActivated, this, [this](QMdiSubWindow *_pWindow){
+        QMdiSubWindow* pcMdiSubWindow = nullptr;
+        CForm* pcForm = nullptr;
+        QFileInfo cFileInfo;
+
         if(_pWindow == nullptr)
         {
             ui->actCopy->setEnabled(false);
@@ -116,6 +120,17 @@ void MainWindow::InitSignalSlots(void) noexcept
             ui->actCut->setEnabled(false);
             ui->actFont->setEnabled(false);
         }
+
+        pcMdiSubWindow = ui->mdiArea->currentSubWindow();
+
+        if(pcMdiSubWindow == nullptr)
+            return;
+
+        pcForm = static_cast<CForm*>(pcMdiSubWindow->widget());
+        cFileInfo.setFile(pcForm->GetLoadFilePath());
+
+        pcForm->setWindowTitle(cFileInfo.fileName());
+        ui->statusbar->showMessage(cFileInfo.filePath());
     });
 
     connect(ui->actViewMode, &QAction::triggered, this, [this](bool _Checked){
