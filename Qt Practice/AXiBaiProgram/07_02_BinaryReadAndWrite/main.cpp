@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    // //解决汉字乱码的问题
+    //解决汉字乱码的问题
     // QTextCodec *codec = QTextCodec::codecForName("GB2312");
     // QTextCodec::setCodecForLocale(codec); //解决汉字乱码问题
 

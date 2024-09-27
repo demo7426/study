@@ -17,6 +17,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QFile>
 #include <QDataStream>
 #include <QTextStream>
+#include <QTextCodec>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -305,7 +306,7 @@ void MainWindow::LoadDatFileToQStandardItemModel()
         QString strHeaderData;
 
         cDataStream.readBytes(pchStartAddr, unLen);
-        strHeaderData = QString::fromLocal8Bit(pchStartAddr, unLen);            //支持中文字符
+        strHeaderData = QString::fromUtf8(pchStartAddr, unLen);            //支持中文字符
 
         qDebug() << pchStartAddr << " " << unLen;
 
@@ -380,6 +381,7 @@ void MainWindow::SaveQStandardItemModelDataToDatFile()
     bool bIsSampled = false;                    //采样
 
     QModelIndex cModelIndex;
+    QByteArray cByteArray;
 
     strCurFilePath = QFileDialog::getSaveFileName(this, tr("保存文件"), QCoreApplication::applicationFilePath(), strFilter);
     if(strCurFilePath.isEmpty())
@@ -402,7 +404,9 @@ void MainWindow::SaveQStandardItemModelDataToDatFile()
     {
         QString strHeaderData;
         strHeaderData = m_pcStandardItemModel->headerData(i, Qt::Orientation::Horizontal, Qt::DisplayRole).toString();
-        cDataStream.writeBytes((char*)strHeaderData.data(), strHeaderData.length());
+
+        cByteArray = strHeaderData.toUtf8();
+        cDataStream.writeBytes(cByteArray.data(), cByteArray.size());
     }
 
     for (int i = 0; i < sRowCount; ++i)
@@ -427,7 +431,9 @@ void MainWindow::SaveQStandardItemModelDataToDatFile()
 
         cModelIndex = m_pcStandardItemModel->index(i, nColumnIndex++);
         strQuality = m_pcStandardItemModel->data(cModelIndex, Qt::DisplayRole).toString();
-        cDataStream.writeBytes((char*)strQuality.data(), strQuality.length());
+
+        cByteArray = strQuality.toUtf8();
+        cDataStream.writeBytes(cByteArray.data(), cByteArray.size());
 
         cModelIndex = m_pcStandardItemModel->index(i, nColumnIndex++);
         bIsSampled = m_pcStandardItemModel->itemFromIndex(cModelIndex)->checkState();
