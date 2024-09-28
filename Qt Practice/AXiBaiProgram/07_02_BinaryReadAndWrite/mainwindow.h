@@ -83,5 +83,11 @@ private:
     /// \brief 保存数据到*.dat文件中
     ///
     void SaveQStandardItemModelDataToDatFile(void);
+
+    ///
+    /// \brief 向对应的QStandardItemModel插入指定的一行数据
+    /// \param _Row--行号
+    ///
+    void InsertRowInQStandardItemModel(quint32 _Row);
 };
 #endif // MAINWINDOW_H

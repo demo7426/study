@@ -63,6 +63,33 @@ void MainWindow::InitSignalSlots(void) noexcept
 
     connect(ui->actOpenBin, &QAction::triggered, this, &MainWindow::LoadDatFileToQStandardItemModel);
     connect(ui->actSaveBin, &QAction::triggered, this, &MainWindow::SaveQStandardItemModelDataToDatFile);
+
+    connect(ui->actAppend, &QAction::triggered, this, [=](){
+        this->InsertRowInQStandardItemModel(m_pcStandardItemModel->rowCount());
+    });
+
+    connect(ui->actInsert, &QAction::triggered, this, [=](){
+        this->InsertRowInQStandardItemModel(m_pcItemSelectionModel->currentIndex().row());
+    });
+
+    connect(ui->actDelete, &QAction::triggered, this, [=](){
+        QStandardItem *pcStandardItem = nullptr;
+        QModelIndex cModelIndex;
+
+        quint32 unCurRow = m_pcItemSelectionModel->currentIndex().row();
+
+        for (int i = 0; i < m_pcStandardItemModel->columnCount(); ++i) {
+
+            //先取QModelIndex再转换为QStandardItem，保证数据有效;
+            //直接使用item()，如果没有设置过数据，返回为nullptr;
+            cModelIndex = m_pcStandardItemModel->index(unCurRow, i);
+            pcStandardItem = m_pcStandardItemModel->itemFromIndex(cModelIndex);
+
+            delete pcStandardItem;
+        }
+
+        m_pcStandardItemModel->removeRows(unCurRow, 1);
+    });
 }
 
 void MainWindow::SetTabelViewRowAndColumn(QStandardItemModel *_pStandardItemModel, quint32 _RowCount, quint32 _ColumnCount)
@@ -441,5 +468,18 @@ void MainWindow::SaveQStandardItemModelDataToDatFile()
     }
 
     cFile.close();
+}
+
+void MainWindow::InsertRowInQStandardItemModel(quint32 _Row)
+{
+    QStandardItem* pcStandardItem = nullptr;
+
+    m_pcStandardItemModel->insertRow(_Row);
+
+    for (int i = 0; i < m_pcStandardItemModel->columnCount(); ++i)
+    {
+        pcStandardItem = new QStandardItem(tr("新增数据"));
+        m_pcStandardItemModel->setItem(_Row, i, pcStandardItem);
+    }
 }
 
