@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/MSI_MAG.jpg</file>
+    </qresource>
+</RCC>
