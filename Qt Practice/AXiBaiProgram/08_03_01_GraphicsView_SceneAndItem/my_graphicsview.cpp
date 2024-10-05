@@ -32,8 +32,8 @@ CMy_GraphicsView::CMy_GraphicsView(QWidget *parent)
 void CMy_GraphicsView::InitUi() noexcept
 {
     QGraphicsRectItem* pcGraphicsRectItem = new QGraphicsRectItem(-200, -100, 400, 200);
-    CMy_GraphicsEllipseItem* pcGraphicsEllipseItem_01 = new CMy_GraphicsEllipseItem(-100, -50, 200, 100);         //椭圆
-    CMy_GraphicsEllipseItem* pcGraphicsEllipseItem_02 = new CMy_GraphicsEllipseItem(-50, -50, 100, 100);          //圆
+    QGraphicsEllipseItem* pcGraphicsEllipseItem_01 = new QGraphicsEllipseItem(-100, -50, 200, 100);         //椭圆
+    QGraphicsEllipseItem* pcGraphicsEllipseItem_02 = new QGraphicsEllipseItem(-50, -50, 100, 100);          //圆
 
     QPen cPen;
 
@@ -53,14 +53,14 @@ void CMy_GraphicsView::InitUi() noexcept
     m_pcGraphicsScene->addItem(pcGraphicsRectItem);
 
     pcGraphicsEllipseItem_01->setPos(0, 0);                     //设置item中心点坐标
-    pcGraphicsEllipseItem_01->setAcceptHoverEvents(true);             //接受鼠标拖动
-    pcGraphicsEllipseItem_01->setSelected(true);
+    // pcGraphicsEllipseItem_01->setAcceptHoverEvents(true);             //接受鼠标拖动
+    // pcGraphicsEllipseItem_01->setSelected(true);
     pcGraphicsEllipseItem_01->setBrush(QBrush(QColor(Qt::GlobalColor::darkBlue)));
     pcGraphicsEllipseItem_01->setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable);
     m_pcGraphicsScene->addItem(pcGraphicsEllipseItem_01);
 
     pcGraphicsEllipseItem_02->setPos(200, 100);                 //设置item中心点坐标
-    pcGraphicsEllipseItem_02->setAcceptHoverEvents(true);             //接受鼠标拖动
+    // pcGraphicsEllipseItem_02->setAcceptHoverEvents(true);             //接受鼠标拖动
     pcGraphicsEllipseItem_02->setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable);
     m_pcGraphicsScene->addItem(pcGraphicsEllipseItem_02);
 
