@@ -145,6 +145,8 @@ private slots:
 
     void on_btnMinorPen_clicked();
 
+    void on_chkBoxAxisTitle_stateChanged(int arg1);
+
 private:
     QLineSeries* m_pcCurLineSeries = nullptr;               //当前的选中的QLineSeries
     QValueAxis* m_pcCurValueAxis = nullptr;                 //当前的选中的QValueAxis

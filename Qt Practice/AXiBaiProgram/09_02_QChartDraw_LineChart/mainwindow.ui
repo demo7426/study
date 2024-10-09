@@ -17,8 +17,8 @@
    <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_8">
+    <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Orientation::Horizontal</enum>
@@ -47,8 +47,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>392</width>
-          <height>396</height>
+          <width>400</width>
+          <height>364</height>
          </rect>
         </property>
         <attribute name="icon">
@@ -84,8 +84,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>367</width>
-              <height>484</height>
+              <width>375</width>
+              <height>574</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -386,8 +386,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>392</width>
-          <height>396</height>
+          <width>400</width>
+          <height>364</height>
          </rect>
         </property>
         <attribute name="icon">
@@ -423,8 +423,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>367</width>
-              <height>430</height>
+              <width>375</width>
+              <height>500</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -610,8 +610,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>392</width>
-          <height>396</height>
+          <width>400</width>
+          <height>364</height>
          </rect>
         </property>
         <attribute name="icon">
@@ -649,9 +649,9 @@
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>-403</y>
-              <width>367</width>
-              <height>791</height>
+              <y>-578</y>
+              <width>375</width>
+              <height>934</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -939,7 +939,14 @@
                <property name="title">
                 <string>MinorTick</string>
                </property>
-               <layout class="QGridLayout" name="gridLayout_8">
+               <layout class="QGridLayout" name="gridLayout_11">
+                <item row="0" column="1">
+                 <widget class="QSpinBox" name="spinMinorTickCount">
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="0">
                  <widget class="QLabel" name="label_10">
                   <property name="text">
@@ -950,14 +957,7 @@
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="spinMinorTickCount">
-                  <property name="value">
-                   <number>0</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0" colspan="2">
+                <item row="1" column="0">
                  <widget class="QCheckBox" name="chkMinorTickVisible">
                   <property name="text">
                    <string>isMinorGridLineVisible</string>
@@ -1002,7 +1002,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

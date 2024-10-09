@@ -424,6 +424,9 @@ void MainWindow::on_radioX_clicked()
 
     ui->spinAxisMin->setValue(m_pcCurValueAxis->min());
     ui->spinAxisMax->setValue(m_pcCurValueAxis->max());
+
+    qDebug() << "X:" << m_pcCurValueAxis->min();
+    qDebug() << "X:" << m_pcCurValueAxis->max();
 }
 
 
@@ -435,6 +438,9 @@ void MainWindow::on_radioY_clicked()
 
     ui->spinAxisMin->setValue(m_pcCurValueAxis->min());
     ui->spinAxisMax->setValue(m_pcCurValueAxis->max());
+
+    qDebug() << "Y:" << m_pcCurValueAxis->min();
+    qDebug() << "Y:" << m_pcCurValueAxis->max();
 }
 
 
@@ -597,5 +603,11 @@ void MainWindow::on_btnMinorPen_clicked()
 
     if(bIsOk)
         m_pcCurValueAxis->setMinorGridLinePen(cPenCur);
+}
+
+
+void MainWindow::on_chkBoxAxisTitle_stateChanged(int arg1)
+{
+    m_pcCurValueAxis->setTitleVisible(arg1);
 }
 
