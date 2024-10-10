@@ -19,6 +19,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <QMainWindow>
 #include <QTableView>
+#include <QTreeWidget>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
 
@@ -55,14 +56,27 @@ private:
 
     ///
     /// \brief 初始化QTableView数据
-    /// \param _pTableView--QTableView指针对象
+    /// \param _pTableView--源数据地址
     ///
     void InitTableViewData(QTableView* _pTableView);
 
     ///
     /// \brief 刷新QTableView数据
-    /// \param _pTableView--QTableView指针对象
+    /// \param _pTableView--源数据地址
     ///
     void RefreshTableViewData(QTableView* _pTableView);
+
+    ///
+    /// \brief QTreeWidget
+    /// \param _pTableView--源数据地址
+    ///
+    void InitTreeWidgetData(QTreeWidget* _pTreeWidget);
+
+    ///
+    /// \brief 调查QTableView的数据并且显示到QTreeWidget上
+    /// \param _pTableView--源数据地址
+    /// \param _pTreeWidget--目的数据地址
+    ///
+    void SurveyTableViewDataToTreeWidget(QTableView* _pTableView, QTreeWidget* _pTreeWidget);
 };
 #endif // MAINWINDOW_H
