@@ -38,6 +38,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_spinHoleSize_valueChanged(double arg1);
+
+    void on_spinPieSize_valueChanged(double arg1);
+
+    void on_cBoxCourse_currentIndexChanged(int index);
+
+    void on_cBoxTheme_currentIndexChanged(int index);
+
 private:
     QStandardItemModel* m_pcStandardItemModel = nullptr;
     QItemSelectionModel* m_pcItemSelectionModel = nullptr;
@@ -85,5 +94,17 @@ private:
     /// \param _pChartView
     ///
     void RefreshBarChartData(QChartView* _pChartView);
+
+    ///
+    /// \brief 初始化饼图相关信息
+    /// \param _pChartView
+    ///
+    void InitPieChart(QChartView* _pChartView);
+
+    ///
+    /// \brief 刷新饼图数据
+    /// \param _pChartView
+    ///
+    void RefreshPieChartData(QChartView* _pChartView);
 };
 #endif // MAINWINDOW_H

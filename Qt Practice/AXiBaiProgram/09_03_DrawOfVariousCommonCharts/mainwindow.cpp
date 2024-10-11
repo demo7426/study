@@ -22,6 +22,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QBarCategoryAxis>
 #include <QValueAxis>
 #include <QLineSeries>
+#include <QPieSeries>
+#include <QPieSlice>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -46,6 +48,7 @@ void MainWindow::InitUi() noexcept
     //初始化
     InitTableViewData(ui->tableView);
     InitBarChart(ui->chartViewBar);
+    InitPieChart(ui->chartViewPie);
 
     ui->tableView->setAlternatingRowColors(true);
     ui->treeWidget->resizeColumnToContents(0);
@@ -68,6 +71,10 @@ void MainWindow::InitSignalSlots() noexcept
     connect(ui->btnBuildBarChart, &QPushButton::clicked, this, [this](){
         RefreshBarChartData(ui->chartViewBar);
     });
+
+    connect(ui->btnDrawPieChart, &QPushButton::clicked, this, [this](){
+        RefreshPieChartData(ui->chartViewPie);
+    });
 }
 
 void MainWindow::InitTableViewData(QTableView *_pTableView)
@@ -75,7 +82,7 @@ void MainWindow::InitTableViewData(QTableView *_pTableView)
     if(_pTableView == nullptr)
         return;
 
-    constexpr qint32 nRowCount = 10;                //行数
+    constexpr qint32 nRowCount = 50;                //行数
     constexpr qint32 nColumnCount = 5;              //列数
     QList<QString> clistHorizontalHeaderData;
 
@@ -238,6 +245,7 @@ void MainWindow::InitBarChart(QChartView *_pChartView)
     QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //柱状图用于用于存放数据的集合
 
     pcChart->setTitle(tr("学生-分数(柱状图)"));
+    pcChart->setAnimationOptions(QChart::AllAnimations);
     _pChartView->setChart(pcChart);
 
     pcBarSeries->append(cListBarSet);
@@ -252,6 +260,8 @@ void MainWindow::InitBarChart(QChartView *_pChartView)
     pcChart->setAxisY(pcValueAxis_Y, pcBarSeries);
     pcChart->setAxisX(pcBarCategoryAxis_X, pcLineSeries);
     pcChart->setAxisY(pcValueAxis_Y, pcLineSeries);
+
+    _pChartView->setRenderHints(QPainter::Antialiasing);
 }
 
 void MainWindow::RefreshBarChartData(QChartView *_pChartView)
@@ -300,21 +310,92 @@ void MainWindow::RefreshBarChartData(QChartView *_pChartView)
     pcValueAxis_Y->setRange(0, 100);
 }
 
+void MainWindow::InitPieChart(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = new QChart();
+    QPieSeries *pcPieSeries = new QPieSeries(this);
+
+    pcChart->setTitle(tr("饼图"));
+    pcChart->setAnimationOptions(QChart::AllAnimations);
+
+    _pChartView->setChart(pcChart);
+    pcChart->addSeries(pcPieSeries);
+
+    _pChartView->setRenderHints(QPainter::Antialiasing);
+    pcChart->legend()->setAlignment(Qt::AlignRight);
+    pcChart->setTheme((QChart::ChartTheme)ui->cBoxTheme->currentText().toInt());
+}
+
+void MainWindow::RefreshPieChartData(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = _pChartView->chart();
+    QPieSeries *pcPieSeries = dynamic_cast<QPieSeries*>((pcChart->series())[0]);
+    QPieSlice* pcPieSlice = nullptr;
+    QTreeWidgetItem *pcTreeWidgetItem = nullptr;
+    qint32 nCurSubjectType = 0;                     //当前学科
+    constexpr qint32 nPieSlicesCount = 5;           //饼图块数量
+
+    nCurSubjectType = ui->cBoxCourse->currentIndex() + 1;
+
+    pcPieSeries->clear();
+    pcPieSeries->setHoleSize(ui->spinHoleSize->value());
+    pcPieSeries->setPieSize(ui->spinPieSize->value());
+
+    //向饼图添加数据
+    for (int i = 0; i < nPieSlicesCount; ++i)
+    {
+        qint32 nCurPersonCount = 0;         //当前人数
+
+        pcTreeWidgetItem = ui->treeWidget->topLevelItem(i);
+        nCurPersonCount = pcTreeWidgetItem->data(nCurSubjectType, Qt::DisplayRole).toReal();
+
+        //向饼图添加数据，饼图会自动生成块
+        pcPieSeries->append(tr(""), nCurPersonCount);
+    }
+
+    //设置饼图中的块属性
+    for (int i = 0; i < nPieSlicesCount; ++i)
+    {
+        pcTreeWidgetItem = ui->treeWidget->topLevelItem(i);
+
+        pcPieSlice = pcPieSeries->slices()[i];
+        pcPieSlice->setLabelVisible(true);
+        pcPieSlice->setLabel(QString::asprintf("%s: %0.0f人, %0.1f%", pcTreeWidgetItem->text(0).toStdString().data(), pcPieSlice->value(), pcPieSlice->percentage() * 100));
+        connect(pcPieSlice, &QPieSlice::hovered, pcPieSlice, &QPieSlice::setExploded);
+    }
+}
+
+void MainWindow::on_spinHoleSize_valueChanged(double arg1)
+{
+    QChart *pcChart = ui->chartViewPie->chart();
+    QPieSeries *pcPieSeries = dynamic_cast<QPieSeries*>((pcChart->series())[0]);
+    pcPieSeries->setHoleSize(arg1);
+}
 
 
+void MainWindow::on_spinPieSize_valueChanged(double arg1)
+{
+    QChart *pcChart = ui->chartViewPie->chart();
+    QPieSeries *pcPieSeries = dynamic_cast<QPieSeries*>((pcChart->series())[0]);
+    pcPieSeries->setPieSize(arg1);
+}
 
 
+void MainWindow::on_cBoxCourse_currentIndexChanged(int index)
+{
+    RefreshPieChartData(ui->chartViewPie);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_cBoxTheme_currentIndexChanged(int index)
+{
+    QChart *pcChart = ui->chartViewPie->chart();
+    pcChart->setTheme((QChart::ChartTheme)index);
+}
 
