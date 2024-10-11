@@ -235,9 +235,9 @@ void MainWindow::InitBarChart(QChartView *_pChartView)
     QLineSeries *pcLineSeries = new QLineSeries(this);
     QBarCategoryAxis *pcBarCategoryAxis_X = new QBarCategoryAxis(this);
     QValueAxis *pcValueAxis_Y = new QValueAxis(this);
-    QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //饼图用于用于存放数据的集合
+    QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //柱状图用于用于存放数据的集合
 
-    pcChart->setTitle(tr("学生-分数饼图显示"));
+    pcChart->setTitle(tr("学生-分数(柱状图)"));
     _pChartView->setChart(pcChart);
 
     pcBarSeries->append(cListBarSet);
