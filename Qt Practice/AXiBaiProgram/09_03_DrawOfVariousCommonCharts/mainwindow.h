@@ -22,6 +22,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QTreeWidget>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
+#include <QChartView>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -67,16 +68,22 @@ private:
     void RefreshTableViewData(QTableView* _pTableView);
 
     ///
-    /// \brief QTreeWidget
-    /// \param _pTableView--源数据地址
-    ///
-    void InitTreeWidgetData(QTreeWidget* _pTreeWidget);
-
-    ///
     /// \brief 调查QTableView的数据并且显示到QTreeWidget上
     /// \param _pTableView--源数据地址
     /// \param _pTreeWidget--目的数据地址
     ///
     void SurveyTableViewDataToTreeWidget(QTableView* _pTableView, QTreeWidget* _pTreeWidget);
+
+    ///
+    /// \brief 初始化柱状图相关信息
+    /// \param _pChartView
+    ///
+    void InitBarChart(QChartView* _pChartView);
+
+    ///
+    /// \brief 刷新柱状图数据
+    /// \param _pChartView
+    ///
+    void RefreshBarChartData(QChartView* _pChartView);
 };
 #endif // MAINWINDOW_H

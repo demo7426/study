@@ -16,6 +16,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <QTime>
 #include <QtMath>
+#include <QChart>
+#include <QBarSet>
+#include <QBarSeries>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
+#include <QLineSeries>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -37,11 +43,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::InitUi() noexcept
 {
+    //初始化
     InitTableViewData(ui->tableView);
-    InitTreeWidgetData(ui->treeWidget);
+    InitBarChart(ui->chartViewBar);
 
     ui->tableView->setAlternatingRowColors(true);
-    // ui->tableView->resizeColumnsToContents();
     ui->treeWidget->resizeColumnToContents(0);
 
     for (int i = 0; i < ui->treeWidget->columnCount(); ++i) {
@@ -57,6 +63,10 @@ void MainWindow::InitSignalSlots() noexcept
 
     connect(ui->actTongJi, &QAction::triggered, this, [this](){
         SurveyTableViewDataToTreeWidget(ui->tableView, ui->treeWidget);
+    });
+
+    connect(ui->btnBuildBarChart, &QPushButton::clicked, this, [this](){
+        RefreshBarChartData(ui->chartViewBar);
     });
 }
 
@@ -164,13 +174,6 @@ void MainWindow::RefreshTableViewData(QTableView *_pTableView)
     }
 }
 
-void MainWindow::InitTreeWidgetData(QTreeWidget *_pTreeWidget)
-{
-    if(_pTreeWidget == nullptr)
-        return;
-
-}
-
 void MainWindow::SurveyTableViewDataToTreeWidget(QTableView *_pTableView, QTreeWidget *_pTreeWidget)
 {
     if(_pTableView == nullptr || _pTreeWidget == nullptr)
@@ -220,6 +223,81 @@ void MainWindow::SurveyTableViewDataToTreeWidget(QTableView *_pTableView, QTreeW
         pcCurTreeWidgetItem = _pTreeWidget->topLevelItem(nRowNo++);
         pcCurTreeWidgetItem->setData(i, Qt::DisplayRole, dbMinScore);
     }
+}
+
+void MainWindow::InitBarChart(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = new QChart();
+    QBarSeries *pcBarSeries = new QBarSeries(this);
+    QLineSeries *pcLineSeries = new QLineSeries(this);
+    QBarCategoryAxis *pcBarCategoryAxis_X = new QBarCategoryAxis(this);
+    QValueAxis *pcValueAxis_Y = new QValueAxis(this);
+    QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //饼图用于用于存放数据的集合
+
+    pcChart->setTitle(tr("学生-分数饼图显示"));
+    _pChartView->setChart(pcChart);
+
+    pcBarSeries->append(cListBarSet);
+    pcLineSeries->setName(tr("平均分"));
+
+    pcChart->addSeries(pcBarSeries);
+    pcChart->addSeries(pcLineSeries);
+
+    pcValueAxis_Y->setTitleText(tr("分数"));
+
+    pcChart->setAxisX(pcBarCategoryAxis_X, pcBarSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcBarSeries);
+    pcChart->setAxisX(pcBarCategoryAxis_X, pcLineSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcLineSeries);
+}
+
+void MainWindow::RefreshBarChartData(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = _pChartView->chart();
+    QBarSeries *pcBarSeries = dynamic_cast<QBarSeries*>((pcChart->series())[0]);
+    QLineSeries *pcLineSeries = dynamic_cast<QLineSeries*>((pcChart->series())[1]);
+    QBarCategoryAxis *pcBarCategoryAxis_X = dynamic_cast<QBarCategoryAxis*>((pcChart->axes(Qt::Horizontal))[0]);
+    QValueAxis *pcValueAxis_Y = dynamic_cast<QValueAxis*>((pcChart->axes(Qt::Vertical))[0]);
+    QList<QBarSet*> cListBarSet;
+    QStringList cStrListName;
+
+    //清空饼图数据
+    cStrListName.clear();
+    pcLineSeries->clear();
+    cListBarSet.clear();
+    cListBarSet = pcBarSeries->barSets();
+    foreach (auto item, cListBarSet) {
+        item->remove(0, item->count());
+    }
+
+    //取出数据
+    for (int i = 0; i < m_pcStandardItemModel->rowCount(); ++i)
+    {
+        QModelIndex cModelIndex = m_pcStandardItemModel->index(i, 0);
+        cStrListName.append(cModelIndex.data(Qt::DisplayRole).toString());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 1);
+        cListBarSet[0]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 2);
+        cListBarSet[1]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 3);
+        cListBarSet[2]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 4);
+        pcLineSeries->append(i, cModelIndex.data(Qt::DisplayRole).toFloat());
+    }
+
+    //设置坐标轴
+    pcBarCategoryAxis_X->setCategories(cStrListName);
+    pcValueAxis_Y->setRange(0, 100);
 }
 
 
