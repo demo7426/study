@@ -24,6 +24,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QLineSeries>
 #include <QPieSeries>
 #include <QPieSlice>
+#include <QStackedBarSeries>
+#include <QPercentBarSeries>
+#include <QScatterSeries>
+#include <QSplineSeries>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -49,6 +53,11 @@ void MainWindow::InitUi() noexcept
     InitTableViewData(ui->tableView);
     InitBarChart(ui->chartViewBar);
     InitPieChart(ui->chartViewPie);
+    InitStackBarChart(ui->chartViewStackedBar);
+    InitPercentBarChart(ui->chartViewPercentBar);
+    InitScatterBarChart(ui->chartViewScatter);
+
+    SurveyTableViewDataToTreeWidget(ui->tableView, ui->treeWidget);
 
     ui->tableView->setAlternatingRowColors(true);
     ui->treeWidget->resizeColumnToContents(0);
@@ -82,7 +91,7 @@ void MainWindow::InitTableViewData(QTableView *_pTableView)
     if(_pTableView == nullptr)
         return;
 
-    constexpr qint32 nRowCount = 50;                //行数
+    constexpr qint32 nRowCount = 20;                //行数
     constexpr qint32 nColumnCount = 5;              //列数
     QList<QString> clistHorizontalHeaderData;
 
@@ -371,6 +380,205 @@ void MainWindow::RefreshPieChartData(QChartView *_pChartView)
     }
 }
 
+void MainWindow::InitStackBarChart(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = new QChart();
+    QStackedBarSeries *pcBarSeries = new QStackedBarSeries(this);
+    QBarCategoryAxis *pcBarCategoryAxis_X = new QBarCategoryAxis(this);
+    QValueAxis *pcValueAxis_Y = new QValueAxis(this);
+    QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //柱状图用于用于存放数据的集合
+
+    pcChart->setTitle(tr("学生-分数(栈柱状图)"));
+    pcChart->setAnimationOptions(QChart::AllAnimations);
+    _pChartView->setChart(pcChart);
+
+    pcBarSeries->append(cListBarSet);
+
+    pcChart->addSeries(pcBarSeries);
+
+    pcValueAxis_Y->setTitleText(tr("分数"));
+
+    pcChart->setAxisX(pcBarCategoryAxis_X, pcBarSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcBarSeries);
+
+    _pChartView->setRenderHints(QPainter::Antialiasing);
+}
+
+void MainWindow::RefreshStackBarChartData(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = _pChartView->chart();
+    QStackedBarSeries *pcBarSeries = dynamic_cast<QStackedBarSeries*>((pcChart->series())[0]);
+    QBarCategoryAxis *pcBarCategoryAxis_X = dynamic_cast<QBarCategoryAxis*>((pcChart->axes(Qt::Horizontal))[0]);
+    QValueAxis *pcValueAxis_Y = dynamic_cast<QValueAxis*>((pcChart->axes(Qt::Vertical))[0]);
+    QList<QBarSet*> cListBarSet;
+    QStringList cStrListName;
+
+    //清空饼图数据
+    cStrListName.clear();
+    cListBarSet.clear();
+    cListBarSet = pcBarSeries->barSets();
+    foreach (auto item, cListBarSet) {
+        item->remove(0, item->count());
+    }
+
+    pcBarSeries->setLabelsVisible(true);            //设置百分比
+
+    //取出数据
+    for (int i = 0; i < m_pcStandardItemModel->rowCount(); ++i)
+    {
+        QModelIndex cModelIndex = m_pcStandardItemModel->index(i, 0);
+        cStrListName.append(cModelIndex.data(Qt::DisplayRole).toString());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 1);
+        cListBarSet[0]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 2);
+        cListBarSet[1]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 3);
+        cListBarSet[2]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+    }
+
+    //设置坐标轴
+    pcBarCategoryAxis_X->setCategories(cStrListName);
+    pcValueAxis_Y->setRange(0, 300);
+}
+
+void MainWindow::InitPercentBarChart(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = new QChart();
+    QPercentBarSeries *pcBarSeries = new QPercentBarSeries(this);
+    QBarCategoryAxis *pcBarCategoryAxis_X = new QBarCategoryAxis(this);
+    QValueAxis *pcValueAxis_Y = new QValueAxis(this);
+    QList<QBarSet*> cListBarSet = { new QBarSet("数学"), new QBarSet("语文"), new QBarSet("英语") };      //柱状图用于用于存放数据的集合
+
+    pcChart->setTitle(tr("学生-分数(百分比柱状图)"));
+    pcChart->setAnimationOptions(QChart::AllAnimations);
+    _pChartView->setChart(pcChart);
+
+    pcBarSeries->append(cListBarSet);
+
+    pcChart->addSeries(pcBarSeries);
+
+    pcValueAxis_Y->setTitleText(tr("分数"));
+
+    pcChart->setAxisX(pcBarCategoryAxis_X, pcBarSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcBarSeries);
+
+    _pChartView->setRenderHints(QPainter::Antialiasing);
+}
+
+void MainWindow::RefreshPercentBarChartData(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = _pChartView->chart();
+    QPercentBarSeries *pcBarSeries = dynamic_cast<QPercentBarSeries*>((pcChart->series())[0]);
+    QBarCategoryAxis *pcBarCategoryAxis_X = dynamic_cast<QBarCategoryAxis*>((pcChart->axes(Qt::Horizontal))[0]);
+    QValueAxis *pcValueAxis_Y = dynamic_cast<QValueAxis*>((pcChart->axes(Qt::Vertical))[0]);
+    QList<QBarSet*> cListBarSet;
+    QStringList cStrListName;
+
+    //清空饼图数据
+    cStrListName.clear();
+    cListBarSet.clear();
+    cListBarSet = pcBarSeries->barSets();
+    foreach (auto item, cListBarSet) {
+        item->remove(0, item->count());
+    }
+
+    pcBarSeries->setLabelsVisible(true);            //设置百分比
+
+    //取出数据
+    for (int i = 0; i < m_pcStandardItemModel->rowCount(); ++i)
+    {
+        QModelIndex cModelIndex = m_pcStandardItemModel->index(i, 0);
+        cStrListName.append(cModelIndex.data(Qt::DisplayRole).toString());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 1);
+        cListBarSet[0]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 2);
+        cListBarSet[1]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+
+        cModelIndex = m_pcStandardItemModel->index(i, 3);
+        cListBarSet[2]->append(cModelIndex.data(Qt::DisplayRole).toFloat());
+    }
+
+    //设置坐标轴
+    pcBarCategoryAxis_X->setCategories(cStrListName);
+    pcValueAxis_Y->setRange(0, 100);
+}
+
+void MainWindow::InitScatterBarChart(QChartView *_pChartView)
+{
+    QChart *pcChart = new QChart();
+    QScatterSeries *pcScatterSeries = new QScatterSeries(this);         //散点线条
+    QSplineSeries* pcSplineSeries = new QSplineSeries(this);            //曲线线条
+    QValueAxis* pcValueAxis_X = new QValueAxis(this);
+    QValueAxis* pcValueAxis_Y = new QValueAxis(this);
+
+    pcChart->setTitle(tr("散点图"));
+
+    pcScatterSeries->setName(tr("散点数据"));
+    pcSplineSeries->setName(tr("样条数据"));
+
+    pcValueAxis_X->setTitleText(tr("横轴"));
+    pcValueAxis_Y->setTitleText(tr("纵轴"));
+
+    pcChart->setAnimationOptions(QChart::AllAnimations);
+
+    _pChartView->setChart(pcChart);
+    _pChartView->setRenderHints(QPainter::Antialiasing);
+
+    pcChart->addSeries(pcScatterSeries);
+    pcChart->addSeries(pcSplineSeries);
+
+    pcChart->setAxisX(pcValueAxis_X, pcScatterSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcScatterSeries);
+    pcChart->setAxisX(pcValueAxis_X, pcSplineSeries);
+    pcChart->setAxisY(pcValueAxis_Y, pcSplineSeries);
+}
+
+void MainWindow::RefreshtScatterBarChartData(QChartView *_pChartView)
+{
+    if(_pChartView == nullptr)
+        return;
+
+    QChart *pcChart = _pChartView->chart();
+    QScatterSeries *pcScatterSeries = dynamic_cast<QScatterSeries*>(pcChart->series().at(0));         //散点线条
+    QSplineSeries* pcSplineSeries = dynamic_cast<QSplineSeries*>(pcChart->series().at(1));           //曲线线条
+    QValueAxis* pcValueAxis_X = dynamic_cast<QValueAxis*>(pcChart->axes(Qt::Horizontal).at(0));
+    QValueAxis* pcValueAxis_Y = dynamic_cast<QValueAxis*>(pcChart->axes(Qt::Vertical).at(0));
+
+    pcScatterSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
+    pcScatterSeries->setBorderColor(Qt::GlobalColor::red);
+    pcScatterSeries->setMarkerSize(6);
+
+    pcScatterSeries->clear();
+    pcSplineSeries->clear();
+
+    for (int i = 0; i < 40; ++i)
+    {
+        qint32 nRandomNum = rand() % 10;
+        pcScatterSeries->append(QPointF(i, nRandomNum));
+        pcSplineSeries->append(QPointF(i, nRandomNum));
+    }
+
+    pcValueAxis_X->setRange(-2, 42);
+    pcValueAxis_Y->setRange(-2, 12);
+}
+
 void MainWindow::on_spinHoleSize_valueChanged(double arg1)
 {
     QChart *pcChart = ui->chartViewPie->chart();
@@ -397,5 +605,23 @@ void MainWindow::on_cBoxTheme_currentIndexChanged(int index)
 {
     QChart *pcChart = ui->chartViewPie->chart();
     pcChart->setTheme((QChart::ChartTheme)index);
+}
+
+
+void MainWindow::on_btnBuildStackedBar_clicked()
+{
+    RefreshStackBarChartData(ui->chartViewStackedBar);
+}
+
+
+void MainWindow::on_btnPercentBar_clicked()
+{
+    RefreshPercentBarChartData(ui->chartViewPercentBar);
+}
+
+
+void MainWindow::on_btnScatter_clicked()
+{
+    RefreshtScatterBarChartData(ui->chartViewScatter);
 }
 

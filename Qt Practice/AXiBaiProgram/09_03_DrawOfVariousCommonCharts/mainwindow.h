@@ -47,6 +47,12 @@ private slots:
 
     void on_cBoxTheme_currentIndexChanged(int index);
 
+    void on_btnBuildStackedBar_clicked();
+
+    void on_btnPercentBar_clicked();
+
+    void on_btnScatter_clicked();
+
 private:
     QStandardItemModel* m_pcStandardItemModel = nullptr;
     QItemSelectionModel* m_pcItemSelectionModel = nullptr;
@@ -106,5 +112,42 @@ private:
     /// \param _pChartView
     ///
     void RefreshPieChartData(QChartView* _pChartView);
+
+    ///
+    /// \brief 初始化栈柱状图相关信息
+    /// \param _pChartView
+    ///
+    void InitStackBarChart(QChartView* _pChartView);
+
+    ///
+    /// \brief 刷新栈柱状图数据
+    /// \param _pChartView
+    ///
+    void RefreshStackBarChartData(QChartView* _pChartView);
+
+    ///
+    /// \brief 初始化百分比柱状图相关信息
+    /// \param _pChartView
+    ///
+    void InitPercentBarChart(QChartView* _pChartView);
+
+    ///
+    /// \brief 刷新百分比柱状图数据
+    /// \param _pChartView
+    ///
+    void RefreshPercentBarChartData(QChartView* _pChartView);
+
+    ///
+    /// \brief 初始化散点图相关信息
+    /// \param _pChartView
+    ///
+    void InitScatterBarChart(QChartView* _pChartView);
+
+    ///
+    /// \brief 刷新散点图数据
+    /// \param _pChartView
+    ///
+    void RefreshtScatterBarChartData(QChartView* _pChartView);
+
 };
 #endif // MAINWINDOW_H
