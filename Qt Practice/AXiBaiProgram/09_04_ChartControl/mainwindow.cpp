@@ -18,6 +18,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <QValueAxis>
 #include <QtMath>
 #include <QTime>
+#include <QLegendMarker>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -49,7 +50,26 @@ void MainWindow::InitUi(void) noexcept
 
 void MainWindow::InitSignalSlots(void) noexcept
 {
+    QList<QLegendMarker *> cListLegendMarker = ui->chartView->chart()->legend()->markers();
 
+    foreach (auto item, cListLegendMarker) {
+        connect(item, &QLegendMarker::clicked, this, [this](){
+            QLegendMarker *pcLegendMarker = qobject_cast<QLegendMarker*>(sender());
+            QBrush cBrush = pcLegendMarker->labelBrush();
+            QColor cColor = cBrush.color();
+
+            if(pcLegendMarker->series()->isVisible())
+                cColor.setAlphaF(0.7);
+            else
+                cColor.setAlphaF(1);
+            cBrush.setColor(cColor);
+            pcLegendMarker->setLabelBrush(cBrush);
+
+            pcLegendMarker->series()->setVisible(!pcLegendMarker->series()->isVisible());
+            pcLegendMarker->setVisible(true);
+
+        });
+    }
 }
 
 void MainWindow::InitChartView_Line(QChartView *pcChartView)
