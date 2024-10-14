@@ -11,7 +11,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #define __USE_GNU   
-#include <xlocale.h>
+//#include <xlocale.h>
 #include <string.h>
 #include <iostream>
 
@@ -67,6 +67,10 @@ int CBuffer::SocketRead(int _Fd)
 		this->m_nWritePos = this->m_nCapacity;
 		AppendString((char*)(tiovecs[1].iov_base), nRecvLength - nCanWriteSize);
 	}
+
+	//释放资源，防止内存泄露
+	free(tiovecs[1].iov_base);
+	tiovecs[1].iov_base = NULL;
 
 	return nRecvLength;
 }

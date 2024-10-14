@@ -16,7 +16,7 @@
 #include <assert.h>
 #include <ctype.h>
 //#define __USE_GNU   
-#include <xlocale.h>
+//#include <xlocale.h>
 #include <string.h>
 
 #include "HttpRequest.h"
