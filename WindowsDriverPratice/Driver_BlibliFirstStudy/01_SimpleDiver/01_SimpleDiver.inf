@@ -1,0 +1,87 @@
+;
+; 01_SimpleDiver.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=01_SimpleDiver.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+01_SimpleDiver_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+01_SimpleDiver.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%01_SimpleDiver.DeviceDesc%=01_SimpleDiver_Device, Root\01_SimpleDiver ; TODO: edit hw-id
+
+[01_SimpleDiver_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+01_SimpleDiver.sys
+
+;-------------- Service installation
+[01_SimpleDiver_Device.NT.Services]
+AddService = 01_SimpleDiver,%SPSVCINST_ASSOCSERVICE%, 01_SimpleDiver_Service_Inst
+
+; -------------- 01_SimpleDiver driver install sections
+[01_SimpleDiver_Service_Inst]
+DisplayName    = %01_SimpleDiver.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\01_SimpleDiver.sys
+
+;
+;--- 01_SimpleDiver_Device Coinstaller installation ------
+;
+
+[01_SimpleDiver_Device.NT.CoInstallers]
+AddReg=01_SimpleDiver_Device_CoInstaller_AddReg
+CopyFiles=01_SimpleDiver_Device_CoInstaller_CopyFiles
+
+[01_SimpleDiver_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[01_SimpleDiver_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[01_SimpleDiver_Device.NT.Wdf]
+KmdfService =  01_SimpleDiver, 01_SimpleDiver_wdfsect
+[01_SimpleDiver_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "01_SimpleDiver Installation Disk"
+01_SimpleDiver.DeviceDesc = "01_SimpleDiver Device"
+01_SimpleDiver.SVCDESC = "01_SimpleDiver Service"

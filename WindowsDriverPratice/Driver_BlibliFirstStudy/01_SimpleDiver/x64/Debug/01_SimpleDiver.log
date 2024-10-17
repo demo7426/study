@@ -1,0 +1,22 @@
+﻿  Building '01_SimpleDiver' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\01_SimpleDiver.inf
+  Stamping [Version] section with DriverVer=10/17/2024,19.11.40.327
+  01_SimpleDiver.vcxproj -> D:\WindowsDriverPratice\Driver_BlibliFirstStudy\x64\Debug\01_SimpleDiver.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\Driver_BlibliFirstStudy\x64\Debug\01_SimpleDiver.sys
+  
+  Driver is 'Universal'.
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\Driver_BlibliFirstStudy\x64\Debug\01_SimpleDiver\01_simplediver.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\Driver_BlibliFirstStudy\x64\Debug\01_SimpleDiver\01_simplediver.cat
+  
