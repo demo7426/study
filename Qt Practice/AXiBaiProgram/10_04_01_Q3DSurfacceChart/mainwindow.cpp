@@ -1,3 +1,19 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	mainwindow.cpp
+作  者:	钱锐      版本: V0.1.0     新建日期: 2024.10.18
+描  述:	实现当前的mainwindow ui界面和后台数据的交互
+备  注:
+修改记录:
+
+  1.  日期: 2024.10.18
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
 #include <QSplitter>
 #include <QSurface3DSeries>
 #include <QSurfaceDataArray>
