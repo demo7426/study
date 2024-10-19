@@ -1,0 +1,144 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	mainwindow.cpp
+作  者:	钱锐      版本: V0.1.0     新建日期: 2024.10.19
+描  述:	实现当前的mainwindow ui界面和后台数据的交互
+备  注:
+修改记录:
+
+  1.  日期: 2024.10.19
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QSqlRecord>
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    InitUi();
+    InitSignalSlots();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::InitUi(void) noexcept
+{
+
+}
+
+
+void MainWindow::InitSignalSlots(void) noexcept
+{
+    connect(ui->actOpenDB, &QAction::triggered, this, &MainWindow::OpenSQLiteFile);
+
+    if(m_pcItemSelectionModel)
+    {
+        connect(m_pcItemSelectionModel, &QItemSelectionModel::currentRowChanged, this, &MainWindow::On_CurrentRowChanged);
+    }
+}
+
+void MainWindow::OpenSQLiteFile(void) noexcept
+{
+    QString strFilePath = QFileDialog::getOpenFileName(this, tr("选择单个SQLite文件"), QApplication::applicationDirPath(), tr("数据库文件(*.db *.db3)"));
+
+    if(strFilePath.isEmpty())
+        return;
+
+    //加载数据库文件
+
+    m_cSqlDb = QSqlDatabase::addDatabase("QSQLITE");            //添加数据库驱动
+    m_cSqlDb.setDatabaseName(strFilePath);                      //设置数据库名称
+    if(!m_cSqlDb.open())
+    {
+        QMessageBox::warning(this, tr("错误"), tr("打开数据库错误"));
+        return;
+    }
+
+    m_pcSqlTableModel = new QSqlTableModel(this, m_cSqlDb);
+    m_pcItemSelectionModel = new QItemSelectionModel(m_pcSqlTableModel);
+
+    m_pcSqlTableModel->setTable("employee");
+    m_pcSqlTableModel->setSort(m_pcSqlTableModel->fieldIndex("EmpNo"), Qt::AscendingOrder);
+    m_pcSqlTableModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    if(!m_pcSqlTableModel->select())
+    {
+        QMessageBox::critical(this, tr("错误"), tr("打开数据表错误, 错误信息:") + m_pcSqlTableModel->lastError().text());
+        return;
+    }
+
+    m_pcSqlTableModel->setHeaderData(m_pcSqlTableModel->fieldIndex("EmpNo"), Qt::Horizontal, tr("工号"));
+
+    ui->tableView->setModel(m_pcSqlTableModel);
+    ui->tableView->setSelectionModel(m_pcItemSelectionModel);
+
+    //隐藏显示表格信息
+    ui->tableView->setColumnHidden(m_pcSqlTableModel->fieldIndex("Memo"), true);
+    ui->tableView->setColumnHidden(m_pcSqlTableModel->fieldIndex("Photo"), true);
+
+    //数据库数据映射
+    m_pcDataWidgetMapper = new QDataWidgetMapper();
+    m_pcDataWidgetMapper->setModel(m_pcSqlTableModel);
+    m_pcDataWidgetMapper->setSubmitPolicy(QDataWidgetMapper::AutoSubmit);
+    m_pcDataWidgetMapper->addMapping(ui->dbSpinEmpNo, m_pcSqlTableModel->fieldIndex("EmpNo"));
+    m_pcDataWidgetMapper->addMapping(ui->dbEditName, m_pcSqlTableModel->fieldIndex("Name"));
+    m_pcDataWidgetMapper->addMapping(ui->dbComboSex, m_pcSqlTableModel->fieldIndex("Gender"));
+    m_pcDataWidgetMapper->addMapping(ui->dbSpinHeight, m_pcSqlTableModel->fieldIndex("Height"));
+    m_pcDataWidgetMapper->addMapping(ui->dbEditBirth, m_pcSqlTableModel->fieldIndex("Birthday"));
+    m_pcDataWidgetMapper->addMapping(ui->dbEditMobile, m_pcSqlTableModel->fieldIndex("Mobile"));
+    m_pcDataWidgetMapper->addMapping(ui->dbComboProvince, m_pcSqlTableModel->fieldIndex("Province"));
+    m_pcDataWidgetMapper->addMapping(ui->dbEditCity, m_pcSqlTableModel->fieldIndex("City"));
+    m_pcDataWidgetMapper->addMapping(ui->dbEditCity, m_pcSqlTableModel->fieldIndex("Department"));
+    m_pcDataWidgetMapper->addMapping(ui->dbComboEdu, m_pcSqlTableModel->fieldIndex("Education"));
+    m_pcDataWidgetMapper->addMapping(ui->dbSpinSalary, m_pcSqlTableModel->fieldIndex("Salary"));
+
+    //切换按钮显示效果
+    ui->actOpenDB->setEnabled(false);
+    ui->groupBoxSort->setEnabled(true);
+    ui->groupBoxFilter->setEnabled(true);
+
+
+    QSqlRecord cSqlRecord = m_pcSqlTableModel->record();                            //获取所有表中记录信息
+    for (int i = 0; i < cSqlRecord.count(); ++i)
+        ui->comboFields->addItem(cSqlRecord.fieldName(i));
+
+    //设置view委托
+    m_pcItemDelegate_Sex.setItems({ "男", "女" }, false);
+    m_pcItemDelegate_Department.setItems({ "销售部", "行政部", "技术部", "生产部" }, false);
+    ui->tableView->setItemDelegateForColumn(m_pcSqlTableModel->fieldIndex("Gender"), &m_pcItemDelegate_Sex);
+    ui->tableView->setItemDelegateForColumn(m_pcSqlTableModel->fieldIndex("Department"), &m_pcItemDelegate_Department);
+
+    InitSignalSlots();
+}
+
+void MainWindow::On_CurrentRowChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    Q_UNUSED(previous)
+
+    m_pcDataWidgetMapper->setCurrentIndex(current.row());
+
+    QSqlRecord cSqlRecord = m_pcSqlTableModel->record(current.row());               //获取对应行中表中记录信息
+    if(cSqlRecord.isNull("Photo"))
+        ui->dbLabPhoto->clear();
+    else
+    {
+        QByteArray cByteArray = cSqlRecord.value("Photo").toByteArray();
+        QPixmap cPixMap;
+        cPixMap.loadFromData(cByteArray);
+        ui->dbLabPhoto->setPixmap(cPixMap.scaledToWidth(ui->dbLabPhoto->width()));
+    }
+}
