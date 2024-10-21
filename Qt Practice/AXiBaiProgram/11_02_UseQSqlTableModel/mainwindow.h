@@ -40,6 +40,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_actRecAppend_triggered();
+
 private:
     QSqlDatabase m_cSqlDb;                                      //数据库对象
     QSqlTableModel *m_pcSqlTableModel = nullptr;
@@ -66,6 +69,30 @@ private:
     ///
     void OpenSQLiteFile(void) noexcept;
 
+    ///
+    /// \brief InsertDataToSqlTableModel--插入一行数据
+    /// \param _RowNo--行号
+    ///
+    void InsertDataToSqlTableModel(quint32 _RowNo);
+
+private slots:
+
     void On_CurrentRowChanged(const QModelIndex &current, const QModelIndex &previous);
+
+    void On_CurrentChanged(const QModelIndex &current, const QModelIndex &previous);
+
+    void on_actRecInsert_triggered();
+    void on_actRecDelete_triggered();
+    void on_actSubmit_triggered();
+    void on_actRevert_triggered();
+    void on_actPhoto_triggered();
+    void on_actPhotoClear_triggered();
+    void on_actScan_triggered();
+    void on_radioBtnAscend_clicked();
+    void on_radioBtnDescend_clicked();
+    void on_radioBtnMan_clicked();
+    void on_radioBtnWoman_clicked();
+    void on_radioBtnBoth_clicked();
+    void on_comboFields_currentTextChanged(const QString &arg1);
 };
 #endif // MAINWINDOW_H
