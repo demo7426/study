@@ -14,7 +14,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 *************************************************/
 #include <QThread>
-#include <QtConcurrent>
+#include <QThreadPool>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
