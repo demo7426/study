@@ -29,6 +29,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 /// @param  
 static void Bsp_Modify_MainFreqClock(void);
 
+/// @brief 其它时钟的修改
+/// @param  
+static void Bsp_Modify_OtherClock(void);
+
 /// @brief 初始化外设时钟
 void Bsp_InitClock(void)
 {
@@ -41,6 +45,7 @@ void Bsp_InitClock(void)
     CCM->CCGR6 = 0xffffffff;
 
     Bsp_Modify_MainFreqClock();
+    Bsp_Modify_OtherClock();
 }
 
 static void Bsp_Modify_MainFreqClock(void)
@@ -68,13 +73,89 @@ static void Bsp_Modify_MainFreqClock(void)
         CCM->CCSR |= (1 << 2);                                  //pll1_sw_clk = step_clk = 24MHz
     }
     
+
     //设置PLL1 = 1056MHZ，经过2分频之后输出528MHz
     CCM_ANALOG->PLL_ARM = (1 << 13) | ((88 << 0) & 0x7f);       //Output = fref*DIV_SEL/2;  1056 = 24*DIV_SEL/2=>DIV_SEL=88
     CCM->CACRR = 1;                                             //设置2分频
     CCM->CCSR &= ~(1 << 2);                                     //设置pll1_sw_clk = pll_main_clk = 1056MHz
-    
-    //设置PLL1 = 696MHZ，经过1分频之后输出696MHz
+
+    // 设置PLL1 = 696MHZ，经过1分频之后输出696MHz
     // CCM_ANALOG->PLL_ARM = (1 << 13) | ((58 << 0) & 0x7f);       //Output = fref*DIV_SEL/2;  696 = 24*DIV_SEL/2=>DIV_SEL=58
     // CCM->CACRR = 0;                                             //设置1分频
     // CCM->CCSR &= ~(1 << 2);                                     //设置pll1_sw_clk = pll_main_clk = 696MHZ
+}
+
+static void Bsp_Modify_OtherClock(void)
+{
+    /*    
+    2、各个PLL时钟的配置
+        PLL2和PLL3。PLL2固定为528MHz，PLL3固定为480MHz。
+        ①、初始化PLL2_PFD0~PFD3。寄存器CCM_ANALOG_PFD_528用于设置4路PFD的时钟。比如PFD0= 528*18/PFD0_FRAC。设置PFD0_FRAC位即可。比如PLL2_PFD0=352M=528*18/PFD0_FRAC，因此FPD0_FRAC=27。
+
+        ②、初始化PLL3_PFD0~PFD3
+    */
+
+    //设置PLL2的4路PFD
+    unsigned int unReg = 0;
+
+    unReg = CCM_ANALOG->PFD_528;
+    unReg &= ~(0x3f3f3f3f);             //清除原来的设置
+    unReg |= (32 << 24);                //PLL2_PFD3=297MHz
+    unReg |= (24 << 16);                //PLL2_PFD2=396MHz
+    unReg |= (16 << 8);                 //PLL2_PFD1=594MHz
+    unReg |= (27 << 0);                 //PLL2_PFD0=352MHz
+    CCM_ANALOG->PFD_528 = unReg;
+
+    //设置PLL3的4路PFD
+    unReg = 0;
+    unReg = CCM_ANALOG->PFD_480;
+    unReg &= ~(0x3f3f3f3f);             //清除原来的设置
+    unReg |= (19 << 24);                //PLL3_PFD3=454.7MHz
+    unReg |= (17 << 16);                //PLL3_PFD2=508.2MHz
+    unReg |= (16 << 8);                 //PLL3_PFD1=540MHz
+    unReg |= (12 << 0);                 //PLL3_PFD0=720MHz
+    CCM_ANALOG->PFD_480 = unReg;
+
+    /*
+    3、其他外设时钟源配置
+        AHB_CLK_ROOT、PERCLK_CLK_ROOT以及IPG_CLK_ROOT。
+        因为PERCLK_CLK_ROOT和IPG_CLK_ROOT要用到AHB_CLK_ROOT，所以我们要初始化AHB_CLK_ROOT。
+        ①、AHB_CLK_ROOT的初始化。
+        AHB_CLK_ROOT=132MHz。
+        设置CBCMR寄存器的PRE_PERIPH_CLK_SEL位，设置CBCDR寄存器的PERIPH_CLK_SEL位0。设置CBCDR寄存器的AHB_PODF位为2，也就是3分频，因此396/3=132MHz。
+
+        ②、IPG_CLK_ROOT初始化
+        设置CBCDR寄存器IPG_PODF=1，也就是2分频。
+
+        ③、PERCLK_CLK_ROOT初始化
+        设置CSCMR1寄存器的PERCLK_CLK_SEL位为0，表示PERCLK的时钟源为IPG。
+    */
+
+   //设置 AHB_CLK_ROOT=132MHz 时钟；最小6MHz,最大132MHz
+   CCM->CBCMR &= ~(3 << 18);                            //清除设置
+   CCM->CBCMR |= (1 << 18);                             //pre_periph_clk=PLL2_PFD2=396MHz
+   CCM->CBCDR &= !(1 << 25);                            //periph_clk=pre_periph_clk=396MHz
+   while(CCM->CDHIPR & (1 << 5));                       //等待握手完成
+
+   /* 修改 AHB_PODF 位的时候需要先禁止 AHB_CLK_ROOT 的输出，但是
+    * 我没有找到关闭 AHB_CLK_ROOT 输出的的寄存器，所以就没法设置。
+    * 下面设置 AHB_PODF 的代码仅供学习参考不能直接拿来使用！！
+    * 内部 boot rom 将 AHB_PODF 设置为了 3 分频，即使我们不设置 AHB_PODF，
+    * AHB_ROOT_CLK 也依旧等于 396/3=132Mhz。
+    */
+
+#if 0
+    //要先关闭AHB_ROOT_CLK输出，否则时钟设置会出错
+    CCM->CBCDR &= ~(7 << 10);                           //CBCDR的AHB_PODF清零
+    CCM->CBCDR |= (2 << 10);                            //AHB_PODF 3分频，AHB_CLK_ROOT=132MHZ
+    while(CCM->CDHIPR & (1 << 1));                      //等待握手完成    
+#endif
+
+    //设置IPG_CLK_ROOT 最小 3MHz, 最大 66MHz
+    CCM->CBCDR &= ~(3 << 8);                            //CBCDR 的 IPG_PODF 清零
+    CCM->CBCDR |= (1 << 8);                             //IPG_PODF 2分频, IPG_CLK_ROOt=66MHz
+
+    //设置PERCLK_CLK_ROOT 时钟源为IPG
+    CCM->CSCMR1 &= ~(1 << 6);                           //PERCLK_CLK_ROOt 时钟源为IPG
+    CCM->CSCMR1 &= ~(0x3f << 0);                        //PERCLK_PODF 位清零，即1分频
 }
