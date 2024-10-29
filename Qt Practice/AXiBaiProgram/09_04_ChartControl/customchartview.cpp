@@ -179,8 +179,12 @@ void CCustomChartView::ScrollAndZoomReset(void)
     QValueAxis *pcValueAxis_X = dynamic_cast<QValueAxis*>(this->chart()->axes(Qt::Horizontal).at(0));
     QValueAxis *pcValueAxis_Y = dynamic_cast<QValueAxis*>(this->chart()->axes(Qt::Vertical).at(0));
 
-    pcValueAxis_X->setRange(m_listPos[0].first, m_listPos[0].second);
-    pcValueAxis_Y->setRange(m_listPos[1].first, m_listPos[1].second);
+    if (m_listPos.size() > 1)
+    {
+        pcValueAxis_X->setRange(m_listPos[0].first, m_listPos[0].second);
+        pcValueAxis_Y->setRange(m_listPos[1].first, m_listPos[1].second);
+    }
+    m_listPos.clear();
 
     m_bResetStatus = true;
 }
