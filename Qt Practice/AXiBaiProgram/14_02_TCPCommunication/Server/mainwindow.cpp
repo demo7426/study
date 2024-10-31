@@ -149,7 +149,11 @@ void MainWindow::On_NewConnection()
         }
     });
 
-    m_pcTcpSocket->stateChanged(m_pcTcpSocket->state());            //刷新状态
+    connect(m_pcTcpSocket, &QTcpSocket::disconnected, this, [this](){
+        m_pcTcpSocket->deleteLater();                                   //断开时，需要在下一轮事件循环释放该 m_pcTcpSocket 对象
+    });
+
+    m_pcTcpSocket->stateChanged(m_pcTcpSocket->state());                //刷新状态
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
