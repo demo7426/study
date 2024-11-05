@@ -13,6 +13,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       版本:V0.1.0
 
 *************************************************/
+
 #include <QFileDialog>
 #include <QUrl>
 
@@ -76,14 +77,18 @@ void MainWindow::InitSignalSlots() noexcept
     });
 
     connect(ui->btnAdd, &QPushButton::clicked, this, [this](){
-       QString strFilter="wmv文件(*.wmv);;mp4文件(*.mp4);;所有文件(*.*)"; //文件过滤器
-       QString strOpenFile = "";
+        QString strFilter="wmv文件(*.wmv);;mp4文件(*.mp4);;所有文件(*.*)"; //文件过滤器
+        QString strOpenFile = "";
+        QFileInfo cFileInfo;
 
-       strOpenFile = QFileDialog::getOpenFileName(this, tr("选择单个文件"), QDir::currentPath(), strFilter);
-       if(strOpenFile.isEmpty())
-            return;
+        strOpenFile = QFileDialog::getOpenFileName(this, tr("选择单个文件"), QDir::currentPath(), strFilter);
+        if(strOpenFile.isEmpty())
+             return;
 
-       m_pcMediaPlayer->setMedia(QUrl::fromLocalFile(strOpenFile));
+        cFileInfo.setFile(strOpenFile);
+        ui->LabCurMedia->setText(cFileInfo.baseName());
+
+        m_pcMediaPlayer->setMedia(QUrl::fromLocalFile(strOpenFile));
     });
 
     connect(ui->btnPlay, &QPushButton::clicked, this, [this](){
