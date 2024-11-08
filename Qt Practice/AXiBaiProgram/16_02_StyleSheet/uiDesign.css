@@ -1,0 +1,38 @@
+QWidget{
+	background-color:rgb(75, 75, 75);
+	color:rgb(255, 255, 255);
+	font: 12pt "黑体";
+}
+
+QLineEdit{
+	border:2px groove gray;
+	border-radius:5px;
+	padding:2px 15px;
+	border-color:rgb(119, 176, 87)
+}
+
+QPlainTextEdit,QLineEdit,QPushButton,QCheckBox{
+	color:rgb(255,170, 127);
+	background-color:rgb(85, 170, 255);
+}
+
+*[required="true"] {
+	background-color:rgb(255, 255, 0);
+}
+
+QComboBox::drop-down{image:url(:/images/images/down.bmp);}
+QSpinBox::up-button{image:url(:/images/images/up.bmp);}
+QSpinBox::down-button{image:url(:/images/images/down.bmp);}
+
+QLineEdit:hover{
+	background-color:black;
+	color:yellow;
+}
+
+QLineEdit{
+	min-width:60px;
+	min-height:60px;
+	padding:0px 10px 0px 10px;
+	border:2px groove red;
+	border-radius:30px;
+}
