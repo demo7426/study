@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/10/2024  18:43:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Project PRINT (.\Listings\Project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+
+
+LINK MAP OF MODULE:  .\Objects\Project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         _DATA_GROUP_
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     00F6H     UNIT         ?C?LIB_CODE
+            CODE    00F9H     007CH     UNIT         ?PR?_SETNIXIETUBE?MAIN
+            CODE    0175H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0181H     000AH     UNIT         ?CO?MAIN
+            CODE    018BH     0009H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?_SETNIXIETUBE?MAIN
+
+?PR?_SETNIXIETUBE?MAIN         0008H    000CH
+  +--> ?CO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/10/2024  18:43:38  PAGE 2
+
+
+  D:0080H         PUBLIC        P0
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  C:018BH         PUBLIC        main
+  C:00F9H         PUBLIC        _SetNixieTube
+  C:0181H         SYMBOL        _?ix1000
+  -------         PROC          _SETNIXIETUBE
+  D:0008H         SYMBOL        _NixieNo
+  D:0009H         SYMBOL        _Num
+  -------         DO            
+  D:000AH         SYMBOL        NixieTable
+  -------         ENDDO         
+  C:00F9H         LINE#         34
+  C:00FDH         LINE#         35
+  C:00FDH         LINE#         37
+  C:0110H         LINE#         39
+  C:013EH         LINE#         40
+  C:013EH         LINE#         41
+  C:0142H         LINE#         42
+  C:0146H         LINE#         43
+  C:014AH         LINE#         44
+  C:014EH         LINE#         45
+  C:0156H         LINE#         46
+  C:015EH         LINE#         47
+  C:0166H         LINE#         48
+  C:016CH         LINE#         49
+  C:016CH         LINE#         50
+  C:016CH         LINE#         51
+  C:016CH         LINE#         53
+  C:0174H         LINE#         54
+  -------         ENDPROC       _SETNIXIETUBE
+  -------         PROC          MAIN
+  C:018BH         LINE#         56
+  C:018BH         LINE#         57
+  C:018BH         LINE#         58
+  C:0192H         LINE#         60
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?COPY
+  C:00D3H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+Program Size: data=21.0 xdata=0 code=404
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
