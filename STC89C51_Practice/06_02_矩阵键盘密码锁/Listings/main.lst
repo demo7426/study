@@ -1,0 +1,99 @@
+C51 COMPILER V9.54   MAIN                                                                  11/11/2024 22:47:27 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.11
+   5          描  述: 实现一个矩阵键盘密码锁
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.11
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "LCD1602.h"
+  20          
+  21          int main(void)
+  22          {
+  23   1        int nCurKey = 0;                      //矩阵键盘当前输入键值
+  24   1        
+  25   1        int nCount = 0;                       //按键输入次数
+  26   1        int nPassword = 0;                    //当前计算出的密码
+  27   1        const int nDefaultPassword = 2345;    //验证密码
+  28   1        
+  29   1        LCD_Init();
+  30   1        
+  31   1        LCD_ShowString(1, 1, "Password:");
+  32   1        
+  33   1        while(1)
+  34   1        {
+  35   2          nCurKey = GetCurMatrixKeyInput();
+*** WARNING C206 IN LINE 35 OF main.c: 'GetCurMatrixKeyInput': missing function-prototype
+  36   2          if(nCurKey <= 0 || nCurKey >= 13)
+  37   2            continue;
+  38   2          
+  39   2          if(nCurKey > 0 && nCurKey < 10 && nCount < 4)
+  40   2          {
+  41   3            nPassword*=10;
+  42   3            nPassword+=(nCurKey%10);
+  43   3            
+  44   3            nCount++;
+  45   3            LCD_ShowNum(2, 1, nPassword, 4);
+  46   3            continue;
+  47   3          }
+  48   2          
+  49   2          if(nCurKey == 11)     //确认按钮
+  50   2          {
+  51   3            if(nPassword == nDefaultPassword)
+  52   3              LCD_ShowString(1, 14, "OK ");
+  53   3            else
+C51 COMPILER V9.54   MAIN                                                                  11/11/2024 22:47:27 PAGE 2   
+
+  54   3              LCD_ShowString(1, 14, "ERR");
+  55   3            
+  56   3            nPassword = 0; 
+  57   3            nCount=0;
+  58   3            LCD_ShowNum(2, 1, nPassword, 4);
+  59   3          }
+  60   2          else if(nCurKey == 12)      //取消按钮
+  61   2          {
+  62   3            nPassword = 0; 
+  63   3            nCount=0;
+  64   3            LCD_ShowNum(2, 1, nPassword, 4);
+  65   3            LCD_ShowString(1, 14, "   ");
+  66   3          }
+  67   2          else{}
+  68   2        }
+  69   1        
+  70   1        return 0;
+  71   1      }
+*** WARNING C294 IN LINE 70 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    259    ----
+   CONSTANT SIZE    =     22    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
