@@ -1,0 +1,8 @@
+﻿  Building '02_02_FirstDiverDemo' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  02_02_FirstDiverDemo.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug_Win7\02_02_FirstDiverDemo.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug_Win7\02_02_FirstDiverDemo.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
