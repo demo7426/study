@@ -1,0 +1,72 @@
+C51 COMPILER V9.54   NIXIETUBE                                                             11/12/2024 22:50:54 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE NIXIETUBE
+OBJECT MODULE PLACED IN .\Objects\NixieTube.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE NixieTube.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\NixieTube.lst) TABS(2) OBJECT(.\Objects\NixieTube.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  NixieTube.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.11
+   5          描  述: 数码管显示模块
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.11
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "NixieTube.h"
+  20          #include "Delay.h"
+  21          
+  22          //数码管显示子函数
+  23          void SetNixieTube(unsigned char _NixieNo, unsigned char _Num)
+  24          {
+  25   1        //数码管段码表
+  26   1        unsigned char NixieTable[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+  27   1        
+  28   1        switch(_NixieNo)
+  29   1        {
+  30   2          case 1:   P2_4 = 1; P2_3 = 1; P2_2 = 1; break;
+  31   2          case 2:   P2_4 = 1; P2_3 = 1; P2_2 = 0; break;
+  32   2          case 3:   P2_4 = 1; P2_3 = 0; P2_2 = 1; break;
+  33   2          case 4:   P2_4 = 1; P2_3 = 0; P2_2 = 0; break;
+  34   2          case 5:   P2_4 = 0; P2_3 = 1; P2_2 = 1; break;
+  35   2          case 6:   P2_4 = 0; P2_3 = 1; P2_2 = 0; break;
+  36   2          case 7:   P2_4 = 0; P2_3 = 0; P2_2 = 1; break;
+  37   2          case 8:   P2_4 = 0; P2_3 = 0; P2_2 = 0; break;
+  38   2          default:
+  39   2            break;
+  40   2        }
+  41   1        
+  42   1        P0 = NixieTable[_Num];
+  43   1        
+  44   1        Delay(5);   //消除数码管显示过快导致的残影
+  45   1        P0 = 0xFF;
+  46   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    134    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+C51 COMPILER V9.54   NIXIETUBE                                                             11/12/2024 22:50:54 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

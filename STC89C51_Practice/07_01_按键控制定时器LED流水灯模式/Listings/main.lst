@@ -1,0 +1,90 @@
+C51 COMPILER V9.54   MAIN                                                                  11/12/2024 22:50:07 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.11
+   5          描  述: 实现一个矩阵键盘密码锁
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.11
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          #include <INTRINS.H>
+  19          
+  20          #include "Timer0.h"
+  21          #include "Key.h"
+  22          
+  23          static int g_nLEDMode = 0;      //0--右移(显示器效果左移);1--左移(显示器效果右移)
+  24          
+  25          int main(void)
+  26          {
+  27   1        int nCurKey = 0;
+  28   1        P2 = 0xFE;
+  29   1        
+  30   1        Timer0_Init();
+  31   1        
+  32   1        while(1)
+  33   1        {
+  34   2          nCurKey = GetCurKey();
+  35   2          if(nCurKey == 1)
+  36   2            g_nLEDMode = 0;
+  37   2          else if(nCurKey == 2)
+  38   2            g_nLEDMode = 1;
+  39   2          else {}
+  40   2        }
+  41   1        
+  42   1        return 0;
+  43   1      }
+  44          
+  45          void Timer0_Rountime(void) interrupt 1
+  46          {
+  47   1        static int nCount = 0;
+  48   1        
+  49   1        nCount++;
+  50   1        
+  51   1        TL0 = 0x18;     //设置定时初值
+  52   1        TH0 = 0xD1;     //设置定时初值
+  53   1        
+  54   1        if(nCount >= 500)
+C51 COMPILER V9.54   MAIN                                                                  11/12/2024 22:50:07 PAGE 2   
+
+  55   1        {
+  56   2          nCount = 0;
+  57   2          
+  58   2          if(g_nLEDMode == 0)
+  59   2            P2 = _cror_(P2, 1);
+  60   2          else
+  61   2            P2 = _crol_(P2, 1);
+  62   2        }
+  63   1      }
+*** WARNING C294 IN LINE 42 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    134    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
