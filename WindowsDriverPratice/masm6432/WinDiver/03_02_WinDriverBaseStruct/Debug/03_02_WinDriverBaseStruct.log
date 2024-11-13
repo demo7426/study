@@ -1,0 +1,8 @@
+﻿  Building '03_02_WinDriverBaseStruct' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  03_02_WinDriverBaseStruct.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\03_02_WinDriverBaseStruct.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\03_02_WinDriverBaseStruct.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
