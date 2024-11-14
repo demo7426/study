@@ -1,0 +1,8 @@
+﻿  Building '03_03_SymbolicLink' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  03_03_SymbolicLink.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\03_03_SymbolicLink.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\03_03_SymbolicLink.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
