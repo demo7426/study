@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.11.14
-描  述: 实现一个windows 驱动程序的基本结构
+描  述: 创建一个驱动的符号对象，及打印驱动对象的部分信息
 备  注:
 修改记录:
 
@@ -25,7 +25,7 @@ VOID EnumDriver(PDRIVER_OBJECT _pDriverObject);
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 {
 	UNICODE_STRING tSysbolicLinkName = RTL_CONSTANT_STRING(L"\\GLOBAL??\\HelloDDK");
-
+	
 	IoDeleteSymbolicLink(&tSysbolicLinkName);
 	IoDeleteDevice(DriverObject->DeviceObject);
 	KdPrint(("驱动卸载成功\n"));
