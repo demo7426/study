@@ -1,0 +1,104 @@
+C51 COMPILER V9.54   MAIN                                                                  11/14/2024 23:24:35 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.14
+   5          描  述: LED点阵屏显示图形
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.14
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          sbit RCK = P3^5;          //控制是否将 74HC595 的数据进行输出
+  20          sbit SRCLK = P3^6;        //控制把 SER 内部的数据压入 74HC595 中
+  21          sbit SER = P3^4;          //暂存数据
+  22          
+  23          /// @brief 阵列显示屏初始化
+  24          /// @param 无
+  25          /// @return 无
+  26          void MatrixLEDInit(void)
+  27          {
+  28   1        SRCLK = 0;
+  29   1        RCK = 0;
+  30   1      }
+  31          
+  32          /// @brief 设置阵列显示屏
+  33          /// @param _Data--显示值;范围为0~7;
+  34          /// @return 无
+  35          void SetMatrixLED_Byte(unsigned int _Data)
+  36          {
+  37   1        int i=0;
+  38   1        for(i=0; i < 8; ++i)
+  39   1        {
+  40   2          SER = _Data & (0x80 >> i);
+  41   2          SRCLK = 1;
+  42   2          SRCLK = 0;
+  43   2        }
+  44   1        
+  45   1        RCK = 1;
+  46   1        RCK = 0;
+  47   1      }
+  48          
+  49          /// @brief 设置显示列
+  50          /// @param 列索引;范围为0~7;
+  51          /// @return 无
+  52          void SetColumn(unsigned int _ColumnIndex)
+  53          {
+  54   1        P0 = 0xFF;
+C51 COMPILER V9.54   MAIN                                                                  11/14/2024 23:24:35 PAGE 2   
+
+  55   1        P0 &= ~(0x80 >>  _ColumnIndex);
+  56   1      }
+  57          
+  58          
+  59          int main(void)
+  60          {
+  61   1        int i = 0;
+  62   1        unsigned int nShowDatas[] = {0x3C,0x42,0xA9,0x85,0x85,0xA9,0x42,0x3C};
+  63   1        
+  64   1        MatrixLEDInit();
+  65   1        
+  66   1        while(1)
+  67   1        {
+  68   2          for(i=0; i < sizeof(nShowDatas) / sizeof(nShowDatas[0]); ++i)
+  69   2          {
+  70   3            SetMatrixLED_Byte(nShowDatas[i]);
+  71   3            SetColumn(i);
+  72   3          }
+  73   2        }
+  74   1        
+  75   1        return 0;
+  76   1      }
+  77            
+*** WARNING C294 IN LINE 75 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    155    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      20
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
