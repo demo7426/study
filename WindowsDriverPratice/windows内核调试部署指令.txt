@@ -1,0 +1,14 @@
+//串口调试
+BCDEDIT /SET {BOOTMGR} BOOTDEBUG ON
+BCDEDIT /SET {BOOTMGR} DEBUGTYPE SERIAL
+BCDEDIT /SET {BOOTMGR} DEBUGPORT 1
+BCDEDIT /SET {BOOTMGR} BAUDRATE 115200
+BCDEDIT /SET TESTSIGNING ON
+
+BCDEDIT /ENUM
+
+NT模块下断点
+
+//网络调试
+bcdedit /debug on 
+bcdedit /dbgsettings net hostip:10.0.0.98 port:55448 key:abc.def.aaa.ddd
