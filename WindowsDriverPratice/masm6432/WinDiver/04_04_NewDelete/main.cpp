@@ -2,9 +2,15 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.11.16
-描  述: 在驱动中重载new、delete操作符
-备  注: 全局仅支持重载new[]、delete[]操作符
-		局部支持重载new、delete、new[]、delete[]操作符
+描  述: 在驱动中重载new、delete操作符,使用内存复制、赋值、清零、比较等函数
+备  注: 1、全局仅支持重载new[]、delete[]操作符
+		   局部支持重载new、delete、new[]、delete[]操作符
+		2、RtlCopyMemory--内存间复制，不可重叠
+		   RtlMoveMemory--内存间复制，可重叠
+		   RtlFillMemory--内存赋值
+		   RtlZeroMemory--内存清零
+		   RtlEqualMemory--内存比较
+
 修改记录:
 
   1.  日期: 2024.11.16
