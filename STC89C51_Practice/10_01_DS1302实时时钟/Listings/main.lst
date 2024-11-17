@@ -1,0 +1,74 @@
+C51 COMPILER V9.54   MAIN                                                                  11/17/2024 22:21:40 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.17
+   5          描  述: 实现DS1302实时时钟显示
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.17
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "DS1302.h"
+  20          #include "LCD1602.h"
+  21          
+  22          int main(void)
+  23          {
+  24   1        DS1302_TIME tDS1302_Time = { 24, 11, 17, 20, 56, 55 };
+  25   1        
+  26   1        DS1302_Init();
+  27   1        LCD_Init();
+  28   1        
+  29   1        LCD_ShowString(1, 1, "  -  -");
+  30   1        LCD_ShowString(2, 1, "  :  :");
+  31   1        
+  32   1        SetCurTime(tDS1302_Time);
+  33   1        
+  34   1        while(1)
+  35   1        {
+  36   2          GetCurTime(&tDS1302_Time);
+  37   2          LCD_ShowNum(1, 1,  tDS1302_Time.Year, 2);
+  38   2          LCD_ShowNum(1, 4,  tDS1302_Time.Month, 2);
+  39   2          LCD_ShowNum(1, 7,  tDS1302_Time.Date, 2);
+  40   2          LCD_ShowNum(2, 1,  tDS1302_Time.Hour, 2);
+  41   2          LCD_ShowNum(2, 4,  tDS1302_Time.Minute, 2);
+  42   2          LCD_ShowNum(2, 7,  tDS1302_Time.Sec, 2);
+  43   2        }
+  44   1        
+  45   1        return 0;
+  46   1      }
+  47          
+*** WARNING C294 IN LINE 45 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    186    ----
+   CONSTANT SIZE    =     20    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.54   MAIN                                                                  11/17/2024 22:21:40 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
