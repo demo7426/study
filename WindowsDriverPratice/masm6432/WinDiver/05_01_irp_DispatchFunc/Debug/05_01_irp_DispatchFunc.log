@@ -1,0 +1,8 @@
+﻿  Building '05_01_irp_DispatchFunc' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  05_01_irp_DispatchFunc.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\05_01_irp_DispatchFunc.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\05_01_irp_DispatchFunc.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
