@@ -26,12 +26,12 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 {
 	NTSTATUS lNTStatus = STATUS_SUCCESS;
 	UNICODE_STRING tDeviceName = RTL_CONSTANT_STRING(L"\\Device\\HelloDDK");
-	DEVICE_OBJECT tDeviceObj;
+	PDEVICE_OBJECT ptDeviceObject;
 
 	KdPrint(("驱动加载开始\n"));
 
 	DriverObject->DriverUnload = DriverUnload;
-	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &tDeviceObj);
+	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &ptDeviceObject);
 	if (!NT_SUCCESS(lNTStatus))
 	{
 		KdPrint(("驱动加载失败\n"));

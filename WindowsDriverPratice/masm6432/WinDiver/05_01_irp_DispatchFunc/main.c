@@ -39,9 +39,9 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	NTSTATUS lNTStatus = STATUS_SUCCESS;
 	UNICODE_STRING tDeviceName = RTL_CONSTANT_STRING(L"\\Device\\HelloDDK");
 	UNICODE_STRING tSymbolicLinkName = RTL_CONSTANT_STRING(L"\\GLOBAL??\\HelloDDK");
-	DEVICE_OBJECT tDeviceObject;
+	PDEVICE_OBJECT ptDeviceObject = NULL;
 	
-	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &tDeviceObject);
+	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &ptDeviceObject);
 	if (!NT_SUCCESS(lNTStatus))
 	{
 		KdPrint(("创建设备文件失败\n"));
@@ -52,7 +52,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	if (!NT_SUCCESS(lNTStatus))
 	{
 		KdPrint(("创建符号链接文件失败\n"));
-		IoDeleteDevice(&tDeviceObject);
+		IoDeleteDevice(ptDeviceObject);
 		return lNTStatus;
 	}
 
