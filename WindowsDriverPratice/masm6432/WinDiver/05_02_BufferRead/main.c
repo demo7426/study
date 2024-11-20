@@ -30,7 +30,7 @@ NTSTATUS Driver_Dispatch(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struc
 /// <param name="DeviceObject"></param>
 /// <param name="Irp"></param>
 /// <returns></returns>
-NTSTATUS ReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
+NTSTATUS Dispatch_ReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 {
@@ -71,7 +71,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	{
 		DriverObject->MajorFunction[i] = Driver_Dispatch;
 	}
-	DriverObject->MajorFunction[IRP_MJ_READ] = ReadData;
+	DriverObject->MajorFunction[IRP_MJ_READ] = Dispatch_ReadData;
 
 	DriverObject->DriverUnload = DriverUnload;
 
@@ -125,7 +125,7 @@ NTSTATUS Driver_Dispatch(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struc
 	return STATUS_SUCCESS;
 }
 
-NTSTATUS ReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
+NTSTATUS Dispatch_ReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
 {
 	NTSTATUS lNTStatus = STATUS_SUCCESS;
 	ULONG ulReadLen = 0;
