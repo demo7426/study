@@ -218,7 +218,7 @@ NTSTATUS Dispatch_WriteData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ st
 	}
 	__except (EXCEPTION_EXECUTE_HANDLER)
 	{
-		KdPrint(("读取数据抛出异常\n"));
+		KdPrint(("写入数据抛出异常\n"));
 		lNTStatus = GetExceptionCode();
 	}
 
