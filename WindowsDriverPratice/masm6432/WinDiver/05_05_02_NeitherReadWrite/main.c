@@ -2,7 +2,8 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.11.22
-描  述: 直接文件读取；
+描  述: 其它方式读写文件
+		内核层直接操作用户层的虚拟地址修改数据；在用户层出现线程切换时，容易导致用户层的虚拟地址为非法，造成系统崩溃；
 		TODO:获取文件属性时出现Mdl的内存映射为空的情况，待解决
 备  注:
 修改记录:
@@ -37,7 +38,7 @@ typedef struct _DEVICE_EXTENSION
 NTSTATUS Driver_Dispatch(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
 /// <summary>
-/// 直接读取数据
+/// 其它方式读取数据
 /// </summary>
 /// <param name="DeviceObject"></param>
 /// <param name="Irp"></param>
@@ -45,7 +46,7 @@ NTSTATUS Driver_Dispatch(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struc
 NTSTATUS Dispatch_NeitherReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
 /// <summary>
-/// 直接写入数据
+/// 其它方式写入数据
 /// </summary>
 /// <param name="DeviceObject"></param>
 /// <param name="Irp"></param>
@@ -53,7 +54,7 @@ NTSTATUS Dispatch_NeitherReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Ino
 NTSTATUS Dispatch_NeitherWriteData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
 /// <summary>
-/// 直接查询文件信息
+/// 其它方式查询文件信息
 /// </summary>
 /// <param name="DeviceObject"></param>
 /// <param name="Irp"></param>
@@ -91,7 +92,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 		return lNTStatus;
 	}
 
-	ptDeviceObject->Flags |= DO_DIRECT_IO;						//设置直接读取方式,将用户空间内存映射到内核空间，读写内核空间即可修改到用户空间的数据
+	ptDeviceObject->Flags |= 0;									//设置其它方式读取方式，在内核层直接操作用户层的虚拟地址修改数据
 	ptDeviceObject->Flags &= ~DO_DEVICE_INITIALIZING;			//清除初始化标志
 
 	lNTStatus = IoCreateSymbolicLink(&tSymbolicLinkName, &tDeviceName);
@@ -181,34 +182,21 @@ NTSTATUS Dispatch_NeitherReadData(_In_ struct _DEVICE_OBJECT* DeviceObject, _Ino
 
 	PIO_STACK_LOCATION pIOStack = IoGetCurrentIrpStackLocation(Irp);
 
-	ULONG ulMdlByteCount = 0;					//总长度
-	ULONG ulMdlOffset = 0;						//偏移
-	PVOID pvUserVirAddr = NULL;					//用户空间缓冲区起始地址
-	PVOID pvSystemVirAddr = NULL;				//内核空间缓冲区起始地址
-
 	ULONG ulReadLen = 0;
 
-	__try 
+	__try
 	{
-		//直接读取数据
-		ulMdlByteCount = MmGetMdlByteCount(Irp->MdlAddress);
-		ulMdlOffset = MmGetMdlByteOffset(Irp->MdlAddress);
-		pvUserVirAddr = MmGetMdlBaseVa(Irp->MdlAddress);
-
-		KdPrint(("Dispatch_DirectReadData: ByteCount=%u, Offset=%u, UserVirAddr=0x%p\n", ulMdlByteCount, ulMdlOffset, pvUserVirAddr));
-
-		pvSystemVirAddr = MmGetSystemAddressForMdlSafe(Irp->MdlAddress, NormalPagePriority);
-
-		if (pIOStack->Parameters.Read.Length <= ulMdlByteCount)
+		ulReadLen = pIOStack->Parameters.Read.Length;
+		if (ulReadLen >= 256)							//保证内核层数据正常写入
 		{
-			RtlCopyMemory(pvSystemVirAddr, "这是一条来自于内核的字符串", strlen("这是一条来自于内核的字符串"));
+			RtlCopyMemory(Irp->UserBuffer, "这是一条来自于内核层的数据", strlen("这是一条来自于内核层的数据"));
 
 			lNTStatus = STATUS_SUCCESS;
-			ulReadLen = strlen("这是一条来自于内核的字符串");
+			ulReadLen = strlen("这是一条来自于内核层的数据");
 		}
 		else
 		{
-			lNTStatus = STATUS_INSUFFICIENT_RESOURCES;
+			lNTStatus = STATUS_BUFFER_TOO_SMALL;
 			ulReadLen = 0;
 		}
 	}
@@ -232,36 +220,30 @@ NTSTATUS Dispatch_NeitherWriteData(_In_ struct _DEVICE_OBJECT* DeviceObject, _In
 
 	PIO_STACK_LOCATION pIOStack = IoGetCurrentIrpStackLocation(Irp);
 
-	ULONG ulMdlByteCount = 0;					//总长度
-	ULONG ulMdlOffset = 0;						//偏移
-	PVOID pvUserVirAddr = NULL;					//用户空间缓冲区起始地址
-	PVOID pvSystemVirAddr = NULL;				//内核空间缓冲区起始地址
-
 	ULONG ulWriteLen = 0;
-
+	
 	__try
 	{
-		//直接读取数据
-		ulMdlByteCount = MmGetMdlByteCount(Irp->MdlAddress);
-		ulMdlOffset = MmGetMdlByteOffset(Irp->MdlAddress);
-		pvUserVirAddr = MmGetMdlBaseVa(Irp->MdlAddress);
+		PCHAR pchStartAddr = NULL;
 
-		KdPrint(("Dispatch_DirectWriteData: ByteCount=%u, Offset=%u, UserVirAddr=0x%p\n", ulMdlByteCount, ulMdlOffset, pvUserVirAddr));
+		ulWriteLen = pIOStack->Parameters.Write.Length;
 
-		pvSystemVirAddr = MmGetSystemAddressForMdlSafe(Irp->MdlAddress, NormalPagePriority);
-
-		if (pIOStack->Parameters.Write.Length <= ulMdlByteCount)
-		{
-			KdPrint(("Dispatch_DirectWriteData: %s", (char*)pvSystemVirAddr));
-
-			lNTStatus = STATUS_SUCCESS;
-			ulWriteLen = pIOStack->Parameters.Write.Length;
-		}
-		else
+		pchStartAddr = (PCHAR)ExAllocatePool(PagedPool, ulWriteLen + 1);
+		if (!pchStartAddr)
 		{
 			lNTStatus = STATUS_INSUFFICIENT_RESOURCES;
 			ulWriteLen = 0;
 		}
+		else
+		{
+			RtlZeroMemory(pchStartAddr, ulWriteLen + 1);
+			RtlCopyMemory(pchStartAddr, Irp->UserBuffer, ulWriteLen);
+			KdPrint(("%s\n", pchStartAddr));
+
+			ExFreePool(pchStartAddr);
+			pchStartAddr = NULL;
+		}
+
 	}
 	__except (EXCEPTION_EXECUTE_HANDLER)
 	{
@@ -283,40 +265,22 @@ NTSTATUS Dispatch_NeitherQueryFile(_In_ struct _DEVICE_OBJECT* DeviceObject, _In
 
 	PIO_STACK_LOCATION pIOStack = IoGetCurrentIrpStackLocation(Irp);
 
-	ULONG ulMdlByteCount = 0;					//总长度
-	ULONG ulMdlOffset = 0;						//偏移
-	PVOID pvUserVirAddr = NULL;					//用户空间缓冲区起始地址
-	PVOID pvSystemVirAddr = NULL;				//内核空间缓冲区起始地址
-
 	ULONG ulRtnLen = 0;
 
 	__try
 	{
-		if (!Irp->MdlAddress)
-			KdPrint(("Dispatch_DirectQueryFile: MdlAddress is null\n"));
-	
-		//直接读取数据
-		ulMdlByteCount = MmGetMdlByteCount(Irp->MdlAddress);
-		ulMdlOffset = MmGetMdlByteOffset(Irp->MdlAddress);
-		pvUserVirAddr = MmGetMdlBaseVa(Irp->MdlAddress);
+		ulRtnLen = pIOStack->Parameters.QueryFile.Length;
 
-		KdPrint(("Dispatch_DirectQueryFile: ByteCount=%u, Offset=%u, UserVirAddr=0x%p\n", ulMdlByteCount, ulMdlOffset, pvUserVirAddr));
-
-		pvSystemVirAddr = MmGetSystemAddressForMdlSafe(Irp->MdlAddress, NormalPagePriority);
-
-		if (pvSystemVirAddr && pIOStack->Parameters.QueryFile.FileInformationClass == FileStandardInformation &&
+		if (pIOStack->Parameters.QueryFile.FileInformationClass == FileStandardInformation &&
 			pIOStack->Parameters.QueryFile.Length >= sizeof(FILE_STANDARD_INFORMATION))
 		{
-			PFILE_STANDARD_INFORMATION pFileStandInfo = (PFILE_STANDARD_INFORMATION)pvSystemVirAddr;
+			PFILE_STANDARD_INFORMATION ptFileStandInfo = Irp->UserBuffer;
 
-			pFileStandInfo->EndOfFile.LowPart = 4 * 1024;
-
-			lNTStatus = STATUS_SUCCESS;
-			ulRtnLen = pFileStandInfo->EndOfFile.LowPart;
+			ptFileStandInfo->EndOfFile.LowPart = 4 * 1024;
 		}
 		else
 		{
-			lNTStatus = STATUS_INSUFFICIENT_RESOURCES;
+			lNTStatus = STATUS_BUFFER_TOO_SMALL;
 			ulRtnLen = 0;
 		}
 	}
