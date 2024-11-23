@@ -1,0 +1,105 @@
+C51 COMPILER V9.54   MAIN                                                                  11/23/2024 12:29:45 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.23
+   5          描  述: 实现蜂鸣器播放音乐
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.23
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "Timer0.h"
+  20          #include "Delay.h"
+  21          
+  22          #define Buzzer_IO P2_5
+  23          #define CYCLE_LEN 125       //设置4分音符的周期时长
+  24          
+  25          unsigned int code g_unFreqTable[] = {
+  26              63914,63871,63968,64053,64139,64215,64290,64359,64425,64488,64546,64602,
+  27              64654,64703,64750,64794,64836,64875,64912,64947,64980,65011,65041,65069,
+  28              65094,65119,65143,65165,65185,65205,65224,65241,65258,65273,65288,65302
+  29          };
+  30          
+  31          unsigned int code g_unMusic[] = {
+  32            12, 4,
+  33            12, 4,
+  34            19, 4,
+  35            21, 4,
+  36            21, 4,
+  37            19, 4+4,
+  38            17, 4,
+  39            17, 4,
+  40            16, 4,
+  41            16, 4,
+  42            14, 4,
+  43            14, 4,
+  44            12, 4+4
+  45          };
+  46          
+  47          unsigned int g_unFreqIndex = 0;
+  48          unsigned int g_unMusicIndex = 0;
+  49          
+  50          int main(void)
+  51          {
+  52   1        Timer0_Init();
+  53   1        
+  54   1        while(1)
+C51 COMPILER V9.54   MAIN                                                                  11/23/2024 12:29:45 PAGE 2   
+
+  55   1        {
+  56   2          g_unFreqIndex = g_unMusic[g_unMusicIndex];
+  57   2          g_unMusicIndex++;
+  58   2          Delay(CYCLE_LEN * g_unMusic[g_unMusicIndex]); 
+  59   2          g_unMusicIndex++; 
+  60   2          
+  61   2          TR0 = 0;
+  62   2          Delay(5); 
+  63   2          TR0 = 1;    
+  64   2          
+  65   2          g_unMusicIndex %= 26;
+  66   2        }
+  67   1        
+  68   1        return 0;
+  69   1      }
+  70          
+  71          //定时器0的中断函数模板
+  72          void Timer0_Rountime(void) interrupt 1
+  73          {
+  74   1        TL0 = g_unFreqTable[g_unFreqIndex] % 256;   //设置定时初值
+  75   1        TH0 = g_unFreqTable[g_unFreqIndex] / 256;   //设置定时初值
+  76   1        
+  77   1        Buzzer_IO = !Buzzer_IO;
+  78   1      }
+*** WARNING C294 IN LINE 68 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =    124    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
