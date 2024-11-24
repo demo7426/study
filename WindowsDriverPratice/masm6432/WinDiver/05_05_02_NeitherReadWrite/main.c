@@ -221,7 +221,7 @@ NTSTATUS Dispatch_NeitherWriteData(_In_ struct _DEVICE_OBJECT* DeviceObject, _In
 	PIO_STACK_LOCATION pIOStack = IoGetCurrentIrpStackLocation(Irp);
 
 	ULONG ulWriteLen = 0;
-	
+
 	__try
 	{
 		PCHAR pchStartAddr = NULL;
