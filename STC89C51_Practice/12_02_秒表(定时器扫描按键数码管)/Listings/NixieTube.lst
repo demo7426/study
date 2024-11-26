@@ -1,0 +1,91 @@
+C51 COMPILER V9.54   NIXIETUBE                                                             11/27/2024 01:05:13 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE NIXIETUBE
+OBJECT MODULE PLACED IN .\Objects\NixieTube.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE NixieTube.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\NixieTube.lst) TABS(2) OBJECT(.\Objects\NixieTube.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  NixieTube.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.11
+   5          描  述: 数码管显示模块
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.11
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          #include <INTRINS.H>
+  19          
+  20          #include "NixieTube.h"
+  21          #include "Delay.h"
+  22          
+  23          #define NIXIETUBE_NUM 8     //数码管数量
+  24          
+  25          static unsigned char g_uchNums[NIXIETUBE_NUM] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+  26          
+  27          //数码管显示子函数
+  28          void SetNixieTube(unsigned char _NixieNo, unsigned char _Num)
+  29          { 
+  30   1        g_uchNums[_NixieNo - 1] = _Num;
+  31   1      }
+  32          
+  33          static void SetCurShowNum(unsigned char _NixieNo, unsigned char _Num)
+  34          {
+  35   1        //数码管段码表;显示数值:0~9、-
+  36   1        unsigned char code NixieTable[] = { 0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x40} ;
+  37   1        
+  38   1        P0 = 0x00;
+  39   1        switch(_NixieNo)
+  40   1        
+  41   1        {
+  42   2          case 1:   P2_4 = 1; P2_3 = 1; P2_2 = 1; break;
+  43   2          case 2:   P2_4 = 1; P2_3 = 1; P2_2 = 0; break;
+  44   2          case 3:   P2_4 = 1; P2_3 = 0; P2_2 = 1; break;
+  45   2          case 4:   P2_4 = 1; P2_3 = 0; P2_2 = 0; break;
+  46   2          case 5:   P2_4 = 0; P2_3 = 1; P2_2 = 1; break;
+  47   2          case 6:   P2_4 = 0; P2_3 = 1; P2_2 = 0; break;
+  48   2          case 7:   P2_4 = 0; P2_3 = 0; P2_2 = 1; break;
+  49   2          case 8:   P2_4 = 0; P2_3 = 0; P2_2 = 0; break;
+  50   2          default:
+  51   2            break;
+  52   2        }
+  53   1        
+  54   1        P0 = NixieTable[_Num];
+C51 COMPILER V9.54   NIXIETUBE                                                             11/27/2024 01:05:13 PAGE 2   
+
+  55   1      }
+  56          
+  57          void NixieTubeLoop(void)
+  58          {
+  59   1        int i =0;
+  60   1        for(i = 0; i < NIXIETUBE_NUM; ++i)
+  61   1        {
+  62   2          SetCurShowNum(i + 1, g_uchNums[i]);
+  63   2        }
+  64   1      }
+  65          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    136    ----
+   CONSTANT SIZE    =     11    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

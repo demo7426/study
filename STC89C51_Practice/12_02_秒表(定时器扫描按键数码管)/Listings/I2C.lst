@@ -1,0 +1,114 @@
+C51 COMPILER V9.54   I2C                                                                   11/27/2024 01:05:12 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE I2C
+OBJECT MODULE PLACED IN .\Objects\I2C.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE I2C.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\I2C.l
+                    -st) TABS(2) OBJECT(.\Objects\I2C.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  I2C.h
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.24
+   5          描  述: I2C模块
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.24
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "I2C.h"
+  20          
+  21          #define I2C_SCL P2_1        
+  22          #define I2C_SDA P2_0
+  23          
+  24          void I2C_Start(void)
+  25          {
+  26   1        I2C_SDA = 1;
+  27   1        I2C_SCL = 1;
+  28   1        I2C_SDA = 0;
+  29   1        I2C_SCL = 0;
+  30   1      }
+  31          
+  32          void I2C_Stop(void)
+  33          {
+  34   1        I2C_SDA = 0;
+  35   1        I2C_SCL = 1;
+  36   1        I2C_SDA = 1;
+  37   1      }
+  38          
+  39          void I2C_SendByte(unsigned char _Data)
+  40          {
+  41   1        unsigned char i = 0;
+  42   1        
+  43   1        for(i = 0; i < 8; ++i)
+  44   1        {
+  45   2          I2C_SDA = _Data & (0x80 >> i);    //高位优先发送
+  46   2          I2C_SCL = 1;            
+  47   2          I2C_SCL = 0;                      //AT89C52时钟较小，变化速率较慢，故AT89C02可以识别到波形变�
+             -�
+  48   2        }
+  49   1      }
+  50          
+  51          unsigned char I2C_RecvByte(void)
+  52          {
+  53   1        unsigned char i = 0;
+C51 COMPILER V9.54   I2C                                                                   11/27/2024 01:05:12 PAGE 2   
+
+  54   1        unsigned char uchReadByte = 0;
+  55   1        
+  56   1        I2C_SDA = 1;
+  57   1        
+  58   1        for(i = 0; i < 8; ++i)
+  59   1        {   
+  60   2          I2C_SCL = 1;    
+  61   2          if(I2C_SDA)
+  62   2            uchReadByte |= (0x80 >> i);
+  63   2          I2C_SCL = 0;                      //AT89C52时钟较小，变化速率较慢，故AT89C02可以识别到波形变�
+             -�  
+  64   2        }
+  65   1        
+  66   1        return uchReadByte;
+  67   1      }
+  68          
+  69          void I2C_SendAck(unsigned char _Ack)
+  70          {
+  71   1        I2C_SDA = _Ack;
+  72   1        I2C_SCL = 1;
+  73   1        I2C_SCL = 0;
+  74   1      }
+  75          
+  76          unsigned char I2C_RecvAck(void)
+  77          {
+  78   1        unsigned char uchAck = 0;
+  79   1        
+  80   1        I2C_SDA = 1;
+  81   1        I2C_SCL = 1;
+  82   1        uchAck = I2C_SDA;
+  83   1        I2C_SCL = 0;
+  84   1        
+  85   1        return uchAck;
+  86   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    111    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
