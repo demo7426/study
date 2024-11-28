@@ -1,0 +1,159 @@
+C51 COMPILER V9.54   ONEWIRE                                                               11/29/2024 01:23:58 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ONEWIRE
+OBJECT MODULE PLACED IN .\Objects\OneWire.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE OneWire.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\O
+                    -neWire.lst) TABS(2) OBJECT(.\Objects\OneWire.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  OneWire.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.29
+   5          描  述: 单总线模块
+   6          备  注: 在单总线操作时，需要关闭中断，防止中断影响到单总线的时序 
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.29
+  10                作者: 钱锐
+  11                    1) 此为模板第一个版本;
+  12                内容:
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          #include <REGX52.H>
+  17          
+  18          #include "OneWire.h"
+  19          #include "LCD1602.h"
+  20          
+  21          #define ONEWIRE_IO P3_7     //单总线I/O控制口
+  22          
+  23          /// @brief 发送bit数据
+  24          /// @param _Bit--单bit数据
+  25          /// @return 无
+  26          static void OneWire_SendBit(unsigned char _Bit)
+  27          {
+  28   1        unsigned char i;
+  29   1        ET0 = 0;          //关闭中断，防止中断影响到单总线的时序
+  30   1        ONEWIRE_IO = 0;
+  31   1        
+  32   1        //延时10us
+  33   1        i = 2;
+  34   1        while (--i);
+  35   1        
+  36   1        ONEWIRE_IO = _Bit;
+  37   1        
+  38   1        //延时50us
+  39   1        i = 20;
+  40   1        while (--i);
+  41   1        
+  42   1        ONEWIRE_IO = 1;
+  43   1        ET0 = 1;
+  44   1      }
+  45          
+  46          /// @brief 接收bit数据
+  47          /// @param 无
+  48          /// @return 接收的bit数据
+  49          static unsigned char OneWire_RecvBit(void)
+  50          {
+  51   1        unsigned char uchBit = 0;
+  52   1        
+  53   1        unsigned char i;
+  54   1        ET0 = 0;
+C51 COMPILER V9.54   ONEWIRE                                                               11/29/2024 01:23:58 PAGE 2   
+
+  55   1        ONEWIRE_IO = 0;
+  56   1        
+  57   1        //延时5us
+  58   1        i = 2;
+  59   1        while (--i);
+  60   1        
+  61   1        ONEWIRE_IO = 1;
+  62   1        
+  63   1        //延时5us
+  64   1        i = 2;
+  65   1        while (--i);
+  66   1        uchBit = ONEWIRE_IO;
+  67   1        
+  68   1        //延时50us
+  69   1        i = 24;
+  70   1        while (--i);
+  71   1        ET0 = 1;
+  72   1        return uchBit;
+  73   1      }
+  74          
+  75          
+  76          /// @brief 单总线初始化
+  77          /// @param 无
+  78          /// @return 无
+  79          void OneWire_Init(void)
+  80          {
+  81   1        unsigned char i;
+  82   1        ET0 = 0;
+  83   1        ONEWIRE_IO = 1;
+  84   1        ONEWIRE_IO = 0;
+  85   1      
+  86   1        //延时500us
+  87   1        i = 227;
+  88   1        while (--i);
+  89   1        
+  90   1        ONEWIRE_IO = 1;
+  91   1        
+  92   1        //延时80us
+  93   1        i = 34;
+  94   1        while (--i);
+  95   1        
+  96   1        //延时500us
+  97   1        i = 227;
+  98   1        while (--i);
+  99   1        ET0 = 1;
+ 100   1      }
+ 101          
+ 102          void OneWire_SendByte(unsigned char _Byte)
+ 103          {
+ 104   1        unsigned char i = 0;
+ 105   1        
+ 106   1        ET0 = 0;
+ 107   1        for(i = 0; i < 8; ++i)
+ 108   1        {
+ 109   2            OneWire_SendBit(_Byte & (0x01 << i));
+ 110   2        }
+ 111   1        ET0 = 1;
+ 112   1      }
+ 113          
+ 114          unsigned char OneWire_RecvByte(void)
+ 115          {
+ 116   1        unsigned char i = 0;
+C51 COMPILER V9.54   ONEWIRE                                                               11/29/2024 01:23:58 PAGE 3   
+
+ 117   1        unsigned char uchByte = 0;
+ 118   1        
+ 119   1        ET0 = 0;
+ 120   1        for(i = 0; i < 8; ++i)
+ 121   1        {
+ 122   2            if(OneWire_RecvBit())
+ 123   2            {
+ 124   3              uchByte |= (0x01 << i);
+ 125   3            }
+ 126   2        }
+ 127   1        ET0 = 1;
+ 128   1        return uchByte;
+ 129   1      }
+ 130          
+ 131          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    135    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

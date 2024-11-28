@@ -1,0 +1,148 @@
+C51 COMPILER V9.54   MAIN                                                                  11/29/2024 01:23:58 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  Buzzer.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.29
+   5          描  述: DS18B20温度报警器
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.29
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          #include <REGX52.H>
+  17          
+  18          #include "LCD1602.h"
+  19          #include "DS18B20.h"
+  20          #include "Delay.h"
+  21          #include "Timer0.h"
+  22          #include "Key.h"
+  23          
+  24          char g_chLowTemp = 15;        //低温阈值
+  25          char g_chHighTemp = 25;       //高温阈值
+  26          
+  27          int main(void)
+  28          {
+  29   1        float fCurTemp, fShowTemp;      //当前温度
+  30   1        int nCurKey = 0;
+  31   1        
+  32   1        DS18B20_Convert();
+  33   1        Delay(1000);
+  34   1        
+  35   1        LCD_Init();
+  36   1        Timer0_Init();
+  37   1          
+  38   1        LCD_ShowString(1, 1, "T:");
+  39   1        LCD_ShowString(2, 1, "L:");
+  40   1        LCD_ShowString(2, 8, "H:");
+  41   1        LCD_ShowSignedNum(2, 3, g_chLowTemp, 3);
+  42   1        LCD_ShowSignedNum(2, 10, g_chHighTemp, 3);
+  43   1        
+  44   1        while(1)
+  45   1        {
+  46   2          DS18B20_Convert();
+  47   2          fCurTemp = DS18B20_GetCurTemp();
+  48   2          fShowTemp = fCurTemp;
+  49   2          
+  50   2          if(fShowTemp < 0)
+  51   2          {
+  52   3            LCD_ShowChar(1, 3, '-');
+  53   3            fShowTemp = -fShowTemp;
+  54   3          }
+C51 COMPILER V9.54   MAIN                                                                  11/29/2024 01:23:58 PAGE 2   
+
+  55   2          else
+  56   2            LCD_ShowChar(1, 3, '+');
+  57   2          
+  58   2          LCD_ShowNum(1, 4, fShowTemp, 3);
+  59   2          LCD_ShowChar(1, 7, '.');
+  60   2          LCD_ShowNum(1, 8, (unsigned long)(fShowTemp * 10000) % 10000, 4);
+  61   2          
+  62   2          //处理有独立按键输入的情况
+  63   2          nCurKey = GetCurKey();
+  64   2          if(nCurKey == 1)
+  65   2          {
+  66   3            if(g_chLowTemp >= -100)
+  67   3              g_chLowTemp--;
+  68   3          }
+  69   2          else if(nCurKey == 2)
+  70   2          {
+  71   3            g_chLowTemp++;
+  72   3            if(g_chLowTemp >= g_chHighTemp)
+  73   3              g_chLowTemp--;
+  74   3          }
+  75   2          else if(nCurKey == 3)
+  76   2          {
+  77   3            g_chHighTemp--;
+  78   3            if(g_chHighTemp <= g_chHighTemp)
+  79   3              g_chHighTemp++;
+  80   3          }
+  81   2          else if(nCurKey == 4)
+  82   2          {
+  83   3            if(g_chLowTemp <= 200)
+  84   3              g_chLowTemp++;
+  85   3          }
+  86   2          
+  87   2          if(nCurKey != 0)
+  88   2          {
+  89   3            LCD_ShowSignedNum(2, 3, g_chLowTemp, 3);
+  90   3            LCD_ShowSignedNum(2, 10, g_chHighTemp, 3);
+  91   3          }
+  92   2          
+  93   2          //温度阈值判断
+  94   2          if(fCurTemp <= g_chLowTemp)
+  95   2            LCD_ShowString(1, 13, "OV:L");
+  96   2          else if(fCurTemp >= g_chHighTemp)
+  97   2            LCD_ShowString(1, 13, "OV:H");
+  98   2          else
+  99   2            LCD_ShowString(1, 13, "    ");
+ 100   2        }
+ 101   1        
+ 102   1        return 0;
+ 103   1      }
+ 104          
+ 105          //定时器0的中断函数模板
+ 106          void Timer0_Rountime(void) interrupt 1
+ 107          {
+ 108   1        static unsigned int unKeyCount = 0;
+ 109   1        
+ 110   1        TL0 = 0x66;   //设置定时初值
+ 111   1        TH0 = 0xFC;   //设置定时初值
+ 112   1        
+ 113   1        unKeyCount++;
+ 114   1        if(unKeyCount > 20)     //选择20ms是为了对独立按键进行软件消抖
+ 115   1        {
+ 116   2          unKeyCount = 0;
+C51 COMPILER V9.54   MAIN                                                                  11/29/2024 01:23:58 PAGE 3   
+
+ 117   2          KeyLoop();
+ 118   2        }
+ 119   1      }
+*** WARNING C294 IN LINE 102 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    557    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

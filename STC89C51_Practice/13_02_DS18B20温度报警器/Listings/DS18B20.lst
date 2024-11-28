@@ -1,0 +1,74 @@
+C51 COMPILER V9.54   DS18B20                                                               11/29/2024 01:23:58 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE DS18B20
+OBJECT MODULE PLACED IN .\Objects\DS18B20.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE DS18B20.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\D
+                    -S18B20.lst) TABS(2) OBJECT(.\Objects\DS18B20.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  DS18B20.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.11.28
+   5          描  述: 温度读取模块
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.11.28
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include "DS18B20.h"
+  18          #include "OneWire.h"
+  19          
+  20          #define DS18B20_SKIPROM     0xCC
+  21          #define DS18B20_CONVERT     0x44
+  22          #define DS18B20_SCRATCHPAD  0xBE
+  23          
+  24          void DS18B20_Convert(void)
+  25          {
+  26   1        OneWire_Init();
+  27   1        OneWire_SendByte(DS18B20_SKIPROM);
+  28   1        OneWire_SendByte(DS18B20_CONVERT);
+  29   1      }
+  30          
+  31          float DS18B20_GetCurTemp(void)
+  32          {
+  33   1        unsigned char uchLow, uchHigh;
+  34   1        int nTemp = 0;
+  35   1        float fTemp = 0;
+  36   1        
+  37   1        OneWire_Init();
+  38   1        OneWire_SendByte(DS18B20_SKIPROM);
+  39   1        OneWire_SendByte(DS18B20_SCRATCHPAD);
+  40   1        
+  41   1        uchLow = OneWire_RecvByte();
+  42   1        uchHigh = OneWire_RecvByte();
+  43   1        nTemp = uchHigh << 8 | uchLow;
+  44   1        fTemp = nTemp / 16.0;
+  45   1        
+  46   1        return fTemp;
+  47   1      }
+  48          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.54   DS18B20                                                               11/29/2024 01:23:58 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
