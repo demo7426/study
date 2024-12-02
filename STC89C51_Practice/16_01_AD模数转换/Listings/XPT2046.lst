@@ -1,0 +1,81 @@
+C51 COMPILER V9.54   XPT2046                                                               12/02/2024 19:39:33 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE XPT2046
+OBJECT MODULE PLACED IN .\Objects\XPT2046.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE XPT2046.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\X
+                    -PT2046.lst) TABS(2) OBJECT(.\Objects\XPT2046.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  XPT2046.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.12.02
+   5          描  述: XPT2046数据模块
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.12.02
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include <REGX52.H>
+  18          
+  19          #include "XPT2046.h"
+  20          
+  21          #define XPT2046_CS    P3_5
+  22          #define XPT2046_DCLK  P3_6
+  23          #define XPT2046_DIN   P3_4
+  24          #define XPT2046_DOUT  P3_7
+  25          
+  26          unsigned int XPT2046_ReadCurAD(unsigned char _Command)
+  27          {
+  28   1        int i = 0;
+  29   1        unsigned int unReadAD = 0;
+  30   1        
+  31   1        XPT2046_CS = 0;
+  32   1        
+  33   1        for(i = 0; i < 8; i++)
+  34   1        {
+  35   2          XPT2046_DIN = (_Command & (0x80 >> i));
+  36   2          XPT2046_DCLK = 1;
+  37   2          XPT2046_DCLK = 0;
+  38   2        }
+  39   1        
+  40   1        for(i = 0; i < 16; i++)
+  41   1        {
+  42   2          XPT2046_DCLK = 1;
+  43   2          XPT2046_DCLK = 0;
+  44   2          if(XPT2046_DOUT) unReadAD |= (0x8000 >> i);
+  45   2        }
+  46   1        
+  47   1        XPT2046_CS = 1;
+  48   1        
+  49   1        if(_Command & 0x80)
+  50   1          unReadAD = unReadAD >> 8;
+  51   1        else
+  52   1          unReadAD = unReadAD >> 4;
+  53   1        
+  54   1        return unReadAD;
+C51 COMPILER V9.54   XPT2046                                                               12/02/2024 19:39:33 PAGE 2   
+
+  55   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    135    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
