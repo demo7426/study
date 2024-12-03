@@ -1,0 +1,76 @@
+C51 COMPILER V9.54   MAIN                                                                  12/03/2024 17:58:28 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*************************************************
+   2          Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+   3          文件名:  main.c
+   4          作  者: 钱锐      版本: V0.1.0     新建日期: 2024.12.03
+   5          描  述: 红外遥控
+   6          备  注:  
+   7          修改记录: 
+   8          
+   9            1.  日期: 2024.12.03
+  10                作者: 钱锐
+  11                内容:
+  12                    1) 此为模板第一个版本;
+  13                版本:V0.1.0
+  14          
+  15          *************************************************/
+  16          
+  17          #include "LCD1602.h"
+  18          #include "IR.h"
+  19          
+  20          int main(void)
+  21          {
+  22   1        unsigned char uchAddr = 0;        //地址
+  23   1        unsigned char uchCommand = 0;     //命令
+  24   1        unsigned char uchNum = 0;
+  25   1        
+  26   1        LCD_Init();
+  27   1        IR_Init();
+  28   1        
+  29   1        LCD_ShowString(1, 1, "Addr Com Num");
+  30   1        LCD_ShowString(2, 1, "00   00  000");
+  31   1        
+  32   1        while(1)
+  33   1        {
+  34   2          if(IR_GetDataFlag() || IR_GetRepeatFlag())
+  35   2          {
+  36   3            uchAddr = IR_GetAddress();
+  37   3            uchCommand = IR_GetCommand();
+  38   3            
+  39   3            LCD_ShowHexNum(2, 1, uchAddr, 2);
+  40   3            LCD_ShowHexNum(2, 6, uchCommand, 2);
+  41   3            
+  42   3            if(uchCommand == IR_VOL_ADD)
+  43   3              uchNum++;
+  44   3            else if(uchCommand == IR_VOL_MINUS)
+  45   3              uchNum--;
+  46   3            
+  47   3            LCD_ShowNum(2, 10, uchNum, 3);
+  48   3          }
+  49   2        }
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    124    ----
+C51 COMPILER V9.54   MAIN                                                                  12/03/2024 17:58:28 PAGE 2   
+
+   CONSTANT SIZE    =     26    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
