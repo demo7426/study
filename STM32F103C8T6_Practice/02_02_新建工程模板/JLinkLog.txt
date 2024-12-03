@@ -1,0 +1,69 @@
+T5E64 000:007.215   SEGGER J-Link V7.22b Log File
+T5E64 000:007.384   DLL Compiled: Jun 17 2021 17:22:49
+T5E64 000:007.404   Logging started @ 2024-12-03 15:15
+T5E64 000:007.427 - 7.436ms
+T5E64 000:007.453 JLINK_SetWarnOutHandler(...)
+T5E64 000:007.475 - 0.031ms
+T5E64 000:007.494 JLINK_OpenEx(...)
+T5E64 000:012.711   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T5E64 000:012.873   Looking for J-Link GUI Server exe at: \JLinkGUIServer.exe
+T5E64 000:314.711   Failed to connect to J-Link GUI Server.
+T5E64 003:476.486   TELNET listener socket opened on port 19021
+T5E64 003:476.817   WEBSRV Starting webserver
+T5E64 003:476.961   WEBSRV Webserver running on local port 19080
+T5E64 003:477.007 - 3501.176ms returns "O.K."
+T5E64 003:508.746 JLINK_GetEmuCaps()
+T5E64 003:508.760 - 0.019ms returns 0x98E61B83
+T5E64 003:508.778 JLINK_TIF_GetAvailable(...)
+T5E64 003:508.789 - 0.016ms
+T5E64 003:508.802 JLINK_SetErrorOutHandler(...)
+T5E64 003:508.813 - 0.015ms
+T5E64 003:508.862 JLINK_ExecCommand("ProjectFile = "D:\STM32F103C8T6_Practice\02_02_新建工程模板\JLinkSettings.ini"", ...). 
+T5E64 003:523.058 - 14.208ms returns 0x00
+T5E64 003:528.074 JLINK_ExecCommand("Device = STM32F103C8", ...). 
+T5E64 003:531.578   Device "STM32F103C8" selected.
+T5E64 003:531.946 - 3.860ms returns 0x00
+T5E64 003:531.977 JLINK_GetHardwareVersion()
+T5E64 003:533.341 - 1.383ms returns 20000
+T5E64 003:533.371 JLINK_GetDLLVersion()
+T5E64 003:533.383 - 0.017ms returns 72202
+T5E64 003:533.396 JLINK_GetOEMString(...)
+T5E64 003:533.410 JLINK_GetFirmwareString(...)
+T5E64 003:533.428 - 0.023ms
+T5E64 003:544.487 JLINK_GetDLLVersion()
+T5E64 003:544.525 - 0.042ms returns 72202
+T5E64 003:544.535 JLINK_GetCompileDateTime()
+T5E64 003:544.543 - 0.011ms
+T5E64 003:547.412 JLINK_GetFirmwareString(...)
+T5E64 003:547.456 - 0.048ms
+T5E64 003:550.077 JLINK_GetHardwareVersion()
+T5E64 003:550.093 - 0.020ms returns 20000
+T5E64 003:553.416 JLINK_GetSN()
+T5E64 003:553.450 - 0.040ms returns 1041384405
+T5E64 003:556.352 JLINK_GetOEMString(...)
+T5E64 004:679.419 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T5E64 004:679.492   
+  ***** Error: 
+T5E64 004:679.505   Debugger tries to select target interface JTAG.
+This interface is not supported by the connected emulator.
+Selection will be ignored by the DLL.
+T5E64 004:679.516 - 0.100ms returns 0x01
+T5E64 004:683.222 JLINK_HasError()
+T5E64 004:683.275 JLINK_SetSpeed(5000)
+T5E64 004:683.297 - 0.025ms
+T5E64 004:683.307 JLINK_GetId()
+T5E64 004:932.759   InitTarget() start
+T5E64 004:932.803    J-Link Script File: Executing InitTarget()
+T5E64 005:970.091   Can not attach to CPU. Trying connect under reset.
+T5E64 006:180.125   Connecting to CPU via connect under reset failed.
+T5E64 006:240.270   InitTarget() end
+T5E64 006:308.588   InitTarget() start
+T5E64 006:308.628    J-Link Script File: Executing InitTarget()
+T5E64 006:467.207   Can not attach to CPU. Trying connect under reset.
+T5E64 006:678.773   Connecting to CPU via connect under reset failed.
+T5E64 006:735.997   InitTarget() end
+T5E64 006:736.043 - 2052.740ms returns 0x00000000
+T5E64 008:200.591 JLINK_Close()
+T5E64 008:214.473 - 13.920ms
+T5E64 008:214.519   
+T5E64 008:214.527   Closed
