@@ -3,7 +3,9 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.04
 描  述: 新建、查询注册表值
-备  注:
+备  注: ZwOpenKey--打开对应的项
+		ZwSetValueKey--新增值
+		ZwQueryValueKey--查询值
 修改记录:
 
   1.  日期: 2024.12.04
