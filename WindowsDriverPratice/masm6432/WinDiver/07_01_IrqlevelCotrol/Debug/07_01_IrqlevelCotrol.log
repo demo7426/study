@@ -1,0 +1,8 @@
+﻿  Building '07_01_IrqlevelCotrol' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  07_01_IrqlevelCotrol.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\07_01_IrqlevelCotrol.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\07_01_IrqlevelCotrol.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
