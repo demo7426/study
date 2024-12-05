@@ -5,6 +5,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 描  述: 枚举注册表项、值
 备  注:	ZwEnumerateKey--枚举当前项
 		ZwEnumerateValueKey--枚举当前值
+
+		cmd终端使用 whoami/user 命令可以查看用户信息，与注册表内部信息相对应;
 修改记录:
 
   1.  日期: 2024.12.05
