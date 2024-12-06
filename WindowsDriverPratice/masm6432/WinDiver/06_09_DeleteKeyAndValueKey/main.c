@@ -5,6 +5,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 描  述: 删除注册表项、值
 备  注:	ZwDeleteKey--删除项
 		ZwDeleteValueKey--删除值
+
+		RtlCreateRegistryKey--创建\打开注册表项
+		RtlCheckRegistryKey--检测注册表项是否已经存在
+		RtlWriteRegistryValue--新建注册表值
+		RtlDeleteRegistryValue--删除注册表值
+		RtlQueryRegistryValues--查询注册表值
 修改记录:
 
   1.  日期: 2024.12.05
@@ -165,14 +171,53 @@ NTSTATUS Test03(VOID)
 	return ulNTStatus;
 }
 
+/// <summary>
+/// 使用更上层的API对注册表项、值进行增删改查
+/// </summary>
+/// <param name=""></param>
+VOID Test04(VOID)
+{
+	NTSTATUS ulNTStatus = STATUS_SUCCESS;
+	WCHAR* pwchName = L"MyService";
+
+	ulNTStatus = RtlCreateRegistryKey(RTL_REGISTRY_SERVICES, pwchName);
+	if (NT_SUCCESS(ulNTStatus))
+	{
+		KdPrint(("Rtl创建子项成功.\n"));
+	}
+
+	ulNTStatus = RtlCheckRegistryKey(RTL_REGISTRY_SERVICES, pwchName);
+	if (NT_SUCCESS(ulNTStatus))
+	{
+		KdPrint(("注册表存在.\n"));
+	}
+
+	ulNTStatus = RtlWriteRegistryValue(RTL_REGISTRY_SERVICES, pwchName, L"字符串", REG_SZ, L"你好世界", wcslen(L"你好世界"));
+	if (NT_SUCCESS(ulNTStatus))
+	{
+		KdPrint(("写入成功.\n"));
+	}
+
+	ulNTStatus = RtlDeleteRegistryValue(RTL_REGISTRY_SERVICES, pwchName, L"字符串");
+	if (NT_SUCCESS(ulNTStatus))
+	{
+		KdPrint(("删除成功.\n"));
+	}
+}
+
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING RegistryPath)
 {
 	DriverObject->DriverUnload = DriverUnload;
 	KdPrint(("驱动加载成功\n"));
 
+#if 0			//使用Zw接口
 	Test01();
 	Test02();
 	Test03();
+#else			//使用Rtl接口
+	Test04();
+#endif // 0
 
+	
 	return STATUS_SUCCESS;
 }
