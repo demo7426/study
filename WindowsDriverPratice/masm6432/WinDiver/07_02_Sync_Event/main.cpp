@@ -20,7 +20,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <iostream>
 #include <Windows.h>
 
-DWORD WINAPI ThreadSemaphore(LPVOID lpThreadParameter)
+DWORD WINAPI ThreadEvent(LPVOID lpThreadParameter)
 {
 	std::cout << "进入线程\n";
 
@@ -45,7 +45,7 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	CreateThread(NULL, 0, ThreadSemaphore, &handEvent, 0, NULL);
+	CreateThread(NULL, 0, ThreadEvent, &handEvent, 0, NULL);
 
 	WaitForSingleObject(handEvent, INFINITE);
 
