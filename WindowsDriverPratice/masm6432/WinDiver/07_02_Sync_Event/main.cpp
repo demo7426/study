@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.cpp
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.05
-描  述: 使用时间进行线程同步
+描  述: 使用事件进行线程同步
 备  注:	CreateEvent--创建事件
 		SetEvent--释放事件
 		WaitForSingleObject--等待事件
@@ -20,7 +20,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <iostream>
 #include <Windows.h>
 
-DWORD WINAPI ThreadProc(LPVOID lpThreadParameter)
+DWORD WINAPI ThreadSemaphore(LPVOID lpThreadParameter)
 {
 	std::cout << "进入线程\n";
 
@@ -45,7 +45,7 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	CreateThread(NULL, 0, ThreadProc, &handEvent, 0, NULL);
+	CreateThread(NULL, 0, ThreadSemaphore, &handEvent, 0, NULL);
 
 	WaitForSingleObject(handEvent, INFINITE);
 
