@@ -73,6 +73,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_01_IrqlevelCotrol", "07_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_02_Sync_Event", "07_02_Sync_Event\07_02_Sync_Event.vcxproj", "{2E31D34F-6408-41A5-B59E-0DF624866FE0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_03_Sync_SemaphoreAndMutex", "07_03_Sync_SemaphoreAndMutex\07_03_Sync_SemaphoreAndMutex.vcxproj", "{28E342E9-70CE-46FD-9C10-847E235DCE65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Win7|ARM = Debug_Win7|ARM
@@ -1189,6 +1191,26 @@ Global
 		{2E31D34F-6408-41A5-B59E-0DF624866FE0}.Release|x64.Build.0 = Release|x64
 		{2E31D34F-6408-41A5-B59E-0DF624866FE0}.Release|x86.ActiveCfg = Release|Win32
 		{2E31D34F-6408-41A5-B59E-0DF624866FE0}.Release|x86.Build.0 = Release|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|ARM.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|ARM.Build.0 = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|ARM64.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|ARM64.Build.0 = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|x64.ActiveCfg = Debug|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|x64.Build.0 = Debug|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|x86.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug_Win7|x86.Build.0 = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|ARM.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|x64.ActiveCfg = Debug|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|x64.Build.0 = Debug|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|x86.ActiveCfg = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Debug|x86.Build.0 = Debug|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|ARM.ActiveCfg = Release|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|ARM64.ActiveCfg = Release|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|x64.ActiveCfg = Release|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|x64.Build.0 = Release|x64
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|x86.ActiveCfg = Release|Win32
+		{28E342E9-70CE-46FD-9C10-847E235DCE65}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

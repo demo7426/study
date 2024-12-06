@@ -1,0 +1,4 @@
+﻿  main.cpp
+D:\WindowsDriverPratice\masm6432\WinDiver\07_03_Sync_SemaphoreAndMutex\main.cpp(60): warning C4715: “Semaphore_Test01”: 不是所有的控件路径都返回值
+D:\WindowsDriverPratice\masm6432\WinDiver\07_03_Sync_SemaphoreAndMutex\main.cpp(101): warning C4715: “Mutex_Test02”: 不是所有的控件路径都返回值
+  07_03_Sync_SemaphoreAndMutex.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\07_03_Sync_SemaphoreAndMutex.exe
