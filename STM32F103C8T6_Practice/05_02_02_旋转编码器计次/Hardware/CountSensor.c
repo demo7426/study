@@ -36,7 +36,7 @@ void CountSensor_Init(void)
 	tGPIO_InitTypeDef.GPIO_Pin = GPIO_Pin_14;
 	tGPIO_InitTypeDef.GPIO_Speed = GPIO_Speed_50MHz;
 	
-	GPIO_Init(GPIOA, &tGPIO_InitTypeDef);							//初始化GPIO
+	GPIO_Init(GPIOB, &tGPIO_InitTypeDef);							//初始化GPIO
 	
 	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);	//配置AFIO的输入
 	
