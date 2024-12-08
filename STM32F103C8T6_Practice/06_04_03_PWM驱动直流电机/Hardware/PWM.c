@@ -43,7 +43,7 @@ void PWM_Init(void)
 	
 	//定时器重装值（定时频率=72MHz/(PSC+1)/(ARR+1)）（定时频率=72MHz/(99+1)/(719+1)）
 	tTIM_TimeBaseInitTypeDef.TIM_Period = 100 - 1;					
-	tTIM_TimeBaseInitTypeDef.TIM_Prescaler = 720 - 1;				//定时器预分频器
+	tTIM_TimeBaseInitTypeDef.TIM_Prescaler = 36 - 1;				//定时器预分频器，设置频率20KHz（人耳能够听到的频率为20Hz~20KHz）
 	tTIM_TimeBaseInitTypeDef.TIM_RepetitionCounter = 0;				//重复计数器的值
 	
 	TIM_TimeBaseInit(TIM2, &tTIM_TimeBaseInitTypeDef);				//设置时基单元
@@ -91,7 +91,7 @@ void PWM_Init(void)
 	
 	//定时器重装值（定时频率=72MHz/(PSC+1)/(ARR+1)）（定时频率=72MHz/(99+1)/(719+1)）
 	tTIM_TimeBaseInitTypeDef.TIM_Period = 100 - 1;				
-	tTIM_TimeBaseInitTypeDef.TIM_Prescaler = 720 - 1;				//定时器预分频器
+	tTIM_TimeBaseInitTypeDef.TIM_Prescaler = 36 - 1;				//定时器预分频器，设置频率20KHz（人耳能够听到的频率为20Hz~20KHz）
 	tTIM_TimeBaseInitTypeDef.TIM_RepetitionCounter = 0;				//重复计数器的值
 	
 	TIM_TimeBaseInit(TIM2, &tTIM_TimeBaseInitTypeDef);				//设置时基单元
