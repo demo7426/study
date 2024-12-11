@@ -10,6 +10,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 		KeInitializeEvent--初始化事件
 		KeWaitForSingleObject--等待事件
 		KeSetEvent--当事件对象设置为有信号状态
+
+		PsTerminateSystemThread--明确指示线程结束函数(线程结束时必须手动调用该函数)
 修改记录:
 
   1.  日期: 2024.12.11
