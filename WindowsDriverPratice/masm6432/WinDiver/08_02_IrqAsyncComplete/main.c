@@ -49,7 +49,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	UNICODE_STRING tSymbolicName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//符号文件路径名
 	PDEVICE_OBJECT ptDeviceObj = NULL;													//设备对象
 
-	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, DO_BUFFERED_IO, FALSE, &ptDeviceObj);
+	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &ptDeviceObj);
 	if (!NT_SUCCESS(lNTStatus))
 	{
 		KdPrint(("创建设备文件失败\n"));
@@ -70,6 +70,9 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	DriverObject->MajorFunction[IRP_MJ_READ] = Driver_Read;
 	DriverObject->MajorFunction[IRP_MJ_CLEANUP] = Driver_Cleanup;
 	DriverObject->MajorFunction[IRP_MJ_CLOSE] = Driver_Close;
+
+	ptDeviceObj->Flags |= DO_BUFFERED_IO;
+	ptDeviceObj->Flags &= ~DO_DEVICE_INITIALIZING;
 
 	KdPrint(("驱动加载成功\n"));
 
@@ -108,7 +111,7 @@ NTSTATUS Driver_Cleanup(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 	INT32 nIrqCounter = 0;
 
 	KdPrint(("进入Cleanup\n"));
-
+	
 	while (!IsListEmpty(&g_tListEntry))
 	{
 		PLIST_ENTRY ptListEntry = RemoveTailList(&g_tListEntry);
