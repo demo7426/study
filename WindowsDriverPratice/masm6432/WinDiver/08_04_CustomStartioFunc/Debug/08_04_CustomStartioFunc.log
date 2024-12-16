@@ -1,0 +1,8 @@
+﻿  Building '08_04_CustomStartioFunc' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  08_04_CustomStartioFunc.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\08_04_CustomStartioFunc.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\08_04_CustomStartioFunc.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
