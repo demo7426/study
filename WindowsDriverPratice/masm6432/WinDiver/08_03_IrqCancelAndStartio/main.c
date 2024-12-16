@@ -181,7 +181,7 @@ VOID Driver_Startio(_Inout_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct 
 
 	IoStartNextPacket(DeviceObject, TRUE);
 
-	KdPrint(("½øÈëDriver_Startio\n"));
+	KdPrint(("ÍË³öDriver_Startio\n"));
 }
 #endif
 
