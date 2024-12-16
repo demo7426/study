@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.cpp
 作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.16
-描  述: 测试内核的irq取消和startio函数功能
+描  述: 测试内核自定义startio函数功能
 备  注:
 修改记录:
 
