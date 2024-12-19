@@ -1,8 +1,0 @@
-﻿  Building '10_01_KeTest' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
-  main.c
-  10_01_KeTest.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\10_01_KeTest.sys
-  Done Adding Additional Store
-  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\10_01_KeTest.sys
-  
-  Inf2Cat task was skipped as there were no inf files to process
-  

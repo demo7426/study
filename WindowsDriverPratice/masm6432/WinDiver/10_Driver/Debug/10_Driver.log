@@ -1,0 +1,7 @@
+﻿  Building '10_Driver' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  10_Driver.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\10_Driver.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\10_Driver.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
