@@ -1,0 +1,8 @@
+﻿  Building '09_03_TimeAndIrpTimeoutProcess' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  09_03_TimeAndIrpTimeoutProcess.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\09_03_TimeAndIrpTimeoutProcess.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\09_03_TimeAndIrpTimeoutProcess.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
