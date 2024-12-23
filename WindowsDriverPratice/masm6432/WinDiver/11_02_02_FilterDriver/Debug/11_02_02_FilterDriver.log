@@ -1,0 +1,8 @@
+﻿  Building '11_02_02_FilterDriver' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  11_02_02_FilterDriver.vcxproj -> D:\WindowsDriverPratice\masm6432\WinDiver\Debug\11_02_02_FilterDriver.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WinDiver\Debug\11_02_02_FilterDriver.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
