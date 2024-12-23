@@ -14,21 +14,29 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 *************************************************/
 
+#include <ntifs.h>
 #include <ntddk.h>
 
-NTKERNELAPI
-NTSTATUS
-ObReferenceObjectByName(
-	IN PUNICODE_STRING ObjectName,
-	IN ULONG Attributes,
-	IN PACCESS_STATE PassedAccessState OPTIONAL,
-	IN ACCESS_MASK DesiredAccess OPTIONAL,
-	IN POBJECT_TYPE ObjectType,
-	IN KPROCESSOR_MODE AccessMode,
-	IN OUT PVOID ParseContext OPTIONAL,
-	OUT PVOID* Object
-);
-extern POBJECT_TYPE *IoDeviceObjectType;
+#ifdef __cplusplus
+extern "C"
+{
+#endif  __cplusplus
+NTKERNELAPI NTSTATUS ObReferenceObjectByName(
+		IN PUNICODE_STRING ObjectName,
+		IN ULONG Attributes,
+		IN PACCESS_STATE PassedAccessState OPTIONAL,
+		IN ACCESS_MASK DesiredAccess OPTIONAL,
+		IN POBJECT_TYPE ObjectType,
+		IN KPROCESSOR_MODE AccessMode,
+		IN OUT PVOID ParseContext OPTIONAL,
+		OUT PVOID* Object
+	);
+
+extern POBJECT_TYPE* IoDeviceObjectType;
+extern POBJECT_TYPE* IoDriverObjectType;
+#ifdef __cplusplus
+}
+#endif __cplusplus
 
 VOID APC_Routine(_In_ PVOID ApcContext, _In_ PIO_STATUS_BLOCK IoStatusBlock, _In_ ULONG Reserved)
 {
@@ -282,21 +290,12 @@ VOID CallDiver_Async_Test06(VOID)
 {
 	UNICODE_STRING tDeviceName = RTL_CONSTANT_STRING(L"\\Device\\HelloDDK");				//设备对象名
 	UNICODE_STRING tSysbolicLinkName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//符号链接名
-	HANDLE handFile = NULL;
-	OBJECT_ATTRIBUTES tObjAttr;
-	IO_STATUS_BLOCK tIO_Status;
 	NTSTATUS lNTStatus = STATUS_SUCCESS;
 
-	LARGE_INTEGER tOffset = RtlConvertLongToLargeInteger(0);
-	KEVENT tKEvent;
-	PFILE_OBJECT ptFileObj = NULL;
-	PDEVICE_OBJECT ptDevObj;
-	PDRIVER_OBJECT ptDriverObj = NULL;
-	PIRP pIrp = NULL;
-	PIO_STACK_LOCATION ptIO_Stack;
+	PDEVICE_OBJECT ptDevObj = NULL;
 	
 	//TODO:win7专业版调用 ObReferenceObjectByName 返回 0xc0000024，待解决
-	lNTStatus = ObReferenceObjectByName(&tSysbolicLinkName, OBJ_CASE_INSENSITIVE, NULL, FILE_ANY_ACCESS, *IoDeviceObjectType, KernelMode, NULL, &ptDevObj);
+	lNTStatus = ObReferenceObjectByName(&tDeviceName, OBJ_KERNEL_HANDLE | OBJ_CASE_INSENSITIVE, NULL, FILE_ANY_ACCESS, *IoDeviceObjectType, KernelMode, NULL, &ptDevObj);
 	if (NT_SUCCESS(lNTStatus))
 	{
 		KdPrint(("设备对象指针获取成功\n"));
