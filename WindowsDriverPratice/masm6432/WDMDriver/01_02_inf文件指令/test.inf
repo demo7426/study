@@ -1,0 +1,55 @@
+;/*************************************************
+;Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+;文件名:	main.c
+;作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.26
+;描  述: 将03_02_WinDriverBaseStruct01.sys添加成为待一个手动启动的服务
+;备  注: 在安装此inf文件时，必须使用全英文的文件路径
+;		cmd终端使用如下命令:
+;		net start myservice		;启动服务
+;		net stop myservice		;停止服务
+;		sc delete myservice		;删除服务
+;修改记录:
+;
+;  1.  日期: 2024.12.26
+;	  作者: 钱锐
+;	  内容:
+;		  1) 此为模板第一个版本;
+;	  版本:V0.1.0
+;
+;*************************************************/
+
+[Version]
+Signature="$WINDOWS NT$"						;Chicago
+
+[SourceDiskNames]
+1="mydisk",
+
+[SourceDiskFiles]
+03_02_WinDriverBaseStruct01.sys=1,"mydir"
+
+[DestinationDirs]
+DefaultDestDir=12								;12--C:\Windows\System32\drivers
+;DefaultDestDir=10,System32\drivers				;10--C:\Windows;	10,System32\drivers--C:\Windows\System32\drivers
+
+[DefaultInstall]
+CopyFiles=file_section
+AddReg=reg_section
+
+[DefaultInstall.Services]
+AddService="myservice",,service_section
+
+[service_section]
+DisplayName="myservice"
+ErrorControl=1
+ServiceBinary=C:\Windows\System32\drivers\03_02_WinDriverBaseStruct.sys
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[reg_section]
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number1",0,"this is a test"		;向注册表添加字符串键值;0--字符串
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number2",0x10001,1000				;向注册表添加DWORD键值;0x10001--DWORD
+
+[file_section]
+03_02_WinDriverBaseStruct.sys
+
+
