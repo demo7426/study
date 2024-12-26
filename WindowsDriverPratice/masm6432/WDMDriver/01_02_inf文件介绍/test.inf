@@ -1,0 +1,36 @@
+;/*************************************************
+;Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+;文件名:	main.c
+;作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.26
+;描  述: 将03_02_WinDriverBaseStruct01.sys拷贝到C:\Windows\System32\drivers目录下
+;备  注:
+;修改记录:
+;
+;  1.  日期: 2024.12.26
+;	  作者: 钱锐
+;	  内容:
+;		  1) 此为模板第一个版本;
+;	  版本:V0.1.0
+;
+;*************************************************/
+
+[Version]
+Signature="$WINDOWS NT$"						;Chicago
+
+[SourceDiskNames]
+1="mydisk",
+
+[SourceDiskFiles]
+03_02_WinDriverBaseStruct01.sys=1,"mydir"
+
+[DestinationDirs]
+DefaultDestDir=12								;12--C:\Windows\System32\drivers
+;DefaultDestDir=10,System32\drivers				;10--C:\Windows;	10,System32\drivers--C:\Windows\System32\drivers
+
+[DefaultInstall]
+CopyFiles=file_section
+
+[file_section]
+03_02_WinDriverBaseStruct.sys
+
+
