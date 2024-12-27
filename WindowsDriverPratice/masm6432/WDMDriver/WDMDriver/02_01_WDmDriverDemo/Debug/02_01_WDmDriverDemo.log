@@ -1,0 +1,8 @@
+﻿  Building '02_01_WDmDriverDemo' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_01_WDmDriverDemo.inf
+  Stamping [Version] section with DriverVer=12/27/2024,16.14.25.536
+  main.c
+  02_01_WDmDriverDemo.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_01_WDmDriverDemo.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_01_WDmDriverDemo.sys
+  
