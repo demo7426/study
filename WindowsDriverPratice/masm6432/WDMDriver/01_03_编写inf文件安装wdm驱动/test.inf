@@ -1,0 +1,74 @@
+;/*************************************************
+;Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+;文件名:	main.c
+;作  者:	钱锐      版本: V0.1.0     新建日期: 2024.12.27
+;描  述: wdm驱动安装文件
+;备  注: 
+;修改记录:
+;
+;  1.  日期: 2024.12.27
+;	  作者: 钱锐
+;	  内容:
+;		  1) 此为模板第一个版本;
+;	  版本:V0.1.0
+;
+;*************************************************/
+
+[Version]
+Signature="$WINDOWS NT$"																	;文件类型识别标识符;还可以替换为Chicago等
+Class=myhardwareclass																		;设备类
+ClassGUID={2304C4A3-79FA-49C5-B4B7-42977CA5F7EA}											;设备类GUID
+DriverVer=12/27/2024,0.0.0.1																;驱动版本;日期:2024-12-27;版本号为主版本.次版本.次次版本.次次次版本
+Provider=myself																				;驱动程序提供商
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+[SourceDiskNames]
+1=%diskdesc%,
+
+[SourceDiskFiles]
+03_02_WinDriverBaseStruct.sys=1
+
+[DestinationDirs]
+DefaultDestDir=12																			;12--C:\Windows\System32\drivers
+;DefaultDestDir=10,System32\drivers															;10--C:\Windows;	10,System32\drivers--C:\Windows\System32\drivers
+
+[Manufacturer]									
+"mysoft"=mfg.NTX86																			;mysoft--制造商
+
+[mfg.NTX86]
+"hello device"=My_Install,PCI\VEN_8888&DEV_8888												;hello device--设备描述;PCI\VEN_8888&DEV_8888--硬件ID
+
+[My_Install.NTX86]
+CopyFiles=file_section
+AddReg=reg_section
+
+[My_Install.NTX86.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%																			;设备描述
+ErrorControl=1
+ServiceBinary=%12%\03_02_WinDriverBaseStruct.sys
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[reg_section]
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number1",0,"this is a test"		;向注册表添加字符串键值;0--字符串
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number2",0x10001,1000				;向注册表添加DWORD键值;0x10001--DWORD
+
+[file_section]
+03_02_WinDriverBaseStruct.sys
+
+[Strings]																					;相当于C语言内部的宏常量
+desc="myservice"
+diskdesc="mydisk"
+DeviceClassName="myhardwareclass"
+
+
+
