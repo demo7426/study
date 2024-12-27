@@ -1,0 +1,9 @@
+Inf2Cat Tool Output:
+........................
+Signability test failed.
+
+Errors:
+22.9.10: %drivertarget% in [file_section] is missing from [SourceDisksFiles] section in 01_05_VSGenarateWDMINF\01_05_vsgenaratewdminf.inf; driver may not sign correctly until this is resolved.
+
+Warnings:
+None

@@ -1,0 +1,4 @@
+﻿  Building '01_05_VSGenarateWDMINF' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\01_05_VSGenarateWDMINF.inf
+  Stamping [Version] section with DriverVer=12/27/2024,14.28.54.672
+  01_05_VSGenarateWDMINF.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\01_05_VSGenarateWDMINF.sys
