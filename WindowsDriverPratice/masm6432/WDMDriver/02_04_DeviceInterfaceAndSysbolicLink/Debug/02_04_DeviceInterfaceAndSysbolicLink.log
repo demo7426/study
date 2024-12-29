@@ -1,0 +1,8 @@
+﻿  Building '02_04_DeviceInterfaceAndSysbolicLink' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_04_DeviceInterfaceAndSysbolicLink.inf
+  Stamping [Version] section with DriverVer=12/29/2024,17.50.37.87
+  main.c
+  02_04_DeviceInterfaceAndSysbolicLink.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_04_DeviceInterfaceAndSysbolicLink.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_04_DeviceInterfaceAndSysbolicLink.sys
+  

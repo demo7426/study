@@ -1,0 +1,58 @@
+;
+; 02_01_WDmDriverDemo.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%DeviceClassName%
+ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
+Provider=%ManufacturerName%
+DriverVer=
+CatalogFile=02_01_WDmDriverDemo.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+%DriverTarget%=1
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+"uoe driver"=My_Install,PCI\VEN_8888&DEV_8888
+
+[My_Install.NT$ARCH$]
+CopyFiles=file_section
+;AddReg=reg_section
+
+[My_Install.NT$ARCH$.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%																			;设备描述
+ErrorControl=1
+ServiceBinary=%12%\%DriverTarget%
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[file_section]
+%DriverTarget%
+
+[Strings]
+desc="myservice"
+ManufacturerName="qianrui"																	;TODO: Replace with your manufacturer name
+DiskName="02_04_DeviceInterfaceAndSysbolicLink Source Disk"
+DeviceClassName="LevelChip"
+DriverTarget="02_04_DeviceInterfaceAndSysbolicLink.sys"

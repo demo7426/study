@@ -1,0 +1,9 @@
+Inf2Cat Tool Output:
+........................
+Signability test failed.
+
+Errors:
+22.9.10: %drivertarget% in [file_section] is missing from [SourceDisksFiles] section in 02_04_DeviceInterfaceAndSysbolicLink\02_04_deviceinterfaceandsysboliclink.inf; driver may not sign correctly until this is resolved.
+
+Warnings:
+None
