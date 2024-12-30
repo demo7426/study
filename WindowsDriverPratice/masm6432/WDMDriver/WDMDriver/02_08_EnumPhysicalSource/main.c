@@ -40,8 +40,13 @@ VOID PrintPhysicalResource(PCM_PARTIAL_RESOURCE_LIST _pCM_ParResList)
                 _pCM_ParResList->PartialDescriptors[i].u.Port.Length));
             break;
         case CmResourceTypeInterrupt:
+#ifdef _X86_
             KdPrint(("中断:level:%u, Vector:%u, Affinity:%u\n", _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Vector, _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Affinity));
+#else
+            KdPrint(("中断:level:%u, Vector:%u, Affinity:%llu\n", _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
+                _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Vector, _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Affinity));
+#endif // _X86_
             break;
         case CmResourceTypeMemory:
             KdPrint(("内存:起始地址:0x%llx, 长度:0x%x\n", _pCM_ParResList->PartialDescriptors[i].u.Memory.Start.QuadPart,

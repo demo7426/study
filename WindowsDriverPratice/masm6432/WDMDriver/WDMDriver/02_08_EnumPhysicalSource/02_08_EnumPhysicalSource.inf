@@ -18,7 +18,7 @@ DefaultDestDir = 12
 1 = %DiskName%,,,""
 
 [SourceDisksFiles]
-%DriverTarget%=1
+02_08_EnumPhysicalSource.sys=1
 
 [ClassInstall32]
 AddReg=Add_class
@@ -31,7 +31,8 @@ HKR,,Icon,,"-5"
 %ManufacturerName%=Standard,NT$ARCH$
 
 [Standard.NT$ARCH$]
-"uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+"uoe driver"=My_Install,PCI\VEN_0613&DEV_1511
+
 
 [My_Install.NT$ARCH$]
 CopyFiles=file_section

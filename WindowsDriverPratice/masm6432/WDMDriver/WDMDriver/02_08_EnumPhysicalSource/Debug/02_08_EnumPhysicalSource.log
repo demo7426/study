@@ -1,8 +1,4 @@
 ﻿  Building '02_08_EnumPhysicalSource' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Stamping Debug\02_08_EnumPhysicalSource.inf
-  Stamping [Version] section with DriverVer=12/30/2024,17.42.5.753
-  main.c
+  Stamping [Version] section with DriverVer=12/30/2024,19.10.54.689
   02_08_EnumPhysicalSource.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_08_EnumPhysicalSource.sys
-  Done Adding Additional Store
-  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_08_EnumPhysicalSource.sys
-  
