@@ -1,0 +1,4 @@
+﻿  Building '02_06_PNPHandle' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_06_PNPHandle.inf
+  Stamping [Version] section with DriverVer=12/30/2024,12.11.55.735
+  02_06_PNPHandle.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_06_PNPHandle.sys
