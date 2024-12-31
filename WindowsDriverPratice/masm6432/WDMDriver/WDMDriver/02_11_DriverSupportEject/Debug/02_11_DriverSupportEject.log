@@ -1,0 +1,22 @@
+﻿  Building '02_11_DriverSupportEject' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_11_DriverSupportEject.inf
+  Stamping [Version] section with DriverVer=12/31/2024,11.32.31.505
+  main.c
+  02_11_DriverSupportEject.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_11_DriverSupportEject.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_11_DriverSupportEject.sys
+  
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_11_DriverSupportEject\02_11_driversupporteject.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_11_DriverSupportEject\02_11_driversupporteject.cat
+  
