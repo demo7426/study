@@ -1,0 +1,22 @@
+﻿  Building '03_02_AccessPCIConfigSpace01' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\03_02_AccessPCIConfigSpace01.inf
+  Stamping [Version] section with DriverVer=01/02/2025,14.22.10.13
+  main.c
+  03_02_AccessPCIConfigSpace01.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_02_AccessPCIConfigSpace01.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_02_AccessPCIConfigSpace01.sys
+  
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_02_AccessPCIConfigSpace01\03_02_accesspciconfigspace01.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_02_AccessPCIConfigSpace01\03_02_accesspciconfigspace01.cat
+  

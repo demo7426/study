@@ -1,0 +1,59 @@
+;
+; 03_02_AccessPCIConfigSpace01.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%DeviceClassName%
+ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
+Provider=%ManufacturerName%
+DriverVer = 01/02/2025,14.22.10.13
+CatalogFile=03_02_AccessPCIConfigSpace01.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+03_02_AccessPCIConfigSpace01.sys=1
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTx86
+
+[Standard.NTx86]
+"uoe driver"=My_Install,PCI\VEN_0613&DEV_1511
+
+
+[My_Install.NTx86]
+CopyFiles=file_section
+;AddReg=reg_section
+
+[My_Install.NTx86.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%																			;设备描述
+ErrorControl=1
+ServiceBinary=%12%\%DriverTarget%
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[file_section]
+%DriverTarget%
+
+[Strings]
+desc="myservice"
+ManufacturerName="qianrui"																	;TODO: Replace with your manufacturer name
+DiskName="03_02_AccessPCIConfigSpace01 Source Disk"
+DeviceClassName="LevelChip"
+DriverTarget="03_02_AccessPCIConfigSpace01.sys"
