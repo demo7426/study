@@ -1,0 +1,22 @@
+﻿  Building '02_12_IOPortOperate' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_12_IOPortOperate.inf
+  Stamping [Version] section with DriverVer=01/02/2025,11.34.55.989
+  main.c
+  02_12_IOPortOperate.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_12_IOPortOperate.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_12_IOPortOperate.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_12_IOPortOperate\02_12_ioportoperate.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_12_IOPortOperate\02_12_ioportoperate.cat
+  

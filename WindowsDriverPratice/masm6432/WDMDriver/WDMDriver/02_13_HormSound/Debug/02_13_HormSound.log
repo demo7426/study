@@ -1,0 +1,22 @@
+﻿  Building '02_13_HormSound' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\02_13_HormSound.inf
+  Stamping [Version] section with DriverVer=01/02/2025,11.51.58.941
+  main.c
+  02_13_HormSound.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_13_HormSound.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_13_HormSound.sys
+  
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_13_HormSound\02_13_hormsound.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\02_13_HormSound\02_13_hormsound.cat
+  
