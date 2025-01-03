@@ -1,0 +1,22 @@
+﻿  Building '03_05_MMapAndIoConnectIrp' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\03_05_MMapAndIoConnectIrp.inf
+  Stamping [Version] section with DriverVer=01/03/2025,17.0.57.797
+  main.c
+  03_05_MMapAndIoConnectIrp.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_05_MMapAndIoConnectIrp.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_05_MMapAndIoConnectIrp.sys
+  
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_05_MMapAndIoConnectIrp\03_05_mmapandioconnectirp.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_05_MMapAndIoConnectIrp\03_05_mmapandioconnectirp.cat
+  

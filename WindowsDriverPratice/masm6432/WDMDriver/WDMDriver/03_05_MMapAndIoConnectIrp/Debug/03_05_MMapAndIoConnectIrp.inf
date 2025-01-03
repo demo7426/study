@@ -1,0 +1,58 @@
+;
+; 03_05_MMapAndIoConnectIrp.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%DeviceClassName%
+ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
+Provider=%ManufacturerName%
+DriverVer = 01/03/2025,17.0.57.797
+CatalogFile=03_05_MMapAndIoConnectIrp.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+03_05_MMapAndIoConnectIrp.sys=1
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTx86
+
+[Standard.NTx86]
+"uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+
+[My_Install.NTx86]
+CopyFiles=file_section
+;AddReg=reg_section
+
+[My_Install.NTx86.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%																			;设备描述
+ErrorControl=1
+ServiceBinary=%12%\%DriverTarget%
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[file_section]
+%DriverTarget%
+
+[Strings]
+desc="myservice"
+ManufacturerName="qianrui"																	;TODO: Replace with your manufacturer name
+DiskName="03_05_MMapAndIoConnectIrp Source Disk"
+DeviceClassName="LevelChip"
+DriverTarget="03_05_MMapAndIoConnectIrp.sys"
