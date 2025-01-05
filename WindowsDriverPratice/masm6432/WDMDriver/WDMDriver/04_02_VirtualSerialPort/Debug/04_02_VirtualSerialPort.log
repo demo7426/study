@@ -1,0 +1,22 @@
+﻿  Building '04_02_VirtualSerialPort' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\04_02_VirtualSerialPort.inf
+  Stamping [Version] section with DriverVer=01/05/2025,18.8.15.877
+  HelloWDM.cpp
+  04_02_VirtualSerialPort.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\04_02_VirtualSerialPort.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\04_02_VirtualSerialPort.sys
+  
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\04_02_VirtualSerialPort\04_02_virtualserialport.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\04_02_VirtualSerialPort\04_02_virtualserialport.cat
+  
