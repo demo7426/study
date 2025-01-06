@@ -1,13 +1,12 @@
-﻿  Building '01_KMDFDemo' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+﻿  Building '01_KMDFDemo' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Stamping Debug\01_KMDFDemo.inf
-  Stamping [Version] section with DriverVer=01/05/2025,20.14.58.908
+  Stamping [Version] section with DriverVer=01/06/2025,18.56.4.238
   main.c
   01_KMDFDemo.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\01_KMDFDemo.sys
   Done Adding Additional Store
   Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\01_KMDFDemo.sys
   
-  Driver is 'Universal'.
-  ..........................
+  .........................
   Signability test complete.
   
   Errors:

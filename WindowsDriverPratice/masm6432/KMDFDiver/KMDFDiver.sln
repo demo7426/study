@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.35229.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_KMDFDemo", "01_KMDFDemo\01_KMDFDemo.vcxproj", "{F1747583-E112-48FA-9768-B6EF96BBF6D3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_UserTest", "03_UserTest\03_UserTest.vcxproj", "{92FEAB53-3138-4E66-9468-C7331E394292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -41,6 +43,18 @@ Global
 		{F1747583-E112-48FA-9768-B6EF96BBF6D3}.Release|x86.ActiveCfg = Release|Win32
 		{F1747583-E112-48FA-9768-B6EF96BBF6D3}.Release|x86.Build.0 = Release|Win32
 		{F1747583-E112-48FA-9768-B6EF96BBF6D3}.Release|x86.Deploy.0 = Release|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|ARM.ActiveCfg = Debug|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|x64.ActiveCfg = Debug|x64
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|x64.Build.0 = Debug|x64
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|x86.ActiveCfg = Debug|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Debug|x86.Build.0 = Debug|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|ARM.ActiveCfg = Release|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|ARM64.ActiveCfg = Release|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|x64.ActiveCfg = Release|x64
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|x64.Build.0 = Release|x64
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|x86.ActiveCfg = Release|Win32
+		{92FEAB53-3138-4E66-9468-C7331E394292}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
