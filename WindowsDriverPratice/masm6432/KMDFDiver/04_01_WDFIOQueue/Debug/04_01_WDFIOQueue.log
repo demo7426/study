@@ -1,0 +1,22 @@
+﻿  Building '04_01_WDFIOQueue' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\04_01_WDFIOQueue.inf
+  Stamping [Version] section with DriverVer=01/06/2025,19.16.51.254
+  main.c
+  04_01_WDFIOQueue.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\04_01_WDFIOQueue.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\04_01_WDFIOQueue.sys
+  
+  ..........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\04_01_WDFIOQueue\04_01_wdfioqueue.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\04_01_WDFIOQueue\04_01_wdfioqueue.cat
+  
