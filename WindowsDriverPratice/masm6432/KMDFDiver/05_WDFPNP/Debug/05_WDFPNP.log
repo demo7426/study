@@ -1,0 +1,25 @@
+﻿  Building '05_WDFPNP' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\05_WDFPNP.inf
+  Stamping [Version] section with DriverVer=01/07/2025,11.50.59.824
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  05_WDFPNP.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\05_WDFPNP.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\05_WDFPNP.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\05_WDFPNP\05_wdfpnp.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\05_WDFPNP\05_wdfpnp.cat
+  
