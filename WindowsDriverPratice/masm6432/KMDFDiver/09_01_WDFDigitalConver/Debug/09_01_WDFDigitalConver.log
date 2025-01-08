@@ -1,0 +1,25 @@
+﻿  Building '09_01_WDFDigitalConver' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\09_01_WDFDigitalConver.inf
+  Stamping [Version] section with DriverVer=01/08/2025,20.3.40.934
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  09_01_WDFDigitalConver.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\09_01_WDFDigitalConver.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\09_01_WDFDigitalConver.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\09_01_WDFDigitalConver\09_01_wdfdigitalconver.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\09_01_WDFDigitalConver\09_01_wdfdigitalconver.cat
+  
