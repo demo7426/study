@@ -1,0 +1,25 @@
+﻿  Building '11_01_WDFAddTimer_ManualHandleRequest' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\11_01_WDFAddTimer_ManualHandleRequest.inf
+  Stamping [Version] section with DriverVer=01/08/2025,23.43.1.342
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  11_01_WDFAddTimer_ManualHandleRequest.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\11_01_WDFAddTimer_ManualHandleRequest.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\11_01_WDFAddTimer_ManualHandleRequest.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\11_01_WDFAddTimer_ManualHandleRequest\11_01_wdfaddtimer_manualhandlerequest.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\11_01_WDFAddTimer_ManualHandleRequest\11_01_wdfaddtimer_manualhandlerequest.cat
+  
