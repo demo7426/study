@@ -1,6 +1,6 @@
 ﻿  Building '05_WDFPNP' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Stamping Debug\05_WDFPNP.inf
-  Stamping [Version] section with DriverVer=01/07/2025,11.50.59.824
+  Stamping [Version] section with DriverVer=01/08/2025,19.52.20.201
   Device.c
   Driver.c
   Queue.c
