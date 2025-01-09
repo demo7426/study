@@ -1,0 +1,25 @@
+﻿  Building '14_01_DriverContext' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\14_01_DriverContext.inf
+  Stamping [Version] section with DriverVer=01/09/2025,16.27.9.983
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  14_01_DriverContext.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\14_01_DriverContext.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\14_01_DriverContext.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\14_01_DriverContext\14_01_drivercontext.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\14_01_DriverContext\14_01_drivercontext.cat
+  

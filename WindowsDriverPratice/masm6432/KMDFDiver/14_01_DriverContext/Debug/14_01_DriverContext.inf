@@ -1,0 +1,63 @@
+;
+; 14_01_DriverContext.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%DeviceClassName%
+ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
+Provider=%ManufacturerName%
+DriverVer = 01/09/2025,16.27.9.983
+CatalogFile=14_01_DriverContext.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+14_01_DriverContext.sys=1
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTx86
+
+[Standard.NTx86]
+"uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+
+[My_Install.NTx86]
+CopyFiles=file_section
+AddReg=Reg_section
+
+[Reg_section]	;REG_SZ = 0x00000000 REG_MULTI_SZ = 0x00010000 REG_EXPAND_SZ = 0x00020000 REG_BINARY = 0x00000001 REG_DWORD = 0x00010001
+HKLM,SYSTEM\CurrentControlSet\services\myservice\Parameters,数字,0x00010001,15
+HKLM,SYSTEM\CurrentControlSet\services\myservice\Parameters,字符串,0x00000000,"WDF驱动"
+HKLM,SYSTEM\CurrentControlSet\services\myservice\Parameters,布尔,0x00010001,1
+
+[My_Install.NTx86.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%																			;设备描述
+ErrorControl=1
+ServiceBinary=%12%\%DriverTarget%
+StartType=3																					;0,1,2,3,4;3--手动启动服务
+ServiceType=1
+
+[file_section]
+%DriverTarget%
+
+[Strings]
+desc="myservice"
+ManufacturerName="qianrui"																	;TODO: Replace with your manufacturer name
+DiskName="14_01_DriverContext Source Disk"
+DeviceClassName="LevelChip"
+DriverTarget="14_01_DriverContext.sys"
