@@ -1,0 +1,25 @@
+﻿  Building '18_PNPHanle' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\18_PNPHanle.inf
+  Stamping [Version] section with DriverVer=01/12/2025,18.19.16.745
+  Device.c
+  Driver.c
+  Queue.c
+  正在生成代码...
+  18_PNPHanle.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\18_PNPHanle.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\18_PNPHanle.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\18_PNPHanle\18_pnphanle.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\18_PNPHanle\18_pnphanle.cat
+  
