@@ -7,7 +7,7 @@ Signature="$WINDOWS NT$"
 Class=%DeviceClassName%
 ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
 Provider=%ManufacturerName%
-DriverVer = 01/09/2025,19.46.46.433
+DriverVer = 01/12/2025,16.20.18.512
 CatalogFile=16_01_ThreeIOCtlType.cat
 PnpLockDown=1
 

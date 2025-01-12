@@ -27,7 +27,15 @@ typedef struct _DEVICE_CONTEXT
     WDFQUEUE Queue;
 }DEVICE_CONTEXT, *PDEVICE_CONTEXT;
 
+//请求上下文信息结构体
+typedef struct _REQUEST_CONTEXT
+{
+    WDFMEMORY WDFMemory;
+}REQUEST_CONTEXT, * PREQUEST_CONTEXT;
+
 WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(DEVICE_CONTEXT, GetDeviceContext)            //通过 GetDeviceContext 函数即可获取设备上下文
+
+WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(REQUEST_CONTEXT, GetRequestContext)          //通过 GetRequestContext 函数即可获取请求上下文
 
 NTSTATUS EVT_WDF_Driver_Device_Add(_In_ WDFDRIVER Driver, _Inout_ PWDFDEVICE_INIT DeviceInit);
 

@@ -1,7 +1,7 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	Queue.c
-作  者:	钱锐      版本: V0.0.1     新建日期: 2025.01.07
+作  者:	钱锐      版本: V0.0.2     新建日期: 2025.01.12
 描  述: 队列文件
 备  注:
 修改记录:
@@ -12,20 +12,23 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
           1) 此为模板第一个版本；
       版本:V0.0.1
 
+  2.  日期: 2025.01.12
+      作者: 钱锐
+      内容:
+          1) 新增其它IO控制交互模式；
+      版本:V0.0.2
+
 *************************************************/
 
 #include "Queue.h"
 #include "Device.h"
 #include "Driver.h"
 
-//Function 需要从 0x800 开始，前面的被内核系统占用
-#define IO_NUMCONVER_CODE	        CTL_CODE(FILE_DEVICE_UNKNOWN, 0x800, METHOD_BUFFERED, FILE_ANY_ACCESS)			//数字转换
-#define IO_READ_REGEDIT_NUM_CODE	CTL_CODE(FILE_DEVICE_UNKNOWN, 0x801, METHOD_BUFFERED, FILE_ANY_ACCESS)			//读取注册表数字
-#define IO_READ_REGEDIT_BOOLE_CODE	CTL_CODE(FILE_DEVICE_UNKNOWN, 0x802, METHOD_NEITHER, FILE_ANY_ACCESS)			//读取注册表布尔
-#define IO_READ_REGEDIT_STRING_CODE	CTL_CODE(FILE_DEVICE_UNKNOWN, 0x803, METHOD_OUT_DIRECT, FILE_ANY_ACCESS)		//读取注册表字符串
-
 //读取注册表数字
 VOID IOReadRegeditNum(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _In_ size_t InputBufferLength);
+
+//读取注册表布尔
+VOID IOReadRegeditBoole(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _In_ size_t InputBufferLength);
 
 //读取注册表字符串
 VOID IOReadRegeditString(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _In_ size_t InputBufferLength);
@@ -64,6 +67,7 @@ VOID EVT_WDF_IO_Queue_IO_Device_Control(_In_ WDFQUEUE Queue, _In_ WDFREQUEST Req
         IOReadRegeditNum(Request, OutputBufferLength, InputBufferLength);
         break;
     case IO_READ_REGEDIT_BOOLE_CODE:    //其它方式交互数据
+        IOReadRegeditBoole(Request, OutputBufferLength, InputBufferLength);
         break;
     case IO_READ_REGEDIT_STRING_CODE:   //直接方式交互数据
         IOReadRegeditString(Request, OutputBufferLength, InputBufferLength);
@@ -158,6 +162,39 @@ VOID IOReadRegeditNum(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _
     RtlCopyMemory(pchOutBuf, &ptDriverContext->Num, sizeof ptDriverContext->Num);
 
     WdfRequestCompleteWithInformation(Request, STATUS_SUCCESS, sizeof ptDriverContext->Num);
+}
+
+VOID IOReadRegeditBoole(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _In_ size_t InputBufferLength)
+{
+    NTSTATUS lNTStatus = STATUS_SUCCESS;
+    PDRIVER_CONTEXT ptDriverContext = NULL;
+    PREQUEST_CONTEXT ptRequestContext = NULL;
+    WDFDRIVER tWDFDriver = { 0 };
+    WDFDEVICE tWDFDevice = { 0 };
+    PVOID pvOutBuf = NULL;          //输出缓冲区
+    size_t unOutLen = 0;            //输出缓冲区长度
+
+    tWDFDevice = WdfIoQueueGetDevice(WdfRequestGetIoQueue(Request));
+    tWDFDriver = WdfDeviceGetDriver(tWDFDevice);
+    ptDriverContext = GetDriverContext(tWDFDriver);
+
+    ptRequestContext = GetRequestContext(Request);
+    if (OutputBufferLength >= sizeof(ULONG))
+    {
+        pvOutBuf = WdfMemoryGetBuffer(ptRequestContext->WDFMemory, &unOutLen);
+        if (!pvOutBuf)
+        {
+            WdfRequestComplete(Request, STATUS_INVALID_PARAMETER);
+            return;
+        }
+
+        *(PULONG)pvOutBuf = ptDriverContext->Boole;
+        WdfRequestComplete(Request, STATUS_SUCCESS);
+    }
+    else
+    {
+        WdfRequestComplete(Request, STATUS_INVALID_PARAMETER);
+    }
 }
 
 VOID IOReadRegeditString(_In_ WDFREQUEST Request, _In_ size_t OutputBufferLength, _In_ size_t InputBufferLength)

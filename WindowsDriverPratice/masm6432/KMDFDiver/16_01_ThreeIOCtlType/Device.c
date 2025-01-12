@@ -1,7 +1,7 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	Device.c
-作  者:	钱锐      版本: V0.0.1     新建日期: 2025.01.07
+作  者:	钱锐      版本: V0.0.2     新建日期: 2025.01.07
 描  述: 设备文件
 备  注:
 修改记录:
@@ -11,6 +11,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       内容:
           1) 此为模板第一个版本；
       版本:V0.0.1
+
+  2.  日期: 2025.01.12
+      作者: 钱锐
+      内容:
+          1) 新增其它IO控制交互模式；
+      版本:V0.0.2
 
 *************************************************/
 
@@ -24,6 +30,9 @@ DEFINE_GUID(INTERFACEGUID,
 
 //创建一个定时器
 NTSTATUS MyCreateTimer(IN WDFTIMER* _pTimer, IN WDFDEVICE _Device);
+
+//在该函数抓取到其它IO控制模式下的用户进程空间，并且将该进程空间锁定
+VOID EVT_WDF_IO_IN_Caller_Context(_In_ WDFDEVICE Device, _In_ WDFREQUEST Request);
 
 NTSTATUS EVT_WDF_Driver_Device_Add(_In_ WDFDRIVER Driver, _Inout_ PWDFDEVICE_INIT DeviceInit)
 {
@@ -39,6 +48,7 @@ NTSTATUS EVT_WDF_Driver_Device_Add(_In_ WDFDRIVER Driver, _Inout_ PWDFDEVICE_INI
     WDF_OBJECT_ATTRIBUTES_INIT_CONTEXT_TYPE(&tWDFObjAttr, DEVICE_CONTEXT);  //增加上下文对象的创建属性
     tWDFObjAttr.SynchronizationScope = WdfSynchronizationScopeDevice;       //设置为同步范围进行完成，保证定时器能够及时结束应用层的request请求
 
+    WdfDeviceInitSetIoInCallerContextCallback(DeviceInit, EVT_WDF_IO_IN_Caller_Context);   //IO管理器传递上下文信息之前调用 EVT_WDF_IO_IN_Caller_Context 函数
     lNTStatus = WdfDeviceCreate(&DeviceInit, &tWDFObjAttr, &tWDFDevice);
     if (!NT_SUCCESS(lNTStatus))
     {
@@ -105,5 +115,63 @@ NTSTATUS MyCreateTimer(IN WDFTIMER* _pTimer, IN WDFDEVICE _Device)
     return lNTStatus;
 }
 
+VOID EVT_WDF_IO_IN_Caller_Context(_In_ WDFDEVICE Device, _In_ WDFREQUEST Request)
+{
+    NTSTATUS lNTStatus = STATUS_SUCCESS;
+    WDF_REQUEST_PARAMETERS tWDFRequsetParam = { 0 };
+    PVOID pvOutputBuf = NULL;
+    size_t unOutputBufLen = 0;
+    WDF_OBJECT_ATTRIBUTES tWDFObjAttr = { 0 };
+    PREQUEST_CONTEXT ptRequestContext = NULL;
 
+    WDF_REQUEST_PARAMETERS_INIT(&tWDFRequsetParam);             //必须初始化，否则会导致程序蓝屏
+    
+    WdfRequestGetParameters(Request, &tWDFRequsetParam);
+
+    //处理非 IO IO_READ_REGEDIT_BOOLE_CODE控制的情况
+    if (!(tWDFRequsetParam.Type == WdfRequestTypeDeviceControl && tWDFRequsetParam.Parameters.DeviceIoControl.IoControlCode == IO_READ_REGEDIT_BOOLE_CODE))
+    {
+        lNTStatus = WdfDeviceEnqueueRequest(Device, Request);
+        if (!NT_SUCCESS(lNTStatus))
+        {
+            WdfRequestComplete(Request, lNTStatus);
+            return;
+        }
+        return;
+    }
+
+    //检索输出其他方式IO控制传入的缓冲区信息
+    lNTStatus = WdfRequestRetrieveUnsafeUserOutputBuffer(Request, 0, &pvOutputBuf, &unOutputBufLen);
+    if (!NT_SUCCESS(lNTStatus) || !pvOutputBuf || unOutputBufLen < 1)
+    {
+        WdfRequestComplete(Request, lNTStatus);
+        return;
+    }
+
+    //为请求分配上下文空间
+    WDF_OBJECT_ATTRIBUTES_INIT_CONTEXT_TYPE(&tWDFObjAttr, REQUEST_CONTEXT);
+    lNTStatus = WdfObjectAllocateContext(Request, &tWDFObjAttr, &ptRequestContext);
+    if (!NT_SUCCESS(lNTStatus))
+    {
+        WdfRequestComplete(Request, lNTStatus);
+        return;
+    }
+
+    //验证 I/O 请求的用户模式缓冲区是否可写，然后锁定缓冲区的物理内存页，以便驱动程序堆栈中的驱动程序可以写入缓冲区。
+    lNTStatus = WdfRequestProbeAndLockUserBufferForWrite(Request, pvOutputBuf, unOutputBufLen, &ptRequestContext->WDFMemory);
+    if (!NT_SUCCESS(lNTStatus))
+    {
+        WdfRequestComplete(Request, lNTStatus);
+        return;
+    }
+
+    lNTStatus = WdfDeviceEnqueueRequest(Device, Request);       //将 Request 请求加入 Device 队列
+    if (!NT_SUCCESS(lNTStatus))
+    {
+        WdfRequestComplete(Request, lNTStatus);
+        return;
+    }
+
+    return;
+}
 

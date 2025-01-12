@@ -1,12 +1,14 @@
 ﻿  Building '16_01_ThreeIOCtlType' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Stamping Debug\16_01_ThreeIOCtlType.inf
-  Stamping [Version] section with DriverVer=01/09/2025,19.46.46.433
+  Stamping [Version] section with DriverVer=01/12/2025,16.20.18.512
+  Device.c
   Queue.c
+  正在生成代码...
   16_01_ThreeIOCtlType.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\16_01_ThreeIOCtlType.sys
   Done Adding Additional Store
   Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\16_01_ThreeIOCtlType.sys
   
-  ..........................
+  .........................
   Signability test complete.
   
   Errors:

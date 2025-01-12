@@ -143,6 +143,15 @@ int main()
 
     printf("读取到的数字: %d\n", dwOutNum);
 
+    if (!DeviceIoControl(hDevice, IO_READ_REGEDIT_BOOLE_CODE, NULL, 0, &dwOutNum, sizeof dwOutNum, &dwRet, NULL))
+    {
+        cout << "DeviceIoControl is err." << GetLastError() << endl;
+        CloseHandle(hDevice);
+        return EXIT_FAILURE;
+    }
+
+    printf("读取到的布尔: %s\n", dwOutNum != 0? "真": "假");
+
     if (!DeviceIoControl(hDevice, IO_READ_REGEDIT_STRING_CODE, NULL, 0, wchStrContent, sizeof(wchStrContent), &dwRet, NULL))
     {
         cout << "DeviceIoControl is err." << GetLastError() << endl;
