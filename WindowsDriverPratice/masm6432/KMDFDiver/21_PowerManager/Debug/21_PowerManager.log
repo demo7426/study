@@ -1,0 +1,22 @@
+﻿  Building '21_PowerManager' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\21_PowerManager.inf
+  Stamping [Version] section with DriverVer=01/13/2025,19.5.34.516
+  Device.c
+  21_PowerManager.vcxproj -> D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\21_PowerManager.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\21_PowerManager.sys
+  
+  ..........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\21_PowerManager\21_powermanager.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\KMDFDiver\Debug\21_PowerManager\21_powermanager.cat
+  
