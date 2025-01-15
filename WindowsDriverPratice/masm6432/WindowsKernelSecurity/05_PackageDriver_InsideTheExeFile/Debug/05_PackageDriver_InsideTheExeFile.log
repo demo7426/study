@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\05_PackageDriver_InsideTheExeFile\main.cpp(457): warning C4715: “CreateDriverFile”: 不是所有的控件路径都返回值
+  05_PackageDriver_InsideTheExeFile.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\05_PackageDriver_InsideTheExeFile.exe
