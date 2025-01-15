@@ -1,0 +1,87 @@
+;
+; 07_SignUpShutdownNotification_01.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=07_SignUpShutdownNotification_01.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+07_SignUpShutdownNotification_01_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+07_SignUpShutdownNotification_01.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%07_SignUpShutdownNotification_01.DeviceDesc%=07_SignUpShutdownNotification_01_Device, Root\07_SignUpShutdownNotification_01 ; TODO: edit hw-id
+
+[07_SignUpShutdownNotification_01_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+07_SignUpShutdownNotification_01.sys
+
+;-------------- Service installation
+[07_SignUpShutdownNotification_01_Device.NT.Services]
+AddService = 07_SignUpShutdownNotification_01,%SPSVCINST_ASSOCSERVICE%, 07_SignUpShutdownNotification_01_Service_Inst
+
+; -------------- 07_SignUpShutdownNotification_01 driver install sections
+[07_SignUpShutdownNotification_01_Service_Inst]
+DisplayName    = %07_SignUpShutdownNotification_01.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\07_SignUpShutdownNotification_01.sys
+
+;
+;--- 07_SignUpShutdownNotification_01_Device Coinstaller installation ------
+;
+
+[07_SignUpShutdownNotification_01_Device.NT.CoInstallers]
+AddReg=07_SignUpShutdownNotification_01_Device_CoInstaller_AddReg
+CopyFiles=07_SignUpShutdownNotification_01_Device_CoInstaller_CopyFiles
+
+[07_SignUpShutdownNotification_01_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[07_SignUpShutdownNotification_01_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[07_SignUpShutdownNotification_01_Device.NT.Wdf]
+KmdfService =  07_SignUpShutdownNotification_01, 07_SignUpShutdownNotification_01_wdfsect
+[07_SignUpShutdownNotification_01_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "07_SignUpShutdownNotification_01 Installation Disk"
+07_SignUpShutdownNotification_01.DeviceDesc = "07_SignUpShutdownNotification_01 Device"
+07_SignUpShutdownNotification_01.SVCDESC = "07_SignUpShutdownNotification_01 Service"

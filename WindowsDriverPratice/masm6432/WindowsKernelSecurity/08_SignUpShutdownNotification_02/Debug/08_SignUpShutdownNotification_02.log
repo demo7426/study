@@ -1,0 +1,22 @@
+﻿  Building '08_SignUpShutdownNotification_02' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\08_SignUpShutdownNotification_02.inf
+  Stamping [Version] section with DriverVer=01/15/2025,21.45.37.715
+  main.c
+  08_SignUpShutdownNotification_02.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\08_SignUpShutdownNotification_02.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\08_SignUpShutdownNotification_02.sys
+  
+  ..........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\08_SignUpShutdownNotification_02\08_signupshutdownnotification_02.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\08_SignUpShutdownNotification_02\08_signupshutdownnotification_02.cat
+  
