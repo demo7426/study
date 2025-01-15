@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_UserRealize_DriverEarlie
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_PackageDriver_InsideTheExeFile", "05_PackageDriver_InsideTheExeFile\05_PackageDriver_InsideTheExeFile.vcxproj", "{A95725C5-00D5-4879-BB0A-7EEF9F335F18}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_DriverReinitialize", "06_DriverReinitialize\06_DriverReinitialize.vcxproj", "{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -69,6 +71,30 @@ Global
 		{A95725C5-00D5-4879-BB0A-7EEF9F335F18}.Release|x64.Build.0 = Release|x64
 		{A95725C5-00D5-4879-BB0A-7EEF9F335F18}.Release|x86.ActiveCfg = Release|Win32
 		{A95725C5-00D5-4879-BB0A-7EEF9F335F18}.Release|x86.Build.0 = Release|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM.Build.0 = Debug|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM.Deploy.0 = Debug|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM64.Build.0 = Debug|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x64.ActiveCfg = Debug|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x64.Build.0 = Debug|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x64.Deploy.0 = Debug|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x86.ActiveCfg = Debug|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x86.Build.0 = Debug|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Debug|x86.Deploy.0 = Debug|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM.ActiveCfg = Release|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM.Build.0 = Release|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM.Deploy.0 = Release|ARM
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM64.ActiveCfg = Release|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM64.Build.0 = Release|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|ARM64.Deploy.0 = Release|ARM64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x64.ActiveCfg = Release|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x64.Build.0 = Release|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x64.Deploy.0 = Release|x64
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x86.ActiveCfg = Release|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x86.Build.0 = Release|Win32
+		{E41CC707-F7DE-4D4E-B1BC-5E42A47DD128}.Release|x86.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
