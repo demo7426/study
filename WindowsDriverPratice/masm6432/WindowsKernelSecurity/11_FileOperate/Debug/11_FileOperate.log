@@ -1,0 +1,8 @@
+﻿  Building '11_FileOperate' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  11_FileOperate.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\11_FileOperate.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\11_FileOperate.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
