@@ -1,0 +1,22 @@
+﻿  Building '21_EnumProcessModule' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\21_EnumProcessModule.inf
+  Stamping [Version] section with DriverVer=01/19/2025,19.20.33.98
+  main.c
+  21_EnumProcessModule.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\21_EnumProcessModule.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\21_EnumProcessModule.sys
+  
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\21_EnumProcessModule\21_enumprocessmodule.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\21_EnumProcessModule\21_enumprocessmodule.cat
+  
