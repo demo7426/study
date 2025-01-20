@@ -1,0 +1,22 @@
+﻿  Building '22_EnumDriver' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping Debug\22_EnumDriver.inf
+  Stamping [Version] section with DriverVer=01/20/2025,16.46.44.611
+  main.c
+  22_EnumDriver.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\22_EnumDriver.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\22_EnumDriver.sys
+  
+  ..........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\22_EnumDriver\22_enumdriver.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\Debug\22_EnumDriver\22_enumdriver.cat
+  
