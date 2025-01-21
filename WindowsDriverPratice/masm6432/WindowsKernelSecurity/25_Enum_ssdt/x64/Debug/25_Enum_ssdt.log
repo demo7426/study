@@ -1,0 +1,22 @@
+﻿  Building '25_Enum_ssdt' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Stamping x64\Debug\25_Enum_ssdt.inf
+  Stamping [Version] section with DriverVer=01/21/2025,13.54.0.939
+  main.c
+  25_Enum_ssdt.vcxproj -> D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\x64\Debug\25_Enum_ssdt.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\x64\Debug\25_Enum_ssdt.sys
+  
+  ..........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\x64\Debug\25_Enum_ssdt\25_enum_ssdt.cat
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\masm6432\WindowsKernelSecurity\x64\Debug\25_Enum_ssdt\25_enum_ssdt.cat
+  
