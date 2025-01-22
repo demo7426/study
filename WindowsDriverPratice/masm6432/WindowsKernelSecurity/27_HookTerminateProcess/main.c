@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.0.1     新建日期: 2025.01.21
-描  述: 枚举ssdt(系统服务描述符表)
+描  述: 枚举ssdt(系统服务描述符表)、hook NtTerminateProcess进程
 备  注: 
 修改记录:
 
@@ -51,31 +51,19 @@ static VOID Enum_ssdt(VOID)
 #else
 
 //获取SSDT地址
-ULONGLONG MyGetKeServiceDescriptorTable()
+PKSYSTEM_SERVICE_TABLE MyGetKeServiceDescriptorTable()
 {
-	PUCHAR StartSearchAddress = (PUCHAR)__readmsr(0xC0000082);
-	PUCHAR EndSearchAddress = StartSearchAddress + 0x500;
-	PUCHAR i = NULL;
-	UCHAR b1 = 0, b2 = 0, b3 = 0;
-	ULONG templong = 0;
-	ULONGLONG addr = 0;
+	PKSYSTEM_SERVICE_TABLE ptServiceTable = NULL;
+	LONG lOffset = 0;
+	PCHAR pchBase = (PCHAR)__readmsr(0xc0000082);
+	LONG lFuncOffset = 0;
+	ULONG64 ullFuncAddr = 0;
 
-	for (i = StartSearchAddress; i < EndSearchAddress; i++)
-	{
-		if (MmIsAddressValid(i) && MmIsAddressValid(i + 1) && MmIsAddressValid(i + 1))
-		{
-			b1 = *i;
-			b2 = *(i + 1);
-			b3 = *(i + 2);
-			if (b1 == 0x4c && b2 == 0x8d && b3 == 0x15) //4c8d15
-			{
-				memcpy(&templong, i + 3, 4);
-				addr = (ULONGLONG)templong + (ULONGLONG)i + 7;
-				return addr;
-			}
-		}
-	}
-	return 0;
+	pchBase += 761;													//通过windbg逆向计算得出的值
+	lOffset = *(PULONG)(pchBase - 4);
+	ptServiceTable = (PKSYSTEM_SERVICE_TABLE)(pchBase + lOffset);
+
+	return ptServiceTable;
 }
 
 /// <summary>
@@ -146,7 +134,7 @@ NTSTATUS MyNtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 	lNTStatus = ObReferenceObjectByHandle(ProcessHandle, PROCESS_ALL_ACCESS, *PsProcessType, KernelMode, &ptPEProcess, NULL);
 	if (NT_SUCCESS(lNTStatus))
 	{
-		if (strcmp(PsGetProcessImageFileName(ptPEProcess), "calc.exe") == 0)
+		if (strcmp(PsGetProcessImageFileName(ptPEProcess), "calc.exe") == 0 && IoGetCurrentProcess() != ptPEProcess)		//保证自身是可以正常关闭进程的
 		{
 			ObDereferenceObject(ptPEProcess);
 			return STATUS_ACCESS_DENIED;
@@ -157,8 +145,27 @@ NTSTATUS MyNtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 	return g_pOldNtTerminateProcess(ProcessHandle, ExitStatus);
 }
 
+//借用KeBugCheckEx函数，修改其汇编代码的跳转地址，跳转到MyNtTerminateProcess函数
+static VOID HookBugCheckEx(VOID)
+{
+	KIRQL tKIrqL;
+
+	CHAR chJmpCode[] = { "\x48\xB8\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x00\xFF\xE0" };
+	
+	ULONG64 pullMyFuncAddr = (ULONG64)MyNtTerminateProcess;
+
+	RtlCopyMemory(&(chJmpCode[2]), &pullMyFuncAddr, sizeof(ULONG64));
+
+	tKIrqL = WPOff();
+
+	RtlCopyMemory(KeBugCheckEx, chJmpCode, sizeof chJmpCode);
+
+	WPOn(tKIrqL);
+}
+
 VOID HookTerminateProcess(VOID)
 {
+#ifdef _X86_
 	KIRQL tKIrqL;
 
 	g_pOldNtTerminateProcess = (NtTerminateProcess)KeServiceDescriptorTable->ServiceTableBase[370];
@@ -168,6 +175,28 @@ VOID HookTerminateProcess(VOID)
 	(NtTerminateProcess)KeServiceDescriptorTable->ServiceTableBase[370] = MyNtTerminateProcess;
 
 	WPOn(tKIrqL);
+#else
+	KIRQL tKIrqL;
+	ULONG ulOffset = 0;
+	PCHAR pchKeBugCheckEx = (PCHAR)KeBugCheckEx;
+	PKSYSTEM_SERVICE_TABLE ptServiceTable = NULL;
+	const SIZE_T unNtTerminateProcessIndex = 41;		//NtTerminateProcess进程的序号
+
+	HookBugCheckEx();
+
+	ptServiceTable = MyGetKeServiceDescriptorTable();
+
+	ulOffset = (ULONG)(pchKeBugCheckEx - (PCHAR)ptServiceTable->ServiceTableBase);
+	ulOffset <<= 4;
+
+	tKIrqL = WPOff();
+
+	g_pOldNtTerminateProcess = (NtTerminateProcess)((PCHAR)ptServiceTable->ServiceTableBase + (ptServiceTable->ServiceTableBase[unNtTerminateProcessIndex] >> 4));
+
+	ptServiceTable->ServiceTableBase[unNtTerminateProcessIndex] = ulOffset;
+
+	WPOn(tKIrqL);
+#endif // _X86_
 }
 
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
