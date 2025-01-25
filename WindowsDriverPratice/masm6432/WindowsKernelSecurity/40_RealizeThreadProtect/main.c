@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
 作  者:	钱锐      版本: V0.0.1     新建日期: 2025.01.24
-描  述: 实现进程保护
+描  述: 实现线程保护
 备  注: 该驱动只能在win7 64位上正常加载
 修改记录:
 
@@ -14,6 +14,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 *************************************************/
 
+#include <ntifs.h>
 #include <ntddk.h>
 #include <wdm.h>
 
@@ -41,16 +42,21 @@ NTSTATUS BypassDriverCheck(PDRIVER_OBJECT DriverObject)
 //进程操作回调函数
 OB_PREOP_CALLBACK_STATUS Ob_Pre_Operation_CallBack(_In_ PVOID RegistrationContext,	_Inout_ POB_PRE_OPERATION_INFORMATION OperationInformation)
 {
+	PETHREAD ptPEThread = NULL;
 	PEPROCESS ptPEProcess = NULL;
 
-	if (OperationInformation->ObjectType != *PsProcessType)
+	if (OperationInformation->ObjectType != *PsThreadType)
 	{
 		return OB_PREOP_SUCCESS;
 	}
 
-	ptPEProcess = OperationInformation->Object;
-	if (_stricmp(PsGetProcessImageFileName(ptPEProcess), "calc.exe") != 0)
+	ptPEThread = OperationInformation->Object;
+
+	ptPEProcess = IoThreadToProcess(ptPEThread);
+	if (ptPEProcess == NULL || _stricmp(PsGetProcessImageFileName(ptPEProcess), "calc.exe") != 0)
+	{
 		return OB_PREOP_SUCCESS;
+	}
 
 	if (OperationInformation->Operation == OB_OPERATION_HANDLE_CREATE)
 	{
@@ -81,9 +87,9 @@ NTSTATUS EnableProtectProcess(BOOLEAN _IsEnable)
 		tOb_Cb.RegistrationContext = NULL;
 		tOb_Cb.OperationRegistrationCount = 1;
 		tOb_Cb.OperationRegistration = &tOb_Op;
-		RtlInitUnicodeString(&tOb_Cb.Altitude, L"123456");
+		RtlInitUnicodeString(&tOb_Cb.Altitude, L"654321");
 
-		tOb_Op.ObjectType = PsProcessType;
+		tOb_Op.ObjectType = PsThreadType;
 		tOb_Op.Operations = OB_OPERATION_HANDLE_CREATE | OB_OPERATION_HANDLE_DUPLICATE;
 		tOb_Op.PreOperation = Ob_Pre_Operation_CallBack;
 	
