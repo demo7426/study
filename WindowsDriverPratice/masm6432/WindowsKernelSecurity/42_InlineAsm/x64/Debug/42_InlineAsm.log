@@ -1,0 +1,4 @@
+﻿  Building '42_InlineAsm' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Assembling reboot64.asm...
+reboot64.asm(8): error A2088: END directive required at end of file
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: 命令“ml64.exe /c /nologo /Zi /Fo"x64\Debug\reboot64.obj" /W3 /errorReport:prompt  /Tareboot64.asm”已退出，返回代码为 1。
