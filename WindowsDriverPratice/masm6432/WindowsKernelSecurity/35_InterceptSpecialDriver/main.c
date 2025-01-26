@@ -1,7 +1,7 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.c
-作  者:	钱锐      版本: V0.0.1     新建日期: 2025.01.23
+作  者:	钱锐      版本: V0.0.2     新建日期: 2025.01.23
 描  述: 拦截指定的驱动
 备  注: 测试结果：64为win7拒绝加载 test.sys 驱动，32位的win7 KmdManager.exe程序卡死，test.sys 驱动一样无法正常加载
 修改记录:
@@ -11,6 +11,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 	  内容:
 		  1) 此为模板第一个版本；
 	  版本:V0.0.1
+
+  2.  日期: 2025.01.26
+	  作者: 钱锐
+	  内容:
+		  1) 解决了无法在32位的win7 拦截其它驱动程序加载的bug，调用约定不同；这是由于32位操作系统下，驱动是函数调用方式遵循标准调用约定；
+	  版本:V0.0.2
 
 *************************************************/
 
@@ -57,7 +63,14 @@ VOID WPOn(KIRQL _KIrqL)
 
 VOID DenyLoadDriver(PCHAR _pImageBase)
 {
+#ifdef _AMD64_
 	char ShellCode[6] = "\xB8\x22\x00\x00\xC0\xC3";
+#else
+	char ShellCode[8] = "\xB8\x22\x00\x00\xC0\xC2\x08\x00";		//32位，需要返回一个栈单元的字节数，这是由于32位操作系统下，驱动是函数调用方式遵循标准调用约定
+																//mov eax, c0000022
+																//ret 8
+#endif // _x86_
+
 
 	PIMAGE_DOS_HEADER ptDosHeader = (PIMAGE_DOS_HEADER)_pImageBase;
 	PIMAGE_NT_HEADERS ptNtHeader = (PIMAGE_NT_HEADERS)(_pImageBase + ptDosHeader->e_lfanew);
