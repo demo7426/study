@@ -279,7 +279,14 @@ VOID CallDiver_Async_Test05(VOID)
 			KeWaitForSingleObject(&tKEvent, Executive, KernelMode, FALSE, NULL);
 			KdPrint(("完成读操作\n"));
 		}
+		else if (!NT_SUCCESS(lNTStatus))	//如果为异常则需要自己释放
+		{
+			IoFreeIrp(pIrp);
+			pIrp = NULL;
+		}
 	}
+
+	ObDereferenceObject(ptFileObj);
 }
 
 /// <summary>
@@ -326,8 +333,8 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	//CallDiver_Async_Test02();
 	//CallDiver_Async_Test03();
 	//CallDiver_Async_Test04();
-	//CallDiver_Async_Test05();
-	CallDiver_Async_Test06();
+	CallDiver_Async_Test05();
+	//CallDiver_Async_Test06();
 
 	return lNTStatus;
 }
