@@ -12,6 +12,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
           1) 此为模板第一个版本；
       版本:V0.0.1
 
+  2.  日期: 2025.02.09
+      作者: 钱锐
+      内容:
+          1) 新增删除设备信息集代码；
+      版本:V0.0.2
+
 *************************************************/
 
 #include <iostream>
@@ -63,6 +69,8 @@ int main()
             printf("%ls\n", ptSPDevDetailData->DevicePath);
         }
     }
+
+    SetupDiDestroyDeviceInfoList(tHDevInfo);    //删除设备信息集
 
     free(ptSPDevDetailData);
     ptSPDevDetailData = NULL;
