@@ -31,7 +31,8 @@ HKR,,Icon,,"-5"
 %ManufacturerName%=Standard,NT$ARCH$
 
 [Standard.NT$ARCH$]
-"uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+;"uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+"uoe driver"=My_Install,PCI\VEN_0631&DEV_1501
 
 [My_Install.NT$ARCH$]
 CopyFiles=file_section

@@ -86,7 +86,7 @@ VOID PrintPhysicalResource(PCM_PARTIAL_RESOURCE_LIST _pCM_ParResList, PDEVICE_EX
                 (KIRQL)_pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 (KIRQL)_pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 _pCM_ParResList->PartialDescriptors[i].Flags == CM_RESOURCE_INTERRUPT_LATCHED ? Latched : LevelSensitive,
-                TRUE,
+                TRUE,       //_pCM_ParResList->PartialDescriptors[i].ShareDisposition & CmResourceShareShared
                 _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Affinity,
                 FALSE
             );
@@ -342,6 +342,19 @@ NTSTATUS Driver_AddDevice(_In_ struct _DRIVER_OBJECT* DriverObject, _In_ struct 
     return lNTStatus;
 }
 
+NTSTATUS Driver_PNP_Power(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
+{
+    KdPrint(("电源管理\n"));
+
+    NTSTATUS lNTStatus = STATUS_SUCCESS;
+    PDEVICE_EXTENSION_INFO ptDevExtenInfo = DeviceObject->DeviceExtension;
+
+    IoSkipCurrentIrpStackLocation(Irp);
+    lNTStatus = IoCallDriver(ptDevExtenInfo->pPDO, Irp);
+
+    return lNTStatus;
+}
+
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 {
     KdPrint(("驱动卸载成功\n"));
@@ -358,6 +371,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
         DriverObject->MajorFunction[i] = Driver_Dispatch;
     }
 
+    DriverObject->MajorFunction[IRP_MJ_PNP_POWER] = Driver_PNP_Power;
     DriverObject->MajorFunction[IRP_MJ_PNP] = Driver_PNP_Dispatch;
     DriverObject->DriverExtension->AddDevice = Driver_AddDevice;
 

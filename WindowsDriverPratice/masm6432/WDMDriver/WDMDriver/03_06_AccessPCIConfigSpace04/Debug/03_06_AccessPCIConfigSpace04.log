@@ -1,12 +1,8 @@
 ﻿  Building '03_06_AccessPCIConfigSpace04' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
   Stamping Debug\03_06_AccessPCIConfigSpace04.inf
-  Stamping [Version] section with DriverVer=01/04/2025,23.22.56.881
-  main.c
+  Stamping [Version] section with DriverVer=02/10/2025,15.16.14.580
   03_06_AccessPCIConfigSpace04.vcxproj -> D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_06_AccessPCIConfigSpace04.sys
-  Done Adding Additional Store
-  Successfully signed: D:\WindowsDriverPratice\masm6432\WDMDriver\WDMDriver\Debug\03_06_AccessPCIConfigSpace04.sys
-  
-  ........................
+  .........................
   Signability test complete.
   
   Errors:

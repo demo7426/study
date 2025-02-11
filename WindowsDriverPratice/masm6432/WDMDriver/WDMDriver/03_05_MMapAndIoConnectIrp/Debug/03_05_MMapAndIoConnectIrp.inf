@@ -7,7 +7,7 @@ Signature="$WINDOWS NT$"
 Class=%DeviceClassName%
 ClassGuid={A33317FD-A262-4E2E-AB0F-228DC7DFF4AB}
 Provider=%ManufacturerName%
-DriverVer = 01/03/2025,17.0.57.797
+DriverVer = 02/10/2025,14.47.29.239
 CatalogFile=03_05_MMapAndIoConnectIrp.cat
 PnpLockDown=1
 
@@ -32,6 +32,7 @@ HKR,,Icon,,"-5"
 
 [Standard.NTx86]
 "uoe driver"=My_Install,PCI\VEN_8086&DEV_100F
+;"uoe driver"=My_Install,PCI\VEN_0631&DEV_1501
 
 [My_Install.NTx86]
 CopyFiles=file_section

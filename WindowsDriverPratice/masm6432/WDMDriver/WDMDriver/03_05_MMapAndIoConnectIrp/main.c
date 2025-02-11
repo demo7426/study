@@ -83,11 +83,11 @@ VOID PrintPhysicalResource(PCM_PARTIAL_RESOURCE_LIST _pCM_ParResList, PDEVICE_EX
                 (KIRQL)_pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 (KIRQL)_pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 _pCM_ParResList->PartialDescriptors[i].Flags == CM_RESOURCE_INTERRUPT_LATCHED ? Latched : LevelSensitive,
-                TRUE,
+                TRUE,       //_pCM_ParResList->PartialDescriptors[i].ShareDisposition & CmResourceShareShared
                 _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Affinity,
                 FALSE
             );
-
+            
 #ifdef _X86_
             KdPrint(("ÖÐ¶Ï:level:%u, Vector:%u, Affinity:%u\n", _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Level,
                 _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Vector, _pCM_ParResList->PartialDescriptors[i].u.Interrupt.Affinity));
