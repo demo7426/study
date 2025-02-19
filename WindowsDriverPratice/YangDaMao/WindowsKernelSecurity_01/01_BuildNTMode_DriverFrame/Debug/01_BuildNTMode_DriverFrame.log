@@ -1,0 +1,10 @@
+﻿  Building '01_BuildNTMode_DriverFrame' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Device.c
+  main.c
+  正在生成代码...
+  01_BuildNTMode_DriverFrame.vcxproj -> D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\01_BuildNTMode_DriverFrame.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\01_BuildNTMode_DriverFrame.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  

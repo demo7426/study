@@ -1,0 +1,10 @@
+﻿  Building '02_SerialFilter' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Device.c
+  Dispatch.c
+  正在生成代码...
+  02_SerialFilter.vcxproj -> D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\02_SerialFilter.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\02_SerialFilter.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
