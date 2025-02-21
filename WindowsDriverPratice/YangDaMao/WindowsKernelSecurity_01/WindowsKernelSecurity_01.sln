@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_SerialFilter_UserTest", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_KeyBoardFilter", "04_KeyBoardFilter\04_KeyBoardFilter.vcxproj", "{B67BE6F1-1D79-488B-A43A-A3DA4DC2748B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_KeyBoardFilter_ReplaceDispatchFunc", "05_KeyBoardFilter_ReplaceDispatchFunc\05_KeyBoardFilter_ReplaceDispatchFunc.vcxproj", "{A76A7CEC-43A7-4A40-8354-1ABB5762D842}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -107,6 +109,30 @@ Global
 		{B67BE6F1-1D79-488B-A43A-A3DA4DC2748B}.Release|x86.ActiveCfg = Release|Win32
 		{B67BE6F1-1D79-488B-A43A-A3DA4DC2748B}.Release|x86.Build.0 = Release|Win32
 		{B67BE6F1-1D79-488B-A43A-A3DA4DC2748B}.Release|x86.Deploy.0 = Release|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM.Build.0 = Debug|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM.Deploy.0 = Debug|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM64.Build.0 = Debug|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x64.ActiveCfg = Debug|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x64.Build.0 = Debug|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x64.Deploy.0 = Debug|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x86.ActiveCfg = Debug|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x86.Build.0 = Debug|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Debug|x86.Deploy.0 = Debug|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM.ActiveCfg = Release|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM.Build.0 = Release|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM.Deploy.0 = Release|ARM
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM64.ActiveCfg = Release|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM64.Build.0 = Release|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|ARM64.Deploy.0 = Release|ARM64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x64.ActiveCfg = Release|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x64.Build.0 = Release|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x64.Deploy.0 = Release|x64
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x86.ActiveCfg = Release|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x86.Build.0 = Release|Win32
+		{A76A7CEC-43A7-4A40-8354-1ABB5762D842}.Release|x86.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,11 @@
+﻿  Building '05_KeyBoardFilter_ReplaceDispatchFunc' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Device.c
+  Dispatch.c
+  main.c
+  正在生成代码...
+  05_KeyBoardFilter_ReplaceDispatchFunc.vcxproj -> D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\05_KeyBoardFilter_ReplaceDispatchFunc.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\05_KeyBoardFilter_ReplaceDispatchFunc.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
