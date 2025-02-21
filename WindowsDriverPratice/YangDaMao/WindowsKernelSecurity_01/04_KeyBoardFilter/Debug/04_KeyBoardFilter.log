@@ -1,0 +1,8 @@
+﻿  Building '04_KeyBoardFilter' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.c
+  04_KeyBoardFilter.vcxproj -> D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\04_KeyBoardFilter.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\Debug\04_KeyBoardFilter.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  

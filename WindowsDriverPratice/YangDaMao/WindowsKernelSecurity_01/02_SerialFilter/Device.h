@@ -22,7 +22,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 typedef struct _DEVICEEXTENSION
 {
 	PDEVICE_OBJECT pPDO;	//物理设备对象
-	PDEVICE_OBJECT pFDO;	//功能设备对象
+	PDEVICE_OBJECT pNextDevice;	//功能设备对象
 
 	IO_REMOVE_LOCK IORemoveLock;
 	CHAR IORemoveLock_Tag[8];

@@ -17,6 +17,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <wdm.h>
 
 #include "Device.h"
+#include "Dispatch.h"
 
 PDEVICE_OBJECT GetDeviceObjectByName(IN PCWSTR _pDevicePath)
 {
@@ -60,8 +61,8 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 		KdPrint(("IoCreateDevice is err.\n"));
 		return NULL;
 	}
-
-	ptDevExtension = ptFDO->DeviceExtension;
+	
+	ptDevExtension = ptFDO->DeviceExtension; 
 
 	RtlFillMemory(ptDevExtension, sizeof(*ptDevExtension), 0);
 	RtlCopyMemory(ptDevExtension->IORemoveLock_Tag, "1gaT", strlen("1gaT"));							//一般使用4个方向的Tag1、Tag2、Tag3...Tagn字符
@@ -79,6 +80,17 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 	ptFDO->DeviceType = ptDevExtension->pNextDevice->DeviceType;
 	ptFDO->Flags = ptDevExtension->pNextDevice->Flags;
 	ptFDO->Flags &= ~DO_DEVICE_INITIALIZING;
+
+	for (size_t i = 0; i <= IRP_MJ_MAXIMUM_FUNCTION; i++)
+	{
+		_pDriverObject->MajorFunction[i] = Dispatch_Default;											//过滤驱动必须实现所有的派遣函数
+	}
+
+	//_pDriverObject->MajorFunction[IRP_MJ_READ] = Dispatch_Read_Sync;
+	_pDriverObject->MajorFunction[IRP_MJ_READ] = Dispatch_Read_Async;
+	_pDriverObject->MajorFunction[IRP_MJ_WRITE] = Dispatch_Write;
+	_pDriverObject->MajorFunction[IRP_MJ_PNP] = Dispatch_Pnp;
+	_pDriverObject->MajorFunction[IRP_MJ_POWER] = Dispatch_Power;
 
 	return ptDevExtension->pNextDevice;
 }

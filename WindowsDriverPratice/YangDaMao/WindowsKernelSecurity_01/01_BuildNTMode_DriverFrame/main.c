@@ -29,10 +29,10 @@ VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 
 	IoAcquireRemoveLock(&ptDevExtension->IORemoveLock, ptDevExtension->IORemoveLock_Tag);				//保证当下层驱动执行当前IRP中的回调例程函数时成功调用
 
-	if (ptDevExtension->pFDO)
-		IoDetachDevice(ptDevExtension->pFDO);
+	if (ptDevExtension->pNextDevice)
+		IoDetachDevice(ptDevExtension->pNextDevice);
 
-	IoReleaseRemoveLock(&ptDevExtension->IORemoveLock, ptDevExtension->IORemoveLock_Tag);
+	IoReleaseRemoveLockAndWait(&ptDevExtension->IORemoveLock, ptDevExtension->IORemoveLock_Tag);		//保证所有的irp请求正常处理完毕
 
 	if (DriverObject->DeviceObject)
 	{

@@ -61,24 +61,24 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 		KdPrint(("IoCreateDevice is err.\n"));
 		return NULL;
 	}
-
-	ptDevExtension = ptFDO->DeviceExtension;
+	
+	ptDevExtension = ptFDO->DeviceExtension; 
 
 	RtlFillMemory(ptDevExtension, sizeof(*ptDevExtension), 0);
 	RtlCopyMemory(ptDevExtension->IORemoveLock_Tag, "1gaT", strlen("1gaT"));							//一般使用4个方向的Tag1、Tag2、Tag3...Tagn字符
 
 	IoInitializeRemoveLock(&ptDevExtension->IORemoveLock, '1gaT', 0, 0);								//一般使用4个方向的Tag1、Tag2、Tag3...Tagn字符
 
-	ptDevExtension->pFDO = IoAttachDeviceToDeviceStack(ptFDO, _pPDO);
-	if (ptDevExtension->pFDO == NULL)
+	ptDevExtension->pNextDevice = IoAttachDeviceToDeviceStack(ptFDO, _pPDO);
+	if (ptDevExtension->pNextDevice == NULL)
 	{
 		KdPrint(("IoAttachDeviceToDeviceStack is err\n"));
 		return NULL;
 	}
 
-	ptFDO->Characteristics = ptDevExtension->pFDO->Characteristics;
-	ptFDO->DeviceType = ptDevExtension->pFDO->DeviceType;
-	ptFDO->Flags = ptDevExtension->pFDO->Flags;
+	ptFDO->Characteristics = ptDevExtension->pNextDevice->Characteristics;
+	ptFDO->DeviceType = ptDevExtension->pNextDevice->DeviceType;
+	ptFDO->Flags = ptDevExtension->pNextDevice->Flags;
 	ptFDO->Flags &= ~DO_DEVICE_INITIALIZING;
 
 	for (size_t i = 0; i <= IRP_MJ_MAXIMUM_FUNCTION; i++)
@@ -89,5 +89,5 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 	_pDriverObject->MajorFunction[IRP_MJ_PNP] = Dispatch_Pnp;
 	_pDriverObject->MajorFunction[IRP_MJ_POWER] = Dispatch_Power;
 
-	return ptDevExtension->pFDO;
+	return ptDevExtension->pNextDevice;
 }

@@ -24,7 +24,7 @@ NTSTATUS Dispatch_Default(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ stru
 
 	IoSkipCurrentIrpStackLocation(Irp);
 
-	lNTStatus = IoCallDriver(pDevExt->pFDO, Irp);
+	lNTStatus = IoCallDriver(pDevExt->pNextDevice, Irp);
 
 	return lNTStatus;
 }
@@ -44,7 +44,7 @@ NTSTATUS Dispatch_Power(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 
 	//从 Windows Vista 开始，驱动程序应调用 IoCallDriver，而不是 PoCallDriver 将电源 IRP 传递给下一个较低级别的驱动程序。 
 	//但是，在 Windows Server 2003、Windows XP 和 Windows 2000 上，驱动程序必须调用 PoCallDriver，而不是 IoCallDriver 才能将电源 IRP 传递给下一个较低级别的驱动程序。
-	lNTStatus = IoCallDriver(pDevExt->pFDO, Irp);
+	lNTStatus = IoCallDriver(pDevExt->pNextDevice, Irp);
 
 	return lNTStatus;
 }
@@ -69,7 +69,7 @@ NTSTATUS Dispatch_Write(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 
 			IoSkipCurrentIrpStackLocation(Irp);
 
-			lNTStatus = IoCallDriver(pDevExt->pFDO, Irp);
+			lNTStatus = IoCallDriver(pDevExt->pNextDevice, Irp);
 			return lNTStatus;
 		}
 		else
