@@ -1,0 +1,10 @@
+﻿  Building '07_InlineReplace_Kernel' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Dispatch.c
+  main.c
+  正在生成代码...
+  07_InlineReplace_Kernel.vcxproj -> D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\x64\Debug\07_InlineReplace_Kernel.sys
+  Done Adding Additional Store
+  Successfully signed: D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\x64\Debug\07_InlineReplace_Kernel.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  

@@ -1,0 +1,10 @@
+﻿  Building '05_KeyBoardFilter_ReplaceDispatchFunc' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Device.c
+  Dispatch.c
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\05_KeyBoardFilter_ReplaceDispatchFunc\Dispatch.c(61,9): error C2220: 以下警告被视为错误
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\05_KeyBoardFilter_ReplaceDispatchFunc\Dispatch.c(61,9): warning C4189: “pvBuf”: 局部变量已初始化但不引用
+  main.c
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\05_KeyBoardFilter_ReplaceDispatchFunc\main.c(38,109): error C2065: “Old_Dispatch_Read”: 未声明的标识符
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\05_KeyBoardFilter_ReplaceDispatchFunc\main.c(67,20): error C2065: “Old_Dispatch_Read”: 未声明的标识符
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\05_KeyBoardFilter_ReplaceDispatchFunc\main.c(67,150): warning C4047: “=”:“int”与“Dispatch_Read_FuncType”的间接级别不同
+  正在生成代码...
