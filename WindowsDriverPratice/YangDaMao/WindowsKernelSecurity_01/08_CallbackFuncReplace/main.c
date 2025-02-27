@@ -59,10 +59,10 @@ VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 
 	ptRecvListEntry = RemoveHeadList(&g_tListEntry);
 	
-	ptDev_Callback_Info = CONTAINING_RECORD(ptRecvListEntry, DEVICE_CALLBACKFUNC_INFO, List_Entry);
-
 	while (!IsListEmpty(&g_tListEntry))
 	{
+		ptDev_Callback_Info = CONTAINING_RECORD(ptRecvListEntry, DEVICE_CALLBACKFUNC_INFO, List_Entry);
+
 		InterlockedExchange64((LONG64*)(ptDev_Callback_Info->CallbackFuncStartAddr), (LONG64)g_pfOldKeyBoardCallbackFunc);		//使用原子操作替换掉原来设备扩展内部的回调函数
 
 		ExFreePool(ptDev_Callback_Info);
