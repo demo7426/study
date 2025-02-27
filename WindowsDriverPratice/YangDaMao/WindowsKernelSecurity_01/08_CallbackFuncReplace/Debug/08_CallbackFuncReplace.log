@@ -1,0 +1,15 @@
+﻿  Building '08_CallbackFuncReplace' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  Device.c
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Device.c(164,93): error C2220: 以下警告被视为错误
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Device.c(164,93): warning C4305: “类型强制转换”: 从“ULONG64”到“PVOID”截断
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Device.c(210,80): warning C4152: 非标准扩展，表达式中的函数/数据指针转换
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Device.c(195,51): warning C4996: 'ExAllocatePool': 被声明为已否决
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Device.c(301,8): warning C4189: “tKIrqL”: 局部变量已初始化但不引用
+  Dispatch.c
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Dispatch.c(61,9): error C2220: 以下警告被视为错误
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\Dispatch.c(61,9): warning C4189: “pvBuf”: 局部变量已初始化但不引用
+  main.c
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\main.c(50,37): error C2220: 以下警告被视为错误
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\main.c(50,37): warning C4100: “DriverObject”: 未引用的形参
+D:\WindowsDriverPratice\YangDaMao\WindowsKernelSecurity_01\08_CallbackFuncReplace\main.c(75,40): warning C4100: “DriverObject”: 未引用的形参
+  正在生成代码...
