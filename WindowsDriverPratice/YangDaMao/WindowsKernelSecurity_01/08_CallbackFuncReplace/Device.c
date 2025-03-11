@@ -1,16 +1,16 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
-ÎÄ¼þÃû:	Device.c
-×÷  Õß:	Ç®Èñ      °æ±¾: V0.1.0     ÐÂ½¨ÈÕÆÚ: 2024.02.19
-Ãè  Êö: ·â×°Ò»Ð©¼òÒ×´¦Àí
-±¸  ×¢:
-ÐÞ¸Ä¼ÇÂ¼:
+æ–‡ä»¶å:	Device.c
+ä½œ  è€…:	é’±é”      ç‰ˆæœ¬: V0.1.0     æ–°å»ºæ—¥æœŸ: 2024.02.19
+æ  è¿°: å°è£…ä¸€äº›ç®€æ˜“å¤„ç†
+å¤‡  æ³¨:
+ä¿®æ”¹è®°å½•:
 
-  1.  ÈÕÆÚ: 2024.02.19
-	  ×÷Õß: Ç®Èñ
-	  ÄÚÈÝ:
-		  1) ´ËÎªÄ£°åµÚÒ»¸ö°æ±¾;
-	  °æ±¾:V0.1.0
+  1.  æ—¥æœŸ: 2024.02.19
+	  ä½œè€…: é’±é”
+	  å†…å®¹:
+		  1) æ­¤ä¸ºæ¨¡æ¿ç¬¬ä¸€ä¸ªç‰ˆæœ¬;
+	  ç‰ˆæœ¬:V0.1.0
 
 *************************************************/
 
@@ -48,10 +48,10 @@ PDEVICE_OBJECT GetDeviceObjectByName(IN PCWSTR _pDevicePath)
 
 	RtlInitUnicodeString(&tDeviceName, _pDevicePath);
 
-	lNTStatus = IoGetDeviceObjectPointer(&tDeviceName, FILE_ANY_ACCESS, &ptFileObj, &ptDevObj);		//º¯ÊýÖ»»áÔö¼Ó¶Ô ptFileObj µÄÒýÓÃ¼ÆÊý
+	lNTStatus = IoGetDeviceObjectPointer(&tDeviceName, FILE_ANY_ACCESS, &ptFileObj, &ptDevObj);		//å‡½æ•°åªä¼šå¢žåŠ å¯¹ ptFileObj çš„å¼•ç”¨è®¡æ•°
 	if (!NT_SUCCESS(lNTStatus) || !ptFileObj || !ptDevObj)
 	{
-		KdPrint(("»ñÈ¡Éè±¸¶ÔÏóÖ¸Õë³ö´í, 0x%x\n", lNTStatus));
+		KdPrint(("èŽ·å–è®¾å¤‡å¯¹è±¡æŒ‡é’ˆå‡ºé”™, 0x%x\n", lNTStatus));
 		return NULL;
 	}
 
@@ -104,9 +104,9 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 	ptDevExtension = ptFDO->DeviceExtension; 
 
 	RtlFillMemory(ptDevExtension, sizeof(*ptDevExtension), 0);
-	RtlCopyMemory(ptDevExtension->IORemoveLock_Tag, "1gaT", strlen("1gaT"));							//Ò»°ãÊ¹ÓÃ4¸ö·½ÏòµÄTag1¡¢Tag2¡¢Tag3...Tagn×Ö·û
+	RtlCopyMemory(ptDevExtension->IORemoveLock_Tag, "1gaT", strlen("1gaT"));							//ä¸€èˆ¬ä½¿ç”¨4ä¸ªæ–¹å‘çš„Tag1ã€Tag2ã€Tag3...Tagnå­—ç¬¦
 
-	IoInitializeRemoveLock(&ptDevExtension->IORemoveLock, '1gaT', 0, 0);								//Ò»°ãÊ¹ÓÃ4¸ö·½ÏòµÄTag1¡¢Tag2¡¢Tag3...Tagn×Ö·û
+	IoInitializeRemoveLock(&ptDevExtension->IORemoveLock, '1gaT', 0, 0);								//ä¸€èˆ¬ä½¿ç”¨4ä¸ªæ–¹å‘çš„Tag1ã€Tag2ã€Tag3...Tagnå­—ç¬¦
 
 	ptDevExtension->pNextDevice = IoAttachDeviceToDeviceStack(ptFDO, _pPDO);
 	if (ptDevExtension->pNextDevice == NULL)
@@ -122,7 +122,7 @@ PDEVICE_OBJECT CreateNewDeviceAndAttachedToPDO(IN PDRIVER_OBJECT _pDriverObject,
 
 	for (size_t i = 0; i <= IRP_MJ_MAXIMUM_FUNCTION; i++)
 	{
-		_pDriverObject->MajorFunction[i] = Dispatch_Default;											//¹ýÂËÇý¶¯±ØÐëÊµÏÖËùÓÐµÄÅÉÇ²º¯Êý
+		_pDriverObject->MajorFunction[i] = Dispatch_Default;											//è¿‡æ»¤é©±åŠ¨å¿…é¡»å®žçŽ°æ‰€æœ‰çš„æ´¾é£å‡½æ•°
 	}
 	_pDriverObject->MajorFunction[IRP_MJ_WRITE] = Dispatch_Write;
 	_pDriverObject->MajorFunction[IRP_MJ_PNP] = Dispatch_Pnp;
@@ -140,14 +140,14 @@ NTSTATUS GetKeyBoardCallbackFunc(PWCHAR _pClassDriverPath, PWCHAR _pMinDriverPat
 	}
 
 	NTSTATUS lNTStatus = STATUS_SUCCESS;
-	PDRIVER_OBJECT ptFilterDrvObj = NULL;				//¹¦ÄÜÉè±¸¶ÔÏóµÄ¹ýÂËÇý¶¯¶ÔÏó
-	PDRIVER_OBJECT ptDrvObj = NULL;						//¹¦ÄÜÇý¶¯¶ÔÏó
+	PDRIVER_OBJECT ptFilterDrvObj = NULL;				//åŠŸèƒ½è®¾å¤‡å¯¹è±¡çš„è¿‡æ»¤é©±åŠ¨å¯¹è±¡
+	PDRIVER_OBJECT ptDrvObj = NULL;						//åŠŸèƒ½é©±åŠ¨å¯¹è±¡
 	
-	PDEVICE_OBJECT ptFilterDevObj = NULL;				//¹¦ÄÜÉè±¸¶ÔÏóµÄ¹ýÂËÉè±¸¶ÔÏó
-	PDEVICE_OBJECT ptDevObj = NULL;						//¹¦ÄÜÉè±¸¶ÔÏó
+	PDEVICE_OBJECT ptFilterDevObj = NULL;				//åŠŸèƒ½è®¾å¤‡å¯¹è±¡çš„è¿‡æ»¤è®¾å¤‡å¯¹è±¡
+	PDEVICE_OBJECT ptDevObj = NULL;						//åŠŸèƒ½è®¾å¤‡å¯¹è±¡
 	
-	ULONG64 ullFilterDrvStart = 0;						//¹¦ÄÜÉè±¸¶ÔÏóµÄ¹ýÂËÇý¶¯¶ÔÏóµÄÆðÊ¼µØÖ·
-	ULONG64 ullFilterDrvEnd = 0;						//¹¦ÄÜÉè±¸¶ÔÏóµÄ¹ýÂËÇý¶¯¶ÔÏóµÄ½áÊøµØÖ·
+	ULONG64 ullFilterDrvStart = 0;						//åŠŸèƒ½è®¾å¤‡å¯¹è±¡çš„è¿‡æ»¤é©±åŠ¨å¯¹è±¡çš„èµ·å§‹åœ°å€
+	ULONG64 ullFilterDrvEnd = 0;						//åŠŸèƒ½è®¾å¤‡å¯¹è±¡çš„è¿‡æ»¤é©±åŠ¨å¯¹è±¡çš„ç»“æŸåœ°å€
 
 	KeyBoardCallbackFunc_Type pfKeyBoardCallbackFunc_StartAddr = NULL;
 
@@ -158,7 +158,7 @@ NTSTATUS GetKeyBoardCallbackFunc(PWCHAR _pClassDriverPath, PWCHAR _pMinDriverPat
 		return STATUS_INVALID_VARIANT;
 	}
 
-	ptFilterDevObj = ptFilterDrvObj->DeviceObject;		//TODO:Ö»´¦ÀíÁËÒ»¸öÉè±¸¶ÔÏó£¬Èç¹ûÓÐ¶à¸ö¼üÅÌ½ÓÈëÖ÷»úµÄÇé¿ö£¬ÐèÒª½« NextDevice Ò²Ò»²¢´¦Àí
+	ptFilterDevObj = ptFilterDrvObj->DeviceObject;		//TODO:åªå¤„ç†äº†ä¸€ä¸ªè®¾å¤‡å¯¹è±¡ï¼Œå¦‚æžœæœ‰å¤šä¸ªé”®ç›˜æŽ¥å…¥ä¸»æœºçš„æƒ…å†µï¼Œéœ€è¦å°† NextDevice ä¹Ÿä¸€å¹¶å¤„ç†
 	
 	ullFilterDrvStart = (ULONG64)ptFilterDrvObj->DriverStart;
 	ullFilterDrvEnd = (ULONG64)ptFilterDrvObj->DriverStart + ptFilterDrvObj->DriverSize;
@@ -176,19 +176,19 @@ NTSTATUS GetKeyBoardCallbackFunc(PWCHAR _pClassDriverPath, PWCHAR _pMinDriverPat
 	ptDevObj = ptDrvObj->DeviceObject;		
 
 	static ULONG32 ulFreq = 0;
-	while (ptDevObj)									//±éÀúÍ¬¼¶ËùÓÐµÄ¹¦ÄÜÉè±¸¶ÔÏó£¬²éÕÒ³öÆäËùÓÐµÄÉè±¸¶ÔÏó»Øµ÷º¯ÊýµÄÆðÊ¼µØÖ·
+	while (ptDevObj)									//éåŽ†åŒçº§æ‰€æœ‰çš„åŠŸèƒ½è®¾å¤‡å¯¹è±¡ï¼ŒæŸ¥æ‰¾å‡ºå…¶æ‰€æœ‰çš„è®¾å¤‡å¯¹è±¡å›žè°ƒå‡½æ•°çš„èµ·å§‹åœ°å€
 	{
 		KdPrint(("ptFilterDevObj = 0x%p, pvFilterDrvStart = 0x%llu, ullFilterDrvEnd = 0x%llu, ptDevObj = 0x%p\n", 
 			ptFilterDevObj, ullFilterDrvStart, ullFilterDrvEnd, ptDevObj));
 
-		//»ñÈ¡ ptDevObj ÆäÉè±¸À©Õ¹ÄÚ²¿±£´æµÄ ptFilterDevObj »Øµ÷º¯ÊýµÄÆðÊ¼µØÖ·
+		//èŽ·å– ptDevObj å…¶è®¾å¤‡æ‰©å±•å†…éƒ¨ä¿å­˜çš„ ptFilterDevObj å›žè°ƒå‡½æ•°çš„èµ·å§‹åœ°å€
 		lNTStatus = FindCallbackFunc_StartAddr(ptFilterDevObj, ullFilterDrvStart, ullFilterDrvEnd, ptDevObj, &pfKeyBoardCallbackFunc_StartAddr);
 		if (NT_SUCCESS(lNTStatus))
 		{
 			PDEVICE_CALLBACKFUNC_INFO ptDev_Callback_Info = ExAllocatePool(PagedPool, sizeof(DEVICE_CALLBACKFUNC_INFO));
 			if (!ptDev_Callback_Info)
 			{
-				//TODO:ÈôÊ§°ÜÔòÐèÒª½«Ö®Ç°³É¹¦·ÖÅäµÄ×ÊÔ´ÊÍ·Å
+				//TODO:è‹¥å¤±è´¥åˆ™éœ€è¦å°†ä¹‹å‰æˆåŠŸåˆ†é…çš„èµ„æºé‡Šæ”¾
 				ObDereferenceObject(ptFilterDrvObj);
 				ObDereferenceObject(ptDrvObj);
 				ptFilterDrvObj = NULL;
@@ -199,7 +199,7 @@ NTSTATUS GetKeyBoardCallbackFunc(PWCHAR _pClassDriverPath, PWCHAR _pMinDriverPat
 				return STATUS_INSUFFICIENT_RESOURCES;
 			}
 
-			//±£´æËùÓÐµÄ»Øµ÷º¯ÊýµÄÆðÊ¼µØÖ·µ½Á´±íÖÐ
+			//ä¿å­˜æ‰€æœ‰çš„å›žè°ƒå‡½æ•°çš„èµ·å§‹åœ°å€åˆ°é“¾è¡¨ä¸­
 			ptDev_Callback_Info->CallbackFuncStartAddr = pfKeyBoardCallbackFunc_StartAddr;
 			InsertHeadList(_pResCallbackFunc_List_Entry, &ptDev_Callback_Info->List_Entry);
 
@@ -232,9 +232,9 @@ NTSTATUS FindCallbackFunc_StartAddr(PDEVICE_OBJECT _pSrcDevObj, ULONG64 _SrcDrvS
 
 		KdPrint(("pchCurAddr = 0x%p, _pSrcDevObj = 0x%p, *(PDEVICE_OBJECT*)pchCurAddr = 0x%p\n", pchCurAddr, _pSrcDevObj, *(PDEVICE_OBJECT*)pchCurAddr));
 
-		if (*(PDEVICE_OBJECT*)pchCurAddr == _pSrcDevObj)		//ÕÒµ½À©Õ¹ÄÚ²¿¶ÔÓ¦µÄ _pSrcDevObj Éè±¸¶ÔÏó
+		if (*(PDEVICE_OBJECT*)pchCurAddr == _pSrcDevObj)		//æ‰¾åˆ°æ‰©å±•å†…éƒ¨å¯¹åº”çš„ _pSrcDevObj è®¾å¤‡å¯¹è±¡
 		{
-			ULONG64 ullCallbackFunc = *(ULONG64*)(pchCurAddr + sizeof(PVOID));	//»Øµ÷º¯ÊýÖ¸Õë
+			ULONG64 ullCallbackFunc = *(ULONG64*)(pchCurAddr + sizeof(PVOID));	//å›žè°ƒå‡½æ•°æŒ‡é’ˆ
 			
 			if (ullCallbackFunc >= (ULONG64)_pSrcDrvStart && ullCallbackFunc <= (ULONG64)_pSrcDrvEnd)
 			{
@@ -255,7 +255,7 @@ NTSTATUS FindCallbackFunc_StartAddr(PDEVICE_OBJECT _pSrcDevObj, ULONG64 _SrcDrvS
 		p = (char*)pDex + i;
 		if (*(PDEVICE_OBJECT*)p == _pSrcDevObj)
 		{
-			char* p1 = p + 8;//»Øµ÷º¯ÊýµÄº¯ÊýÖ¸Õë
+			char* p1 = p + 8;//å›žè°ƒå‡½æ•°çš„å‡½æ•°æŒ‡é’ˆ
 			ULONGLONG u = *((ULONGLONG*)p1);
 
 			if (u >= _SrcDrvStart && u < _SrcDrvEnd)
@@ -270,34 +270,34 @@ NTSTATUS FindCallbackFunc_StartAddr(PDEVICE_OBJECT _pSrcDevObj, ULONG64 _SrcDrvS
 #endif
 }
 
-//¹Ø±ÕÐ´±£»¤
+//å…³é—­å†™ä¿æŠ¤
 KIRQL WPOff(VOID)
 {
-	KIRQL tKIrqL = KeRaiseIrqlToDpcLevel();		//Ó²¼þÓÅÏÈ¼¶Ìá¸ßµ½ IRQL = DISPATCH_LEVEL£¬´Ó¶øÆÁ±Îµ±Ç°´¦ÀíÆ÷ÉÏµÈÐ§»ò¸üµÍ IRQL µÄÖÐ¶Ï¡£
+	KIRQL tKIrqL = KeRaiseIrqlToDpcLevel();		//ç¡¬ä»¶ä¼˜å…ˆçº§æé«˜åˆ° IRQL = DISPATCH_LEVELï¼Œä»Žè€Œå±è”½å½“å‰å¤„ç†å™¨ä¸Šç­‰æ•ˆæˆ–æ›´ä½Ž IRQL çš„ä¸­æ–­ã€‚
 	ULONG_PTR ulCr0 = __readcr0();
 
-	//Ð´±£»¤¼Ä´æÆ÷ÖÃÁã
+	//å†™ä¿æŠ¤å¯„å­˜å™¨ç½®é›¶
 #ifdef _X86_
 	ulCr0 &= ~0x00010000;
 #else
 	ulCr0 &= ~0x0000000000010000;
 #endif // _X86_
 
-	_disable();									//½ûÓÃÖÐ¶Ï
+	_disable();									//ç¦ç”¨ä¸­æ–­
 	__writecr0(ulCr0);
 
 	return tKIrqL;
 }
 
-//¿ªÆôÐ´±£»¤
+//å¼€å¯å†™ä¿æŠ¤
 VOID WPOn(KIRQL _KIrqL)
 {
 	KIRQL tKIrqL = KeRaiseIrqlToDpcLevel();
 	ULONG_PTR ulCr0 = __readcr0();
 
-	ulCr0 |= 0x10000;							//Ð´±£»¤¼Ä´æÆ÷ÖÃ1
+	ulCr0 |= 0x10000;							//å†™ä¿æŠ¤å¯„å­˜å™¨ç½®1
 
-	_enable();									//¿ªÆôÖÐ¶Ï
+	_enable();									//å¼€å¯ä¸­æ–­
 	__writecr0(ulCr0);
 
 	KeLowerIrql(_KIrqL);

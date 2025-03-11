@@ -1,16 +1,16 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
-ÎÄ¼þÃû:	main.c
-×÷  Õß:	Ç®Èñ      °æ±¾: V0.1.0     ÐÂ½¨ÈÕÆÚ: 2024.12.15
-Ãè  Êö: irqÒì²½Íê³É
-±¸  ×¢:
-ÐÞ¸Ä¼ÇÂ¼:
+æ–‡ä»¶å:	main.c
+ä½œ  è€…:	é’±é”      ç‰ˆæœ¬: V0.1.0     æ–°å»ºæ—¥æœŸ: 2024.12.15
+æ  è¿°: irqå¼‚æ­¥å®Œæˆ
+å¤‡  æ³¨:
+ä¿®æ”¹è®°å½•:
 
-  1.  ÈÕÆÚ: 2024.12.15
-	  ×÷Õß: Ç®Èñ
-	  ÄÚÈÝ:
-		  1) ´ËÎªÄ£°åµÚÒ»¸ö°æ±¾;
-	  °æ±¾:V0.1.0
+  1.  æ—¥æœŸ: 2024.12.15
+	  ä½œè€…: é’±é”
+	  å†…å®¹:
+		  1) æ­¤ä¸ºæ¨¡æ¿ç¬¬ä¸€ä¸ªç‰ˆæœ¬;
+	  ç‰ˆæœ¬:V0.1.0
 
 *************************************************/
 
@@ -18,48 +18,48 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 LIST_ENTRY g_tListEntry;
 
-//´´½¨»ò´ò¿ªÎÄ¼þÖÐ¶Ï»Øµ÷º¯Êý
+//åˆ›å»ºæˆ–æ‰“å¼€æ–‡ä»¶ä¸­æ–­å›žè°ƒå‡½æ•°
 NTSTATUS Driver_Create(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
-//¶ÁÈ¡ÎÄ¼þÊý¾ÝÖÐ¶Ï»Øµ÷º¯Êý
+//è¯»å–æ–‡ä»¶æ•°æ®ä¸­æ–­å›žè°ƒå‡½æ•°
 NTSTATUS Driver_Read(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
-//ÇåÀíÎÄ¼þÖÐ¶Ï»Øµ÷º¯Êý
+//æ¸…ç†æ–‡ä»¶ä¸­æ–­å›žè°ƒå‡½æ•°
 NTSTATUS Driver_Cleanup(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
-//¹Ø±ÕÎÄ¼þÖÐ¶Ï»Øµ÷º¯Êý
+//å…³é—­æ–‡ä»¶ä¸­æ–­å›žè°ƒå‡½æ•°
 NTSTATUS Driver_Close(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp);
 
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 {
-	UNICODE_STRING tSymbolicName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//·ûºÅÎÄ¼þÂ·¾¶Ãû
+	UNICODE_STRING tSymbolicName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//ç¬¦å·æ–‡ä»¶è·¯å¾„å
 
 	if(DriverObject->DeviceObject)
 		IoDeleteDevice(DriverObject->DeviceObject);
 
 	IoDeleteSymbolicLink(&tSymbolicName);
 
-	KdPrint(("Çý¶¯Ð¶ÔØ³É¹¦\n"));
+	KdPrint(("é©±åŠ¨å¸è½½æˆåŠŸ\n"));
 }
 
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING RegistryPath)
 {
-	NTSTATUS lNTStatus = STATUS_SUCCESS;												//º¯Êý×´Ì¬·µ»ØÖµ
-	UNICODE_STRING tDeviceName = RTL_CONSTANT_STRING(L"\\Device\\HelloDDK");			//Éè±¸ÎÄ¼þÂ·¾¶Ãû
-	UNICODE_STRING tSymbolicName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//·ûºÅÎÄ¼þÂ·¾¶Ãû
-	PDEVICE_OBJECT ptDeviceObj = NULL;													//Éè±¸¶ÔÏó
+	NTSTATUS lNTStatus = STATUS_SUCCESS;												//å‡½æ•°çŠ¶æ€è¿”å›žå€¼
+	UNICODE_STRING tDeviceName = RTL_CONSTANT_STRING(L"\\Device\\HelloDDK");			//è®¾å¤‡æ–‡ä»¶è·¯å¾„å
+	UNICODE_STRING tSymbolicName = RTL_CONSTANT_STRING(L"\\??\\HelloDDK");				//ç¬¦å·æ–‡ä»¶è·¯å¾„å
+	PDEVICE_OBJECT ptDeviceObj = NULL;													//è®¾å¤‡å¯¹è±¡
 
 	lNTStatus = IoCreateDevice(DriverObject, 0, &tDeviceName, FILE_DEVICE_UNKNOWN, 0, FALSE, &ptDeviceObj);
 	if (!NT_SUCCESS(lNTStatus))
 	{
-		KdPrint(("´´½¨Éè±¸ÎÄ¼þÊ§°Ü\n"));
+		KdPrint(("åˆ›å»ºè®¾å¤‡æ–‡ä»¶å¤±è´¥\n"));
 		return lNTStatus;
 	}
 
 	lNTStatus = IoCreateSymbolicLink(&tSymbolicName, &tDeviceName);
 	if (!NT_SUCCESS(lNTStatus))
 	{
-		KdPrint(("´´½¨·ûºÅÁ´½ÓÊ§°Ü\n"));
+		KdPrint(("åˆ›å»ºç¬¦å·é“¾æŽ¥å¤±è´¥\n"));
 		IoDeleteDevice(ptDeviceObj);
 		return lNTStatus;
 	}
@@ -74,14 +74,14 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING Registry
 	ptDeviceObj->Flags |= DO_BUFFERED_IO;
 	ptDeviceObj->Flags &= ~DO_DEVICE_INITIALIZING;
 
-	KdPrint(("Çý¶¯¼ÓÔØ³É¹¦\n"));
+	KdPrint(("é©±åŠ¨åŠ è½½æˆåŠŸ\n"));
 
 	return lNTStatus;
 }
 
 NTSTATUS Driver_Create(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
 {
-	KdPrint(("´ò¿ª´ò¿ªÎÄ¼þ³É¹¦\n"));
+	KdPrint(("æ‰“å¼€æ‰“å¼€æ–‡ä»¶æˆåŠŸ\n"));
 
 	InitializeListHead(&g_tListEntry);
 
@@ -95,13 +95,13 @@ NTSTATUS Driver_Create(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct 
 
 NTSTATUS Driver_Read(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
 {
-	KdPrint(("½øÈëRead\n"));
+	KdPrint(("è¿›å…¥Read\n"));
 
-	IoMarkIrpPending(Irp);											//½«irqÖÃÓÚ´ý´¦Àí×´Ì¬
+	IoMarkIrpPending(Irp);											//å°†irqç½®äºŽå¾…å¤„ç†çŠ¶æ€
 
-	InsertHeadList(&g_tListEntry, &Irp->Tail.Overlay.ListEntry);	//±£´æÎ´´¦ÀíµÄirq
+	InsertHeadList(&g_tListEntry, &Irp->Tail.Overlay.ListEntry);	//ä¿å­˜æœªå¤„ç†çš„irq
 
-	KdPrint(("ÍË³öRead\n"));
+	KdPrint(("é€€å‡ºRead\n"));
 
 	return STATUS_PENDING;
 }
@@ -110,7 +110,7 @@ NTSTATUS Driver_Cleanup(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 {
 	INT32 nIrqCounter = 0;
 
-	KdPrint(("½øÈëCleanup\n"));
+	KdPrint(("è¿›å…¥Cleanup\n"));
 	
 	while (!IsListEmpty(&g_tListEntry))
 	{
@@ -122,7 +122,7 @@ NTSTATUS Driver_Cleanup(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 
 		IoCompleteRequest(ptIrq, IO_NO_INCREMENT);
 
-		KdPrint(("ÏìÓ¦µÚ%05d Irq\n", nIrqCounter++));
+		KdPrint(("å“åº”ç¬¬%05d Irq\n", nIrqCounter++));
 	}
 
 	RemoveEntryList(&g_tListEntry);
@@ -132,21 +132,21 @@ NTSTATUS Driver_Cleanup(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct
 
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 
-	KdPrint(("ÍË³öCleanup\n"));
+	KdPrint(("é€€å‡ºCleanup\n"));
 
 	return STATUS_SUCCESS;
 }
 
 NTSTATUS Driver_Close(_In_ struct _DEVICE_OBJECT* DeviceObject, _Inout_ struct _IRP* Irp)
 {
-	KdPrint(("½øÈëClose\n"));
+	KdPrint(("è¿›å…¥Close\n"));
 
 	Irp->IoStatus.Information = 0;
 	Irp->IoStatus.Status = STATUS_SUCCESS;
 
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 
-	KdPrint(("ÍË³öClose\n"));
+	KdPrint(("é€€å‡ºClose\n"));
 
 	return STATUS_SUCCESS;
 }
