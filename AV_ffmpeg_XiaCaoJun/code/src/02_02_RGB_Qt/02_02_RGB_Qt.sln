@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_02_RGB_Qt", "02_02_RGB_Qt.vcxproj", "{1A88C442-44FA-42A4-9E93-9A93ECD3D724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A88C442-44FA-42A4-9E93-9A93ECD3D724}.Debug|x86.ActiveCfg = Debug|Win32
+		{1A88C442-44FA-42A4-9E93-9A93ECD3D724}.Debug|x86.Build.0 = Debug|Win32
+		{1A88C442-44FA-42A4-9E93-9A93ECD3D724}.Release|x86.ActiveCfg = Release|Win32
+		{1A88C442-44FA-42A4-9E93-9A93ECD3D724}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {887C4BAA-8FF4-4394-BFC4-29294F39E5BB}
+	EndGlobalSection
+EndGlobal
