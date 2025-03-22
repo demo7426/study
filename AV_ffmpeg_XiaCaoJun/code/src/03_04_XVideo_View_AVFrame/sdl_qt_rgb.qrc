@@ -1,0 +1,4 @@
+<RCC>
+    <qresource prefix="SDL_Qt_RGB">
+    </qresource>
+</RCC>
