@@ -1,0 +1,162 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	xvideo_view.h
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.03.22
+描  述: 实现一个抽象类，支持图像的渲染
+备  注: 所有的接口均支持线程安全
+修改记录:
+
+  1.  日期: 2025.03.22
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本;
+      版本:V0.1.0
+
+*************************************************/
+
+#pragma once
+
+#include <mutex>
+#include <fstream>
+
+extern "C" {
+#include "sdl/SDL.h"
+#include "libavcodec/avcodec.h"
+}
+
+#pragma comment(lib, "avutil.lib")
+
+#undef main
+
+class CXVideo_View
+{
+protected:
+    CXVideo_View() = default;
+
+public:
+    enum class Format:int          //像素格式
+    {
+        ARGB = SDL_PIXELFORMAT_ARGB8888,
+        RGBA = SDL_PIXELFORMAT_RGBA8888,
+        ABGR = SDL_PIXELFORMAT_ABGR8888,
+        BGRA = SDL_PIXELFORMAT_BGRA8888,
+        YUV420P = SDL_PIXELFORMAT_IYUV
+    };
+
+    enum class RenderType :char     //渲染类型
+    {
+        SDL = 1
+    };
+
+	~CXVideo_View() = default;
+
+    /// <summary>
+    /// 创建一个新的类对象
+    /// </summary>
+    /// <param name="_RenderType"></param>
+    /// <returns></returns>
+    static CXVideo_View* Create(RenderType _RenderType = RenderType::SDL);
+
+    /// <summary>
+    /// 初始化窗口
+    /// </summary>
+    /// <param name="_Width">窗口宽度</param>
+    /// <param name="_Height">窗口高度</param>
+    /// <param name="_Fmt">绘制的像素格式</param>
+    /// <param name="_pWinID">窗口句柄;如果为空,创建新窗口</param>
+    /// <returns>true--创建成功;false--创建失败</returns>
+    virtual bool Init(int _Width, int _Height, Format _Fmt = Format::RGBA, void* _pWinID = nullptr) = 0;
+         
+    /// <summary>
+    /// 渲染图像
+    /// </summary>
+    /// <param name="_pData">渲染的二进制数据</param>
+    /// <param name="_LineSize">一行数据的字节数，对于YUV420P就是Y一行字节数；_LineSize<=0，就更具宽度和像素格式自动算出大小</param>
+    /// <returns>true--执行成功;false--执行失败</returns>
+    virtual bool Draw(char* _pData, int _LineSize = 0) = 0;
+
+    /// <summary>
+    /// 渲染图像
+    /// </summary>
+    /// <param name="_Yplane">Y的数据</param>
+    /// <param name="_Ypitch">Y的一行像素点数量</param>
+    /// <param name="_Uplane">U的数据</param>
+    /// <param name="_Upitch">U的一行像素点数量</param>
+    /// <param name="_Vplane">V的数据</param>
+    /// <param name="_Vpitch">V的一行像素点数量</param>
+    /// <returns>true--执行成功;false--执行失败</returns>
+    virtual bool Draw(char* _Yplane, int _Ypitch, char* _Uplane, int _Upitch, char* _Vplane, int _Vpitch) = 0;
+
+    /// <summary>
+    /// 使用 AVFrame 渲染图像
+    /// </summary>
+    /// <param name="_pAVFrame"></param>
+    /// <returns></returns>
+    bool DrawFrame(AVFrame* _pAVFrame);
+
+    /// <summary>
+    /// 打开文件
+    /// </summary>
+    /// <param name="_pFilePath"></param>
+    /// <returns></returns>
+    bool OpenFile(const char* _pFilePath);
+
+    /// <summary>
+    /// 获取打开文件对应的AVFrame数据
+    /// </summary>
+    /// <param name=""></param>
+    /// <returns></returns>
+    AVFrame* GetFileAVFrame(void);
+
+    /// <summary>
+    /// 重新设置窗口显示大小
+    /// </summary>
+    /// <param name="_Width"></param>
+    /// <param name="_Height"></param>
+    /// <returns></returns>
+    bool SetScale(int _Width, int _Height);
+
+    /// <summary>
+    /// 当前窗口是否退出
+    /// </summary>
+    /// <param name=""></param>
+    /// <returns>true--已经退出;false--未退出</returns>
+    virtual bool IsExit(void) = 0;
+
+    /// <summary>
+    /// 释放资源
+    /// </summary>
+    /// <param name=""></param>
+    /// <returns></returns>
+    virtual bool Close(void) = 0;
+
+    /// <summary>
+    /// 获取当前的每秒FPS
+    /// </summary>
+    /// <param name=""></param>
+    /// <returns></returns>
+    inline unsigned int GetPerSecFPS(void)
+    {
+        return m_unPerSecFPS;
+    }
+
+protected:
+    int m_nWidth = 0;                       //图像宽度
+    int m_nHeight = 0;                      //图像高度
+    Format m_eFmt = Format::RGBA;           //绘制的像素格式
+    std::mutex m_mutex;                     //互斥锁，用于确保接口线程内部安全
+
+    int m_nScale_Width = 0;                 //窗口显示宽度
+    int m_nScale_Height = 0;                //窗口显示高度
+
+    clock_t m_tBegClock = 0;
+
+    unsigned int m_unPerSecFPS = 0;         //每秒FPS
+    unsigned int m_unFPSCounter = 0;        //FPS计数器
+
+    AVFrame* m_ptAVFrame = nullptr;
+
+    std::ifstream m_cIfstream;
+};
+
+
