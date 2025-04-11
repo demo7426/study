@@ -4,8 +4,8 @@
 #	声明目标为伪目标后，makefile将不会判断目标是否存在或该目标是否需要更新（即使目标和文件重名，也不会影响make命令的执行）
 .PHONY:clean show
 
-OBJ=main.o Person.pb.o
-TARGET=main.out
+OBJ=main.o Person.pb.o Address.pb.o
+TARGET=main.elf
 
 main:$(OBJ)
 	@echo "最后一步"
@@ -25,4 +25,4 @@ show:
 #	@ls -l | grep ".h"
 clean:
 	@echo "清除编译后的文件"
-	@rm -f *.o *.out
+	@rm -f *.o *.elf

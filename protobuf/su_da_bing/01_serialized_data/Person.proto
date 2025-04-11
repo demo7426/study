@@ -1,11 +1,22 @@
 syntax = "proto3";
+import "Address.proto";
 
-message Person
+enum COLOR
+{
+    RED = 0;        //枚举的第一个字段值必须是0，后续的随意
+    BLUE = 5;
+    BLACK = 4;
+    WHITE = 9;
+}
+
+message CPerson
 {
     int32 id = 1;
-    bytes name = 2;
+    repeated bytes name = 2;
     bytes sex = 3;
     int32 age = 4;
+    CAddress address = 5;
+    COLOR color = 6;
 }
 
 
