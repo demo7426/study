@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package NameSpaca_Address;
+
 message CAddress
 {
     int32 addr_id = 1;

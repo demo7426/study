@@ -16,6 +16,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       作者: 钱锐
       内容:
           1) 新增protobuf使用嵌套符合数据类型、枚举、导入其他proto文件；
+          1) 新增protobuf包使用，编译后即C++中的命名空间；
       版本:V0.1.1
 
 *************************************************/
@@ -26,7 +27,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 int main(void)
 {
-    CPerson cPerson_In;
+    NameSpaca_Person::CPerson cPerson_In;
     cPerson_In.set_id(10);
 
     //设置数组字段值
@@ -43,14 +44,14 @@ int main(void)
     cPerson_In.mutable_address()->set_addr_id(1001);
 
     //设置枚举字段值
-    cPerson_In.set_color(COLOR::BLACK);    
+    cPerson_In.set_color(NameSpaca_Person::COLOR::BLACK);    
     
     //序列化对象，最终得到一个字符串
     std::string strOutput;
     cPerson_In.SerializeToString(&strOutput);
 
     //反序列化数据
-    CPerson cPerson_Out;
+    NameSpaca_Person::CPerson cPerson_Out;
     cPerson_Out.ParseFromString(strOutput);
 
     std::cout << "id = " << cPerson_Out.id() << ", sex = " << cPerson_Out.sex() << ", age = " << cPerson_Out.age() << std::endl;

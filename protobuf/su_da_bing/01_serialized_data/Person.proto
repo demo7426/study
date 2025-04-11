@@ -1,6 +1,8 @@
 syntax = "proto3";
 import "Address.proto";
 
+package NameSpaca_Person;
+
 enum COLOR
 {
     RED = 0;        //枚举的第一个字段值必须是0，后续的随意
@@ -15,7 +17,7 @@ message CPerson
     repeated bytes name = 2;
     bytes sex = 3;
     int32 age = 4;
-    CAddress address = 5;
+    NameSpaca_Address.CAddress address = 5;
     COLOR color = 6;
 }
 

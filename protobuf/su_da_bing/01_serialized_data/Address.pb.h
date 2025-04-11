@@ -44,17 +44,20 @@ struct TableStruct_Address_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Address_2eproto;
+namespace NameSpaca_Address {
 class CAddress;
 struct CAddressDefaultTypeInternal;
 extern CAddressDefaultTypeInternal _CAddress_default_instance_;
+}  // namespace NameSpaca_Address
 PROTOBUF_NAMESPACE_OPEN
-template<> ::CAddress* Arena::CreateMaybeMessage<::CAddress>(Arena*);
+template<> ::NameSpaca_Address::CAddress* Arena::CreateMaybeMessage<::NameSpaca_Address::CAddress>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
+namespace NameSpaca_Address {
 
 // ===================================================================
 
 class CAddress final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CAddress) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NameSpaca_Address.CAddress) */ {
  public:
   inline CAddress() : CAddress(nullptr) {}
   ~CAddress() override;
@@ -157,7 +160,7 @@ class CAddress final :
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CAddress";
+    return "NameSpaca_Address.CAddress";
   }
   protected:
   explicit CAddress(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -200,7 +203,7 @@ class CAddress final :
   void _internal_set_addr_id(int32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CAddress)
+  // @@protoc_insertion_point(class_scope:NameSpaca_Address.CAddress)
  private:
   class _Internal;
 
@@ -234,7 +237,7 @@ inline int32_t CAddress::_internal_addr_id() const {
   return _impl_.addr_id_;
 }
 inline int32_t CAddress::addr_id() const {
-  // @@protoc_insertion_point(field_get:CAddress.addr_id)
+  // @@protoc_insertion_point(field_get:NameSpaca_Address.CAddress.addr_id)
   return _internal_addr_id();
 }
 inline void CAddress::_internal_set_addr_id(int32_t value) {
@@ -243,7 +246,7 @@ inline void CAddress::_internal_set_addr_id(int32_t value) {
 }
 inline void CAddress::set_addr_id(int32_t value) {
   _internal_set_addr_id(value);
-  // @@protoc_insertion_point(field_set:CAddress.addr_id)
+  // @@protoc_insertion_point(field_set:NameSpaca_Address.CAddress.addr_id)
 }
 
 // bytes addr_name = 2;
@@ -251,7 +254,7 @@ inline void CAddress::clear_addr_name() {
   _impl_.addr_name_.ClearToEmpty();
 }
 inline const std::string& CAddress::addr_name() const {
-  // @@protoc_insertion_point(field_get:CAddress.addr_name)
+  // @@protoc_insertion_point(field_get:NameSpaca_Address.CAddress.addr_name)
   return _internal_addr_name();
 }
 template <typename ArgT0, typename... ArgT>
@@ -259,11 +262,11 @@ inline PROTOBUF_ALWAYS_INLINE
 void CAddress::set_addr_name(ArgT0&& arg0, ArgT... args) {
  
  _impl_.addr_name_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CAddress.addr_name)
+  // @@protoc_insertion_point(field_set:NameSpaca_Address.CAddress.addr_name)
 }
 inline std::string* CAddress::mutable_addr_name() {
   std::string* _s = _internal_mutable_addr_name();
-  // @@protoc_insertion_point(field_mutable:CAddress.addr_name)
+  // @@protoc_insertion_point(field_mutable:NameSpaca_Address.CAddress.addr_name)
   return _s;
 }
 inline const std::string& CAddress::_internal_addr_name() const {
@@ -278,7 +281,7 @@ inline std::string* CAddress::_internal_mutable_addr_name() {
   return _impl_.addr_name_.Mutable(GetArenaForAllocation());
 }
 inline std::string* CAddress::release_addr_name() {
-  // @@protoc_insertion_point(field_release:CAddress.addr_name)
+  // @@protoc_insertion_point(field_release:NameSpaca_Address.CAddress.addr_name)
   return _impl_.addr_name_.Release();
 }
 inline void CAddress::set_allocated_addr_name(std::string* addr_name) {
@@ -293,7 +296,7 @@ inline void CAddress::set_allocated_addr_name(std::string* addr_name) {
     _impl_.addr_name_.Set("", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CAddress.addr_name)
+  // @@protoc_insertion_point(field_set_allocated:NameSpaca_Address.CAddress.addr_name)
 }
 
 #ifdef __GNUC__
@@ -302,6 +305,7 @@ inline void CAddress::set_allocated_addr_name(std::string* addr_name) {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace NameSpaca_Address
 
 // @@protoc_insertion_point(global_scope)
 

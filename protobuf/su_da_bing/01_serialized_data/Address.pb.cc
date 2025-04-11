@@ -20,6 +20,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
+namespace NameSpaca_Address {
 PROTOBUF_CONSTEXPR CAddress::CAddress(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.addr_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -34,35 +35,37 @@ struct CAddressDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CAddressDefaultTypeInternal _CAddress_default_instance_;
+}  // namespace NameSpaca_Address
 static ::_pb::Metadata file_level_metadata_Address_2eproto[1];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_Address_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_Address_2eproto = nullptr;
 
 const uint32_t TableStruct_Address_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CAddress, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::NameSpaca_Address::CAddress, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CAddress, _impl_.addr_id_),
-  PROTOBUF_FIELD_OFFSET(::CAddress, _impl_.addr_name_),
+  PROTOBUF_FIELD_OFFSET(::NameSpaca_Address::CAddress, _impl_.addr_id_),
+  PROTOBUF_FIELD_OFFSET(::NameSpaca_Address::CAddress, _impl_.addr_name_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::CAddress)},
+  { 0, -1, -1, sizeof(::NameSpaca_Address::CAddress)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::_CAddress_default_instance_._instance,
+  &::NameSpaca_Address::_CAddress_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_Address_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\rAddress.proto\".\n\010CAddress\022\017\n\007addr_id\030\001"
-  " \001(\005\022\021\n\taddr_name\030\002 \001(\014b\006proto3"
+  "\n\rAddress.proto\022\021NameSpaca_Address\".\n\010CA"
+  "ddress\022\017\n\007addr_id\030\001 \001(\005\022\021\n\taddr_name\030\002 \001"
+  "(\014b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_Address_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_Address_2eproto = {
-    false, false, 71, descriptor_table_protodef_Address_2eproto,
+    false, false, 90, descriptor_table_protodef_Address_2eproto,
     "Address.proto",
     &descriptor_table_Address_2eproto_once, nullptr, 0, 1,
     schemas, file_default_instances, TableStruct_Address_2eproto::offsets,
@@ -75,6 +78,7 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_Address_
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_Address_2eproto(&descriptor_table_Address_2eproto);
+namespace NameSpaca_Address {
 
 // ===================================================================
 
@@ -86,7 +90,7 @@ CAddress::CAddress(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CAddress)
+  // @@protoc_insertion_point(arena_constructor:NameSpaca_Address.CAddress)
 }
 CAddress::CAddress(const CAddress& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -106,7 +110,7 @@ CAddress::CAddress(const CAddress& from)
       _this->GetArenaForAllocation());
   }
   _this->_impl_.addr_id_ = from._impl_.addr_id_;
-  // @@protoc_insertion_point(copy_constructor:CAddress)
+  // @@protoc_insertion_point(copy_constructor:NameSpaca_Address.CAddress)
 }
 
 inline void CAddress::SharedCtor(
@@ -125,7 +129,7 @@ inline void CAddress::SharedCtor(
 }
 
 CAddress::~CAddress() {
-  // @@protoc_insertion_point(destructor:CAddress)
+  // @@protoc_insertion_point(destructor:NameSpaca_Address.CAddress)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -143,7 +147,7 @@ void CAddress::SetCachedSize(int size) const {
 }
 
 void CAddress::Clear() {
-// @@protoc_insertion_point(message_clear_start:CAddress)
+// @@protoc_insertion_point(message_clear_start:NameSpaca_Address.CAddress)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -201,7 +205,7 @@ failure:
 
 uint8_t* CAddress::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CAddress)
+  // @@protoc_insertion_point(serialize_to_array_start:NameSpaca_Address.CAddress)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -221,12 +225,12 @@ uint8_t* CAddress::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CAddress)
+  // @@protoc_insertion_point(serialize_to_array_end:NameSpaca_Address.CAddress)
   return target;
 }
 
 size_t CAddress::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CAddress)
+// @@protoc_insertion_point(message_byte_size_start:NameSpaca_Address.CAddress)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -258,7 +262,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CAddress::GetClassData() const
 void CAddress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<CAddress*>(&to_msg);
   auto& from = static_cast<const CAddress&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CAddress)
+  // @@protoc_insertion_point(class_specific_merge_from_start:NameSpaca_Address.CAddress)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -273,7 +277,7 @@ void CAddress::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
 }
 
 void CAddress::CopyFrom(const CAddress& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CAddress)
+// @@protoc_insertion_point(class_specific_copy_from_start:NameSpaca_Address.CAddress)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -302,10 +306,11 @@ void CAddress::InternalSwap(CAddress* other) {
 }
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace NameSpaca_Address
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::CAddress*
-Arena::CreateMaybeMessage< ::CAddress >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CAddress >(arena);
+template<> PROTOBUF_NOINLINE ::NameSpaca_Address::CAddress*
+Arena::CreateMaybeMessage< ::NameSpaca_Address::CAddress >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::NameSpaca_Address::CAddress >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
