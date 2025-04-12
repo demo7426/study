@@ -1,0 +1,3 @@
+源码必须在release_x64模式下编译，因为他们使用的grpc的库是release_x64版本的;
+
+如果需要使用debug_x64模式，必须将grpc库修改为debug_x64版本;

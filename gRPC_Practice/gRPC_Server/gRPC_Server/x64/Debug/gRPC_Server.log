@@ -1,0 +1,13 @@
+﻿  greeter.grpc.pb.cc
+  greeter.pb.cc
+  main.cpp
+  正在生成代码...
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(24,2): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(24,2): warning C4183: “MyClass”: 缺少返回类型；假定为返回“int”的成员函数
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(25,3): error C2523: “MyGreeterService::~MyClass”: 析构函数 标记不匹配
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(31,1): error C2653: “MyClass”: 不是类或命名空间名称
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(31,10): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(33,1): warning C4508: “MyClass”: 函数应返回一个值；假定“void”返回类型
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(35,1): error C2653: “MyClass”: 不是类或命名空间名称
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(35,11): error C4430: 缺少类型说明符 - 假定为 int。注意: C++ 不支持默认 int
+D:\gRPC_Practice\gRPC_Server\gRPC_Server\main.cpp(37,1): warning C4508: “{dtor}”: 函数应返回一个值；假定“void”返回类型
