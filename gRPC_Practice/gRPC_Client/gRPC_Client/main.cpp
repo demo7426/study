@@ -15,9 +15,17 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 *************************************************/
 
 #include <iostream>
+#include <memory>
+#include <string>
+#include <thread>
 
+#include <grpcpp/grpcpp.h>
 #include "greeter.grpc.pb.h"
-#include "grpcpp/grpcpp.h"
+
+using grpc::Channel;
+using grpc::ClientContext;
+using grpc::ClientReaderWriter;
+using grpc::Status;
 
 static void RunClient(void)
 {
@@ -25,7 +33,7 @@ static void RunClient(void)
     std::shared_ptr<grpc::Channel> pcChannel = grpc::CreateChannel("127.0.0.1:32888", grpc::InsecureChannelCredentials());
 
     //创建远程调用代理
-    std::unique_ptr< Greeter::Stub> pcStub = Greeter::NewStub(pcChannel);
+    std::unique_ptr<Greeter::Stub> pcStub = Greeter::NewStub(pcChannel);
 
     Request cRequest;
     Response cResponse;
@@ -54,9 +62,57 @@ static void RunClient(void)
     }
 }
 
+static void RunClient_Stream(void)
+{
+    //构建远程链接通道
+    std::shared_ptr<grpc::Channel> pcChannel = grpc::CreateChannel("127.0.0.1:32888", grpc::InsecureChannelCredentials());
+
+    //创建远程调用代理
+    std::unique_ptr<Greeter::Stub> pcStub = Greeter::NewStub(pcChannel);
+
+    grpc::ClientContext context;
+
+    std::shared_ptr<grpc::ClientReaderWriter<Request, Response>> stream(pcStub->SendData(&context));
+
+    // 写线程
+    std::thread cThWriter([stream]() 
+        {
+            for (int i = 0; i < 500; ++i) 
+            {
+                Request req;
+                std::string name = "User_" + std::to_string(i);
+                req.set_name(name);  // 自动转换为 bytes
+                req.set_age(i);
+
+                stream->Write(req);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            }
+
+            stream->WritesDone();  // 通知服务端：我写完了
+        });
+
+    // 读线程
+    Response resp;
+    while (stream->Read(&resp)) 
+    {
+        std::string msg(resp.message().begin(), resp.message().end());
+        std::cout << "Received: " << msg << std::endl;
+    }
+
+    cThWriter.join();
+
+    Status cStatus = stream->Finish();
+
+    if (!cStatus.ok()) 
+    {
+        std::cerr << "SendData rpc failed: " << cStatus.error_message() << std::endl;
+    }
+}
+
 int main()
 {
-    RunClient();
+    //RunClient();              //普通数据传输
+    RunClient_Stream();         //流式数据传输
 
     return 0;
 }

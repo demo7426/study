@@ -119,14 +119,15 @@ const char descriptor_table_protodef_greeter_2eproto[] ABSL_ATTRIBUTE_SECTION_VA
     protodesc_cold) = {
     "\n\rgreeter.proto\"$\n\007Request\022\014\n\004name\030\001 \001(\014"
     "\022\013\n\003age\030\002 \001(\005\"\033\n\010Response\022\017\n\007message\030\001 \001"
-    "(\0142,\n\007Greeter\022!\n\010sayHello\022\010.Request\032\t.Re"
-    "sponse\"\000b\006proto3"
+    "(\0142S\n\007Greeter\022!\n\010sayHello\022\010.Request\032\t.Re"
+    "sponse\"\000\022%\n\010SendData\022\010.Request\032\t.Respons"
+    "e\"\000(\0010\001b\006proto3"
 };
 static ::absl::once_flag descriptor_table_greeter_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_greeter_2eproto = {
     false,
     false,
-    136,
+    175,
     descriptor_table_protodef_greeter_2eproto,
     "greeter.proto",
     &descriptor_table_greeter_2eproto_once,

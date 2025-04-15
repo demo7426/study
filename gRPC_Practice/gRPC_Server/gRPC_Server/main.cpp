@@ -36,6 +36,28 @@ public:
         return ::grpc::Status::OK;
     }
 
+    ::grpc::Status SendData(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::Response, ::Request>* stream) override
+    {
+        Request cRequest;
+        Response cResponse;
+        std::ostringstream cStrStream;
+
+        while (stream->Read(&cRequest))
+        {
+            std::cout << "Received: name = " << cRequest.name() << ", age = " << cRequest.age() << std::endl;
+
+            cStrStream.str("");
+            cStrStream.clear();
+
+            // 响应客户端
+
+            cStrStream << "SendData name = " << cRequest.name() << ", age = " << cRequest.age();
+            cResponse.set_message(cStrStream.str());
+            stream->Write(cResponse);
+        }
+        return ::grpc::Status::OK;
+    }
+
 private:
 
 };

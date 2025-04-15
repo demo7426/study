@@ -1,13 +1,14 @@
 //# 生成 RPC 相关代码
 //where grpc_cpp_plugin
 
-//protoc --cpp_out=. --grpc_out=. --plugin=protoc-gen-grpc="C:\Users\china\Desktop\grpc\install\bin\grpc_cpp_plugin.exe" greeter.proto
-
+//使用管理员权限终端执行下列命令
+//protoc --cpp_out=. --grpc_out=. --plugin=protoc-gen-grpc="C:\Program Files (x86)\grpc\bin\grpc_cpp_plugin.exe" greeter.proto
 syntax = "proto3";
 
 service Greeter 
 {
   rpc sayHello (Request) returns (Response) {}
+  rpc SendData (stream Request) returns (stream Response) {}
 }
 
 message Request 

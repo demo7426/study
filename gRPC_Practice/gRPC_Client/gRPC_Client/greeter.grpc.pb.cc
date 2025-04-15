@@ -22,6 +22,7 @@
 
 static const char* Greeter_method_names[] = {
   "/Greeter/sayHello",
+  "/Greeter/SendData",
 };
 
 std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,6 +33,7 @@ std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::
 
 Greeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_sayHello_(Greeter_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendData_(Greeter_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
 ::grpc::Status Greeter::Stub::sayHello(::grpc::ClientContext* context, const ::Request& request, ::Response* response) {
@@ -57,6 +59,22 @@ void Greeter::Stub::async::sayHello(::grpc::ClientContext* context, const ::Requ
   return result;
 }
 
+::grpc::ClientReaderWriter< ::Request, ::Response>* Greeter::Stub::SendDataRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::Request, ::Response>::Create(channel_.get(), rpcmethod_SendData_, context);
+}
+
+void Greeter::Stub::async::SendData(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::Request,::Response>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::Request,::Response>::Create(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, reactor);
+}
+
+::grpc::ClientAsyncReaderWriter< ::Request, ::Response>* Greeter::Stub::AsyncSendDataRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::Request, ::Response>::Create(channel_.get(), cq, rpcmethod_SendData_, context, true, tag);
+}
+
+::grpc::ClientAsyncReaderWriter< ::Request, ::Response>* Greeter::Stub::PrepareAsyncSendDataRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::Request, ::Response>::Create(channel_.get(), cq, rpcmethod_SendData_, context, false, nullptr);
+}
+
 Greeter::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[0],
@@ -68,6 +86,16 @@ Greeter::Service::Service() {
              ::Response* resp) {
                return service->sayHello(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Greeter_method_names[1],
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< Greeter::Service, ::Request, ::Response>(
+          [](Greeter::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::Response,
+             ::Request>* stream) {
+               return service->SendData(ctx, stream);
+             }, this)));
 }
 
 Greeter::Service::~Service() {
@@ -77,6 +105,12 @@ Greeter::Service::~Service() {
   (void) context;
   (void) request;
   (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Greeter::Service::SendData(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::Response, ::Request>* stream) {
+  (void) context;
+  (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
