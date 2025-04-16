@@ -1,7 +1,7 @@
 ﻿/*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.cpp
-作  者:	钱锐      版本: V0.1.0     新建日期: 2025.04.15
+作  者:	钱锐      版本: V0.1.1     新建日期: 2025.04.15
 描  述: 编写一个AvFrame(主动生成的未压缩数据)格式转换到AvPacket(.h264、.h265压缩格式数据)，在上一版的基础上扩展支持预设编码器参数
 备  注: 
 修改记录:
@@ -12,6 +12,11 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 		  1) 此为模板第一个版本;
 	  版本:V0.1.0
 
+  2.  日期: 2025.04.16
+	  作者: 钱锐
+	  内容:
+		  1) 扩展支持平均码率、恒定QP质量(CQP)、恒定比特率(CBR)、恒定速率因子(CRF)、约束编码(VBV);
+	  版本:V0.1.1
 *************************************************/
 
 #include <iostream>
@@ -87,8 +92,9 @@ int main(int argc, char* argv[])
 	ptAVCodecContext->pix_fmt = AV_PIX_FMT_YUV420P;		//源数据像素格式，与编程算法相关
 	ptAVCodecContext->thread_count = 16;					//编码线程数
 
+	constexpr int64_t ullBitRate = 100'000;
 	//预设编码器参数
-#if 0	//只能二选一
+#if 0	//选择一个
 	nRtn = av_opt_set(ptAVCodecContext->priv_data, "preset", "ultrafast", 0);			//编码最快速度，但是压缩程度不高
 	if (nRtn != 0)
 	{
@@ -99,7 +105,7 @@ int main(int argc, char* argv[])
 		std::cout << chErrBuf << std::endl;
 		return EXIT_FAILURE;
 	}
-#else
+#elif 0
 	ptAVCodecContext->max_b_frames = 0;
 	nRtn = av_opt_set(ptAVCodecContext->priv_data, "tune", "zerolatency", 0);			//零延时，编码后不会产生b帧，画面实时性能最高
 	if (nRtn != 0)
@@ -111,6 +117,30 @@ int main(int argc, char* argv[])
 		std::cout << chErrBuf << std::endl;
 		return EXIT_FAILURE;
 	}
+#elif 0
+	//平均码率，单位为bit
+	ptAVCodecContext->bit_rate = ullBitRate;
+#elif 0
+	//CQP 恒定质量 h264中的QP范围从0到51，如果QP为0则接近无损压缩质量
+	//	h264 QP默认23 效果较好18
+	//	h265 QP默认28 效果较好25
+	av_opt_set_int(ptAVCodecContext->priv_data, "qp", 23, 0);
+#elif 0
+	//恒定比特率(CBR) 由于MP4不支持NAL填充，因此输出文件必须为（MPEG-2 TS）
+	//电影一般就是恒定比特率(CBR)的，比如在画面快速变化的时候，画面会模糊
+	ptAVCodecContext->rc_min_rate = ullBitRate;
+	ptAVCodecContext->rc_max_rate = ullBitRate;
+	ptAVCodecContext->rc_buffer_size = ullBitRate * 2;
+	ptAVCodecContext->bit_rate = ullBitRate;
+	av_opt_set(ptAVCodecContext->priv_data, "nal-hrd", "cbr", 0);
+#elif 0
+	//恒定速率因子（CRF）,一般用于约束编码（VBV）
+	av_opt_set_int(ptAVCodecContext->priv_data, "crf", 23, 0);
+#elif 1
+	//约束编码（VBV）
+	av_opt_set_int(ptAVCodecContext->priv_data, "crf", 23, 0);
+	ptAVCodecContext->rc_max_rate = ullBitRate;
+	ptAVCodecContext->rc_buffer_size = ullBitRate * 2;
 #endif
 
 	nRtn = avcodec_open2(ptAVCodecContext, ptAVCodec, NULL);
