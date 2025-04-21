@@ -22,20 +22,27 @@ CServer::CServer(boost::asio::io_context& _IO_Context, unsigned short _PortNo): 
 	this->StartAccept();
 }
 
+void CServer::Erase_Uuid(std::string _Uuid)
+{
+	m_mapSession.erase(_Uuid);
+}
+
 void CServer::StartAccept(void)
 {
-	CSession* pcSession = new CSession(m_cIO_Context);
+	std::shared_ptr<CSession> pcSession = std::make_shared<CSession>(m_cIO_Context, this);
 	
 	m_cAcceptor.async_accept(pcSession->R_Socket(), 
 		std::bind(&CServer::HandleAccept_CallBack, this, pcSession, std::placeholders::_1));
 }
 
-void CServer::HandleAccept_CallBack(CSession* _pSession, const boost::system::error_code& _ErrCode)
+void CServer::HandleAccept_CallBack(std::shared_ptr<CSession> _pSession, const boost::system::error_code& _ErrCode)
 {
-	if (_ErrCode)			//连接错误
-		delete _pSession;
-	else					//连接成功
+	if (!_ErrCode)			//连接成功
+	{
+		m_mapSession.insert(std::make_pair(_pSession->Get_Uuid(), _pSession));
+
 		_pSession->Start();
+	}
 	
 	this->StartAccept();
 }

@@ -16,6 +16,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #pragma once
 
+#include <map>
+
 #include "Session.h"
 
 class CServer
@@ -25,13 +27,20 @@ public:
 
 	~CServer() = default;
 
+	void Erase_Uuid(std::string _Uuid);
+
 private:
 	void StartAccept(void);
 
-	void HandleAccept_CallBack(CSession* _pSession, const boost::system::error_code& _ErrCode);
+	void HandleAccept_CallBack(std::shared_ptr<CSession> _pSession, const boost::system::error_code& _ErrCode);
+
+private:
 
 	boost::asio::io_context& m_cIO_Context;
+
 	boost::asio::ip::tcp::acceptor m_cAcceptor;
+
+	std::map<std::string, std::shared_ptr<CSession>> m_mapSession;
 };
 
 

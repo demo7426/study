@@ -16,21 +16,28 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <iostream>
 
+#include "Server.h"
 #include "Session.h"
+
+CSession::CSession(boost::asio::io_context& _IO_Context, CServer* _pServer): m_cSocket(_IO_Context), m_pcServer(_pServer)
+{
+	boost::uuids::uuid tUuid = boost::uuids::random_generator()();
+	m_strUuid = boost::uuids::to_string(tUuid);
+}
 
 void CSession::Start(void)
 {
 	memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
 	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf), 
-		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2));
+		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, this->shared_from_this()));
 }
 
-void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, size_t _Byte_Transferred)
+void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, size_t _Byte_Transferred, std::shared_ptr<CSession> _pSelf_Session)
 {
 	if (_ErrCode) 
 	{
 		std::cout << "Handle_Read_CallBack is err, " << _ErrCode.message() << std::endl;
-		delete this;
+		m_pcServer->Erase_Uuid(m_strUuid);
 		return;
 	}
 
@@ -38,25 +45,25 @@ void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, s
 	{
 		memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
 		m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf),
-			std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2));
+			std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
 	}
 	else
 	{
 		m_cSocket.async_send(boost::asio::buffer(m_chRecvBuf, _Byte_Transferred),
-			std::bind(&CSession::Handle_Write_CallBack, this, std::placeholders::_1));
+			std::bind(&CSession::Handle_Write_CallBack, this, std::placeholders::_1, _pSelf_Session));
 	}
 }
 
-void CSession::Handle_Write_CallBack(const boost::system::error_code& _ErrCode)
+void CSession::Handle_Write_CallBack(const boost::system::error_code& _ErrCode, std::shared_ptr<CSession> _pSelf_Session)
 {
 	if (_ErrCode)
 	{
 		std::cout << "Handle_Write_CallBack is err, " << _ErrCode.message() << std::endl;
-		delete this;
+		m_pcServer->Erase_Uuid(m_strUuid);
 		return;
 	}
 
 	memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
 	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf),
-		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2));
+		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
 }
