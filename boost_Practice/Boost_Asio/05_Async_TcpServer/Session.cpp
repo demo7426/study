@@ -41,17 +41,11 @@ void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, s
 		return;
 	}
 
-	if (_Byte_Transferred == 0)
-	{
-		memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
-		m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf),
-			std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
-	}
-	else
-	{
-		m_cSocket.async_send(boost::asio::buffer(m_chRecvBuf, _Byte_Transferred),
-			std::bind(&CSession::Handle_Write_CallBack, this, std::placeholders::_1, _pSelf_Session));
-	}
+	this->Send(m_chRecvBuf, _Byte_Transferred);
+
+	memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
+	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf),
+		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
 }
 
 void CSession::Handle_Write_CallBack(const boost::system::error_code& _ErrCode, std::shared_ptr<CSession> _pSelf_Session)
@@ -63,7 +57,32 @@ void CSession::Handle_Write_CallBack(const boost::system::error_code& _ErrCode, 
 		return;
 	}
 
-	memset(m_chRecvBuf, 0, sizeof m_chRecvBuf);
-	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf, sizeof m_chRecvBuf),
-		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
+	std::lock_guard<std::mutex> cLockGuard(m_SendLock);
+
+	m_queSend.pop();
+
+	if (!m_queSend.empty())
+	{
+		auto pcMsgNode = m_queSend.front();
+		m_cSocket.async_send(boost::asio::buffer(pcMsgNode->m_pchDataStartAddr, pcMsgNode->m_nMaxLen),
+			std::bind(&CSession::Handle_Write_CallBack, this, std::placeholders::_1, this->shared_from_this()));
+	}
+}
+
+void CSession::Send(char* _pMsg, int _MsgLen)
+{
+	bool bPending = false;								//表示发送队列的数据是否正在发送;false--未发送;true--正在发送;
+	std::lock_guard<std::mutex> cLockGuard(m_SendLock);
+
+	if (m_queSend.size() > 0)							//如果有数据，则表示异步发送已经被启动了
+		bPending = true;
+
+	m_queSend.push(std::make_shared<CMsgNode>(_pMsg, _MsgLen));
+	
+	if (bPending)										//防止多次启动boost asio的异步发送数据
+		return;
+
+	//如果asio的异步数据发送没有启动，则在此处启动异步发送
+	m_cSocket.async_send(boost::asio::buffer(_pMsg, _MsgLen),
+		std::bind(&CSession::Handle_Write_CallBack, this, std::placeholders::_1, this->shared_from_this()));
 }

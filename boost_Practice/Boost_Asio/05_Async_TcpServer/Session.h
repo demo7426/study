@@ -1,7 +1,7 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	Session.h
-作  者:	钱锐      版本: V0.1.0     新建日期: 2025.04.21
+作  者:	钱锐      版本: V0.1.1     新建日期: 2025.04.21
 描  述: 回声服务端会话接口
 备  注:
 修改记录:
@@ -11,6 +11,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 	  内容:
 		  1) 此为模板第一个版本；
 	  版本:V0.1.0
+
+  1.  日期: 2025.04.23
+	  作者: 钱锐
+	  内容:
+		  1) 新增异步发送数据CMsgNode+发送队列，保证异步发送数据后流的前后一致性；
+	  版本:V0.1.1
 
 *************************************************/
 
@@ -22,8 +28,39 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <memory>
 #include <iostream>
+#include <queue>
+#include <mutex>
 
 class CServer;
+
+class CMsgNode
+{
+	friend class CSession;
+
+public:
+	CMsgNode(char* _pMsg, int _MsgLen)
+	{
+		if (_pMsg == nullptr || _MsgLen == 0)
+			return;
+
+		m_pchDataStartAddr = new char[_MsgLen];
+		memcpy(m_pchDataStartAddr, _pMsg, _MsgLen);
+	}
+
+	~CMsgNode()
+	{
+		if (m_pchDataStartAddr)
+		{
+			delete[] m_pchDataStartAddr;
+			m_pchDataStartAddr = nullptr;
+		}
+	}
+
+private:
+	int m_nCurLen = 0;						//当前长度
+	int m_nMaxLen = 0;						//最大长度
+	char* m_pchDataStartAddr = nullptr;		//数据的起始地址
+};
 
 class CSession : public std::enable_shared_from_this<CSession>
 {
@@ -61,6 +98,13 @@ private:
 	/// <param name="_ErrCode"></param>
 	void Handle_Write_CallBack(const boost::system::error_code& _ErrCode, std::shared_ptr<CSession> _pSelf_Session);
 
+	/// <summary>
+	/// 发送数据
+	/// </summary>
+	/// <param name="_pMsg"></param>
+	/// <param name="_MsgLen"></param>
+	void Send(char* _pMsg, int _MsgLen);
+
 private:
 	boost::asio::ip::tcp::socket m_cSocket;
 	
@@ -70,5 +114,8 @@ private:
 	std::string m_strUuid;
 
 	CServer* m_pcServer = nullptr;
+
+	std::queue<std::shared_ptr<CMsgNode>> m_queSend;			//数据发送缓冲队列
+	std::mutex m_SendLock;										//数据发送缓冲队列互斥锁
 };
 
