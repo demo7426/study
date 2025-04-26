@@ -37,6 +37,9 @@ void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, s
 	if (_ErrCode) 
 	{
 		std::cout << "Handle_Read_CallBack is err, " << _ErrCode.message() << std::endl;
+
+		this->m_cSocket.close();
+
 		m_pcServer->Erase_Uuid(m_strUuid);
 		return;
 	}
@@ -80,6 +83,9 @@ void CSession::Handle_Write_CallBack(const boost::system::error_code& _ErrCode, 
 	if (_ErrCode)
 	{
 		std::cout << "Handle_Write_CallBack is err, " << _ErrCode.message() << std::endl;
+
+		this->m_cSocket.close();
+
 		m_pcServer->Erase_Uuid(m_strUuid);
 		return;
 	}
