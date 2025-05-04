@@ -3,5 +3,5 @@
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-D:\C++Pratice\boost_Practice\Boost_Asio\08_Sync_TcpClient_TLV\main.cpp(55,34): warning C4267: “=”: 从“size_t”转换到“unsigned short”，可能丢失数据
+D:\C++Pratice\boost_Practice\Boost_Asio\08_Sync_TcpClient_TLV\main.cpp(63,61): warning C4267: “=”: 从“size_t”转换到“unsigned short”，可能丢失数据
   08_Sync_TcpClient_TLV.vcxproj -> D:\C++Pratice\boost_Practice\Boost_Asio\x64\Debug\08_Sync_TcpClient_TLV.exe

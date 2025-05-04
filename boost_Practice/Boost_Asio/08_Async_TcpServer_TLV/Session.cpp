@@ -44,27 +44,32 @@ void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, s
 		return;
 	}
 
+	unsigned char uchTLVHead_OccupyBytes = m_uchTLVLen_OccupyBytes + m_uchTLVType_OccupyBytes;
+
 	//this->Send(m_chRecvBuf, _Byte_Transferred);
 
 	if (_Byte_Transferred > 0)
 	{
+		unsigned short ushTLV_Type = 0;									//TLV格式类型
 		unsigned short ushShouldRecvLen = 0;							//应当接收的数据长度
 
-		m_uchRecvValidLen += _Byte_Transferred;
+		m_unRecvValidLen += _Byte_Transferred;
 
-		while (m_uchRecvValidLen >= m_uchTLVLen_OccupyBytes)				//已经接收到了数据的长度信息
+		while (m_unRecvValidLen >= uchTLVHead_OccupyBytes)				//已经接收到了数据的长度信息
 		{
-			ushShouldRecvLen = *(unsigned short*)m_chRecvBuf;
+			ushShouldRecvLen = *(unsigned short*)(m_chRecvBuf + m_uchTLVType_OccupyBytes);
 
-			if (m_uchRecvValidLen - m_uchTLVLen_OccupyBytes >= ushShouldRecvLen)		//本次数据已经完整接收
+			if (m_unRecvValidLen - uchTLVHead_OccupyBytes >= ushShouldRecvLen)		//本次数据已经完整接收
 			{
-				m_queRecv.push(std::make_shared<CMsgNode>(m_chRecvBuf + m_uchTLVLen_OccupyBytes, ushShouldRecvLen));
+				ushTLV_Type = *(unsigned short*)(m_chRecvBuf);
+
+				m_queRecv.push(std::make_shared<CRecvMsg_Node>(ushTLV_Type, m_chRecvBuf + uchTLVHead_OccupyBytes, ushShouldRecvLen));
 
 				//拷贝下一次的数据
-				memmove(m_chRecvBuf, m_chRecvBuf + ushShouldRecvLen + m_uchTLVLen_OccupyBytes,
-					m_uchRecvValidLen - ushShouldRecvLen - m_uchTLVLen_OccupyBytes);
+				memmove(m_chRecvBuf, m_chRecvBuf + ushShouldRecvLen + uchTLVHead_OccupyBytes,
+					m_unRecvValidLen - ushShouldRecvLen - uchTLVHead_OccupyBytes);
 
-				m_uchRecvValidLen -= (ushShouldRecvLen + m_uchTLVLen_OccupyBytes);
+				m_unRecvValidLen -= (ushShouldRecvLen + uchTLVHead_OccupyBytes);
 
 				this->Send(m_queRecv.front()->m_pchDataStartAddr, m_queRecv.front()->m_nMaxLen);
 				m_queRecv.pop();
@@ -74,7 +79,7 @@ void CSession::Handle_Read_CallBack(const boost::system::error_code& _ErrCode, s
 		}
 	}
 
-	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf + m_uchRecvValidLen, m_unMaxRecvLen - m_uchRecvValidLen),
+	m_cSocket.async_read_some(boost::asio::buffer(m_chRecvBuf + m_unRecvValidLen, m_unMaxRecvLen - m_unRecvValidLen),
 		std::bind(&CSession::Handle_Read_CallBack, this, std::placeholders::_1, std::placeholders::_2, _pSelf_Session));
 }
 
@@ -110,7 +115,7 @@ void CSession::Send(char* _pMsg, int _MsgLen)
 	if (m_queSend.size() > 0)							//如果有数据，则表示异步发送已经被启动了
 		bPending = true;
 
-	m_queSend.push(std::make_shared<CMsgNode>(_pMsg, _MsgLen));
+	m_queSend.push(std::make_shared<CSendMsg_Node>(_pMsg, _MsgLen));
 	
 	if (bPending)										//防止多次启动boost asio的异步发送数据
 		return;

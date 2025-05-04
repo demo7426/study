@@ -31,39 +31,9 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <queue>
 #include <mutex>
 
+#include "MsgNode.h"
+
 class CServer;
-
-class CMsgNode
-{
-	friend class CSession;
-
-public:
-	CMsgNode(char* _pMsg, int _MsgLen)
-	{
-		if (_pMsg == nullptr || _MsgLen == 0)
-			return;
-
-		m_pchDataStartAddr = new char[_MsgLen];
-
-		memcpy(m_pchDataStartAddr, _pMsg, _MsgLen);
-
-		m_nMaxLen = _MsgLen;
-	}
-
-	~CMsgNode()
-	{
-		if (m_pchDataStartAddr)
-		{
-			delete[] m_pchDataStartAddr;
-			m_pchDataStartAddr = nullptr;
-		}
-	}
-
-private:
-	int m_nCurLen = 0;						//当前长度
-	int m_nMaxLen = 0;						//最大长度
-	char* m_pchDataStartAddr = nullptr;		//数据的起始地址
-};
 
 class CSession : public std::enable_shared_from_this<CSession>
 {
@@ -110,19 +80,20 @@ private:
 
 private:
 	boost::asio::ip::tcp::socket m_cSocket;
-	
+
+	constexpr static unsigned char m_uchTLVType_OccupyBytes = 2;		//TLV格式，类型所占用的总字节数
 	constexpr static unsigned char m_uchTLVLen_OccupyBytes = 2;			//TLV格式，长度所占用的总字节数
-	constexpr static size_t m_unMaxRecvLen = 65537;						//接收数据缓冲最大长度;（因为TLV长度所占用的总字节数为2，所以最大长度为65537）
+	constexpr static size_t m_unMaxRecvLen = 65539;						//接收数据缓冲最大长度;（因为TLV长度所占用的总字节数为2，所以最大长度为65537）
 
 	char m_chRecvBuf[m_unMaxRecvLen] = { 0 };							//接收数据缓冲
-	size_t m_uchRecvValidLen = 0;										//当前接受数据的有效长度
+	size_t m_unRecvValidLen = 0;										//当前接受数据的有效长度
 
 	std::string m_strUuid;
 
 	CServer* m_pcServer = nullptr;
 
-	std::queue<std::shared_ptr<CMsgNode>> m_queSend;					//数据发送缓冲队列
-	std::queue<std::shared_ptr<CMsgNode>> m_queRecv;					//数据接收缓冲队列
+	std::queue<std::shared_ptr<CSendMsg_Node>> m_queSend;					//数据发送缓冲队列
+	std::queue<std::shared_ptr<CRecvMsg_Node>> m_queRecv;					//数据接收缓冲队列
 	std::mutex m_SendLock;												//数据发送缓冲队列互斥锁
 };
 
