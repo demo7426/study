@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_Sync_TcpClient_TLV", "08
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_Async_TcpServer_TLV_LogicSystem", "14_Async_TcpServer_TLV_LogicSystem\14_Async_TcpServer_TLV_LogicSystem.vcxproj", "{D62F5882-BBD6-4B98-8134-B0DD3D952BAC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "16_IOServicePool_Server", "16_IOServicePool_Server\16_IOServicePool_Server.vcxproj", "{F28BE5A1-0C73-4480-A786-74790A2919C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{D62F5882-BBD6-4B98-8134-B0DD3D952BAC}.Release|x64.Build.0 = Release|x64
 		{D62F5882-BBD6-4B98-8134-B0DD3D952BAC}.Release|x86.ActiveCfg = Release|Win32
 		{D62F5882-BBD6-4B98-8134-B0DD3D952BAC}.Release|x86.Build.0 = Release|Win32
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Debug|x64.ActiveCfg = Debug|x64
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Debug|x64.Build.0 = Debug|x64
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Debug|x86.ActiveCfg = Debug|Win32
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Debug|x86.Build.0 = Debug|Win32
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Release|x64.ActiveCfg = Release|x64
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Release|x64.Build.0 = Release|x64
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Release|x86.ActiveCfg = Release|Win32
+		{F28BE5A1-0C73-4480-A786-74790A2919C5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
