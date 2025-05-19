@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\bin\Debug\233集_创建我们自己的列表MyList.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\bin\Debug\233集_创建我们自己的列表MyList.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\bin\Debug\233集_创建我们自己的列表MyList.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\obj\Debug\233集_创建我们自己的列表MyList.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\obj\Debug\233集_创建我们自己的列表MyList.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\obj\Debug\233集_创建我们自己的列表MyList.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\233集_创建我们自己的列表MyList\obj\Debug\233集_创建我们自己的列表MyList.pdb

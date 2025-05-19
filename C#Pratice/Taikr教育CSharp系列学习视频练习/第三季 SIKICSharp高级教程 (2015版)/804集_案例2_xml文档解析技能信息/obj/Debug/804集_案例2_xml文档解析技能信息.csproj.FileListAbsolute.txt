@@ -1,0 +1,9 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\bin\Debug\xml技能信息.txt
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\bin\Debug\804集_案例2_xml文档解析技能信息.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\bin\Debug\804集_案例2_xml文档解析技能信息.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\bin\Debug\804集_案例2_xml文档解析技能信息.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\obj\Debug\804集_案例2_xml文档解析技能信息.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\obj\Debug\804集_案例2_xml文档解析技能信息.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\obj\Debug\804集_案例2_xml文档解析技能信息.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\obj\Debug\804集_案例2_xml文档解析技能信息.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\804集_案例2_xml文档解析技能信息\obj\Debug\804集_案例2_xml文档解析技能信息.pdb

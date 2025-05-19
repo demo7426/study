@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\bin\Debug\603集_unity聊天室_创建tcp服务器端.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\bin\Debug\603集_unity聊天室_创建tcp服务器端.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\bin\Debug\603集_unity聊天室_创建tcp服务器端.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\obj\Debug\603集_unity聊天室_创建tcp服务器端.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\obj\Debug\603集_unity聊天室_创建tcp服务器端.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\obj\Debug\603集_unity聊天室_创建tcp服务器端.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\obj\Debug\603集_unity聊天室_创建tcp服务器端.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（服务器端）_unity聊天室\603集_unity聊天室_创建tcp服务器端\obj\Debug\603集_unity聊天室_创建tcp服务器端.pdb

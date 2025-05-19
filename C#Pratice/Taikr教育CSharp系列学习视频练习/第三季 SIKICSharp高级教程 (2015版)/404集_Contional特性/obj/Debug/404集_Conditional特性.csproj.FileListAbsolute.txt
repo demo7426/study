@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\bin\Debug\404集_Contional特性.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\bin\Debug\404集_Contional特性.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\bin\Debug\404集_Contional特性.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\obj\Debug\404集_Conditional特性.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\obj\Debug\404集_Conditional特性.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\obj\Debug\404集_Contional特性.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\404集_Contional特性\obj\Debug\404集_Contional特性.pdb

@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\bin\Debug\220集_派生类的构造方法.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\bin\Debug\220集_派生类的构造方法.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\bin\Debug\220集_派生类的构造方法.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\obj\Debug\220集_派生类的构造方法.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\obj\Debug\220集_派生类的构造方法.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\obj\Debug\220集_派生类的构造方法.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\obj\Debug\220集_派生类的构造方法.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\220集_派生类的构造方法\obj\Debug\220集_派生类的构造方法.pdb

@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\bin\Debug\509集_线程问题-争用条件和死锁.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\bin\Debug\509集_线程问题-争用条件和死锁.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\bin\Debug\509集_线程问题-争用条件和死锁.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\obj\Debug\509集_线程问题-争用条件和死锁.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\obj\Debug\509集_线程问题-争用条件和死锁.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\obj\Debug\509集_线程问题-争用条件和死锁.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\509集_线程问题-争用条件和死锁\obj\Debug\509集_线程问题-争用条件和死锁.pdb

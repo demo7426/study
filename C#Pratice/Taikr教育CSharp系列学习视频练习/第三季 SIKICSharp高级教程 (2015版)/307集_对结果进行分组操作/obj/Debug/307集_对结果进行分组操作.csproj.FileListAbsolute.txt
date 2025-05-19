@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\bin\Debug\307集_对结果进行分组操作.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\bin\Debug\307集_对结果进行分组操作.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\bin\Debug\307集_对结果进行分组操作.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\obj\Debug\307集_对结果进行分组操作.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\obj\Debug\307集_对结果进行分组操作.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\obj\Debug\307集_对结果进行分组操作.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\obj\Debug\307集_对结果进行分组操作.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\307集_对结果进行分组操作\obj\Debug\307集_对结果进行分组操作.pdb

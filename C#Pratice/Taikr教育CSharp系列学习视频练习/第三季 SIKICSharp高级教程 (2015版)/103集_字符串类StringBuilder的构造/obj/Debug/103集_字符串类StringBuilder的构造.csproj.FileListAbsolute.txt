@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\bin\Debug\103集_字符串类StringBuilder的构造.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\bin\Debug\103集_字符串类StringBuilder的构造.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\bin\Debug\103集_字符串类StringBuilder的构造.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\obj\Debug\103集_字符串类StringBuilder的构造.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\obj\Debug\103集_字符串类StringBuilder的构造.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\obj\Debug\103集_字符串类StringBuilder的构造.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\obj\Debug\103集_字符串类StringBuilder的构造.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\103集_字符串类StringBuilder的构造\obj\Debug\103集_字符串类StringBuilder的构造.pdb

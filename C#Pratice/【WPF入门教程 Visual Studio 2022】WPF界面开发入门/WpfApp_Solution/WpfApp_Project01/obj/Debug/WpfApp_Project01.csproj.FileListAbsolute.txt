@@ -1,0 +1,48 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\App.g.cs
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01_MarkupCompile.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01_MarkupCompile.lref
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.g.resources
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.Properties.Resources.resources
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.GenerateResource.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\04集_NotePadWindow.g.cs
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\07集_Style样式_样式多样性.g.cs
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\06集_Style样式_用法介绍.g.cs
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\04集_NotePadWindow.baml
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\07集_Style样式_样式多样性.baml
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\06集_Style样式_用法介绍.baml
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\BaseButtonDictionary.baml
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\08集_Style样式_全局样式说明和资源字典的使用.g.cs
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\08集_Style样式_全局样式说明和资源字典的使用.baml
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\WpfApp_Solution\WpfApp_Project01\obj\Debug\App.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.exe.config
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.exe
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\bin\Debug\WpfApp_Project01.pdb
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.AssemblyReference.cache
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\BaseButtonDictionary.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\04集_NotePadWindow.g.cs
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\07集_Style样式_样式多样性.g.cs
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\06集_Style样式_用法介绍.g.cs
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\08集_Style样式_全局样式说明和资源字典的使用.g.cs
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\App.g.cs
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01_MarkupCompile.cache
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01_MarkupCompile.lref
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\App.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\04集_NotePadWindow.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\07集_Style样式_样式多样性.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\06集_Style样式_用法介绍.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\08集_Style样式_全局样式说明和资源字典的使用.baml
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.g.resources
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.Properties.Resources.resources
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.GenerateResource.cache
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.csproj.CoreCompileInputs.cache
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.exe
+D:\C#Pratice\【WPF入门教程 Visual Studio 2022】WPF界面开发入门\WpfApp_Solution\WpfApp_Project01\obj\Debug\WpfApp_Project01.pdb

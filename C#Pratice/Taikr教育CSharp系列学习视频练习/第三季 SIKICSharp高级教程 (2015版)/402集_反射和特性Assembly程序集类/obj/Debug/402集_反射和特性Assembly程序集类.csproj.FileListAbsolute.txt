@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\bin\Debug\402集_反射和特性Assembly程序集类.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\bin\Debug\402集_反射和特性Assembly程序集类.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\bin\Debug\402集_反射和特性Assembly程序集类.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\obj\Debug\402集_反射和特性Assembly程序集类.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\obj\Debug\402集_反射和特性Assembly程序集类.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\obj\Debug\402集_反射和特性Assembly程序集类.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\402集_反射和特性Assembly程序集类\obj\Debug\402集_反射和特性Assembly程序集类.pdb

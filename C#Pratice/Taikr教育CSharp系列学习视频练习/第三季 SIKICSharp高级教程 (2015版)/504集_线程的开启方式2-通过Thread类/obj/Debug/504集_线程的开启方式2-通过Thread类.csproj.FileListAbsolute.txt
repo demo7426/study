@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\bin\Debug\504集_线程的开启方式2-通过Thread类.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\bin\Debug\504集_线程的开启方式2-通过Thread类.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\bin\Debug\504集_线程的开启方式2-通过Thread类.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\obj\Debug\504集_线程的开启方式2-通过Thread类.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\obj\Debug\504集_线程的开启方式2-通过Thread类.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\obj\Debug\504集_线程的开启方式2-通过Thread类.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\obj\Debug\504集_线程的开启方式2-通过Thread类.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\504集_线程的开启方式2-通过Thread类\obj\Debug\504集_线程的开启方式2-通过Thread类.pdb

@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\bin\Debug\802集_xml文档规则_手写一个xml文档.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\bin\Debug\802集_xml文档规则_手写一个xml文档.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\bin\Debug\802集_xml文档规则_手写一个xml文档.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\obj\Debug\802集_xml文档规则_手写一个xml文档.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\obj\Debug\802集_xml文档规则_手写一个xml文档.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\obj\Debug\802集_xml文档规则_手写一个xml文档.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\obj\Debug\802集_xml文档规则_手写一个xml文档.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\802集_xml文档规则_手写一个xml文档\obj\Debug\802集_xml文档规则_手写一个xml文档.pdb

@@ -1,0 +1,17 @@
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\bin\Debug\12_资源基础.exe.config
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\bin\Debug\12_资源基础.exe
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\bin\Debug\12_资源基础.pdb
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.csproj.AssemblyReference.cache
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\MainWindow.g.cs
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\App.g.cs
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础_MarkupCompile.cache
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础_MarkupCompile.lref
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\MainWindow.baml
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.g.resources
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\_12_资源基础.Properties.Resources.resources
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.csproj.GenerateResource.cache
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.csproj.CoreCompileInputs.cache
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.exe
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\12_资源基础.pdb
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\StyleDictionary.baml
+D:\C#Pratice\WPF项目实战合集(2022终结版)\12_资源基础\obj\Debug\App.baml

@@ -1,0 +1,28 @@
+﻿<Window x:Class="_05_WPF绑定.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_05_WPF绑定"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Slider x:Name="slider"/>
+            <!--默认为双向绑定-->
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=Default}" Margin="5"/>
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Margin="5"/>
+
+            <!--绑定ElementName起始值-->
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=OneTime}" Margin="5"/>
+
+            <!--单向被ElementName绑定-->
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=OneWay}" Margin="5"/>
+
+            <!--单向ElementName绑定-->
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=OneWayToSource}" Margin="5"/>
+
+            <TextBlock Text="{Binding StrName}"/>
+        </StackPanel>
+    </Grid>
+</Window>

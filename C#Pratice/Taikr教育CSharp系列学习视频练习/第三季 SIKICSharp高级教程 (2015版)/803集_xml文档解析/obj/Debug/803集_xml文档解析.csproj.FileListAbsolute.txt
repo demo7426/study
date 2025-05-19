@@ -1,0 +1,9 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\bin\Debug\TextFile1.txt
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\bin\Debug\803集_xml文档解析.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\bin\Debug\803集_xml文档解析.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\bin\Debug\803集_xml文档解析.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\obj\Debug\803集_xml文档解析.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\obj\Debug\803集_xml文档解析.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\obj\Debug\803集_xml文档解析.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\obj\Debug\803集_xml文档解析.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\803集_xml文档解析\obj\Debug\803集_xml文档解析.pdb

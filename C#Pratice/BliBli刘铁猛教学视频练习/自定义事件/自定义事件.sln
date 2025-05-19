@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "自定义事件", "自定义事件\自定义事件.csproj", "{71B5BA48-D909-4ACA-B001-7C0B29467517}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71B5BA48-D909-4ACA-B001-7C0B29467517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B5BA48-D909-4ACA-B001-7C0B29467517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B5BA48-D909-4ACA-B001-7C0B29467517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B5BA48-D909-4ACA-B001-7C0B29467517}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62A29F8F-7AE3-4C81-AC4F-6095CB19F548}
+	EndGlobalSection
+EndGlobal

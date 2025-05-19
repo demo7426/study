@@ -1,0 +1,8 @@
+D:\C#Pratice\自定义事件\自定义事件\bin\Debug\自定义事件.exe.config
+D:\C#Pratice\自定义事件\自定义事件\bin\Debug\自定义事件.exe
+D:\C#Pratice\自定义事件\自定义事件\bin\Debug\自定义事件.pdb
+D:\C#Pratice\自定义事件\自定义事件\obj\Debug\自定义事件.csproj.AssemblyReference.cache
+D:\C#Pratice\自定义事件\自定义事件\obj\Debug\自定义事件.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\自定义事件\自定义事件\obj\Debug\自定义事件.csproj.CoreCompileInputs.cache
+D:\C#Pratice\自定义事件\自定义事件\obj\Debug\自定义事件.exe
+D:\C#Pratice\自定义事件\自定义事件\obj\Debug\自定义事件.pdb

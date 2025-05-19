@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\bin\Debug\704集_使用FileStream读写文件.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\bin\Debug\704集_使用FileStream读写文件.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\bin\Debug\704集_使用FileStream读写文件.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\obj\Debug\704集_使用FileStream读写文件.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\obj\Debug\704集_使用FileStream读写文件.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\obj\Debug\704集_使用FileStream读写文件.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\obj\Debug\704集_使用FileStream读写文件.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\704集_使用FileStream读写文件\obj\Debug\704集_使用FileStream读写文件.pdb

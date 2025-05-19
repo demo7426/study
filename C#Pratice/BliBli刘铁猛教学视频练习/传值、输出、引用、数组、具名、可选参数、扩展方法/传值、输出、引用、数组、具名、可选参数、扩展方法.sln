@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "传值、输出、引用、数组、具名、可选参数、扩展方法", "传值、输出、引用、数组、具名、可选参数、扩展方法\传值、输出、引用、数组、具名、可选参数、扩展方法.csproj", "{F028449E-2B95-4E1F-ACE4-7FBA65DFDDE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F028449E-2B95-4E1F-ACE4-7FBA65DFDDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F028449E-2B95-4E1F-ACE4-7FBA65DFDDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F028449E-2B95-4E1F-ACE4-7FBA65DFDDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F028449E-2B95-4E1F-ACE4-7FBA65DFDDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {428B5C6F-6DA6-4344-8398-40EEC37EB29A}
+	EndGlobalSection
+EndGlobal

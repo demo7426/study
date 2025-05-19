@@ -1,0 +1,112 @@
+﻿<Window x:Class="_01_WPF布局基础.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_01_WPF布局基础"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--基本布局-->
+        <!--<Grid/>
+        <Border/>
+        <StackPanel/>
+        <WrapPanel/>
+        <DockPanel/>
+        <UniformGrid/>-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#7577DB" Grid.Row="0" Grid.Column="0">
+            
+        </Border>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#D0CDD0">
+                <StackPanel>
+                    <Button Content="按钮01" Height="40" Margin="5"/>
+                    <Button Content="按钮02" Height="40" Margin="5"/>
+                    <Button Content="按钮03" Height="40" Margin="5"/>
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Background="#7576D5" Margin="5">
+                    </Border>
+
+                    <Border Grid.Column="1" Background="#4796CD" Margin="5">
+                    </Border>
+
+                    <Border Grid.Column="2" Background="#DA7FCF" Margin="5">
+                    </Border>
+
+                    <Border Grid.Column="3" Background="#4DB7B6" Margin="5">
+                    </Border>
+
+                    <Border Grid.Column="4" Background="#DF7B7B" Margin="5">
+                    </Border>
+
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Background="Cyan">
+
+                    </Border>
+
+                    <Border Grid.Column="1" Background="DarkGoldenrod">
+                        
+                    </Border>
+                    
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Background="LightSalmon">
+
+                    </Border>
+
+                    <Border Grid.Column="1" Background="Navy">
+
+                    </Border>
+                </Grid>
+                
+                
+            </Grid>
+            
+        </Grid>
+        
+        
+        
+    </Grid>
+</Window>

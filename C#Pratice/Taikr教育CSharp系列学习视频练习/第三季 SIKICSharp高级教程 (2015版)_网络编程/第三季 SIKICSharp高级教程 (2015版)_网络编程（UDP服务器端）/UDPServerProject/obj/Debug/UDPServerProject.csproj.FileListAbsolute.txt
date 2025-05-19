@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\bin\Debug\UDPServerProject.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\bin\Debug\UDPServerProject.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\bin\Debug\UDPServerProject.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\obj\Debug\UDPServerProject.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\obj\Debug\UDPServerProject.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\obj\Debug\UDPServerProject.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\obj\Debug\UDPServerProject.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)_网络编程\第三季 SIKICSharp高级教程 (2015版)_网络编程（UDP服务器端）\UDPServerProject\obj\Debug\UDPServerProject.pdb

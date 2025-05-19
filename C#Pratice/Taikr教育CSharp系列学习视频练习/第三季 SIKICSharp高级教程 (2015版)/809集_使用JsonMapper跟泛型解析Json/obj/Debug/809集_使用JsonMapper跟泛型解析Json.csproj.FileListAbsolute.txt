@@ -1,0 +1,10 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\bin\Debug\Json.txt
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\bin\Debug\809集_使用JsonMapper跟泛型解析Json.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\bin\Debug\809集_使用JsonMapper跟泛型解析Json.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\bin\Debug\809集_使用JsonMapper跟泛型解析Json.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\bin\Debug\LitJSON.dll
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\obj\Debug\809集_使用JsonMapper跟泛型解析Json.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\obj\Debug\809集_使用JsonMapper跟泛型解析Json.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\obj\Debug\809集_使用JsonMapper跟泛型解析Json.csproj.CopyComplete
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\obj\Debug\809集_使用JsonMapper跟泛型解析Json.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\809集_使用JsonMapper跟泛型解析Json\obj\Debug\809集_使用JsonMapper跟泛型解析Json.pdb

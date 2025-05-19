@@ -1,0 +1,8 @@
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\bin\Debug\ConsoleApp_Constructor_1.exe.config
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\bin\Debug\ConsoleApp_Constructor_1.exe
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\bin\Debug\ConsoleApp_Constructor_1.pdb
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\obj\Debug\ConsoleApp_Constructor_1.csproj.AssemblyReference.cache
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\obj\Debug\ConsoleApp_Constructor_1.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\obj\Debug\ConsoleApp_Constructor_1.csproj.CoreCompileInputs.cache
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\obj\Debug\ConsoleApp_Constructor_1.exe
+D:\C#Pratice\ConsoleApp_Constructor\ConsoleApp_Constructor_1\obj\Debug\ConsoleApp_Constructor_1.pdb

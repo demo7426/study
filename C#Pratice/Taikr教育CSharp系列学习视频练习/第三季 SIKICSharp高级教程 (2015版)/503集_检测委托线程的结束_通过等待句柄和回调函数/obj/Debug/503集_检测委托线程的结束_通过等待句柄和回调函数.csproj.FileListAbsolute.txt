@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\bin\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\bin\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\bin\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\obj\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\obj\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\obj\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\obj\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\503集_检测委托线程的结束_通过等待句柄和回调函数\obj\Debug\503集_检测委托线程的结束_通过等待句柄和回调函数.pdb

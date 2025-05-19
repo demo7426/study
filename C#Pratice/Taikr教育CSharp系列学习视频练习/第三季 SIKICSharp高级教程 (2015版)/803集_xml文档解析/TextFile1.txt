@@ -1,0 +1,17 @@
+﻿<skills>
+	<skill>
+		<id>1</id>
+		<name language ="cn">第一技能</name>
+		<damage>10</damage>
+	</skill>
+	<skill>
+		<id>2</id>
+		<name language ="cn">第二技能</name>
+		<damage>20</damage>
+	</skill>
+	<skill>
+		<id>3</id>
+		<name language ="en">the third skill</name>
+		<damage>30</damage>
+	</skill>
+</skills>

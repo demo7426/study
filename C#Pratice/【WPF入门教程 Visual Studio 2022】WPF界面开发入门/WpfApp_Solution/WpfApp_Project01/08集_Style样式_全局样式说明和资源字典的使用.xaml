@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfApp_Project01._08集_Style样式_全局样式说明和资源字典的使用"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_Project01"
+        mc:Ignorable="d"
+        Title="_08集_Style样式_全局样式说明和资源字典的使用" Height="450" Width="800">
+    <StackPanel>
+        <Button Style="{StaticResource BaseLoginStyle}" Content="登录"/>
+        <Button Style="{StaticResource BaseQuitStyle}" Content="退出"/>
+        <Button Content="忘记密码"/>
+    </StackPanel>
+    
+</Window>

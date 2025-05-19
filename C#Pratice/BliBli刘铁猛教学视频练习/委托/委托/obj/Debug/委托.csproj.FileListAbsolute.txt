@@ -1,0 +1,16 @@
+D:\C#Pratice\委托\委托\bin\Debug\委托.exe.config
+D:\C#Pratice\委托\委托\bin\Debug\委托.exe
+D:\C#Pratice\委托\委托\bin\Debug\委托.pdb
+D:\C#Pratice\委托\委托\obj\Debug\委托.csproj.AssemblyReference.cache
+D:\C#Pratice\委托\委托\obj\Debug\委托.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\委托\委托\obj\Debug\委托.csproj.CoreCompileInputs.cache
+D:\C#Pratice\委托\委托\obj\Debug\委托.exe
+D:\C#Pratice\委托\委托\obj\Debug\委托.pdb
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\bin\Debug\委托.exe.config
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\bin\Debug\委托.exe
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\bin\Debug\委托.pdb
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\obj\Debug\委托.csproj.AssemblyReference.cache
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\obj\Debug\委托.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\obj\Debug\委托.csproj.CoreCompileInputs.cache
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\obj\Debug\委托.exe
+D:\C#Pratice\BliBli刘铁猛教学视频练习\委托\委托\obj\Debug\委托.pdb

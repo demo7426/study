@@ -1,0 +1,8 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\bin\Debug\209集_属性的定义.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\bin\Debug\209集_属性的定义.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\bin\Debug\209集_属性的定义.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\obj\Debug\209集_属性的定义.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\obj\Debug\209集_属性的定义.csproj.SuggestedBindingRedirects.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\obj\Debug\209集_属性的定义.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\obj\Debug\209集_属性的定义.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\209集_属性的定义\obj\Debug\209集_属性的定义.pdb

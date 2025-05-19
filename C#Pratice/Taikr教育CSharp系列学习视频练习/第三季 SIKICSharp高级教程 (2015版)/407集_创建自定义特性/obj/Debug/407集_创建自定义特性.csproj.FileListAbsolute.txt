@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\bin\Debug\407集_创建自定义特性.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\bin\Debug\407集_创建自定义特性.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\bin\Debug\407集_创建自定义特性.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\obj\Debug\407集_创建自定义特性.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\obj\Debug\407集_创建自定义特性.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\obj\Debug\407集_创建自定义特性.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第三季 SIKICSharp高级教程 (2015版)\407集_创建自定义特性\obj\Debug\407集_创建自定义特性.pdb

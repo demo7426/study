@@ -1,0 +1,7 @@
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\bin\Debug\222集_定义和实现接口.exe.config
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\bin\Debug\222集_定义和实现接口.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\bin\Debug\222集_定义和实现接口.pdb
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\obj\Debug\222集_定义和实现接口.csproj.AssemblyReference.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\obj\Debug\222集_定义和实现接口.csproj.CoreCompileInputs.cache
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\obj\Debug\222集_定义和实现接口.exe
+D:\C#Pratice\Taikr教育CSharp系列学习视频练习\第二季 SIKICSharp中级教程 (2015版)\222集_定义和实现接口\obj\Debug\222集_定义和实现接口.pdb
