@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Zynq/FPGA/01_led/rtl/led.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Zynq/FPGA/01_led/prj/led.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
