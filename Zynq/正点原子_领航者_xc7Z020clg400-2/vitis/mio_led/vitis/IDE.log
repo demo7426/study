@@ -291,3 +291,292 @@ con
 10:56:36 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_reg_system\_ide\scripts\debugger_mio_led_reg-default.tcl'
 10:59:23 INFO  : Checking for BSP changes to sync application flags for project 'mio_led_reg'...
 10:59:28 INFO  : Disconnected from the channel tcfchan#7.
+11:02:04 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\mio_led\vitis\temp_xsdb_launch_script.tcl
+11:02:06 INFO  : XSCT server has started successfully.
+11:02:06 INFO  : Successfully done setting XSCT server connection channel  
+11:02:06 INFO  : plnx-install-location is set to ''
+11:02:06 INFO  : Successfully done setting workspace for the tool. 
+11:02:11 INFO  : Platform repository initialization has completed.
+11:02:12 INFO  : Successfully done query RDI_DATADIR 
+11:02:12 INFO  : Registering command handlers for Vitis TCF services
+11:08:38 INFO  : Checking for BSP changes to sync application flags for project 'mio_led_reg'...
+11:08:47 INFO  : Checking for BSP changes to sync application flags for project 'mio_led_reg'...
+11:09:13 INFO  : Result from executing command 'getProjects': system_wrapper
+11:09:13 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+11:09:13 INFO  : Checking for BSP changes to sync application flags for project 'mio_led_reg'...
+21:16:02 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\mio_led\vitis\temp_xsdb_launch_script.tcl
+21:16:06 INFO  : XSCT server has started successfully.
+21:16:06 INFO  : plnx-install-location is set to ''
+21:16:06 INFO  : Successfully done setting XSCT server connection channel  
+21:16:06 INFO  : Successfully done setting workspace for the tool. 
+21:16:11 INFO  : Platform repository initialization has completed.
+21:16:12 INFO  : Registering command handlers for Vitis TCF services
+21:16:16 INFO  : Checking for BSP changes to sync application flags for project 'mio_led_reg'...
+21:16:19 INFO  : Successfully done query RDI_DATADIR 
+21:16:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:16:42 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:16:42 INFO  : 'jtag frequency' command is executed.
+21:16:42 INFO  : Context for 'APU' is selected.
+21:16:42 INFO  : System reset is completed.
+21:16:45 INFO  : 'after 3000' command is executed.
+21:16:45 INFO  : Context for 'APU' is selected.
+21:16:46 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:16:46 INFO  : 'configparams force-mem-access 1' command is executed.
+21:16:46 INFO  : Context for 'APU' is selected.
+21:16:46 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led_reg/_ide/psinit/ps7_init.tcl' is done.
+21:16:46 INFO  : 'ps7_init' command is executed.
+21:16:46 INFO  : 'ps7_post_config' command is executed.
+21:16:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:16:46 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led_reg/Debug/mio_led_reg.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:16:46 INFO  : 'configparams force-mem-access 0' command is executed.
+21:16:46 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led_reg/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led_reg/Debug/mio_led_reg.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:16:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:16:47 INFO  : 'con' command is executed.
+21:16:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:16:47 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_reg_system\_ide\scripts\debugger_mio_led_reg-default.tcl'
+21:17:38 INFO  : Result from executing command 'getProjects': system_wrapper;system_wrapper_1
+21:17:38 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+21:17:38 WARN  : An unexpected exception occurred in the module 'platform project logging'
+21:17:38 INFO  : Platform 'system_wrapper_1' is added to custom repositories.
+21:17:44 INFO  : Platform 'system_wrapper_1' is added to custom repositories.
+21:19:22 INFO  : Example project xgpiops_polled_example_1 has been created successfully.
+21:26:56 INFO  : Result from executing command 'getProjects': system_wrapper;system_wrapper_1
+21:26:56 INFO  : Result from executing command 'getPlatforms': system_wrapper_1|D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/system_wrapper_1.xpfm;system_wrapper|D:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+21:26:56 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:27:15 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:27:59 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:28:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:27 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:28:27 INFO  : 'jtag frequency' command is executed.
+21:28:27 INFO  : Context for 'APU' is selected.
+21:28:27 INFO  : System reset is completed.
+21:28:30 INFO  : 'after 3000' command is executed.
+21:28:30 INFO  : Context for 'APU' is selected.
+21:28:30 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa'.
+21:28:30 INFO  : 'configparams force-mem-access 1' command is executed.
+21:28:30 INFO  : Context for 'APU' is selected.
+21:28:30 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl' is done.
+21:28:30 INFO  : 'ps7_init' command is executed.
+21:28:30 INFO  : 'ps7_post_config' command is executed.
+21:28:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:31 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:28:31 INFO  : 'configparams force-mem-access 0' command is executed.
+21:28:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:28:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:31 INFO  : 'con' command is executed.
+21:28:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:28:31 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_system\_ide\scripts\systemdebugger_mio_led_system_standalone.tcl'
+21:28:40 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:28:52 INFO  : Disconnected from the channel tcfchan#1.
+21:28:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:53 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:28:53 INFO  : 'jtag frequency' command is executed.
+21:28:53 INFO  : Context for 'APU' is selected.
+21:28:54 INFO  : System reset is completed.
+21:28:57 INFO  : 'after 3000' command is executed.
+21:28:57 INFO  : Context for 'APU' is selected.
+21:28:57 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa'.
+21:28:57 INFO  : 'configparams force-mem-access 1' command is executed.
+21:28:57 INFO  : Context for 'APU' is selected.
+21:28:57 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl' is done.
+21:28:57 INFO  : 'ps7_init' command is executed.
+21:28:57 INFO  : 'ps7_post_config' command is executed.
+21:28:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:57 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:28:57 INFO  : 'configparams force-mem-access 0' command is executed.
+21:28:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:28:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:57 INFO  : 'con' command is executed.
+21:28:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:28:57 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_system\_ide\scripts\debugger_mio_led-default.tcl'
+21:35:17 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:35:44 INFO  : Disconnected from the channel tcfchan#7.
+21:35:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:35:45 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:35:45 INFO  : 'jtag frequency' command is executed.
+21:35:45 INFO  : Context for 'APU' is selected.
+21:35:45 INFO  : System reset is completed.
+21:35:48 INFO  : 'after 3000' command is executed.
+21:35:48 INFO  : Context for 'APU' is selected.
+21:35:48 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa'.
+21:35:48 INFO  : 'configparams force-mem-access 1' command is executed.
+21:35:48 INFO  : Context for 'APU' is selected.
+21:35:48 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl' is done.
+21:35:48 INFO  : 'ps7_init' command is executed.
+21:35:48 INFO  : 'ps7_post_config' command is executed.
+21:35:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:35:49 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:35:49 INFO  : 'configparams force-mem-access 0' command is executed.
+21:35:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:35:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:35:49 INFO  : 'con' command is executed.
+21:35:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:35:49 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_system\_ide\scripts\debugger_mio_led-default.tcl'
+21:36:02 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:36:09 INFO  : Disconnected from the channel tcfchan#9.
+21:36:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:36:10 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:36:10 INFO  : 'jtag frequency' command is executed.
+21:36:10 INFO  : Context for 'APU' is selected.
+21:36:10 INFO  : System reset is completed.
+21:36:13 INFO  : 'after 3000' command is executed.
+21:36:13 INFO  : Context for 'APU' is selected.
+21:36:13 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa'.
+21:36:13 INFO  : 'configparams force-mem-access 1' command is executed.
+21:36:13 INFO  : Context for 'APU' is selected.
+21:36:13 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl' is done.
+21:36:14 INFO  : 'ps7_init' command is executed.
+21:36:14 INFO  : 'ps7_post_config' command is executed.
+21:36:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:14 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:36:14 INFO  : 'configparams force-mem-access 0' command is executed.
+21:36:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:36:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:36:14 INFO  : 'con' command is executed.
+21:36:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:36:14 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_system\_ide\scripts\debugger_mio_led-default.tcl'
+21:36:27 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:36:52 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...
+21:36:56 INFO  : Disconnected from the channel tcfchan#10.
+21:36:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:36:58 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:36:58 INFO  : 'jtag frequency' command is executed.
+21:36:58 INFO  : Context for 'APU' is selected.
+21:36:58 INFO  : System reset is completed.
+21:37:01 INFO  : 'after 3000' command is executed.
+21:37:01 INFO  : Context for 'APU' is selected.
+21:37:01 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa'.
+21:37:01 INFO  : 'configparams force-mem-access 1' command is executed.
+21:37:01 INFO  : Context for 'APU' is selected.
+21:37:01 INFO  : Sourcing of 'D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl' is done.
+21:37:01 INFO  : 'ps7_init' command is executed.
+21:37:01 INFO  : 'ps7_post_config' command is executed.
+21:37:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:37:01 INFO  : The application 'D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:37:01 INFO  : 'configparams force-mem-access 0' command is executed.
+21:37:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/mio_led/vitis/mio_led/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:37:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:37:01 INFO  : 'con' command is executed.
+21:37:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:37:01 INFO  : Launch script is exported to file 'D:\Zynq\vitis\mio_led\vitis\mio_led_system\_ide\scripts\debugger_mio_led-default.tcl'
+21:37:08 INFO  : Checking for BSP changes to sync application flags for project 'mio_led'...

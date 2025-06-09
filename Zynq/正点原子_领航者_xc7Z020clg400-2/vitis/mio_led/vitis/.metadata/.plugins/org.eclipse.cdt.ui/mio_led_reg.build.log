@@ -1,25 +1,10 @@
-10:59:23 **** Incremental Build of configuration Debug for project mio_led_reg ****
+21:16:19 **** Incremental Build of configuration Debug for project mio_led_reg ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -ID:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building target: mio_led_reg.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LD:/Zynq/vitis/mio_led/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "mio_led_reg.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: mio_led_reg.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size mio_led_reg.elf  |tee "mio_led_reg.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  28712	   2184	  22632	  53528	   d118	mio_led_reg.elf
-'Finished building: mio_led_reg.elf.size'
-' '
+make[1]: Nothing to be done for 'main-build'.
 
-10:59:24 Build Finished (took 1s.136ms)
+21:16:20 Build Finished (took 667ms)
 

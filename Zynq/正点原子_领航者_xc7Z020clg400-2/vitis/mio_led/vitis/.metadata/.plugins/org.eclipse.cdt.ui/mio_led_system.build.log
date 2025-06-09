@@ -1,0 +1,9 @@
+21:35:19 **** Incremental Build of configuration Debug for project mio_led_system ****
+make all 
+Generating bif file for the system project
+generate_system_bif.bat 4949 D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/system_wrapper_1.xpfm standalone_ps7_cortexa9_0 D:/Zynq/vitis/mio_led/vitis/mio_led_system/Debug/system.bif
+sdcard_gen --xpfm D:/Zynq/vitis/mio_led/vitis/system_wrapper_1/export/system_wrapper_1/system_wrapper_1.xpfm --sys_config system_wrapper_1 --bif D:/Zynq/vitis/mio_led/vitis/mio_led_system/Debug/system.bif --no_bitstream --elf D:/Zynq/vitis/mio_led/vitis/mio_led/Debug/mio_led.elf,ps7_cortexa9_0
+Running C:/Xilinx/Vitis/2020.2/bin/bootgen  -image D:/Zynq/vitis/mio_led/vitis/mio_led_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+
+21:35:24 Build Finished (took 5s.839ms)
+
