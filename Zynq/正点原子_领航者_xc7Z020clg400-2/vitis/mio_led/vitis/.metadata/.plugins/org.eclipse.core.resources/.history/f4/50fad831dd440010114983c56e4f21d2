@@ -1,0 +1,51 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.19
+描  述: 	通过寄存器直接控制MIO，PS端的led等的亮灭
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.19
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+#include "xil_io.h"
+#include "sleep.h"
+
+#define DPIO_BASE_ADDR				0xE000A000		//GPIO的基地址
+#define DIRM_0_OFFSET				0x00000204		//DIRM_0（用于控制GPIO的输入还是输出）偏移值
+#define OEN_0_OFFSET				0x00000208		//OEN_0（用于控制GPIO的是否使能）偏移值
+#define MASK_DATA_0_LSW_OFFSET		0x00000000		//数据、掩码偏移值
+
+int main()
+{
+	printf("GPIO MIO Test!\n");
+
+	//配置方向模式寄存器
+	Xil_Out32(DPIO_BASE_ADDR + DIRM_0_OFFSET, 0x00000180);
+
+	//配置输出使能寄存器
+	Xil_Out32(DPIO_BASE_ADDR + OEN_0_OFFSET, 0x00000180);
+
+	while(1)
+	{
+		//写数据到DPIO引脚 点亮LED
+		Xil_Out32(DPIO_BASE_ADDR + MASK_DATA_0_LSW_OFFSET, 0xFF7F0180);
+		sleep(1);
+
+		//写数据到DPIO引脚  熄灭LED
+		Xil_Out32(DPIO_BASE_ADDR + MASK_DATA_0_LSW_OFFSET, 0xFF7F0000);
+		sleep(1);
+	}
+
+
+	return 0;
+}
+
+
