@@ -1,0 +1,170 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.15
+描  述: 	通过gpio按键中断控制led灯的亮灭
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.15
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xgpiops.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xplatform_info.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "xgpiops.h"
+#include <xil_printf.h>
+
+#define GPIO_DEVICE_ID		XPAR_XGPIOPS_0_DEVICE_ID		//GPIO的设备ID
+#define INTC_DEVICE_ID		XPAR_SCUGIC_SINGLE_DEVICE_ID	//
+#define GPIO_INTERRUPT_ID	XPAR_XGPIOPS_0_INTR
+
+#define MIO_LED 			0								//输出LED
+#define MIO_KEY 			11								//输入按键
+
+static u8 g_uchKeyPress = 0;								//按键是否按下;0--未按下;1--已按下
+
+//启用中断
+static int SetupInterruptSystem(XScuGic *_pGicInstancePtr, XGpioPs *_pGpio, u16 GpioIntrId);
+
+//中断回调函数
+static void IntrHandler(void *CallBackRef, u32 Bank, u32 Status);
+
+int main()
+{
+	printf("GPIO MIO Test!\n");
+
+	XGpioPs_Config* ptXGpioPs_Config = NULL;
+	XGpioPs tXGpioPs = { 0 };
+	XScuGic tGicInstancePtr = { 0 };
+	s32 Status = 0;
+
+	//根据器件ID查找器件的配置信息
+	ptXGpioPs_Config = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	Status = XGpioPs_CfgInitialize(&tXGpioPs, ptXGpioPs_Config, ptXGpioPs_Config->BaseAddr);
+	if (Status != XST_SUCCESS)
+	{
+		return 0;
+	}
+
+	//设置引脚方向 0--输入;1--输出;
+	XGpioPs_SetDirectionPin(&tXGpioPs, MIO_LED, 1);
+	XGpioPs_SetDirectionPin(&tXGpioPs, MIO_KEY, 0);
+
+	//设置输出使能  0--取消使能;1--使能;
+	XGpioPs_SetOutputEnablePin(&tXGpioPs, MIO_LED, 1);
+
+	//启用中断
+	SetupInterruptSystem(&tGicInstancePtr, &tXGpioPs, GPIO_INTERRUPT_ID);
+
+	while(1)
+	{
+		if(g_uchKeyPress == 0)
+			continue;
+
+		usleep(20000);										//抵消按键抖动
+
+		if(XGpioPs_ReadPin(&tXGpioPs, MIO_KEY) == 0)		//处理按键按下中断事件
+		{
+			XGpioPs_WritePin(&tXGpioPs, MIO_LED, ~XGpioPs_ReadPin(&tXGpioPs, MIO_LED));		//反转LED亮灭效果
+		}
+
+		//清除挂起的中断
+		XGpioPs_IntrClearPin(&tXGpioPs, MIO_KEY);
+
+		//使能gpio引脚中断
+		XGpioPs_IntrEnablePin(&tXGpioPs, MIO_KEY);
+		g_uchKeyPress = 0;
+	}
+
+}
+
+static int SetupInterruptSystem(XScuGic *_pGicInstancePtr, XGpioPs *_pGpio, u16 GpioIntrId)
+{
+	int Status;
+
+	XScuGic_Config *ptIntcConfig; /* Instance of the interrupt controller */
+
+	Xil_ExceptionInit();
+
+	//初始化中断控制器驱动程序，使其准备好使用
+	ptIntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	if (NULL == ptIntcConfig) {
+		return XST_FAILURE;
+	}
+
+	Status = XScuGic_CfgInitialize(_pGicInstancePtr, ptIntcConfig,
+			ptIntcConfig->CpuBaseAddress);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	//将中断控制器中断处理程序连接到硬件处理器中的中断处理逻辑
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+				_pGicInstancePtr);
+
+
+#if 1//中断触发后回调XGpioPs_IntrHandler函数,清除挂起的中断,XGpioPs_IntrHandler内部调用IntrHandler函数
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	Status = XScuGic_Connect(_pGicInstancePtr, GpioIntrId,
+				(Xil_ExceptionHandler)XGpioPs_IntrHandler,
+				(void *)_pGpio);
+	if (Status != XST_SUCCESS) {
+		return Status;
+	}
+
+	//设置中断函数
+	XGpioPs_SetCallbackHandler(_pGpio, (void *)_pGpio, IntrHandler);
+
+#else
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	Status = XScuGic_Connect(_pGicInstancePtr, GpioIntrId,
+				(Xil_ExceptionHandler)IntrHandler,
+				(void *)_pGpio);
+	if (Status != XST_SUCCESS) {
+		return Status;
+	}
+#endif
+
+	//设置中断下降沿有效
+	XGpioPs_SetIntrTypePin(_pGpio, MIO_KEY, XGPIOPS_IRQ_TYPE_EDGE_FALLING);
+
+	//使能gpio引脚中断
+	XGpioPs_IntrEnablePin(_pGpio, MIO_KEY);
+
+	//使能中断
+	XScuGic_Enable(_pGicInstancePtr, GpioIntrId);
+
+	//使能异常处理
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return XST_SUCCESS;
+}
+
+static void IntrHandler(void *CallBackRef, u32 Bank, u32 Status)
+{
+	XGpioPs* ptGpio = CallBackRef;
+	u32 unIntrStatusPin = XGpioPs_IntrGetStatusPin(ptGpio, MIO_KEY);
+
+	g_uchKeyPress = 1;
+
+	//取消使能gpio引脚中断
+	XGpioPs_IntrDisablePin(ptGpio, MIO_KEY);
+
+	printf("IntrHandler is enter, unIntrStatusPin = %d\n", unIntrStatusPin);
+}

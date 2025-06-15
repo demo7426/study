@@ -1,0 +1,664 @@
+13:50:38 INFO  : Registering command handlers for Vitis TCF services
+13:50:38 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\gpio_mio_interrupt\vitis\temp_xsdb_launch_script.tcl
+13:50:40 INFO  : Platform repository initialization has completed.
+13:50:41 INFO  : XSCT server has started successfully.
+13:50:41 INFO  : Successfully done setting XSCT server connection channel  
+13:50:41 INFO  : plnx-install-location is set to ''
+13:50:46 INFO  : Successfully done setting workspace for the tool. 
+13:50:46 INFO  : Successfully done query RDI_DATADIR 
+13:51:31 INFO  : Result from executing command 'getProjects': system_wrapper
+13:51:31 INFO  : Result from executing command 'getPlatforms': 
+13:51:31 WARN  : An unexpected exception occurred in the module 'platform project logging'
+13:51:31 INFO  : Platform 'system_wrapper' is added to custom repositories.
+13:51:37 INFO  : Platform 'system_wrapper' is added to custom repositories.
+13:53:25 INFO  : Result from executing command 'getProjects': system_wrapper
+13:53:25 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+13:53:25 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+13:54:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:54:04 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:54:04 INFO  : 'jtag frequency' command is executed.
+13:54:04 INFO  : Context for 'APU' is selected.
+13:54:04 INFO  : System reset is completed.
+13:54:07 INFO  : 'after 3000' command is executed.
+13:54:07 INFO  : Context for 'APU' is selected.
+13:54:07 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:54:07 INFO  : 'configparams force-mem-access 1' command is executed.
+13:54:07 INFO  : Context for 'APU' is selected.
+13:54:07 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+13:54:07 INFO  : 'ps7_init' command is executed.
+13:54:07 INFO  : 'ps7_post_config' command is executed.
+13:54:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:54:08 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:54:08 INFO  : 'configparams force-mem-access 0' command is executed.
+13:54:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:54:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:54:08 INFO  : 'con' command is executed.
+13:54:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:54:08 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+13:54:15 INFO  : Disconnected from the channel tcfchan#2.
+13:54:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:54:16 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:54:16 INFO  : 'jtag frequency' command is executed.
+13:54:16 INFO  : Context for 'APU' is selected.
+13:54:16 INFO  : System reset is completed.
+13:54:19 INFO  : 'after 3000' command is executed.
+13:54:19 INFO  : Context for 'APU' is selected.
+13:54:19 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:54:19 INFO  : 'configparams force-mem-access 1' command is executed.
+13:54:19 INFO  : Context for 'APU' is selected.
+13:54:19 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+13:54:19 INFO  : 'ps7_init' command is executed.
+13:54:19 INFO  : 'ps7_post_config' command is executed.
+13:54:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:54:20 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:54:20 INFO  : 'configparams force-mem-access 0' command is executed.
+13:54:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:54:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:54:20 INFO  : 'con' command is executed.
+13:54:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:54:20 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+13:55:59 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+13:56:05 INFO  : Disconnected from the channel tcfchan#3.
+13:56:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:56:06 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:56:06 INFO  : 'jtag frequency' command is executed.
+13:56:06 INFO  : Context for 'APU' is selected.
+13:56:06 INFO  : System reset is completed.
+13:56:09 INFO  : 'after 3000' command is executed.
+13:56:09 INFO  : Context for 'APU' is selected.
+13:56:09 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:56:09 INFO  : 'configparams force-mem-access 1' command is executed.
+13:56:09 INFO  : Context for 'APU' is selected.
+13:56:09 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+13:56:09 INFO  : 'ps7_init' command is executed.
+13:56:09 INFO  : 'ps7_post_config' command is executed.
+13:56:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:56:10 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:56:10 INFO  : 'configparams force-mem-access 0' command is executed.
+13:56:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:56:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:56:10 INFO  : 'con' command is executed.
+13:56:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:56:10 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+13:57:31 INFO  : Example project xgpiops_intr_example_1 has been created successfully.
+14:17:18 INFO  : Result from executing command 'getProjects': system_wrapper
+14:17:18 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+14:17:18 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:20:03 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:22:53 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:23:15 INFO  : Disconnected from the channel tcfchan#4.
+14:23:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:23:16 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:23:16 INFO  : 'jtag frequency' command is executed.
+14:23:16 INFO  : Context for 'APU' is selected.
+14:23:16 INFO  : System reset is completed.
+14:23:19 INFO  : 'after 3000' command is executed.
+14:23:19 INFO  : Context for 'APU' is selected.
+14:23:19 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:23:19 INFO  : 'configparams force-mem-access 1' command is executed.
+14:23:19 INFO  : Context for 'APU' is selected.
+14:23:19 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:23:19 INFO  : 'ps7_init' command is executed.
+14:23:19 INFO  : 'ps7_post_config' command is executed.
+14:23:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:23:19 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:23:20 INFO  : 'configparams force-mem-access 0' command is executed.
+14:23:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:23:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:23:20 INFO  : 'con' command is executed.
+14:23:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:23:20 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:29:38 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:29:45 INFO  : Disconnected from the channel tcfchan#6.
+14:29:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:29:47 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:29:47 INFO  : 'jtag frequency' command is executed.
+14:29:47 INFO  : Context for 'APU' is selected.
+14:29:47 INFO  : System reset is completed.
+14:29:50 INFO  : 'after 3000' command is executed.
+14:29:50 INFO  : Context for 'APU' is selected.
+14:29:50 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:29:50 INFO  : 'configparams force-mem-access 1' command is executed.
+14:29:50 INFO  : Context for 'APU' is selected.
+14:29:50 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:29:50 INFO  : 'ps7_init' command is executed.
+14:29:50 INFO  : 'ps7_post_config' command is executed.
+14:29:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:29:50 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:29:50 INFO  : 'configparams force-mem-access 0' command is executed.
+14:29:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:29:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:29:50 INFO  : 'con' command is executed.
+14:29:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:29:50 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:30:29 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:30:34 INFO  : Disconnected from the channel tcfchan#7.
+14:30:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:30:35 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:30:35 INFO  : 'jtag frequency' command is executed.
+14:30:35 INFO  : Context for 'APU' is selected.
+14:30:35 INFO  : System reset is completed.
+14:30:38 INFO  : 'after 3000' command is executed.
+14:30:38 INFO  : Context for 'APU' is selected.
+14:30:38 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:30:38 INFO  : 'configparams force-mem-access 1' command is executed.
+14:30:38 INFO  : Context for 'APU' is selected.
+14:30:38 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:30:38 INFO  : 'ps7_init' command is executed.
+14:30:38 INFO  : 'ps7_post_config' command is executed.
+14:30:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:38 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:30:39 INFO  : 'configparams force-mem-access 0' command is executed.
+14:30:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:30:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:30:39 INFO  : 'con' command is executed.
+14:30:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:30:39 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:35:32 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:35:38 INFO  : Disconnected from the channel tcfchan#8.
+14:35:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:35:39 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:35:39 INFO  : 'jtag frequency' command is executed.
+14:35:39 INFO  : Context for 'APU' is selected.
+14:35:39 INFO  : System reset is completed.
+14:35:42 INFO  : 'after 3000' command is executed.
+14:35:42 INFO  : Context for 'APU' is selected.
+14:35:42 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:35:42 INFO  : 'configparams force-mem-access 1' command is executed.
+14:35:42 INFO  : Context for 'APU' is selected.
+14:35:42 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:35:42 INFO  : 'ps7_init' command is executed.
+14:35:43 INFO  : 'ps7_post_config' command is executed.
+14:35:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:43 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:35:43 INFO  : 'configparams force-mem-access 0' command is executed.
+14:35:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:35:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:43 INFO  : 'con' command is executed.
+14:35:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:35:43 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:35:45 INFO  : Disconnected from the channel tcfchan#9.
+14:35:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:35:46 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:35:46 INFO  : 'jtag frequency' command is executed.
+14:35:46 INFO  : Context for 'APU' is selected.
+14:35:46 INFO  : System reset is completed.
+14:35:49 INFO  : 'after 3000' command is executed.
+14:35:49 INFO  : Context for 'APU' is selected.
+14:35:49 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:35:49 INFO  : 'configparams force-mem-access 1' command is executed.
+14:35:49 INFO  : Context for 'APU' is selected.
+14:35:49 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:35:49 INFO  : 'ps7_init' command is executed.
+14:35:49 INFO  : 'ps7_post_config' command is executed.
+14:35:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:50 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:35:50 INFO  : 'configparams force-mem-access 0' command is executed.
+14:35:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:35:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:35:50 INFO  : 'con' command is executed.
+14:35:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:35:50 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:39:33 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:39:39 INFO  : Disconnected from the channel tcfchan#10.
+14:39:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:39:40 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:39:40 INFO  : 'jtag frequency' command is executed.
+14:39:40 INFO  : Context for 'APU' is selected.
+14:39:41 INFO  : System reset is completed.
+14:39:44 INFO  : 'after 3000' command is executed.
+14:39:44 INFO  : Context for 'APU' is selected.
+14:39:44 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:39:44 INFO  : 'configparams force-mem-access 1' command is executed.
+14:39:44 INFO  : Context for 'APU' is selected.
+14:39:44 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:39:44 INFO  : 'ps7_init' command is executed.
+14:39:44 INFO  : 'ps7_post_config' command is executed.
+14:39:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:39:44 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:39:44 INFO  : 'configparams force-mem-access 0' command is executed.
+14:39:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:39:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:39:44 INFO  : 'con' command is executed.
+14:39:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:39:44 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:43:16 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:43:22 INFO  : Disconnected from the channel tcfchan#11.
+14:43:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:43:23 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:43:23 INFO  : 'jtag frequency' command is executed.
+14:43:23 INFO  : Context for 'APU' is selected.
+14:43:23 INFO  : System reset is completed.
+14:43:26 INFO  : 'after 3000' command is executed.
+14:43:26 INFO  : Context for 'APU' is selected.
+14:43:26 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:43:26 INFO  : 'configparams force-mem-access 1' command is executed.
+14:43:26 INFO  : Context for 'APU' is selected.
+14:43:26 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:43:27 INFO  : 'ps7_init' command is executed.
+14:43:27 INFO  : 'ps7_post_config' command is executed.
+14:43:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:43:27 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:43:27 INFO  : 'configparams force-mem-access 0' command is executed.
+14:43:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:43:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:43:27 INFO  : 'con' command is executed.
+14:43:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:43:27 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:43:51 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:43:55 INFO  : Disconnected from the channel tcfchan#12.
+14:43:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:43:57 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:43:57 INFO  : 'jtag frequency' command is executed.
+14:43:57 INFO  : Context for 'APU' is selected.
+14:43:57 INFO  : System reset is completed.
+14:44:00 INFO  : 'after 3000' command is executed.
+14:44:00 INFO  : Context for 'APU' is selected.
+14:44:00 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:44:00 INFO  : 'configparams force-mem-access 1' command is executed.
+14:44:00 INFO  : Context for 'APU' is selected.
+14:44:00 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:44:00 INFO  : 'ps7_init' command is executed.
+14:44:00 INFO  : 'ps7_post_config' command is executed.
+14:44:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:44:01 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:44:01 INFO  : 'configparams force-mem-access 0' command is executed.
+14:44:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:44:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:44:01 INFO  : 'con' command is executed.
+14:44:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:44:01 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:54:40 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:54:45 INFO  : Disconnected from the channel tcfchan#13.
+14:54:47 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:54:47 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:54:47 INFO  : 'jtag frequency' command is executed.
+14:54:47 INFO  : Context for 'APU' is selected.
+14:54:47 INFO  : System reset is completed.
+14:54:50 INFO  : 'after 3000' command is executed.
+14:54:50 INFO  : Context for 'APU' is selected.
+14:54:50 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:54:50 INFO  : 'configparams force-mem-access 1' command is executed.
+14:54:50 INFO  : Context for 'APU' is selected.
+14:54:50 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:54:50 INFO  : 'ps7_init' command is executed.
+14:54:50 INFO  : 'ps7_post_config' command is executed.
+14:54:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:54:50 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:54:51 INFO  : 'configparams force-mem-access 0' command is executed.
+14:54:51 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:54:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:54:51 INFO  : 'con' command is executed.
+14:54:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:54:51 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:56:51 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:57:06 INFO  : Disconnected from the channel tcfchan#14.
+14:57:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:57:08 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:57:08 INFO  : 'jtag frequency' command is executed.
+14:57:08 INFO  : Context for 'APU' is selected.
+14:57:08 INFO  : System reset is completed.
+14:57:11 INFO  : 'after 3000' command is executed.
+14:57:11 INFO  : Context for 'APU' is selected.
+14:57:11 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:57:11 INFO  : 'configparams force-mem-access 1' command is executed.
+14:57:11 INFO  : Context for 'APU' is selected.
+14:57:11 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:57:11 INFO  : 'ps7_init' command is executed.
+14:57:11 INFO  : 'ps7_post_config' command is executed.
+14:57:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:57:11 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:57:11 INFO  : 'configparams force-mem-access 0' command is executed.
+14:57:11 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:57:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:57:11 INFO  : 'con' command is executed.
+14:57:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:57:11 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:58:54 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:59:26 INFO  : Disconnected from the channel tcfchan#15.
+14:59:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:59:27 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:59:27 INFO  : 'jtag frequency' command is executed.
+14:59:27 INFO  : Context for 'APU' is selected.
+14:59:27 INFO  : System reset is completed.
+14:59:30 INFO  : 'after 3000' command is executed.
+14:59:30 INFO  : Context for 'APU' is selected.
+14:59:30 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:59:30 INFO  : 'configparams force-mem-access 1' command is executed.
+14:59:30 INFO  : Context for 'APU' is selected.
+14:59:30 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:59:31 INFO  : 'ps7_init' command is executed.
+14:59:31 INFO  : 'ps7_post_config' command is executed.
+14:59:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:59:31 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:59:31 INFO  : 'configparams force-mem-access 0' command is executed.
+14:59:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:59:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:59:31 INFO  : 'con' command is executed.
+14:59:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:59:31 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+14:59:44 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+14:59:49 INFO  : Disconnected from the channel tcfchan#16.
+14:59:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:59:50 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:59:50 INFO  : 'jtag frequency' command is executed.
+14:59:50 INFO  : Context for 'APU' is selected.
+14:59:50 INFO  : System reset is completed.
+14:59:53 INFO  : 'after 3000' command is executed.
+14:59:53 INFO  : Context for 'APU' is selected.
+14:59:53 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:59:53 INFO  : 'configparams force-mem-access 1' command is executed.
+14:59:53 INFO  : Context for 'APU' is selected.
+14:59:53 INFO  : Sourcing of 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+14:59:54 INFO  : 'ps7_init' command is executed.
+14:59:54 INFO  : 'ps7_post_config' command is executed.
+14:59:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:59:54 INFO  : The application 'D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:59:54 INFO  : 'configparams force-mem-access 0' command is executed.
+14:59:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/gpio_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/gpio_mio_interrupt/vitis/gpio_mio_interrupt/Debug/gpio_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:59:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:59:54 INFO  : 'con' command is executed.
+14:59:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:59:54 INFO  : Launch script is exported to file 'D:\Zynq\vitis\gpio_mio_interrupt\vitis\gpio_mio_interrupt_system\_ide\scripts\debugger_gpio_mio_interrupt-default.tcl'
+15:01:03 INFO  : Checking for BSP changes to sync application flags for project 'gpio_mio_interrupt'...
+15:01:13 INFO  : Disconnected from the channel tcfchan#17.
