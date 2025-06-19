@@ -1,0 +1,465 @@
+16:00:25 INFO  : Registering command handlers for Vitis TCF services
+16:00:25 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\axi_mio_interrupt\vitis\temp_xsdb_launch_script.tcl
+16:00:27 INFO  : Platform repository initialization has completed.
+16:00:29 INFO  : XSCT server has started successfully.
+16:00:29 INFO  : Successfully done setting XSCT server connection channel  
+16:00:33 INFO  : plnx-install-location is set to ''
+16:00:33 INFO  : Successfully done setting workspace for the tool. 
+16:00:33 INFO  : Successfully done query RDI_DATADIR 
+16:01:16 INFO  : Result from executing command 'getProjects': system_wrapper
+16:01:16 INFO  : Result from executing command 'getPlatforms': 
+16:01:16 WARN  : An unexpected exception occurred in the module 'platform project logging'
+16:01:16 INFO  : Platform 'system_wrapper' is added to custom repositories.
+16:01:21 INFO  : Platform 'system_wrapper' is added to custom repositories.
+16:02:21 INFO  : Example project xgpio_intr_tapp_example_1 has been created successfully.
+16:08:56 INFO  : Result from executing command 'getProjects': system_wrapper
+16:08:56 INFO  : Result from executing command 'getPlatforms': D:\Zynq\vitis\axi_mio_interrupt\vitis\system_wrapper\export\system_wrapper\system_wrapper.xpfm|D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+16:08:56 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+17:38:13 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:20:25 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:21:35 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:23:45 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:25:38 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:27:00 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:27:31 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:27:52 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:28:50 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:29:58 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:39:46 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:40:19 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+18:52:21 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+22:50:24 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\axi_mio_interrupt\vitis\temp_xsdb_launch_script.tcl
+22:50:28 INFO  : XSCT server has started successfully.
+22:50:28 INFO  : plnx-install-location is set to ''
+22:50:28 INFO  : Successfully done setting XSCT server connection channel  
+22:50:28 INFO  : Successfully done setting workspace for the tool. 
+22:50:33 INFO  : Platform repository initialization has completed.
+22:50:34 INFO  : Registering command handlers for Vitis TCF services
+22:50:38 INFO  : Successfully done query RDI_DATADIR 
+22:51:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:51:46 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+22:51:46 INFO  : 'jtag frequency' command is executed.
+22:51:46 INFO  : Context for 'APU' is selected.
+22:51:46 INFO  : System reset is completed.
+22:51:49 INFO  : 'after 3000' command is executed.
+22:51:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+22:51:51 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+22:51:51 INFO  : Context for 'APU' is selected.
+22:51:51 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+22:51:52 INFO  : 'configparams force-mem-access 1' command is executed.
+22:51:52 INFO  : Context for 'APU' is selected.
+22:51:52 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+22:51:52 INFO  : 'ps7_init' command is executed.
+22:51:52 INFO  : 'ps7_post_config' command is executed.
+22:51:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:51:52 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:51:52 INFO  : 'configparams force-mem-access 0' command is executed.
+22:51:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:51:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:51:53 INFO  : 'con' command is executed.
+22:51:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:51:53 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+22:54:09 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+22:56:41 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+22:56:48 INFO  : Disconnected from the channel tcfchan#1.
+22:56:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:56:49 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+22:56:49 INFO  : 'jtag frequency' command is executed.
+22:56:49 INFO  : Context for 'APU' is selected.
+22:56:49 INFO  : System reset is completed.
+22:56:52 INFO  : 'after 3000' command is executed.
+22:56:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+22:56:54 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+22:56:54 INFO  : Context for 'APU' is selected.
+22:56:56 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+22:56:56 INFO  : 'configparams force-mem-access 1' command is executed.
+22:56:56 INFO  : Context for 'APU' is selected.
+22:56:56 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+22:56:56 INFO  : 'ps7_init' command is executed.
+22:56:56 INFO  : 'ps7_post_config' command is executed.
+22:56:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:56:56 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:56:56 INFO  : 'configparams force-mem-access 0' command is executed.
+22:56:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:56:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:56:56 INFO  : 'con' command is executed.
+22:56:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:56:56 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+22:58:49 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+22:58:54 INFO  : Disconnected from the channel tcfchan#2.
+22:58:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:58:56 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+22:58:56 INFO  : 'jtag frequency' command is executed.
+22:58:56 INFO  : Context for 'APU' is selected.
+22:58:56 INFO  : System reset is completed.
+22:58:59 INFO  : 'after 3000' command is executed.
+22:58:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+22:59:01 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+22:59:01 INFO  : Context for 'APU' is selected.
+22:59:02 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+22:59:02 INFO  : 'configparams force-mem-access 1' command is executed.
+22:59:02 INFO  : Context for 'APU' is selected.
+22:59:02 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+22:59:03 INFO  : 'ps7_init' command is executed.
+22:59:03 INFO  : 'ps7_post_config' command is executed.
+22:59:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:59:03 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+22:59:03 INFO  : 'configparams force-mem-access 0' command is executed.
+22:59:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+22:59:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+22:59:03 INFO  : 'con' command is executed.
+22:59:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+22:59:03 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:00:08 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:00:15 INFO  : Disconnected from the channel tcfchan#3.
+23:00:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:00:16 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:00:16 INFO  : 'jtag frequency' command is executed.
+23:00:16 INFO  : Context for 'APU' is selected.
+23:00:16 INFO  : System reset is completed.
+23:00:19 INFO  : 'after 3000' command is executed.
+23:00:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:00:21 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:00:21 INFO  : Context for 'APU' is selected.
+23:00:22 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:00:22 INFO  : 'configparams force-mem-access 1' command is executed.
+23:00:22 INFO  : Context for 'APU' is selected.
+23:00:22 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:00:23 INFO  : 'ps7_init' command is executed.
+23:00:23 INFO  : 'ps7_post_config' command is executed.
+23:00:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:00:23 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:00:23 INFO  : 'configparams force-mem-access 0' command is executed.
+23:00:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:00:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:00:23 INFO  : 'con' command is executed.
+23:00:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:00:23 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:00:51 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:01:04 INFO  : Disconnected from the channel tcfchan#4.
+23:01:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:01:05 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:01:05 INFO  : 'jtag frequency' command is executed.
+23:01:05 INFO  : Context for 'APU' is selected.
+23:01:05 INFO  : System reset is completed.
+23:01:08 INFO  : 'after 3000' command is executed.
+23:01:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:01:11 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:01:11 INFO  : Context for 'APU' is selected.
+23:01:12 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:01:12 INFO  : 'configparams force-mem-access 1' command is executed.
+23:01:12 INFO  : Context for 'APU' is selected.
+23:01:12 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:01:12 INFO  : 'ps7_init' command is executed.
+23:01:12 INFO  : 'ps7_post_config' command is executed.
+23:01:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:01:13 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:01:13 INFO  : 'configparams force-mem-access 0' command is executed.
+23:01:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:01:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:01:13 INFO  : 'con' command is executed.
+23:01:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:01:13 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:01:23 INFO  : Disconnected from the channel tcfchan#5.
+23:01:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:01:25 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:01:25 INFO  : 'jtag frequency' command is executed.
+23:01:25 INFO  : Context for 'APU' is selected.
+23:01:25 INFO  : System reset is completed.
+23:01:28 INFO  : 'after 3000' command is executed.
+23:01:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:01:30 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:01:30 INFO  : Context for 'APU' is selected.
+23:01:31 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:01:31 INFO  : 'configparams force-mem-access 1' command is executed.
+23:01:31 INFO  : Context for 'APU' is selected.
+23:01:31 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:01:32 INFO  : 'ps7_init' command is executed.
+23:01:32 INFO  : 'ps7_post_config' command is executed.
+23:01:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:01:32 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:01:32 INFO  : 'configparams force-mem-access 0' command is executed.
+23:01:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:01:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:01:32 INFO  : 'con' command is executed.
+23:01:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:01:32 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:04:23 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:04:39 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:04:46 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:04:52 INFO  : Disconnected from the channel tcfchan#6.
+23:04:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:04:53 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:04:53 INFO  : 'jtag frequency' command is executed.
+23:04:53 INFO  : Context for 'APU' is selected.
+23:04:54 INFO  : System reset is completed.
+23:04:57 INFO  : 'after 3000' command is executed.
+23:04:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:04:59 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:04:59 INFO  : Context for 'APU' is selected.
+23:05:00 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:05:00 INFO  : 'configparams force-mem-access 1' command is executed.
+23:05:00 INFO  : Context for 'APU' is selected.
+23:05:00 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:05:00 INFO  : 'ps7_init' command is executed.
+23:05:00 INFO  : 'ps7_post_config' command is executed.
+23:05:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:05:01 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:05:01 INFO  : 'configparams force-mem-access 0' command is executed.
+23:05:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:05:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:05:01 INFO  : 'con' command is executed.
+23:05:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:05:01 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:05:36 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:05:42 INFO  : Disconnected from the channel tcfchan#7.
+23:05:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:05:43 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:05:43 INFO  : 'jtag frequency' command is executed.
+23:05:43 INFO  : Context for 'APU' is selected.
+23:05:43 INFO  : System reset is completed.
+23:05:46 INFO  : 'after 3000' command is executed.
+23:05:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:05:48 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:05:49 INFO  : Context for 'APU' is selected.
+23:05:50 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:05:50 INFO  : 'configparams force-mem-access 1' command is executed.
+23:05:50 INFO  : Context for 'APU' is selected.
+23:05:50 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:05:50 INFO  : 'ps7_init' command is executed.
+23:05:50 INFO  : 'ps7_post_config' command is executed.
+23:05:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:05:50 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:05:50 INFO  : 'configparams force-mem-access 0' command is executed.
+23:05:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:05:51 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:05:51 INFO  : 'con' command is executed.
+23:05:51 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:05:51 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:06:51 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:07:14 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:07:30 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:07:36 INFO  : Disconnected from the channel tcfchan#8.
+23:07:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:07:37 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+23:07:37 INFO  : 'jtag frequency' command is executed.
+23:07:37 INFO  : Context for 'APU' is selected.
+23:07:37 INFO  : System reset is completed.
+23:07:40 INFO  : 'after 3000' command is executed.
+23:07:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+23:07:43 INFO  : Device configured successfully with "D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit"
+23:07:43 INFO  : Context for 'APU' is selected.
+23:07:44 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+23:07:44 INFO  : 'configparams force-mem-access 1' command is executed.
+23:07:44 INFO  : Context for 'APU' is selected.
+23:07:44 INFO  : Sourcing of 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl' is done.
+23:07:44 INFO  : 'ps7_init' command is executed.
+23:07:44 INFO  : 'ps7_post_config' command is executed.
+23:07:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:07:44 INFO  : The application 'D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf' is downloaded to processor 'ps7_cortexa9_0'.
+23:07:44 INFO  : 'configparams force-mem-access 0' command is executed.
+23:07:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/axi_mio_interrupt/vitis/axi_mio_interrupt/Debug/axi_mio_interrupt.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+23:07:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+23:07:44 INFO  : 'con' command is executed.
+23:07:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+23:07:44 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
+23:08:33 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:08:48 INFO  : Disconnected from the channel tcfchan#9.

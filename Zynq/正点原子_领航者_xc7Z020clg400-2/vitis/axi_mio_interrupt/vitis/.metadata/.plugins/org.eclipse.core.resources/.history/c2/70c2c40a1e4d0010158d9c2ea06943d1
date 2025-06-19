@@ -1,0 +1,197 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.15
+描  述: 	通过gpio按键中断控制led灯的亮灭
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.15
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xgpiops.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xplatform_info.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "xbasic_types.h"
+#include "xgpiops.h"
+#include "xgpio.h"
+#include <xil_printf.h>
+
+#define GPIO_CHANNEL1				1
+#define INTC_GPIO_INTERRUPT_ID		XPAR_FABRIC_AXI_GPIO_0_IP2INTC_IRPT_INTR
+#define INTC_DEVICE_ID				XPAR_SCUGIC_SINGLE_DEVICE_ID
+
+#define MIO_LED 					0								//输出LED
+
+#define _DIRRECT_CONNECT 			1
+
+static u8 g_uchKeyPress = 0;										//按键是否按下;0--未按下;1--已按下
+
+//设置中断信息
+static int SetupInterruptSystem(XScuGic *_pGicInstancePtr, XGpio *_pGpio, u16 _GpioIntrId);
+
+//中断回调函数
+static void IntrHandler(void *CallBackRef);
+
+int main()
+{
+	printf("GPIO MIO Interrupt Test!\n");
+
+	XGpio_Config* ptXGpio_Config = NULL;
+	XGpioPs_Config* ptXGpioPs_Config = NULL;
+	XGpio tXGpio = { 0 };
+	XGpioPs tXGpioPs = { 0 };
+	XScuGic tGicInstancePtr = { 0 };
+	s32 nStatus = 0;
+
+	//根据器件ID查找器件的配置信息
+	ptXGpio_Config = XGpio_LookupConfig(XPAR_GPIO_0_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	nStatus = XGpio_CfgInitialize(&tXGpio, ptXGpio_Config, ptXGpio_Config->BaseAddress);
+	if (nStatus != XST_SUCCESS)
+	{
+		return 0;
+	}
+
+	//根据器件ID查找器件的配置信息
+	ptXGpioPs_Config = XGpioPs_LookupConfig(XPAR_XGPIOPS_0_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	nStatus = XGpioPs_CfgInitialize(&tXGpioPs, ptXGpioPs_Config, ptXGpioPs_Config->BaseAddr);
+	if (nStatus != XST_SUCCESS)
+	{
+		return 0;
+	}
+
+	//设置引脚方向 0--输入;1--输出;
+	XGpioPs_SetDirectionPin(&tXGpioPs, MIO_LED, 1);
+
+	//设置输出使能  0--取消使能;1--使能;
+	XGpioPs_SetOutputEnablePin(&tXGpioPs, MIO_LED, 1);
+
+	XGpioPs_WritePin(&tXGpioPs, MIO_LED, ~XGpioPs_ReadPin(&tXGpioPs, MIO_LED));
+
+	//设置axi gpio按键为输入
+	XGpio_SetDataDirection(&tXGpio, GPIO_CHANNEL1, 1);
+
+	//设置中断信息
+	SetupInterruptSystem(&tGicInstancePtr, &tXGpio, INTC_GPIO_INTERRUPT_ID);
+
+	while(1)
+	{
+		if(g_uchKeyPress == 0)
+			continue;
+
+		usleep(20000);										//抵消按键抖动
+
+		if(XGpio_DiscreteRead(&tXGpio, GPIO_CHANNEL1))
+			XGpioPs_WritePin(&tXGpioPs, MIO_LED, ~XGpioPs_ReadPin(&tXGpioPs, MIO_LED));		//反转LED亮灭效果
+
+#if _DIRRECT_CONNECT
+		//如果是函数直连中断，需要手动清除之前挂起的中断
+		XGpio_InterruptClear(&tXGpio, GPIO_CHANNEL1);
+#endif
+		//使能中断
+		XGpio_InterruptEnable(&tXGpio, GPIO_CHANNEL1);
+
+		g_uchKeyPress = 0;
+	}
+
+}
+
+static int SetupInterruptSystem(XScuGic *_pGicInstancePtr, XGpio *_pGpio, u16 _GpioIntrId)
+{
+	int Status;
+
+	XScuGic_Config *ptIntcConfig; /* Instance of the interrupt controller */
+
+	//初始化中断控制器驱动程序，使其准备好使用
+	ptIntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	if (NULL == ptIntcConfig) {
+		return XST_FAILURE;
+	}
+
+	//初始化一个特定的中断控制器实例/驱动程序，初始化需要：
+	Status = XScuGic_CfgInitialize(_pGicInstancePtr, ptIntcConfig,
+			ptIntcConfig->CpuBaseAddress);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	//设置中断触发类型
+	XScuGic_SetPriorityTriggerType(_pGicInstancePtr, _GpioIntrId,
+					0xA0, 0x3);
+
+#if	_DIRRECT_CONNECT//中断触发后直接回调IntrHandler，此种方式可以获取到gpio的引脚号，将不同的引脚区分开来
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	Status = XScuGic_Connect(_pGicInstancePtr, _GpioIntrId,
+				(Xil_InterruptHandler)IntrHandler,
+				(void *)_pGpio);
+	if (Status != XST_SUCCESS) {
+		return Status;
+	}
+
+#else _DIRRECT_CONNECT//中断触发后回调XGpioPs_IntrHandler函数，其函数内部清除挂起的中断，再调用IntrHandler函数
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	Status = XScuGic_Connect(_pGicInstancePtr, GpioIntrId,
+				(Xil_ExceptionHandler)XGpioPs_IntrHandler,
+				(void *)_pGpio);
+	if (Status != XST_SUCCESS) {
+		return Status;
+	}
+
+	//设置中断函数
+	XGpioPs_SetCallbackHandler(_pGpio, (void *)_pGpio, IntrHandler);
+#endif
+
+	//将中断映射到请求CPU
+	XScuGic_Enable(_pGicInstancePtr, _GpioIntrId);
+
+	//使能中断
+	XGpio_InterruptEnable(_pGpio, GPIO_CHANNEL1);
+	XGpio_InterruptGlobalEnable(_pGpio);
+
+	//异常处理初始化
+	Xil_ExceptionInit();
+
+	//将中断控制器中断处理程序连接到硬件处理器中的中断处理逻辑
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+				_pGicInstancePtr);
+
+	//使能异常处理
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return XST_SUCCESS;
+}
+
+static void IntrHandler(void *CallBackRef)
+{
+	static u32 unIntrCounter = 0;
+	XGpio *ptGpio = CallBackRef;
+
+	if(XGpio_InterruptGetStatus(ptGpio))
+		g_uchKeyPress = 1;
+
+	//取消中断使能
+	XGpio_InterruptDisable(ptGpio, GPIO_CHANNEL1);
+
+	printf("IntrHandler is enter, unIntrCounter = %u\n", ++unIntrCounter);
+}
+
+
+
