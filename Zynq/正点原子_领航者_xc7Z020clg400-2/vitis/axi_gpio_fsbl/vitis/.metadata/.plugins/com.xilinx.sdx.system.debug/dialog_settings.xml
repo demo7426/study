@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="axi_gpio_fsbl_system-imgFile" value="D:/Zynq/vitis/axi_gpio_fsbl/vitis/axi_gpio_fsbl_system/Debug/sd_card/BOOT.BIN"/>
+	<item key="axi_gpio_fsbl_system-offSet" value=""/>
+	<item key="axi_gpio_fsbl_system-initFile" value="D:/Zynq/vitis/axi_gpio_fsbl/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/boot/fsbl.elf"/>
+	<item key="axi_gpio_fsbl_system-flashType" value="qspi-x4-single"/>
+	<item key="axi_gpio_fsbl_system-verifyFlash" value="false"/>
+	<item key="axi_gpio_fsbl_system-blankCheck" value="false"/>
+	<item key="axi_gpio_fsbl_system-device" value="Auto Detect"/>
+	<item key="axi_gpio_fsbl_system-target" value="Local"/>
+	<item key="programflash.hwplatform" value="axi_gpio_fsbl_system"/>
+</section>

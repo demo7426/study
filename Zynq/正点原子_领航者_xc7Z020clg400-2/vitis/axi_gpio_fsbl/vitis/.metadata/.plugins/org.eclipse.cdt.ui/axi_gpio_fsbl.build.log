@@ -1,0 +1,7 @@
+10:45:29 **** Clean-only build of configuration Debug for project axi_gpio_fsbl ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  axi_gpio_fsbl.elf.size  axi_gpio_fsbl.elf
+' '
+
+10:45:29 Build Finished (took 172ms)
+
