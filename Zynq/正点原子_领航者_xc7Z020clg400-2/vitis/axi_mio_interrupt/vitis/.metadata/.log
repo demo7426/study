@@ -6804,3 +6804,105 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-5: Launch
 
 !ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:08:48.908
 !MESSAGE XSCT command with result: [disconnect tcfchan#9], Result: [null, ]. Thread: Thread-798
+!SESSION 2025-06-19 23:11:32.848 -----------------------------------------------
+eclipse.buildId=2020.2
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-06-19 23:11:39.805
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.607
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.608
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-11
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.622
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.623
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-11
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.623
+!MESSAGE XSCT Command: [setws D:/Zynq/vitis/axi_mio_interrupt/vitis], Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:43.625
+!MESSAGE XSCT command with result: [setws D:/Zynq/vitis/axi_mio_interrupt/vitis], Result: [null, ]. Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:47.612
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:47.922
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:47.923
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:47.924
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, C:/Xilinx/Vitis/2020.2/data]. Thread: Worker-1: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:51.925
+!MESSAGE XSCT Command: [::hsi::utils::openhw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.767
+!MESSAGE XSCT command with result: [::hsi::utils::openhw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.773
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss ], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.778
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss ], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.778
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.782
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "7.3",
+}]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-06-19 23:11:52.783
+!MESSAGE Generating MD5 hash for file: D:\Zynq\vitis\axi_mio_interrupt\vitis\system_wrapper\export\system_wrapper\sw\system_wrapper\standalone_ps7_cortexa9_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.789
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:11:52.791
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-06-19 23:11:54.539
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-06-19 23:11:54.540
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-06-19 23:11:54.540
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.668
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss ], Thread: Worker-0: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.671
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss ], Result: [null, ]. Thread: Worker-0: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.671
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Thread: Worker-0: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.675
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "7.3",
+}]. Thread: Worker-0: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-06-19 23:12:01.675
+!MESSAGE Generating MD5 hash for file: D:\Zynq\vitis\axi_mio_interrupt\vitis\system_wrapper\export\system_wrapper\sw\system_wrapper\standalone_ps7_cortexa9_0\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.677
+!MESSAGE XSCT Command: [::hsi::utils::closesw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Thread: Worker-0: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-06-19 23:12:01.678
+!MESSAGE XSCT command with result: [::hsi::utils::closesw D:/Zynq/vitis/axi_mio_interrupt/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/system.mss], Result: [null, ]. Thread: Worker-0: Build Project

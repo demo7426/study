@@ -1,0 +1,69 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.23
+描  述: 	通过gpio按键中断控制led灯的亮灭
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.23
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xil_printf.h"
+#include "breath_led_ip.h"
+
+#define LED_IP_BASEADDR 	XPAR_BREATH_LED_IP_0_S0_AXI_BASEADDR
+#define LED_IP_REG0 		BREATH_LED_IP_S0_AXI_SLV_REG0_OFFSET
+#define LED_IP_REG1 		BREATH_LED_IP_S0_AXI_SLV_REG1_OFFSET
+
+int main()
+{
+	int nFreqFlag = 0;		//呼吸灯频率
+	int nLedState = 0;		//LED状态
+
+	print("Custom ip Test!\n");
+
+	while(1)
+	{
+		//根据nFreqFlag的标志位，切换呼吸灯的频率
+		if(nFreqFlag == 0)
+		{
+			BREATH_LED_IP_mWriteReg(LED_IP_BASEADDR, LED_IP_REG1, 0x80000001);
+			nFreqFlag = 1;
+		}
+		else
+		{
+			BREATH_LED_IP_mWriteReg(LED_IP_BASEADDR, LED_IP_REG1, 0x8000000a);
+			nFreqFlag = 0;
+		}
+
+		//获取当前LED的状态;0--关闭;1--打开;
+		nLedState = BREATH_LED_IP_mReadReg(LED_IP_BASEADDR, LED_IP_REG0);
+		if(nLedState == 0)
+		{
+			BREATH_LED_IP_mWriteReg(LED_IP_BASEADDR, LED_IP_REG0, 1);
+			print("Breath LED ON\n");
+			sleep(8);
+		}
+		else
+		{
+			BREATH_LED_IP_mWriteReg(LED_IP_BASEADDR, LED_IP_REG0, 0);
+			print("Breath LED OFF\n");
+			sleep(1);
+		}
+	}
+}
+
+
+
+
+

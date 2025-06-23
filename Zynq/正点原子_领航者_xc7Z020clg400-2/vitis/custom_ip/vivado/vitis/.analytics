@@ -1,0 +1,18 @@
+timestamp=[2025-06-23 20:27:10], mode=WORKBENCH_START, duration=0:00:07.458, duration_ms=7458, data={}
+timestamp=[2025-06-23 20:27:11], mode=WORKBENCH_UI_INIT, duration=0:00:00.646, duration_ms=646, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2025-06-23 20:27:19], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:07.426, duration_ms=7426, data={}
+timestamp=[2025-06-23 20:30:11], mode=APP_CREATION, duration=0:00:31.008, duration_ms=31008, data={name=custom_ip, project_type=sdk, os=standalone, processor=ps7_cortexa9, runtime=cpp, platform=system_wrapper, application_type=application}
+timestamp=[2025-06-23 20:36:46], mode=PLATFORM_GENERATION, duration=0:00:14.279, duration_ms=14279, data={name=system_wrapper}
+timestamp=[2025-06-23 20:36:47], mode=BUILD, duration=0:00:01.383, duration_ms=1383, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:40:34], mode=BUILD, duration=0:00:01.087, duration_ms=1087, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:47:49], mode=BUILD, duration=0:00:00.999, duration_ms=999, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:48:30], mode=BUILD, duration=0:00:01.129, duration_ms=1129, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:48:46], mode=BUILD, duration=0:00:01.071, duration_ms=1071, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:49:43], mode=BUILD, duration=0:00:01.011, duration_ms=1011, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:50:20], mode=BUILD, duration=0:00:01.075, duration_ms=1075, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 20:58:11], mode=BUILD, duration=0:00:01.004, duration_ms=1004, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 21:02:10], mode=BUILD, duration=0:00:01.010, duration_ms=1010, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 21:06:12], mode=BUILD, duration=0:00:00.999, duration_ms=999, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 21:06:59], mode=BUILD, duration=0:00:01.011, duration_ms=1011, data={name=custom_ip, configuration=Debug, clean_build=false}
+timestamp=[2025-06-23 21:10:36], mode=PLATFORM_GENERATION, duration=0:00:05.282, duration_ms=5282, data={name=system_wrapper}
+timestamp=[2025-06-23 21:10:36], mode=BUILD, duration=0:00:00.187, duration_ms=187, data={name=custom_ip, configuration=Debug, clean_build=true}

@@ -463,3 +463,13 @@ con
 23:07:44 INFO  : Launch script is exported to file 'D:\Zynq\vitis\axi_mio_interrupt\vitis\axi_mio_interrupt_system\_ide\scripts\debugger_axi_mio_interrupt-default.tcl'
 23:08:33 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
 23:08:48 INFO  : Disconnected from the channel tcfchan#9.
+23:11:41 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\axi_mio_interrupt\vitis\temp_xsdb_launch_script.tcl
+23:11:43 INFO  : XSCT server has started successfully.
+23:11:43 INFO  : Successfully done setting XSCT server connection channel  
+23:11:43 INFO  : plnx-install-location is set to ''
+23:11:43 INFO  : Successfully done setting workspace for the tool. 
+23:11:47 INFO  : Platform repository initialization has completed.
+23:11:47 INFO  : Successfully done query RDI_DATADIR 
+23:11:48 INFO  : Registering command handlers for Vitis TCF services
+23:11:51 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
+23:12:01 INFO  : Checking for BSP changes to sync application flags for project 'axi_mio_interrupt'...
