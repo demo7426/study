@@ -1,0 +1,174 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.25
+描  述: 	使用uart中断实现串口数据的回声服务器
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.25
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xplatform_info.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "xbasic_types.h"
+#include "xil_printf.h"
+#include "xuartps.h"
+#include "xuartps_hw.h"
+
+#define UART_DEVICE_ID		XPAR_XUARTPS_0_DEVICE_ID		//UART的设备ID
+#define INTC_DEVICE_ID		XPAR_SCUGIC_SINGLE_DEVICE_ID	//中断控制器ID
+#define UART_INTERRUPT_ID	XPAR_XUARTPS_0_INTR				//串口中断ID
+
+#define UARTPS_BAUDRATE  	115200U							//串口波特率
+
+//串口初始化
+static int Uart_Init(XUartPs_Config** _ppXUartPs_Config, XUartPs* _pXUartPs);
+
+//串口中断初始化
+static int Uart_Intr_Init(XScuGic *_pXScuGic, XUartPs* _pXUartPs, u16 _UartIntrId);
+
+//串口中断处理函数
+static void Uart_IntrHandler(void *_pArg);
+
+int main()
+{
+	printf("GPIO MIO Interrupt Test!\n");
+	sleep(1);
+
+	XUartPs_Config* ptXUartPs_Config = NULL;
+	XUartPs tXUartPs = { 0 };
+	XScuGic tXScuGic = { 0 };
+
+	Uart_Init(&ptXUartPs_Config, &tXUartPs);
+
+	Uart_Intr_Init(&tXScuGic, &tXUartPs, UART_INTERRUPT_ID);
+}
+
+static int Uart_Init(XUartPs_Config** _ppXUartPs_Config, XUartPs* _pXUartPs)
+{
+	if(!_ppXUartPs_Config || !_pXUartPs)
+	{
+		xil_printf("Uart_Init's input param is err.\r\n");
+		return -1;
+	}
+
+	XUartPs_Config* ptXUartPs_Config = NULL;
+	XUartPs tXUartPs = { 0 };
+	s32 nRtn = 0;
+
+	//根据器件ID查找器件的配置信息
+	ptXUartPs_Config = XUartPs_LookupConfig(UART_DEVICE_ID);
+
+	//对UART的驱动配置进行初始化
+	nRtn = XUartPs_CfgInitialize(&tXUartPs, ptXUartPs_Config, ptXUartPs_Config->BaseAddress);
+	if(nRtn != XST_SUCCESS)
+	{
+		xil_printf("Uart_Init's XUartPs_CfgInitialize is err.\r\n");
+		return 0;
+	}
+
+	//设置工作模式：正常模式
+	XUartPs_SetOperMode(&tXUartPs, XUARTPS_OPER_MODE_NORMAL);
+
+	//设置波特率，如果不设置，则默认为vivado工程内部的波特率
+	XUartPs_SetBaudRate(&tXUartPs, UARTPS_BAUDRATE);
+
+	//设置RxFIFO的中断触发等级
+	XUartPs_SetFifoThreshold(&tXUartPs, 1);
+
+	*_ppXUartPs_Config = ptXUartPs_Config;
+	*_pXUartPs = tXUartPs;
+
+	return 0;
+}
+
+static int Uart_Intr_Init(XScuGic *_pXScuGic, XUartPs* _pXUartPs, u16 _UartIntrId)
+{
+	if(!_pXScuGic || !_pXUartPs)
+	{
+		xil_printf("Uart_Intr_Init's input param is err.\r\n");
+		return -1;
+	}
+
+	int nStatus = 0;
+
+	XScuGic_Config *ptIntcConfig; /* Instance of the interrupt controller */
+
+	//初始化中断控制器驱动程序，使其准备好使用
+	ptIntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	if (NULL == ptIntcConfig) {
+		return XST_FAILURE;
+	}
+
+	//初始化一个特定的中断控制器实例/驱动程序，初始化需要：
+	nStatus = XScuGic_CfgInitialize(_pXScuGic, ptIntcConfig, ptIntcConfig->CpuBaseAddress);
+	if (nStatus != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	nStatus = XScuGic_Connect(_pXScuGic, _UartIntrId,
+				(Xil_ExceptionHandler)Uart_IntrHandler, (void *)_pXUartPs);
+	if (nStatus != XST_SUCCESS) {
+		return nStatus;
+	}
+
+	//设置UART的中断触发方式
+	XUartPs_SetInterruptMask(_pXUartPs, XUARTPS_IXR_RXOVR);
+
+	//使能GIC中的串口中断
+	XScuGic_Enable(_pXScuGic, _UartIntrId);
+
+	//设置并打开中断异常处理功能
+	Xil_ExceptionInit();
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+				_pXScuGic);
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return 0;
+}
+
+static void Uart_IntrHandler(void *_pArg)
+{
+	if(!_pArg)
+	{
+		xil_printf("Uart_IntrHandler's input param is err.\r\n");
+		return;
+	}
+
+	XUartPs* ptXUartPs = (XUartPs*)_pArg;
+	u32 nRecvData = 0;
+	u32 nIsrStatus = 0;						//中断状态标志
+
+	//读取中断ID寄存器，判断触发的是哪种中断
+	nIsrStatus = XUartPs_ReadReg(ptXUartPs->Config.BaseAddress, XUARTPS_IMR_OFFSET);
+	nIsrStatus &= XUartPs_ReadReg(ptXUartPs->Config.BaseAddress, XUARTPS_ISR_OFFSET);
+
+	//xil_printf("%d\r\n", nRecvData);
+	//判断中断标志为 RxFIFO是否触发
+	if(nIsrStatus & (u32)XUARTPS_IXR_RXOVR)
+	{
+		nRecvData = XUartPs_RecvByte(ptXUartPs->Config.BaseAddress);
+
+		//清除中断标志
+		XUartPs_WriteReg(ptXUartPs->Config.BaseAddress, XUARTPS_ISR_OFFSET, XUARTPS_IXR_RXOVR);
+
+		XUartPs_SendByte(ptXUartPs->Config.BaseAddress, nRecvData);
+	}
+}
+
+
+

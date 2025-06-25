@@ -1,7 +1,7 @@
-17:08:46 **** Clean-only build of configuration Debug for project uart_intr_loop ****
+21:29:58 **** Clean-only build of configuration Debug for project uart_intr_loop ****
 make clean 
 rm -rf  ./src/main.o  ./src/main.d  uart_intr_loop.elf.size  uart_intr_loop.elf
 ' '
 
-17:08:47 Build Finished (took 320ms)
+21:29:58 Build Finished (took 320ms)
 

@@ -45,6 +45,7 @@ static void Uart_IntrHandler(void *_pArg);
 int main()
 {
 	printf("GPIO MIO Interrupt Test!\n");
+	sleep(1);
 
 	XUartPs_Config* ptXUartPs_Config = NULL;
 	XUartPs tXUartPs = { 0 };
@@ -52,7 +53,12 @@ int main()
 
 	Uart_Init(&ptXUartPs_Config, &tXUartPs);
 
-	Uart_Intr_Init(&tXScuGic, &tXUartPs, XPAR_XUARTPS_0_INTR);
+	Uart_Intr_Init(&tXScuGic, &tXUartPs, UART_INTERRUPT_ID);
+
+	while(1)		//阻止程序结束,保证程序的正常执行
+	{
+		sleep(1);
+	}
 }
 
 static int Uart_Init(XUartPs_Config** _ppXUartPs_Config, XUartPs* _pXUartPs)
@@ -157,7 +163,7 @@ static void Uart_IntrHandler(void *_pArg)
 	nIsrStatus &= XUartPs_ReadReg(ptXUartPs->Config.BaseAddress, XUARTPS_ISR_OFFSET);
 
 	//判断中断标志为 RxFIFO是否触发
-	if(nIsrStatus & XUARTPS_IXR_RXOVR)
+	if(nIsrStatus & (u32)XUARTPS_IXR_RXOVR)
 	{
 		nRecvData = XUartPs_RecvByte(ptXUartPs->Config.BaseAddress);
 

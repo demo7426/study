@@ -21,3 +21,14 @@ domain active {standalone_ps7_cortexa9_0}
 platform generate -quick
 platform generate
 platform clean
+platform active {system_wrapper}
+platform config -updatehw {D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper.xsa}
+domain active {zynq_fsbl}
+bsp reload
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+catch {bsp regenerate}
+domain active {zynq_fsbl}
+catch {bsp regenerate}
+platform generate
+platform clean

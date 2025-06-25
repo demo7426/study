@@ -25,3 +25,461 @@
 17:06:15 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
 17:06:31 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
 17:08:32 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:06:03 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\uart_intr_loop\vitis\temp_xsdb_launch_script.tcl
+21:06:07 INFO  : XSCT server has started successfully.
+21:06:07 INFO  : Successfully done setting XSCT server connection channel  
+21:06:07 INFO  : plnx-install-location is set to ''
+21:06:07 INFO  : Successfully done setting workspace for the tool. 
+21:06:11 ERROR : Error encountered while initializing user repository paths
+Reason: No Platforms Found.
+
+
+21:06:11 INFO  : Platform repository initialization has completed.
+21:06:12 INFO  : Registering command handlers for Vitis TCF services
+21:06:23 INFO  : Successfully done query RDI_DATADIR 
+21:07:10 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:07:10 ERROR : Failed to get platform details for the project 'uart_intr_loop'. Cannot sync application flags.
+21:07:31 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:07:31 ERROR : Failed to get platform details for the project 'uart_intr_loop'. Cannot sync application flags.
+21:07:49 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:07:49 ERROR : Failed to get platform details for the project 'uart_intr_loop'. Cannot sync application flags.
+21:08:32 INFO  : Hardware specification for platform project 'system_wrapper' is updated.
+21:08:56 ERROR : (XSDB Server)rm: lstat¡®*.o¡¯Ê§°Ü: Invalid argument
+
+21:08:56 ERROR : (XSDB Server)make: *** [Makefile:42: clean] Error 1
+
+21:09:12 INFO  : Result from executing command 'getProjects': system_wrapper
+21:09:12 INFO  : Result from executing command 'getPlatforms': 
+21:09:17 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:09:25 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:10:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:10:17 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:10:17 INFO  : 'jtag frequency' command is executed.
+21:10:17 INFO  : Context for 'APU' is selected.
+21:10:17 INFO  : System reset is completed.
+21:10:20 INFO  : 'after 3000' command is executed.
+21:10:20 INFO  : Context for 'APU' is selected.
+21:10:20 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:10:20 INFO  : 'configparams force-mem-access 1' command is executed.
+21:10:20 INFO  : Context for 'APU' is selected.
+21:10:20 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:10:20 INFO  : 'ps7_init' command is executed.
+21:10:20 INFO  : 'ps7_post_config' command is executed.
+21:10:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:10:20 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:10:21 INFO  : 'configparams force-mem-access 0' command is executed.
+21:10:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:10:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:10:21 INFO  : 'con' command is executed.
+21:10:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:10:21 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:11:02 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:11:11 INFO  : Disconnected from the channel tcfchan#6.
+21:11:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:11:12 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:11:12 INFO  : 'jtag frequency' command is executed.
+21:11:13 INFO  : Context for 'APU' is selected.
+21:11:13 INFO  : System reset is completed.
+21:11:16 INFO  : 'after 3000' command is executed.
+21:11:16 INFO  : Context for 'APU' is selected.
+21:11:16 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:11:16 INFO  : 'configparams force-mem-access 1' command is executed.
+21:11:16 INFO  : Context for 'APU' is selected.
+21:11:16 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:11:16 INFO  : 'ps7_init' command is executed.
+21:11:16 INFO  : 'ps7_post_config' command is executed.
+21:11:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:11:16 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:11:16 INFO  : 'configparams force-mem-access 0' command is executed.
+21:11:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:11:16 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:11:16 INFO  : 'con' command is executed.
+21:11:16 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:11:16 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:12:19 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:12:25 INFO  : Disconnected from the channel tcfchan#7.
+21:12:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:12:26 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:12:26 INFO  : 'jtag frequency' command is executed.
+21:12:27 INFO  : Context for 'APU' is selected.
+21:12:27 INFO  : System reset is completed.
+21:12:30 INFO  : 'after 3000' command is executed.
+21:12:30 INFO  : Context for 'APU' is selected.
+21:12:30 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:12:30 INFO  : 'configparams force-mem-access 1' command is executed.
+21:12:30 INFO  : Context for 'APU' is selected.
+21:12:30 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:12:30 INFO  : 'ps7_init' command is executed.
+21:12:30 INFO  : 'ps7_post_config' command is executed.
+21:12:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:12:30 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:12:30 INFO  : 'configparams force-mem-access 0' command is executed.
+21:12:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:12:30 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:12:30 INFO  : 'con' command is executed.
+21:12:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:12:30 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:16:44 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:16:56 INFO  : Disconnected from the channel tcfchan#8.
+21:16:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:16:57 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:16:57 INFO  : 'jtag frequency' command is executed.
+21:16:57 INFO  : Context for 'APU' is selected.
+21:16:57 INFO  : System reset is completed.
+21:17:00 INFO  : 'after 3000' command is executed.
+21:17:00 INFO  : Context for 'APU' is selected.
+21:17:00 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:17:00 INFO  : 'configparams force-mem-access 1' command is executed.
+21:17:00 INFO  : Context for 'APU' is selected.
+21:17:00 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:17:00 INFO  : 'ps7_init' command is executed.
+21:17:00 INFO  : 'ps7_post_config' command is executed.
+21:17:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:00 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:17:01 INFO  : 'configparams force-mem-access 0' command is executed.
+21:17:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:17:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:01 INFO  : 'con' command is executed.
+21:17:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:17:01 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:17:49 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:17:54 INFO  : Disconnected from the channel tcfchan#9.
+21:17:55 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:17:55 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:17:55 INFO  : 'jtag frequency' command is executed.
+21:17:55 INFO  : Context for 'APU' is selected.
+21:17:56 INFO  : System reset is completed.
+21:17:59 INFO  : 'after 3000' command is executed.
+21:17:59 INFO  : Context for 'APU' is selected.
+21:17:59 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:17:59 INFO  : 'configparams force-mem-access 1' command is executed.
+21:17:59 INFO  : Context for 'APU' is selected.
+21:17:59 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:17:59 INFO  : 'ps7_init' command is executed.
+21:17:59 INFO  : 'ps7_post_config' command is executed.
+21:17:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:59 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:17:59 INFO  : 'configparams force-mem-access 0' command is executed.
+21:17:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:17:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:17:59 INFO  : 'con' command is executed.
+21:17:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:17:59 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:19:20 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:19:53 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:19:56 INFO  : Disconnected from the channel tcfchan#10.
+21:19:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:19:58 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:19:58 INFO  : 'jtag frequency' command is executed.
+21:19:58 INFO  : Context for 'APU' is selected.
+21:19:58 INFO  : System reset is completed.
+21:20:01 INFO  : 'after 3000' command is executed.
+21:20:01 INFO  : Context for 'APU' is selected.
+21:20:01 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:20:01 INFO  : 'configparams force-mem-access 1' command is executed.
+21:20:01 INFO  : Context for 'APU' is selected.
+21:20:01 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:20:01 INFO  : 'ps7_init' command is executed.
+21:20:01 INFO  : 'ps7_post_config' command is executed.
+21:20:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:20:01 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:20:01 INFO  : 'configparams force-mem-access 0' command is executed.
+21:20:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:20:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:20:01 INFO  : 'con' command is executed.
+21:20:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:20:01 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:22:19 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:22:23 INFO  : Disconnected from the channel tcfchan#11.
+21:22:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:22:25 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:22:25 INFO  : 'jtag frequency' command is executed.
+21:22:25 INFO  : Context for 'APU' is selected.
+21:22:25 INFO  : System reset is completed.
+21:22:28 INFO  : 'after 3000' command is executed.
+21:22:28 INFO  : Context for 'APU' is selected.
+21:22:28 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:22:28 INFO  : 'configparams force-mem-access 1' command is executed.
+21:22:28 INFO  : Context for 'APU' is selected.
+21:22:28 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:22:28 INFO  : 'ps7_init' command is executed.
+21:22:28 INFO  : 'ps7_post_config' command is executed.
+21:22:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:22:28 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:22:28 INFO  : 'configparams force-mem-access 0' command is executed.
+21:22:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:22:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:22:28 INFO  : 'con' command is executed.
+21:22:28 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:22:28 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:22:45 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:22:53 INFO  : Disconnected from the channel tcfchan#12.
+21:22:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:22:54 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:22:54 INFO  : 'jtag frequency' command is executed.
+21:22:54 INFO  : Context for 'APU' is selected.
+21:22:54 INFO  : System reset is completed.
+21:22:57 INFO  : 'after 3000' command is executed.
+21:22:57 INFO  : Context for 'APU' is selected.
+21:22:57 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:22:57 INFO  : 'configparams force-mem-access 1' command is executed.
+21:22:57 INFO  : Context for 'APU' is selected.
+21:22:57 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:22:57 INFO  : 'ps7_init' command is executed.
+21:22:57 INFO  : 'ps7_post_config' command is executed.
+21:22:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:22:57 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:22:58 INFO  : 'configparams force-mem-access 0' command is executed.
+21:22:58 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:22:58 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:22:58 INFO  : 'con' command is executed.
+21:22:58 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:22:58 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:28:11 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:28:15 INFO  : Disconnected from the channel tcfchan#13.
+21:28:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:17 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:28:17 INFO  : 'jtag frequency' command is executed.
+21:28:17 INFO  : Context for 'APU' is selected.
+21:28:17 INFO  : System reset is completed.
+21:28:20 INFO  : 'after 3000' command is executed.
+21:28:20 INFO  : Context for 'APU' is selected.
+21:28:20 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:28:20 INFO  : 'configparams force-mem-access 1' command is executed.
+21:28:20 INFO  : Context for 'APU' is selected.
+21:28:20 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:28:20 INFO  : 'ps7_init' command is executed.
+21:28:20 INFO  : 'ps7_post_config' command is executed.
+21:28:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:20 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:28:20 INFO  : 'configparams force-mem-access 0' command is executed.
+21:28:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:28:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:20 INFO  : 'con' command is executed.
+21:28:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:28:20 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:28:42 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:28:48 INFO  : Disconnected from the channel tcfchan#14.
+21:28:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:28:49 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+21:28:49 INFO  : 'jtag frequency' command is executed.
+21:28:49 INFO  : Context for 'APU' is selected.
+21:28:49 INFO  : System reset is completed.
+21:28:52 INFO  : 'after 3000' command is executed.
+21:28:52 INFO  : Context for 'APU' is selected.
+21:28:52 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+21:28:52 INFO  : 'configparams force-mem-access 1' command is executed.
+21:28:52 INFO  : Context for 'APU' is selected.
+21:28:52 INFO  : Sourcing of 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl' is done.
+21:28:52 INFO  : 'ps7_init' command is executed.
+21:28:52 INFO  : 'ps7_post_config' command is executed.
+21:28:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:52 INFO  : The application 'D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf' is downloaded to processor 'ps7_cortexa9_0'.
+21:28:53 INFO  : 'configparams force-mem-access 0' command is executed.
+21:28:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+21:28:53 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+21:28:53 INFO  : 'con' command is executed.
+21:28:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+21:28:53 INFO  : Launch script is exported to file 'D:\Zynq\vitis\uart_intr_loop\vitis\uart_intr_loop_system\_ide\scripts\debugger_uart_intr_loop-default.tcl'
+21:29:37 INFO  : Checking for BSP changes to sync application flags for project 'uart_intr_loop'...
+21:30:04 INFO  : Disconnected from the channel tcfchan#15.
