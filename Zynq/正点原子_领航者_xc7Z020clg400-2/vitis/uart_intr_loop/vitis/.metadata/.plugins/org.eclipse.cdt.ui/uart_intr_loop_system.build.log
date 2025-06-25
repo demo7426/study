@@ -1,0 +1,10 @@
+13:52:21 **** Build of configuration Debug for project uart_intr_loop_system ****
+make all 
+Generating bif file for the system project
+generate_system_bif.bat 64740 D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm standalone_ps7_cortexa9_0 D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop_system/Debug/system.bif
+sdcard_gen --xpfm D:/Zynq/vitis/uart_intr_loop/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm --sys_config system_wrapper --bif D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop_system/Debug/system.bif --no_bitstream --elf D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf,ps7_cortexa9_0
+ELF does not exist: D:/Zynq/vitis/uart_intr_loop/vitis/uart_intr_loop/Debug/uart_intr_loop.elf
+make: *** [makefile:38: package] Error 1
+
+13:52:24 Build Finished (took 2s.661ms)
+
