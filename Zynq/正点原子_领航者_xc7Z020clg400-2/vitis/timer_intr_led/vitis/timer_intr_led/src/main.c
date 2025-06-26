@@ -58,9 +58,13 @@ int main()
 	XScuTimer tXScuTimer = { 0 };
 	XScuGic tXScuGic = { 0 };
 
+	xil_printf("Timer intr led test.\r\n");
+
 	MIO_Init(&tXGpioPs);
 	Timer_Init(&tXScuTimer);
 	Timet_Intr_Init(&tXGpioPs, &tXScuTimer, &tXScuGic);
+
+	XScuTimer_Start(&tXScuTimer);		//Æô¶¯¶¨Ê±Æ÷
 
 	while(1)
 		sleep(1);
