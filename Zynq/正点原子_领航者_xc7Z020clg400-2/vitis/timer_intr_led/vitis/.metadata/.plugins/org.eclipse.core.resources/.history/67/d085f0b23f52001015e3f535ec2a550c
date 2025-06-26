@@ -1,0 +1,186 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.26
+描  述: 	通过定时器中断控制led灯的亮灭
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.26
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xgpiops.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xplatform_info.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "xbasic_types.h"
+#include "xgpiops.h"
+#include "xscutimer.h"
+#include "xil_printf.h"
+
+#define GPIO_DEVICE_ID		XPAR_XGPIOPS_0_DEVICE_ID		//GPIO的设备ID
+#define TIMER_DEVICE_ID		XPAR_XSCUTIMER_0_DEVICE_ID		//定时器设备ID
+
+#define INTC_DEVICE_ID		XPAR_SCUGIC_SINGLE_DEVICE_ID	//中断ID
+#define TIMER_INTR_ID		XPAR_SCUTIMER_INTR				//定时器中断ID
+
+#define MIO_LED 			0								//输出LED
+
+//私有定时器的时钟频率 = CPU时钟频率 = 666.666MHz/2 = 333.333MHz
+//0.2s 闪烁一次，0.2*333.333*1000000 - 1 = 0x3F940A9
+#define TIMER_LOAD_VALUE	0x3F940A9						//定时器装载值
+
+//MIO初始化
+static int MIO_Init();
+
+//定时器初始化
+static int Timer_Init(XScuTimer *_pXScuTimer);
+
+//定时器中断初始化
+static int Timet_Intr_Init(XScuTimer *_pXScuTimer, XScuGic *_pXScuGic);
+
+//中断处理回调函数
+static void Timer_Intr_Handler(void* _pArg);
+
+int main()
+{
+	XGpioPs tXGpioPs = { 0 };
+	XScuTimer tXScuTimer = { 0 };
+	XScuGic tXScuGic = { 0 };
+
+	MIO_Init(&tXGpioPs);
+
+
+	while(1)
+		sleep(1);
+}
+
+static int MIO_Init(XGpioPs* _pXGpioPs)
+{
+	if(!_pXGpioPs)
+	{
+		xil_printf("Mio_Init input param is err\r\n");
+		return -1;
+	}
+
+	s32 nStatus = 0;
+	XGpioPs_Config* ptXGpioPs_Config = NULL;
+
+	//根据器件ID查找器件的配置信息
+	ptXGpioPs_Config = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	nStatus = XGpioPs_CfgInitialize(_pXGpioPs, ptXGpioPs_Config, ptXGpioPs_Config->BaseAddr);
+	if (nStatus != XST_SUCCESS)
+	{
+		return -2;
+	}
+
+	//设置引脚方向 0--输入;1--输出;
+	XGpioPs_SetDirectionPin(_pXGpioPs, MIO_LED, 1);
+
+	//设置输出使能  0--取消使能;1--使能;
+	XGpioPs_SetOutputEnablePin(_pXGpioPs, MIO_LED, 1);
+
+	XGpioPs_WritePin(_pXGpioPs, MIO_LED, 0);
+
+	return 0;
+}
+
+static int Timer_Init(XScuTimer *_pXScuTimer)
+{
+	if(!_pXScuTimer)
+	{
+		xil_printf("Timer_Init input param is err\r\n");
+		return -1;
+	}
+
+	s32 nStatus = 0;
+	XScuTimer_Config* ptXScuTimer_Config = NULL;
+
+	//根据器件ID查找器件的配置信息
+	ptXScuTimer_Config = XScuTimer_LookupConfig(GPIO_DEVICE_ID);
+
+	//对Timer的驱动配置进行初始化
+	nStatus = XScuTimer_CfgInitialize(_pXScuTimer, ptXScuTimer_Config, ptXScuTimer_Config->BaseAddr);
+	if (nStatus != XST_SUCCESS)
+	{
+		return -2;
+	}
+
+	//加载计数周期
+	XScuTimer_LoadTimer(_pXScuTimer, TIMER_LOAD_VALUE);
+
+	//使能自动装载模式
+	XScuTimer_EnableAutoReload(_pXScuTimer);
+
+	return 0;
+}
+
+static int Timet_Intr_Init(XScuTimer *_pXScuTimer, XScuGic *_pXScuGic)
+{
+	int nStatus = 0;
+
+	XScuGic_Config *ptIntcConfig = NULL; /* Instance of the interrupt controller */
+
+	//初始化中断控制器驱动程序，使其准备好使用
+	ptIntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	if (NULL == ptIntcConfig) {
+		return XST_FAILURE;
+	}
+
+	//初始化一个特定的中断控制器实例/驱动程序，初始化需要：
+	nStatus = XScuGic_CfgInitialize(_pXScuGic, ptIntcConfig, ptIntcConfig->CpuBaseAddress);
+	if (nStatus != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	Status = XScuGic_Connect(_pGicInstancePtr, GpioIntrId,
+				(Xil_ExceptionHandler)Timer_Intr_Handler,
+				(void *)_pXScuTimer);
+	if (Status != XST_SUCCESS) {
+		return Status;
+	}
+
+	//将中断映射到请求CPU
+	XScuGic_Enable(_pGicInstancePtr, GpioIntrId);
+
+	//异常处理初始化
+	Xil_ExceptionInit();
+
+	//将中断控制器中断处理程序连接到硬件处理器中的中断处理逻辑
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+				_pXScuGic);
+
+	//使能异常处理
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return 0;
+}
+
+static void Timer_Intr_Handler(void* _pArg)
+{
+	if(!_pArg)
+	{
+		xil_printf("Timer_Intr_Handler input param is err\r\n");
+		return;
+	}
+
+	XScuTimer *ptXScuTimer = (XScuTimer)_pArg;
+
+
+
+
+}
