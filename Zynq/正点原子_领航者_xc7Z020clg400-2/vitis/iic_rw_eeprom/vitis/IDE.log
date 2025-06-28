@@ -1,0 +1,1410 @@
+11:20:52 INFO  : Registering command handlers for Vitis TCF services
+11:20:52 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\iic_rw_eeprom\vitis\temp_xsdb_launch_script.tcl
+11:20:55 INFO  : Platform repository initialization has completed.
+11:20:56 INFO  : XSCT server has started successfully.
+11:20:56 INFO  : plnx-install-location is set to ''
+11:21:01 INFO  : Successfully done setting XSCT server connection channel  
+11:21:01 INFO  : Successfully done query RDI_DATADIR 
+11:21:01 INFO  : Successfully done setting workspace for the tool. 
+11:21:43 INFO  : Result from executing command 'getProjects': system_wrapper
+11:21:43 INFO  : Result from executing command 'getPlatforms': 
+11:21:43 WARN  : An unexpected exception occurred in the module 'platform project logging'
+11:21:43 INFO  : Platform 'system_wrapper' is added to custom repositories.
+11:21:48 INFO  : Platform 'system_wrapper' is added to custom repositories.
+11:35:19 INFO  : Example project xiicps_eeprom_intr_example_1 has been created successfully.
+11:49:31 INFO  : Result from executing command 'getProjects': system_wrapper
+11:49:31 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+11:49:32 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+11:50:08 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+11:50:45 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+11:51:52 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+11:52:25 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:02:23 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:02:52 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:03:31 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:03:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:03:39 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:03:39 INFO  : 'jtag frequency' command is executed.
+12:03:39 INFO  : Context for 'APU' is selected.
+12:03:39 INFO  : System reset is completed.
+12:03:42 INFO  : 'after 3000' command is executed.
+12:03:42 INFO  : Context for 'APU' is selected.
+12:03:42 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:03:42 INFO  : 'configparams force-mem-access 1' command is executed.
+12:03:42 INFO  : Context for 'APU' is selected.
+12:03:42 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:03:43 INFO  : 'ps7_init' command is executed.
+12:03:43 INFO  : 'ps7_post_config' command is executed.
+12:03:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:03:43 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:03:43 INFO  : 'configparams force-mem-access 0' command is executed.
+12:03:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:03:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:03:43 INFO  : 'con' command is executed.
+12:03:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:03:43 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:04:02 INFO  : Disconnected from the channel tcfchan#2.
+12:04:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:04:03 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:04:03 INFO  : 'jtag frequency' command is executed.
+12:04:03 INFO  : Context for 'APU' is selected.
+12:04:03 INFO  : System reset is completed.
+12:04:06 INFO  : 'after 3000' command is executed.
+12:04:06 INFO  : Context for 'APU' is selected.
+12:04:06 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:04:06 INFO  : 'configparams force-mem-access 1' command is executed.
+12:04:06 INFO  : Context for 'APU' is selected.
+12:04:06 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:04:06 INFO  : 'ps7_init' command is executed.
+12:04:06 INFO  : 'ps7_post_config' command is executed.
+12:04:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:04:07 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:04:07 INFO  : 'configparams force-mem-access 0' command is executed.
+12:04:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:04:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:04:07 INFO  : 'con' command is executed.
+12:04:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:04:07 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:05:02 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:05:07 INFO  : Disconnected from the channel tcfchan#3.
+12:05:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:05:08 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:05:08 INFO  : 'jtag frequency' command is executed.
+12:05:08 INFO  : Context for 'APU' is selected.
+12:05:08 INFO  : System reset is completed.
+12:05:11 INFO  : 'after 3000' command is executed.
+12:05:11 INFO  : Context for 'APU' is selected.
+12:05:11 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:05:11 INFO  : 'configparams force-mem-access 1' command is executed.
+12:05:11 INFO  : Context for 'APU' is selected.
+12:05:11 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:05:12 INFO  : 'ps7_init' command is executed.
+12:05:12 INFO  : 'ps7_post_config' command is executed.
+12:05:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:05:12 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:05:12 INFO  : 'configparams force-mem-access 0' command is executed.
+12:05:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:05:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:05:12 INFO  : 'con' command is executed.
+12:05:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:05:12 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:06:40 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:06:45 INFO  : Disconnected from the channel tcfchan#4.
+12:06:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:06:46 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:06:46 INFO  : 'jtag frequency' command is executed.
+12:06:46 INFO  : Context for 'APU' is selected.
+12:06:46 INFO  : System reset is completed.
+12:06:49 INFO  : 'after 3000' command is executed.
+12:06:49 INFO  : Context for 'APU' is selected.
+12:06:49 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:06:49 INFO  : 'configparams force-mem-access 1' command is executed.
+12:06:49 INFO  : Context for 'APU' is selected.
+12:06:49 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:06:50 INFO  : 'ps7_init' command is executed.
+12:06:50 INFO  : 'ps7_post_config' command is executed.
+12:06:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:06:50 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:06:50 INFO  : 'configparams force-mem-access 0' command is executed.
+12:06:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:06:50 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:06:50 INFO  : 'con' command is executed.
+12:06:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:06:50 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:08:17 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:08:22 INFO  : Disconnected from the channel tcfchan#5.
+12:08:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:08:24 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:08:24 INFO  : 'jtag frequency' command is executed.
+12:08:24 INFO  : Context for 'APU' is selected.
+12:08:24 INFO  : System reset is completed.
+12:08:27 INFO  : 'after 3000' command is executed.
+12:08:27 INFO  : Context for 'APU' is selected.
+12:08:27 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:08:27 INFO  : 'configparams force-mem-access 1' command is executed.
+12:08:27 INFO  : Context for 'APU' is selected.
+12:08:27 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:08:27 INFO  : 'ps7_init' command is executed.
+12:08:27 INFO  : 'ps7_post_config' command is executed.
+12:08:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:08:27 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:08:27 INFO  : 'configparams force-mem-access 0' command is executed.
+12:08:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:08:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:08:27 INFO  : 'con' command is executed.
+12:08:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:08:27 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:09:06 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:09:10 INFO  : Disconnected from the channel tcfchan#6.
+12:09:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:09:12 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:09:12 INFO  : 'jtag frequency' command is executed.
+12:09:12 INFO  : Context for 'APU' is selected.
+12:09:12 INFO  : System reset is completed.
+12:09:15 INFO  : 'after 3000' command is executed.
+12:09:15 INFO  : Context for 'APU' is selected.
+12:09:15 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:09:15 INFO  : 'configparams force-mem-access 1' command is executed.
+12:09:15 INFO  : Context for 'APU' is selected.
+12:09:15 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:09:15 INFO  : 'ps7_init' command is executed.
+12:09:15 INFO  : 'ps7_post_config' command is executed.
+12:09:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:09:15 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:09:15 INFO  : 'configparams force-mem-access 0' command is executed.
+12:09:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:09:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:09:15 INFO  : 'con' command is executed.
+12:09:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:09:15 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:10:20 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:10:28 INFO  : Disconnected from the channel tcfchan#7.
+12:10:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:10:29 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:10:29 INFO  : 'jtag frequency' command is executed.
+12:10:29 INFO  : Context for 'APU' is selected.
+12:10:29 INFO  : System reset is completed.
+12:10:32 INFO  : 'after 3000' command is executed.
+12:10:32 INFO  : Context for 'APU' is selected.
+12:10:32 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:10:32 INFO  : 'configparams force-mem-access 1' command is executed.
+12:10:32 INFO  : Context for 'APU' is selected.
+12:10:32 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:10:32 INFO  : 'ps7_init' command is executed.
+12:10:32 INFO  : 'ps7_post_config' command is executed.
+12:10:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:10:33 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:10:33 INFO  : 'configparams force-mem-access 0' command is executed.
+12:10:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:10:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:10:33 INFO  : 'con' command is executed.
+12:10:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:10:33 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:13:38 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:13:43 INFO  : Disconnected from the channel tcfchan#8.
+12:13:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:13:44 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:13:44 INFO  : 'jtag frequency' command is executed.
+12:13:44 INFO  : Context for 'APU' is selected.
+12:13:44 INFO  : System reset is completed.
+12:13:47 INFO  : 'after 3000' command is executed.
+12:13:47 INFO  : Context for 'APU' is selected.
+12:13:47 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:13:47 INFO  : 'configparams force-mem-access 1' command is executed.
+12:13:47 INFO  : Context for 'APU' is selected.
+12:13:47 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:13:47 INFO  : 'ps7_init' command is executed.
+12:13:47 INFO  : 'ps7_post_config' command is executed.
+12:13:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:13:48 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:13:48 INFO  : 'configparams force-mem-access 0' command is executed.
+12:13:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:13:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:13:48 INFO  : 'con' command is executed.
+12:13:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:13:48 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:13:58 INFO  : Disconnected from the channel tcfchan#9.
+12:13:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:13:59 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:13:59 INFO  : 'jtag frequency' command is executed.
+12:13:59 INFO  : Context for 'APU' is selected.
+12:13:59 INFO  : System reset is completed.
+12:14:02 INFO  : 'after 3000' command is executed.
+12:14:02 INFO  : Context for 'APU' is selected.
+12:14:02 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:14:02 INFO  : 'configparams force-mem-access 1' command is executed.
+12:14:02 INFO  : Context for 'APU' is selected.
+12:14:02 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:14:02 INFO  : 'ps7_init' command is executed.
+12:14:02 INFO  : 'ps7_post_config' command is executed.
+12:14:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:14:03 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:14:03 INFO  : 'configparams force-mem-access 0' command is executed.
+12:14:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:14:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:14:03 INFO  : 'con' command is executed.
+12:14:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:14:03 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:14:48 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+12:15:03 INFO  : Disconnected from the channel tcfchan#10.
+12:15:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:15:04 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:15:04 INFO  : 'jtag frequency' command is executed.
+12:15:04 INFO  : Context for 'APU' is selected.
+12:15:04 INFO  : System reset is completed.
+12:15:07 INFO  : 'after 3000' command is executed.
+12:15:07 INFO  : Context for 'APU' is selected.
+12:15:07 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:15:07 INFO  : 'configparams force-mem-access 1' command is executed.
+12:15:07 INFO  : Context for 'APU' is selected.
+12:15:07 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:15:07 INFO  : 'ps7_init' command is executed.
+12:15:07 INFO  : 'ps7_post_config' command is executed.
+12:15:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:15:08 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:15:08 INFO  : 'configparams force-mem-access 0' command is executed.
+12:15:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:15:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:15:08 INFO  : 'con' command is executed.
+12:15:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:15:08 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:15:41 INFO  : Disconnected from the channel tcfchan#11.
+12:15:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:15:49 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+12:15:49 INFO  : 'jtag frequency' command is executed.
+12:15:49 INFO  : Context for 'APU' is selected.
+12:15:49 INFO  : System reset is completed.
+12:15:52 INFO  : 'after 3000' command is executed.
+12:15:52 INFO  : Context for 'APU' is selected.
+12:15:52 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+12:15:52 INFO  : 'configparams force-mem-access 1' command is executed.
+12:15:52 INFO  : Context for 'APU' is selected.
+12:15:52 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+12:15:52 INFO  : 'ps7_init' command is executed.
+12:15:52 INFO  : 'ps7_post_config' command is executed.
+12:15:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:15:52 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:15:52 INFO  : 'configparams force-mem-access 0' command is executed.
+12:15:52 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+12:15:52 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:15:52 INFO  : 'con' command is executed.
+12:15:52 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+12:15:52 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+12:17:33 INFO  : Disconnected from the channel tcfchan#12.
+13:06:46 INFO  : Hardware specification for platform project 'system_wrapper' is updated.
+13:07:32 INFO  : Result from executing command 'getProjects': system_wrapper
+13:07:32 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+13:07:36 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:07:45 INFO  : The hardware specfication used by project 'iic_rw_eeprom' is out of sync with the platform. Resource files extracted from the hardware specfiication will be updated.
+13:07:46 INFO  : The updated bitstream files are copied from platform to folder 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom\_ide\bitstream' in project 'iic_rw_eeprom'.
+13:07:46 INFO  : The file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom\_ide\psinit\ps7_init.tcl' stored in project is removed.
+13:07:50 INFO  : The updated ps init files are copied from platform to folder 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom\_ide\psinit' in project 'iic_rw_eeprom'.
+13:07:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+13:07:53 INFO  : 'fpga -state' command is executed.
+13:08:25 ERROR : Failed to compute checksum of hardware specification file used by project 'iic_rw_eeprom'
+13:08:44 INFO  : Result from executing command 'getProjects': system_wrapper
+13:08:44 INFO  : Result from executing command 'getPlatforms': system_wrapper|D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm
+13:08:45 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:08:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:08:49 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:08:49 INFO  : 'jtag frequency' command is executed.
+13:08:49 INFO  : Context for 'APU' is selected.
+13:08:49 INFO  : System reset is completed.
+13:08:52 INFO  : 'after 3000' command is executed.
+13:08:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+13:08:54 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+13:08:54 INFO  : Context for 'APU' is selected.
+13:08:54 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:08:54 INFO  : 'configparams force-mem-access 1' command is executed.
+13:08:54 INFO  : Context for 'APU' is selected.
+13:08:54 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+13:08:55 INFO  : 'ps7_init' command is executed.
+13:08:55 INFO  : 'ps7_post_config' command is executed.
+13:08:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:08:55 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:08:55 INFO  : 'configparams force-mem-access 0' command is executed.
+13:08:55 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:08:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:08:55 INFO  : 'con' command is executed.
+13:08:55 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:08:55 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+13:12:30 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:49:28 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:50:31 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:51:15 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:52:13 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:52:31 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:52:52 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:53:04 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:53:10 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:53:16 INFO  : Disconnected from the channel tcfchan#15.
+13:53:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:53:17 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:53:17 INFO  : 'jtag frequency' command is executed.
+13:53:17 INFO  : Context for 'APU' is selected.
+13:53:17 INFO  : System reset is completed.
+13:53:20 INFO  : 'after 3000' command is executed.
+13:53:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+13:53:22 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+13:53:22 INFO  : Context for 'APU' is selected.
+13:53:22 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:53:22 INFO  : 'configparams force-mem-access 1' command is executed.
+13:53:22 INFO  : Context for 'APU' is selected.
+13:53:22 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+13:53:23 INFO  : 'ps7_init' command is executed.
+13:53:23 INFO  : 'ps7_post_config' command is executed.
+13:53:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:53:23 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:53:23 INFO  : 'configparams force-mem-access 0' command is executed.
+13:53:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:53:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:53:23 INFO  : 'con' command is executed.
+13:53:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:53:23 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+13:55:44 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:55:49 INFO  : Disconnected from the channel tcfchan#18.
+13:55:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:55:50 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:55:50 INFO  : 'jtag frequency' command is executed.
+13:55:50 INFO  : Context for 'APU' is selected.
+13:55:50 INFO  : System reset is completed.
+13:55:53 INFO  : 'after 3000' command is executed.
+13:55:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+13:55:56 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+13:55:56 INFO  : Context for 'APU' is selected.
+13:55:56 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:55:56 INFO  : 'configparams force-mem-access 1' command is executed.
+13:55:56 INFO  : Context for 'APU' is selected.
+13:55:56 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+13:55:56 INFO  : 'ps7_init' command is executed.
+13:55:56 INFO  : 'ps7_post_config' command is executed.
+13:55:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:55:56 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:55:56 INFO  : 'configparams force-mem-access 0' command is executed.
+13:55:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:55:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:55:57 INFO  : 'con' command is executed.
+13:55:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:55:57 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+13:57:14 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+13:59:28 INFO  : Disconnected from the channel tcfchan#19.
+13:59:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:59:29 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+13:59:29 INFO  : 'jtag frequency' command is executed.
+13:59:29 INFO  : Context for 'APU' is selected.
+13:59:30 INFO  : System reset is completed.
+13:59:33 INFO  : 'after 3000' command is executed.
+13:59:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+13:59:35 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+13:59:35 INFO  : Context for 'APU' is selected.
+13:59:35 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+13:59:35 INFO  : 'configparams force-mem-access 1' command is executed.
+13:59:35 INFO  : Context for 'APU' is selected.
+13:59:35 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+13:59:35 INFO  : 'ps7_init' command is executed.
+13:59:35 INFO  : 'ps7_post_config' command is executed.
+13:59:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:59:36 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:59:36 INFO  : 'configparams force-mem-access 0' command is executed.
+13:59:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:59:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:59:36 INFO  : 'con' command is executed.
+13:59:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:59:36 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:00:43 INFO  : Disconnected from the channel tcfchan#20.
+14:03:05 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:03:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:03:08 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:03:08 INFO  : 'jtag frequency' command is executed.
+14:03:08 INFO  : Context for 'APU' is selected.
+14:03:09 INFO  : System reset is completed.
+14:03:12 INFO  : 'after 3000' command is executed.
+14:03:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:03:14 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:03:14 INFO  : Context for 'APU' is selected.
+14:03:14 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:03:14 INFO  : 'configparams force-mem-access 1' command is executed.
+14:03:14 INFO  : Context for 'APU' is selected.
+14:03:14 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:03:15 INFO  : 'ps7_init' command is executed.
+14:03:15 INFO  : 'ps7_post_config' command is executed.
+14:03:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:03:15 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:03:15 INFO  : 'configparams force-mem-access 0' command is executed.
+14:03:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:03:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:03:15 INFO  : 'con' command is executed.
+14:03:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:03:15 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:05:32 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:05:36 INFO  : Disconnected from the channel tcfchan#21.
+14:05:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:05:37 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:05:37 INFO  : 'jtag frequency' command is executed.
+14:05:37 INFO  : Context for 'APU' is selected.
+14:05:37 INFO  : System reset is completed.
+14:05:40 INFO  : 'after 3000' command is executed.
+14:05:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:05:43 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:05:43 INFO  : Context for 'APU' is selected.
+14:05:43 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:05:43 INFO  : 'configparams force-mem-access 1' command is executed.
+14:05:43 INFO  : Context for 'APU' is selected.
+14:05:43 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:05:43 INFO  : 'ps7_init' command is executed.
+14:05:43 INFO  : 'ps7_post_config' command is executed.
+14:05:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:05:43 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:05:43 INFO  : 'configparams force-mem-access 0' command is executed.
+14:05:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:05:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:05:44 INFO  : 'con' command is executed.
+14:05:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:05:44 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:07:42 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:07:56 INFO  : Disconnected from the channel tcfchan#22.
+14:07:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:07:57 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:07:57 INFO  : 'jtag frequency' command is executed.
+14:07:57 INFO  : Context for 'APU' is selected.
+14:07:57 INFO  : System reset is completed.
+14:08:00 INFO  : 'after 3000' command is executed.
+14:08:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:08:02 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:08:02 INFO  : Context for 'APU' is selected.
+14:08:02 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:08:02 INFO  : 'configparams force-mem-access 1' command is executed.
+14:08:02 INFO  : Context for 'APU' is selected.
+14:08:02 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:08:03 INFO  : 'ps7_init' command is executed.
+14:08:03 INFO  : 'ps7_post_config' command is executed.
+14:08:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:08:03 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:08:03 INFO  : 'configparams force-mem-access 0' command is executed.
+14:08:03 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:08:03 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:08:03 INFO  : 'con' command is executed.
+14:08:03 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:08:03 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:08:29 INFO  : Disconnected from the channel tcfchan#23.
+14:09:14 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:09:29 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:09:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:09:33 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:09:33 INFO  : 'jtag frequency' command is executed.
+14:09:33 INFO  : Context for 'APU' is selected.
+14:09:33 INFO  : System reset is completed.
+14:09:36 INFO  : 'after 3000' command is executed.
+14:09:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:09:38 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:09:38 INFO  : Context for 'APU' is selected.
+14:09:38 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:09:38 INFO  : 'configparams force-mem-access 1' command is executed.
+14:09:38 INFO  : Context for 'APU' is selected.
+14:09:38 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:09:39 INFO  : 'ps7_init' command is executed.
+14:09:39 INFO  : 'ps7_post_config' command is executed.
+14:09:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:09:39 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:09:39 INFO  : 'configparams force-mem-access 0' command is executed.
+14:09:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:09:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:09:39 INFO  : 'con' command is executed.
+14:09:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:09:39 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:10:13 INFO  : Disconnected from the channel tcfchan#24.
+14:10:50 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:10:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:10:53 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:10:53 INFO  : 'jtag frequency' command is executed.
+14:10:53 INFO  : Context for 'APU' is selected.
+14:10:53 INFO  : System reset is completed.
+14:10:56 INFO  : 'after 3000' command is executed.
+14:10:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:10:59 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:10:59 INFO  : Context for 'APU' is selected.
+14:10:59 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:10:59 INFO  : 'configparams force-mem-access 1' command is executed.
+14:10:59 INFO  : Context for 'APU' is selected.
+14:10:59 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:10:59 INFO  : 'ps7_init' command is executed.
+14:10:59 INFO  : 'ps7_post_config' command is executed.
+14:10:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:10:59 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:10:59 INFO  : 'configparams force-mem-access 0' command is executed.
+14:10:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:10:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:10:59 INFO  : 'con' command is executed.
+14:10:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:10:59 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:12:28 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:13:24 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:13:28 INFO  : Disconnected from the channel tcfchan#25.
+14:13:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:13:29 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:13:29 INFO  : 'jtag frequency' command is executed.
+14:13:29 INFO  : Context for 'APU' is selected.
+14:13:29 INFO  : System reset is completed.
+14:13:32 INFO  : 'after 3000' command is executed.
+14:13:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:13:35 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:13:35 INFO  : Context for 'APU' is selected.
+14:13:35 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:13:35 INFO  : 'configparams force-mem-access 1' command is executed.
+14:13:35 INFO  : Context for 'APU' is selected.
+14:13:35 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:13:35 INFO  : 'ps7_init' command is executed.
+14:13:35 INFO  : 'ps7_post_config' command is executed.
+14:13:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:13:36 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:13:36 INFO  : 'configparams force-mem-access 0' command is executed.
+14:13:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:13:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:13:36 INFO  : 'con' command is executed.
+14:13:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:13:36 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:13:47 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:14:04 INFO  : Disconnected from the channel tcfchan#26.
+14:14:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:14:05 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:14:05 INFO  : 'jtag frequency' command is executed.
+14:14:06 INFO  : Context for 'APU' is selected.
+14:14:06 INFO  : System reset is completed.
+14:14:09 INFO  : 'after 3000' command is executed.
+14:14:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:14:11 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:14:11 INFO  : Context for 'APU' is selected.
+14:14:11 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:14:11 INFO  : 'configparams force-mem-access 1' command is executed.
+14:14:11 INFO  : Context for 'APU' is selected.
+14:14:11 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:14:11 INFO  : 'ps7_init' command is executed.
+14:14:11 INFO  : 'ps7_post_config' command is executed.
+14:14:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:14:12 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:14:12 INFO  : 'configparams force-mem-access 0' command is executed.
+14:14:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:14:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:14:12 INFO  : 'con' command is executed.
+14:14:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:14:12 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:14:34 INFO  : Disconnected from the channel tcfchan#27.
+14:14:52 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:14:58 INFO  : Launch of emulator has been cancelled. Launch configuration will be terminated.
+14:15:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:15:02 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:15:02 INFO  : 'jtag frequency' command is executed.
+14:15:02 INFO  : Context for 'APU' is selected.
+14:15:02 INFO  : System reset is completed.
+14:15:05 INFO  : 'after 3000' command is executed.
+14:15:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:15:07 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:15:07 INFO  : Context for 'APU' is selected.
+14:15:07 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:15:07 INFO  : 'configparams force-mem-access 1' command is executed.
+14:15:07 INFO  : Context for 'APU' is selected.
+14:15:07 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:15:08 INFO  : 'ps7_init' command is executed.
+14:15:08 INFO  : 'ps7_post_config' command is executed.
+14:15:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:15:08 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:15:08 INFO  : 'configparams force-mem-access 0' command is executed.
+14:15:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:15:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:15:08 INFO  : 'con' command is executed.
+14:15:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:15:08 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:15:25 INFO  : Disconnected from the channel tcfchan#28.
+14:15:33 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:15:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:15:38 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:15:38 INFO  : 'jtag frequency' command is executed.
+14:15:38 INFO  : Context for 'APU' is selected.
+14:15:38 INFO  : System reset is completed.
+14:15:41 INFO  : 'after 3000' command is executed.
+14:15:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:15:44 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:15:44 INFO  : Context for 'APU' is selected.
+14:15:44 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:15:44 INFO  : 'configparams force-mem-access 1' command is executed.
+14:15:44 INFO  : Context for 'APU' is selected.
+14:15:44 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:15:44 INFO  : 'ps7_init' command is executed.
+14:15:44 INFO  : 'ps7_post_config' command is executed.
+14:15:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:15:44 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:15:44 INFO  : 'configparams force-mem-access 0' command is executed.
+14:15:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:15:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:15:44 INFO  : 'con' command is executed.
+14:15:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:15:44 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:16:04 INFO  : Disconnected from the channel tcfchan#29.
+14:17:00 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:17:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:17:04 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:17:04 INFO  : 'jtag frequency' command is executed.
+14:17:04 INFO  : Context for 'APU' is selected.
+14:17:04 INFO  : System reset is completed.
+14:17:07 INFO  : 'after 3000' command is executed.
+14:17:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:17:10 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:17:10 INFO  : Context for 'APU' is selected.
+14:17:10 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:17:10 INFO  : 'configparams force-mem-access 1' command is executed.
+14:17:10 INFO  : Context for 'APU' is selected.
+14:17:10 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:17:10 INFO  : 'ps7_init' command is executed.
+14:17:10 INFO  : 'ps7_post_config' command is executed.
+14:17:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:10 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:17:10 INFO  : 'configparams force-mem-access 0' command is executed.
+14:17:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:17:10 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:10 INFO  : 'con' command is executed.
+14:17:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:17:10 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:17:25 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:17:29 INFO  : Disconnected from the channel tcfchan#30.
+14:17:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:17:30 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:17:30 INFO  : 'jtag frequency' command is executed.
+14:17:30 INFO  : Context for 'APU' is selected.
+14:17:30 INFO  : System reset is completed.
+14:17:33 INFO  : 'after 3000' command is executed.
+14:17:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:17:36 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:17:36 INFO  : Context for 'APU' is selected.
+14:17:36 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:17:36 INFO  : 'configparams force-mem-access 1' command is executed.
+14:17:36 INFO  : Context for 'APU' is selected.
+14:17:36 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:17:36 INFO  : 'ps7_init' command is executed.
+14:17:36 INFO  : 'ps7_post_config' command is executed.
+14:17:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:37 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:17:37 INFO  : 'configparams force-mem-access 0' command is executed.
+14:17:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:17:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:37 INFO  : 'con' command is executed.
+14:17:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:17:37 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:19:13 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:19:19 INFO  : Disconnected from the channel tcfchan#31.
+14:19:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:19:20 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:19:20 INFO  : 'jtag frequency' command is executed.
+14:19:20 INFO  : Context for 'APU' is selected.
+14:19:21 INFO  : System reset is completed.
+14:19:24 INFO  : 'after 3000' command is executed.
+14:19:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:19:26 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:19:26 INFO  : Context for 'APU' is selected.
+14:19:26 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:19:26 INFO  : 'configparams force-mem-access 1' command is executed.
+14:19:26 INFO  : Context for 'APU' is selected.
+14:19:26 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:19:26 INFO  : 'ps7_init' command is executed.
+14:19:26 INFO  : 'ps7_post_config' command is executed.
+14:19:26 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:19:27 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:19:27 INFO  : 'configparams force-mem-access 0' command is executed.
+14:19:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:19:27 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:19:27 INFO  : 'con' command is executed.
+14:19:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:19:27 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:19:37 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:19:41 INFO  : Disconnected from the channel tcfchan#32.
+14:19:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:19:42 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:19:42 INFO  : 'jtag frequency' command is executed.
+14:19:42 INFO  : Context for 'APU' is selected.
+14:19:42 INFO  : System reset is completed.
+14:19:45 INFO  : 'after 3000' command is executed.
+14:19:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:19:48 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:19:48 INFO  : Context for 'APU' is selected.
+14:19:48 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:19:48 INFO  : 'configparams force-mem-access 1' command is executed.
+14:19:48 INFO  : Context for 'APU' is selected.
+14:19:48 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:19:48 INFO  : 'ps7_init' command is executed.
+14:19:48 INFO  : 'ps7_post_config' command is executed.
+14:19:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:19:48 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:19:48 INFO  : 'configparams force-mem-access 0' command is executed.
+14:19:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:19:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:19:49 INFO  : 'con' command is executed.
+14:19:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:19:49 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:22:57 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:23:01 INFO  : Disconnected from the channel tcfchan#33.
+14:23:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:23:02 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:23:02 INFO  : 'jtag frequency' command is executed.
+14:23:02 INFO  : Context for 'APU' is selected.
+14:23:03 INFO  : System reset is completed.
+14:23:06 INFO  : 'after 3000' command is executed.
+14:23:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:23:08 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:23:08 INFO  : Context for 'APU' is selected.
+14:23:08 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:23:08 INFO  : 'configparams force-mem-access 1' command is executed.
+14:23:08 INFO  : Context for 'APU' is selected.
+14:23:08 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:23:08 INFO  : 'ps7_init' command is executed.
+14:23:08 INFO  : 'ps7_post_config' command is executed.
+14:23:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:23:09 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:23:09 INFO  : 'configparams force-mem-access 0' command is executed.
+14:23:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:23:09 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:23:09 INFO  : 'con' command is executed.
+14:23:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:23:09 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:25:16 INFO  : Checking for BSP changes to sync application flags for project 'iic_rw_eeprom'...
+14:25:40 INFO  : Disconnected from the channel tcfchan#34.
+14:25:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:25:41 INFO  : Jtag cable 'Digilent JTAG-SMT2 C306AFE5ABCD' is selected.
+14:25:41 INFO  : 'jtag frequency' command is executed.
+14:25:41 INFO  : Context for 'APU' is selected.
+14:25:41 INFO  : System reset is completed.
+14:25:44 INFO  : 'after 3000' command is executed.
+14:25:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}' command is executed.
+14:25:46 INFO  : Device configured successfully with "D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit"
+14:25:46 INFO  : Context for 'APU' is selected.
+14:25:46 INFO  : Hardware design and registers information is loaded from 'D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa'.
+14:25:46 INFO  : 'configparams force-mem-access 1' command is executed.
+14:25:47 INFO  : Context for 'APU' is selected.
+14:25:47 INFO  : Sourcing of 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl' is done.
+14:25:47 INFO  : 'ps7_init' command is executed.
+14:25:47 INFO  : 'ps7_post_config' command is executed.
+14:25:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:25:47 INFO  : The application 'D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:25:47 INFO  : 'configparams force-mem-access 0' command is executed.
+14:25:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 C306AFE5ABCD" && level==0 && jtag_device_ctx=="jsn-JTAG-SMT2-C306AFE5ABCD-23727093-0"}
+fpga -file D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/bitstream/system_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Zynq/vitis/iic_rw_eeprom/vitis/system_wrapper/export/system_wrapper/hw/system_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Zynq/vitis/iic_rw_eeprom/vitis/iic_rw_eeprom/Debug/iic_rw_eeprom.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:25:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:25:47 INFO  : 'con' command is executed.
+14:25:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:25:47 INFO  : Launch script is exported to file 'D:\Zynq\vitis\iic_rw_eeprom\vitis\iic_rw_eeprom_system\_ide\scripts\debugger_iic_rw_eeprom-default.tcl'
+14:27:05 INFO  : Disconnected from the channel tcfchan#35.

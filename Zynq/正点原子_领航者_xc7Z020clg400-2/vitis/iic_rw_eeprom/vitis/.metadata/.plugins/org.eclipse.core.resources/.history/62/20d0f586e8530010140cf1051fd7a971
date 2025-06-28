@@ -1,0 +1,325 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.28
+描  述: 	通过iic总线协议读取eeprom内部数据
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.28
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xiicps.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xplatform_info.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "xbasic_types.h"
+#include "xscutimer.h"
+#include "xil_printf.h"
+
+#define IIC_DEVICE_ID			XPAR_XIICPS_0_DEVICE_ID			//IIC设备ID
+#define INTC_DEVICE_ID			XPAR_SCUGIC_SINGLE_DEVICE_ID	//中断设备ID
+
+#define IIC_INTR_ID				XPAR_XIICPS_0_INTR				//IIC中断ID
+
+#define IIC_SCLK_RATE			100000							//IIC时钟频率
+
+volatile u8 g_uchTransmitComplete;								/**< Flag to check completion of Transmission */
+volatile u8 g_uchReceiveComplete;								/**< Flag to check completion of Reception */
+volatile u32 g_unTotalErrorCount;								/**< Total Error Count Flag */
+volatile u32 g_unSlaveResponse;									/**< Slave Response Flag */
+
+#define SLV_MON_LOOP_COUNT 		0x000FFFFF						//从机监控循环次数
+
+#define PAGE_SIZE				32								//板载的eeprom器件的页大小为32字节
+
+#define EEPROM_START_ADDRESS	0								//在eeprom中执行读写测试的起始字地址
+
+#define EEPROM_SLAVE_ADDRESS  	0x50							//eeprom从机地址
+
+//IIC初始化
+static int IIC_Init(XIicPs *_pXIicPs);
+
+//IIC中断初始化
+static int IIC_Intr_Init(XIicPs *_pXIicPs, XScuGic *_pXScuGic);
+
+//IIC从机监控
+static int IIC_Slave_Monitor(XIicPs *_pXIicPs);
+
+//IIC状态中断回调函数
+void IIC_Status_IntrHandler(void *CallBackRef, u32 Event);
+
+//读写EEPROM测试
+static int RW_Eeprom_Test(XIicPs *_pXIicPs);
+
+static int EepromWriteData(XIicPs *IicInstance, u8 *MsgPtr, u16 ByteCount)
+{
+	g_uchTransmitComplete = FALSE;
+
+	/*
+	 * Send the Data.
+	 */
+	XIicPs_MasterSend(IicInstance, MsgPtr, ByteCount, EEPROM_SLAVE_ADDRESS);
+
+	/*
+	 * Wait for the entire buffer to be sent, letting the interrupt
+	 * processing work in the background, this function may get
+	 * locked up in this loop if the interrupts are not working
+	 * correctly.
+	 */
+	while (g_uchTransmitComplete == FALSE) {
+		if (0 != g_unTotalErrorCount) {
+			return XST_FAILURE;
+		}
+	}
+
+	/*
+	 * Wait until bus is idle to start another transfer.
+	 */
+	while (XIicPs_BusIsBusy(IicInstance));
+
+	/*
+	 * Wait for a bit of time to allow the programming to complete
+	 */
+	usleep(10000);		//AT24C64写入数据最大时间间隔是10ms
+
+	return XST_SUCCESS;
+}
+
+static int EepromReadData(XIicPs *IicInstance, u8 *BufferPtr, u16 ByteCount)
+{
+	int nStatus;
+	u8 uchWriteBuffer[2] = { 0 };
+	int WrBfrOffset = 2;
+
+	/*
+	 * Position the Pointer in EEPROM.
+	 */
+	uchWriteBuffer[0] = (u8) (EEPROM_START_ADDRESS >> 8);
+	uchWriteBuffer[1] = (u8) (EEPROM_START_ADDRESS);
+
+	nStatus = EepromWriteData(IicInstance, uchWriteBuffer, WrBfrOffset);
+	if (nStatus != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	g_uchReceiveComplete = FALSE;
+
+	/*
+	 * Receive the Data.
+	 */
+	XIicPs_MasterRecv(IicInstance, BufferPtr, ByteCount, EEPROM_SLAVE_ADDRESS);
+
+	while (g_uchReceiveComplete == FALSE) {
+		if (0 != g_unTotalErrorCount) {
+			return XST_FAILURE;
+		}
+	}
+
+	/*
+	 * Wait until bus is idle to start another transfer.
+	 */
+	while (XIicPs_BusIsBusy(IicInstance));
+
+	return XST_SUCCESS;
+}
+
+int main()
+{
+	XIicPs tXIicPs = { 0 };
+	XScuGic tXScuGic = { 0 };
+
+	xil_printf("IIC rw eeprom test.\r\n");
+
+	IIC_Init(&tXIicPs);
+	IIC_Intr_Init(&tXIicPs, &tXScuGic);
+
+	if(IIC_Slave_Monitor(&tXIicPs) != 0)
+	{
+		xil_printf("IIC_Slave_Monitor is failed.\r\n");
+		return 0;
+	}
+
+	if(RW_Eeprom_Test(&tXIicPs) != 0)
+	{
+		xil_printf("RW_Eeprom_Test is err.\r\n");
+
+		return 0;
+	}
+
+	while(1){
+		sleep(1);
+	}
+}
+
+static int IIC_Init(XIicPs *_pXIicPs)
+{
+	if(!_pXIicPs)
+	{
+		xil_printf("IIC_Init input param is err\r\n");
+		return -1;
+	}
+
+	s32 nStatus = 0;
+	XIicPs_Config* ptXIicPs_Config = NULL;
+
+	//根据器件ID查找器件的配置信息
+	ptXIicPs_Config = XIicPs_LookupConfig(IIC_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	nStatus = XIicPs_CfgInitialize(_pXIicPs, ptXIicPs_Config, ptXIicPs_Config->BaseAddress);
+	if (nStatus != XST_SUCCESS)
+	{
+		return -2;
+	}
+
+	//设置IIC时钟频率
+	XIicPs_SetSClk(_pXIicPs, IIC_SCLK_RATE);
+
+	return 0;
+}
+
+static int IIC_Intr_Init(XIicPs *_pXIicPs, XScuGic *_pXScuGic)
+{
+	int nStatus = 0;
+
+	XScuGic_Config *ptIntcConfig = NULL; /* Instance of the interrupt controller */
+
+	//初始化中断控制器驱动程序，使其准备好使用
+	ptIntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+	if (NULL == ptIntcConfig) {
+		return XST_FAILURE;
+	}
+
+	//初始化一个特定的中断控制器实例/驱动程序，初始化需要：
+	nStatus = XScuGic_CfgInitialize(_pXScuGic, ptIntcConfig, ptIntcConfig->CpuBaseAddress);
+	if (nStatus != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	//连接设备驱动程序处理程序，将被调用时，一个设备发生中断时，执行上面定义的处理程序设备的特定中断处理
+	nStatus = XScuGic_Connect(_pXScuGic, IIC_INTR_ID,
+				(Xil_ExceptionHandler)XIicPs_MasterInterruptHandler,
+				(void *)_pXIicPs);
+	if (nStatus != XST_SUCCESS) {
+		return nStatus;
+	}
+
+	//设置IIC的状态中断回调函数
+	XIicPs_SetStatusHandler(_pXIicPs, _pXIicPs, IIC_Status_IntrHandler);
+
+	//将中断映射到请求CPU
+	XScuGic_Enable(_pXScuGic, IIC_INTR_ID);
+
+	//异常处理初始化
+	Xil_ExceptionInit();
+
+	//将中断控制器中断处理程序连接到硬件处理器中的中断处理逻辑
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+				_pXScuGic);
+
+	//使能异常处理
+	Xil_ExceptionEnableMask(XIL_EXCEPTION_IRQ);
+
+	return 0;
+}
+
+void IIC_Status_IntrHandler(void *CallBackRef, u32 Event)
+{
+	/*
+	 * All of the data transfer has been finished.
+	 */
+
+	if (0 != (Event & XIICPS_EVENT_COMPLETE_SEND)) {
+		g_uchTransmitComplete = TRUE;
+	} else if (0 != (Event & XIICPS_EVENT_COMPLETE_RECV)){
+		g_uchReceiveComplete = TRUE;
+	} else if (0 != (Event & XIICPS_EVENT_SLAVE_RDY)) {
+		g_unSlaveResponse = TRUE;
+	} else if (0 != (Event & XIICPS_EVENT_ERROR)){
+		g_unTotalErrorCount++;
+	}
+}
+
+static int IIC_Slave_Monitor(XIicPs *_pXIicPs)
+{
+	u32 unIndex = 0;
+
+	g_unSlaveResponse = FALSE;
+
+	XIicPs_DisableAllInterrupts(_pXIicPs->Config.BaseAddress);
+	XIicPs_EnableSlaveMonitor(_pXIicPs, EEPROM_SLAVE_ADDRESS);
+
+	g_unTotalErrorCount = 0;
+
+	/*
+	 * Wait for the Slave Monitor Interrupt, the interrupt processing
+	 * works in the background, this function may get locked up in this
+	 * loop if the interrupts are not working correctly or the slave
+	 * never responds.
+	 */
+	while ((!g_unSlaveResponse) && (unIndex < SLV_MON_LOOP_COUNT)) {
+		unIndex++;
+
+		/*
+		 * Ignore any errors. The hardware generates NACK interrupts
+		 * if the slave is not present.
+		 */
+		if (0 != g_unTotalErrorCount) {
+			xil_printf("Test error unexpected NACK\n");
+			return -2;
+		}
+	}
+
+	if (unIndex >= SLV_MON_LOOP_COUNT) {
+		return -2;
+
+	}
+
+	XIicPs_DisableSlaveMonitor(_pXIicPs);
+	return 0;
+}
+
+static int RW_Eeprom_Test(XIicPs *_pXIicPs)
+{
+	u8 uchWriteBuffer[PAGE_SIZE + 2] = { 0 };
+	u8 uchReadBuffer[PAGE_SIZE] = { 0 };
+	const u8 uchWrBfrOffset = 2;
+
+	uchWriteBuffer[0] = (u8) (EEPROM_START_ADDRESS >> 8);
+	uchWriteBuffer[1] = (u8) (EEPROM_START_ADDRESS);
+
+	for (int i = 0; i < PAGE_SIZE; i++) {
+		uchWriteBuffer[uchWrBfrOffset + i] = i;
+		uchReadBuffer[i] = 0;
+	}
+
+	//向EEPROM中写入数据
+	EepromWriteData(_pXIicPs, uchWriteBuffer, PAGE_SIZE + 2);
+
+	//向EEPROM中读取数据
+	EepromReadData(_pXIicPs, uchReadBuffer, PAGE_SIZE);
+
+	for (int i = 0; i < PAGE_SIZE; i++) {
+		if(uchWriteBuffer[uchWrBfrOffset + i] != uchReadBuffer[i])
+		{
+			return -2;
+		}
+
+		xil_printf("%s: start_addr = 0x%x, offset = %d, data = %d\r\n",
+				__FUNCTION__, EEPROM_START_ADDRESS, i, uchReadBuffer[i]);
+	}
+
+	return 0;
+}

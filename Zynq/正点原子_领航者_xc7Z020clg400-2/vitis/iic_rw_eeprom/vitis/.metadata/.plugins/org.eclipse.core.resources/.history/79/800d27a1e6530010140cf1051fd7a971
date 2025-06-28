@@ -1,0 +1,282 @@
+/***************************** Include Files *********************************/
+#include "xparameters.h"
+#include "sleep.h"
+#include "xiicps.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xil_printf.h"
+#include "xplatform_info.h"
+/************************** Constant Definitions *****************************/
+#define INTC_DEVICE_ID	 XPAR_SCUGIC_SINGLE_DEVICE_ID //通用中断控制器的器件ID
+#define I2C0_DEVICE_ID   XPAR_XIICPS_0_DEVICE_ID      //IIC控制器0的器件ID
+#define I2C0_INT_ID      XPAR_XIICPS_0_INTR           //IIC控制器0的中断ID
+
+#define IIC_SCLK_RATE		100000                   //IIC时钟速率
+#define SLV_MON_LOOP_COUNT 0x0001FFFF	             //从监控循环计数器
+
+//板载的eeprom器件的页大小为32字节
+#define PAGE_SIZE_32	32
+//在eeprom中执行读写测试的起始字地址
+#define EEPROM_START_ADDRESS	0
+
+/**************************** Type Definitions *******************************/
+typedef u16 AddressType;   //板载eeprom的字地址类型
+
+/************************** Function Prototypes ******************************/
+int IicPsEepromIntrExample(void);
+static int EepromWriteData(XIicPs *IicInstance, u16 ByteCount);
+static int EepromReadData(XIicPs *IicInstance, u8 *BufferPtr, u16 ByteCount);
+static void Handler(void *CallBackRef, u32 Event);
+static int IicPsSlaveMonitor(u16 Address, u16 DeviceId, u32 Int_Id);
+static int SetupInterruptSystem(XIicPs *IicPsPtr, u32 Int_Id);
+static int IicPsFindEeprom(u16 *EepromSlvAddr, u32 *PageSize);
+static int IicPsConfig(u16 DeviceId, u32 Int_Id);
+/************************** Variable Definitions *****************************/
+XIicPs IicInstance;		        //IIC控制器的驱动实例
+XScuGic GicInstance;	        //通用中断控制器的驱动实例
+
+//用于写入页面的写入缓冲器
+u8 WriteBuffer[sizeof(AddressType) + PAGE_SIZE_32];
+//用于读取页面的读取缓冲器
+u8 ReadBuffer[PAGE_SIZE_32];
+
+volatile u8 TransmitComplete;	//检查发送完成的标志
+volatile u8 ReceiveComplete;	//检查接收完成的标志
+volatile u32 TotalErrorCount;	//总错误计数标志
+volatile u32 SlaveResponse;		//从机响应标志
+
+u16 EepromAddr= 0x50;     //板载eeprom的实际器件地址
+u16 EepromSlvAddr;        //从监测模式下查找到的eeprom器件地址
+u32 PageSize;             //从监测模式下查找到的eeprom页大小
+/************************** Function Definitions *****************************/
+//主函数调用了Iic EEPROM interrupt example函数
+int main(void)
+{
+	int Status;
+    int Index;
+
+	xil_printf("IIC EEPROM Interrupt Example Test \r\n");
+
+	//运行IIc中断模式示列函数
+	Status = IicPsEepromIntrExample();
+	if (Status != XST_SUCCESS) {
+		xil_printf("IIC EEPROM Interrupt Example Test Failed\r\n");
+		return XST_FAILURE;
+	}
+	xil_printf("Successfully ran IIC EEPROM Interrupt Example Test\r\n");
+	//将写入eeprom里的数据打印出来
+	for (Index = 0; Index <PageSize; Index++) {
+		xil_printf("eeprom word address is %d\t,Data is %d\n",Index,ReadBuffer[Index]);
+	}
+
+	return XST_SUCCESS;
+}
+
+//对EEPROM写入单页数据、读取单页数据并验证读写数据
+int IicPsEepromIntrExample()
+{
+	u32 Index;
+	int Status;
+	AddressType Address = EEPROM_START_ADDRESS;
+	int WrBfrOffset;
+    //查找eeprom器件
+	IicPsFindEeprom(&EepromSlvAddr,&PageSize);
+
+	//初始化写缓冲区和读缓冲区
+		WriteBuffer[0] = (u8) (Address >> 8);
+		WriteBuffer[1] = (u8) (Address);
+		WrBfrOffset = 2;
+	for (Index = 0; Index < PageSize; Index++) {
+		WriteBuffer[WrBfrOffset + Index] = Index;
+		ReadBuffer[Index] = 0;
+	}
+	//往eeprom写数据
+	Status = EepromWriteData(&IicInstance, WrBfrOffset + PageSize);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	//从eeprom读数据
+	Status = EepromReadData(&IicInstance, ReadBuffer, PageSize);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	//验证写入的数据跟读取的数据是否一致
+	for (Index = 0; Index < PageSize; Index++) {
+		if (ReadBuffer[Index] != WriteBuffer[Index + WrBfrOffset]) {
+			return XST_FAILURE;
+		}
+	}
+	return XST_SUCCESS;
+}
+
+//查找eeprom器件函数
+// @param	Eeprom器件地址指针
+// @param	页大小指针
+ static int IicPsFindEeprom(u16 *EepromSlvAddr,u32 *PageSize)
+{
+	int Status;
+            //通过从机监控模式检测eeprom是否在iic总线上
+			Status = IicPsSlaveMonitor(EepromAddr,I2C0_DEVICE_ID,I2C0_INT_ID);
+			if (Status == XST_SUCCESS) {
+				*EepromSlvAddr = EepromAddr;
+				*PageSize = PAGE_SIZE_32;
+				return XST_SUCCESS;
+			}
+			return XST_FAILURE;
+}
+
+ //建立中断系统函数，方便IIC控制器产生中断
+ //@param  指向IIC驱动实例的指针，方便关联到中断控制器
+ static int SetupInterruptSystem(XIicPs *IicPsPtr, u32 Int_Id)
+ {
+ 	XScuGic_Config *IntcConfig;
+
+ 	IntcConfig = XScuGic_LookupConfig(INTC_DEVICE_ID);
+     XScuGic_CfgInitialize(&GicInstance, IntcConfig,
+ 					IntcConfig->CpuBaseAddress);
+
+ 	//设置并使能中断异常
+ 	Xil_ExceptionInit();
+ 	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_IRQ_INT,
+ 				(Xil_ExceptionHandler)XScuGic_InterruptHandler,
+ 				&GicInstance);
+ 	Xil_ExceptionEnable();
+    //为来自iic控制器的中断关联中断处理函数
+ 	XScuGic_Connect(&GicInstance, Int_Id,
+ 			(Xil_InterruptHandler)XIicPs_MasterInterruptHandler,
+ 			(void *)IicPsPtr);
+     //使能来自iic控制器的中断
+ 	XScuGic_Enable(&GicInstance, Int_Id);
+ 	return XST_SUCCESS;
+ }
+
+ //该函数执行来自IIC的数据事件。在产生中断时被调用
+ //@param 指向IIc驱动实例的回调指针
+ //@param 事件（Event）包含了已经发生的特定种类的事件
+ void Handler(void *CallBackRef, u32 Event)
+ {
+ 	//所有的数据已经传输完成
+ 	if (0 != (Event & XIICPS_EVENT_COMPLETE_SEND)) {
+ 		TransmitComplete = TRUE;
+ 	} else if (0 != (Event & XIICPS_EVENT_COMPLETE_RECV)){
+ 		ReceiveComplete = TRUE;
+ 	} else if (0 != (Event & XIICPS_EVENT_SLAVE_RDY)) {
+ 		SlaveResponse = TRUE;
+ 	} else if (0 != (Event & XIICPS_EVENT_ERROR)){
+ 		TotalErrorCount++;
+ 	}
+ }
+
+// IIC控制器初始化配置函数
+// @param IIC控制器的器件ID号和中断ID号
+static int IicPsConfig(u16 DeviceId, u32 Int_Id)
+{
+	XIicPs_Config *ConfigPtr;
+
+	ConfigPtr = XIicPs_LookupConfig(DeviceId);
+    XIicPs_CfgInitialize(&IicInstance, ConfigPtr,
+					ConfigPtr->BaseAddress);
+
+	 SetupInterruptSystem(&IicInstance, I2C0_INT_ID);
+
+	//当发生中断时，调用状态处理程序
+	XIicPs_SetStatusHandler(&IicInstance, (void *) &IicInstance,(XIicPs_IntrHandler) Handler);
+	//设置IIC串行时钟速率
+	XIicPs_SetSClk(&IicInstance, IIC_SCLK_RATE);
+	return XST_SUCCESS;
+}
+
+//使用从监测模式检查从机的可用性
+//@param eeprom的器件地址
+//@param IIC控制器的器件ID号
+//@param IIC控制器的中断ID号
+ static int IicPsSlaveMonitor(u16 Address, u16 DeviceId, u32 Int_Id)
+{
+	u32 Index;
+	XIicPs *IicPtr;
+	SlaveResponse = FALSE;
+
+	//初始化配置IIC控制器
+	IicPsConfig(DeviceId,Int_Id);
+
+	IicPtr = &IicInstance;
+	XIicPs_DisableAllInterrupts(IicPtr->Config.BaseAddress);
+	XIicPs_EnableSlaveMonitor(&IicInstance, Address);
+
+	TotalErrorCount = 0;
+	Index = 0;
+
+	//等待从监控模式下的从机响应中断
+	while ((!SlaveResponse) && (Index < SLV_MON_LOOP_COUNT)) {
+		Index++;
+		//如果从机不存在，硬件就会产生NACK中断
+		if (0 != TotalErrorCount) {
+			xil_printf("Test error unexpected NACK\n");
+			return XST_FAILURE;
+		}
+	}
+
+	if (Index >= SLV_MON_LOOP_COUNT) {
+		return XST_FAILURE;
+	}
+	XIicPs_DisableSlaveMonitor(&IicInstance);
+	return XST_SUCCESS;
+}
+
+//将缓冲区的数据写入到eeprom
+// @param ByteCount包含了缓冲区中要写入的字节数
+//注意：字节数不应超过EEPROM的页面大小，如常量PAGE_SIZE所示
+static int EepromWriteData(XIicPs *IicInstance, u16 ByteCount)
+{
+	return 0;
+	TransmitComplete = FALSE;
+
+	//主模式下以中断驱动方式发送数据
+	XIicPs_MasterSend(IicInstance, WriteBuffer,
+			   ByteCount, EepromSlvAddr);
+
+	//等待整个缓冲区被发送，如果中断不能正常工作，函数会在循环中被锁定。
+	while (TransmitComplete == FALSE) {
+		if (0 != TotalErrorCount) {
+			return XST_FAILURE;
+		}
+	}
+	//等待总线空闲，开始另一次传输
+	while (XIicPs_BusIsBusy(IicInstance));
+	//等待一端时间
+	usleep(10000);          //AT24C64写入数据最大时间间隔是10ms
+
+	return XST_SUCCESS;
+}
+
+//将数据从串行eeprom读出并存入指定的缓冲区
+//@param BufferPtr包含了要填充的数据缓冲区的地址
+//@param ByteCount包含了要读取的字节数
+static int EepromReadData(XIicPs *IicInstance, u8 *BufferPtr, u16 ByteCount)
+{
+	AddressType Address = EEPROM_START_ADDRESS;
+	int WrBfrOffset;
+
+	    //eeprom中的字地址指针偏离量是2字节
+		WriteBuffer[0] = (u8) (Address >> 8);
+		WriteBuffer[1] = (u8) (Address);
+		WrBfrOffset = 2;
+    //将写缓冲区的2字节的读写测试起始字地址写入eeprom
+    EepromWriteData(IicInstance, WrBfrOffset);
+
+	ReceiveComplete = FALSE;
+	//以中断驱动的方式接收从机发出的数据
+	XIicPs_MasterRecv(IicInstance, BufferPtr,
+			   ByteCount, EepromSlvAddr);
+
+	while (ReceiveComplete == FALSE) {
+		if (0 != TotalErrorCount) {
+			return XST_FAILURE;
+		}
+	}
+	//等待总线空闲，开始另一次传输
+	while (XIicPs_BusIsBusy(IicInstance));
+
+	return XST_SUCCESS;
+}
+

@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:D:/Zynq/vitis/iic_rw_eeprom/iic_rw_eeprom.srcs/constrs_1/new/pin.xdc rfile:../../../iic_rw_eeprom.srcs/constrs_1/new/pin.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN F17 [get_ports IIC_rw_eeprom_sda_io]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN E18 [get_ports IIC_rw_eeprom_scl_io]
