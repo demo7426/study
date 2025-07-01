@@ -1,0 +1,7 @@
+15:05:15 **** Clean-only build of configuration Debug for project micro_sd_rw ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  micro_sd_rw.elf.size  micro_sd_rw.elf
+' '
+
+15:05:16 Build Finished (took 353ms)
+

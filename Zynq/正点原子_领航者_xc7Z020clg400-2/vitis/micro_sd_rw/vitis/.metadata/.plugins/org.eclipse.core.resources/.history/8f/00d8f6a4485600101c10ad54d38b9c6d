@@ -1,0 +1,116 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.07.01
+描  述: 	通过FATFS对micro_sd进行读写操作
+备  注:
+修改记录:
+
+  1.  日期: 2025.07.01
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "sleep.h"
+#include "xil_types.h"
+#include "ff.h"
+
+BYTE g_uchWork[FF_MAX_SS] = { 0 };
+
+//挂载SD卡
+static int Mount_SD(FATFS *_pFatFS, const char* _pPath);
+
+static int SD_Write_Data(const char* _pFilePath, char* _pData, int _Len);
+
+int main()
+{
+	FATFS tFatFS = { 0 };
+	const char* pchPath = "0:";
+	const char* pchFilePath = "0:micro_sd_rw_test.txt";
+
+	char chWriteBuf[256] = "www.baidu.com";
+	char chReadBuf[256] = { 0 };
+
+	//挂载设备
+	Mount_SD(&tFatFS, pchPath);
+
+	//写入数据到文件内部
+	SD_Write_Data(pchFilePath, chWriteBuf, strlen(chWriteBuf));
+
+	//从文件内部读取数据
+
+	//比较两者数据的差异
+
+	return 0;
+}
+
+//挂载SD卡
+static int Mount_SD(FATFS *_pFatFS, const char* _pPath)
+{
+	if(!_pFatFS || !_pPath)
+	{
+		xil_printf("%s: input param is err.\r\n", __FUNCTION__);
+		return -1;
+	}
+
+	FRESULT eRes = FR_OK;
+
+	//立即挂载
+	eRes = f_mount(_pFatFS, _pPath, 1);
+	if(eRes != FR_OK)
+	{
+		//挂载失败，格式设备，重新挂载
+		eRes = f_mkfs(_pPath, FM_FAT32, 0, g_uchWork, sizeof(g_uchWork));
+		if(eRes != FR_OK)
+		{
+			xil_printf("%s: f_mkfs is failed.\r\n", __FUNCTION__);
+			return -2;
+		}
+
+		//重新挂载设备
+		eRes = f_mount(_pFatFS, _pPath, 1);
+		if(eRes != FR_OK)
+		{
+			xil_printf("%s: f_mount is failed.\r\n", __FUNCTION__);
+			return -2;
+		}
+	}
+
+	return 0;
+}
+
+static int SD_Write_Data(const char* _pFilePath, char* _pData, int _Len)
+{
+	FIL tFIL;
+	FRESULT eRes = FR_OK;
+	int nSucWriteLen = 0;		//成功写入的字节数
+
+	eRes = f_open(&tFIL, _pFilePath, FA_WRITE | FA_CREATE_ALWAYS);
+	if(eRes != FR_OK)
+	{
+		xil_printf("%s: f_open is failed.\r\n", __FUNCTION__);
+		return -2;
+	}
+
+	eRes = f_write(&tFIL, _pData, _Len, &nSucWriteLen);
+	if(eRes != FR_OK)
+	{
+		xil_printf("%s: f_write is failed.\r\n", __FUNCTION__);
+		return -2;
+	}
+	else
+	{
+		xil_printf("%s: f_write data len is %d\r\n", __FUNCTION__, nSucWriteLen);
+	}
+
+	f_close(&tFIL);
+
+	return 0;
+}
+
