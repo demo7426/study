@@ -49,7 +49,7 @@ int main()
 	SD_Write_Data(pchFilePath, chWriteBuf, strlen(chWriteBuf));
 
 	//从文件内部读取数据
-	SD_Read_Data(pchFilePath, chReadBuf, strlen(chReadBuf));
+	SD_Read_Data(pchFilePath, chReadBuf, strlen(chWriteBuf));
 
 	//比较两者数据的差异
 	if(strcmp(chWriteBuf, chReadBuf) != 0)
@@ -130,7 +130,7 @@ static int SD_Read_Data(const char* _pFilePath, char* _pData, int _Len)
 	FRESULT eRes = FR_OK;
 	int nSucReadLen = 0;		//成功读取的字节数
 
-	eRes = f_open(&tFIL, _pFilePath, FA_WRITE | FA_CREATE_ALWAYS);
+	eRes = f_open(&tFIL, _pFilePath, FA_READ);
 	if(eRes != FR_OK)
 	{
 		xil_printf("%s: f_open is failed.\r\n", __FUNCTION__);
@@ -140,7 +140,7 @@ static int SD_Read_Data(const char* _pFilePath, char* _pData, int _Len)
 	eRes = f_read(&tFIL, _pData, _Len, (UINT*)&nSucReadLen);
 	if(eRes != FR_OK)
 	{
-		xil_printf("%s: f_write is failed.\r\n", __FUNCTION__);
+		xil_printf("%s: f_read is failed.\r\n", __FUNCTION__);
 		return -2;
 	}
 	else
