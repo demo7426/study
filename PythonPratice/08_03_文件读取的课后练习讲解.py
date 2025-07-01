@@ -13,6 +13,11 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       版本:V0.1.0
 """
 
+def print_file_content(file_name):
+    with open(file_name, 'r') as f:
+        for line in f:
+            print(line, end="")
+
 def get_file_word_number(file_name, key_word):
     """
     读取全部内容，通过字符串count方法统计关键字出现的次数
@@ -50,6 +55,8 @@ def get_file_word_number_02(file_name, key_word):
     return word_count
 
 key_word = "itheima"
+
+print_file_content("./08_03_文件读取的课后练习讲解.txt")
 
 word_num = get_file_word_number("./08_03_文件读取的课后练习讲解.txt", key_word)
 print(f"关键字{key_word}在文件内部的数量为：{word_num}个")
