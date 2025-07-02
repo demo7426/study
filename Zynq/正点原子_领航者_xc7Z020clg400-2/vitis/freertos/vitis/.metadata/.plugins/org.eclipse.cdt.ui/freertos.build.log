@@ -1,0 +1,7 @@
+14:24:16 **** Clean-only build of configuration Debug for project freertos ****
+make clean 
+rm -rf  ./src/freertos_hello_world.o  ./src/freertos_hello_world.d  freertos.elf.size  freertos.elf
+' '
+
+14:24:16 Build Finished (took 347ms)
+
