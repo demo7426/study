@@ -43,7 +43,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #define TIMER_CHECK_THRESHOLD	9
 
 #define GPIO_DEVICE_ID		XPAR_XGPIOPS_0_DEVICE_ID	//GPIO的设备ID
-#define OUTPUT_PIN_0 		7							//输出引脚
+#define OUTPUT_PIN_0 		0							//输出引脚
 /*-----------------------------------------------------------*/
 
 /* The Tx and Rx tasks as described at the top of this file. */
@@ -90,7 +90,7 @@ int main( void )
 				 configMINIMAL_STACK_SIZE,
 				 NULL,
 				 tskIDLE_PRIORITY,
-				 &xRxTask );
+				 NULL );
 
 	/* Create the queue used by the tasks.  The Rx task has a higher priority
 	than the Tx task, so will preempt the Tx task and remove values from the
@@ -212,7 +212,7 @@ static void prvPsLedTask( void *pvParameters )
 	Status = XGpioPs_CfgInitialize(&tXGpioPs, ptXGpioPs_Config, ptXGpioPs_Config->BaseAddr);
 	if (Status != XST_SUCCESS)
 	{
-		return 0;
+		return;
 	}
 
 	//设置引脚方向 0--输入;1--输出;
@@ -224,7 +224,9 @@ static void prvPsLedTask( void *pvParameters )
 	for( ;; )
 	{
 		/* Delay for 1 second. */
+
 		vTaskDelay( x1second );
+
 		XGpioPs_WritePin(&tXGpioPs, OUTPUT_PIN_0, ~XGpioPs_ReadPin(&tXGpioPs, OUTPUT_PIN_0));
 	}
 }
