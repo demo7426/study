@@ -1,0 +1,7 @@
+13:33:18 **** Clean-only build of configuration Debug for project ps_pl_bram ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  ps_pl_bram.elf.size  ps_pl_bram.elf
+' '
+
+13:33:18 Build Finished (took 400ms)
+

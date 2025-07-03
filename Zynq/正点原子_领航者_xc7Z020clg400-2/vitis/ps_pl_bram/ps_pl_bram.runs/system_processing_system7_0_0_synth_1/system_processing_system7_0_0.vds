@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul  3 09:40:44 2025
+# Process ID: 63484
+# Current directory: D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.runs/system_processing_system7_0_0_synth_1
+# Command line: vivado.exe -log system_processing_system7_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_processing_system7_0_0.tcl
+# Log file: D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.runs/system_processing_system7_0_0_synth_1/system_processing_system7_0_0.vds
+# Journal file: D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.runs/system_processing_system7_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source system_processing_system7_0_0.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_processing_system7_0_0, cache-ID = 39ced091df8e90ef.
+INFO: [Common 17-206] Exiting Vivado at Thu Jul  3 09:40:49 2025...

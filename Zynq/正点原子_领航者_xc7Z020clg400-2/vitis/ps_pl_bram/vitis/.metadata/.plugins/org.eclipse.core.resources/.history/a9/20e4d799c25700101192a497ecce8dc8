@@ -1,0 +1,55 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.23
+描  述: 	通过自定义的ip控制led灯的亮灭/闪烁频率
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.23
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xil_printf.h"
+#include "sleep.h"
+#include "xbram.h"
+
+#define LED_IP_BASEADDR 	XPAR_BREATH_LED_IP_0_S0_AXI_BASEADDR
+#define LED_IP_REG0 		BREATH_LED_IP_S0_AXI_SLV_REG0_OFFSET
+#define LED_IP_REG1 		BREATH_LED_IP_S0_AXI_SLV_REG1_OFFSET
+
+//写入数据到bram
+static void WriteDataToBRAM(char* _Data, int _Len);
+
+int main()
+{
+	char chInputBuf[1024] = { 0 };
+
+	while(1)
+	{
+		memset(chInputBuf, 0, sizeof chInputBuf);
+		xil_printf("Please input parameter to bram")
+		scanf("%1024s", chInputBuf);
+
+
+	}
+
+	return 0;
+}
+
+//写入数据到bram
+static void WriteDataToBRAM(char* _Data, int _Len)
+{
+
+}
+
+
+

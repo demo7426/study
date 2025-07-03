@@ -1,0 +1,74 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名:	main.c
+作  者:	钱锐      版本: V0.1.0     新建日期: 2025.06.23
+描  述: 	通过自定义的ip控制led灯的亮灭/闪烁频率
+备  注:
+修改记录:
+
+  1.  日期: 2025.06.23
+      作者: 钱锐
+      内容:
+          1) 此为模板第一个版本；
+      版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xil_printf.h"
+#include "sleep.h"
+#include "xbram.h"
+
+#define BRAM_START_ADDR 	0		//bram的起始地址，范围：0~1023
+#define BRAM_DATA_BYTE 		4		//bram数据字节个数，因为AXI_Lite总线是 32-bit 数据总线（即4字节）对齐
+
+//写入数据到bram
+static void WriteDataToBRAM(char* _pData, int _Len);
+
+//从bram读取数据
+static void ReadDataToBRAM(char* _pData, int _Len);
+
+int main()
+{
+	char chWriteBuf[1025] = { 0 };
+	char chReadBuf[1025] = { 0 };
+
+	while(1)
+	{
+		xil_printf("Please enter the parameters and write them into bram");
+
+		memset(chWriteBuf, 0, sizeof chWriteBuf);
+		scanf("%1024s", chWriteBuf);
+
+		WriteDataToBRAM(chWriteBuf, strlen(chWriteBuf));
+
+		ReadDataToBRAM(chReadBuf, strlen(chWriteBuf));
+	}
+
+	return 0;
+}
+
+//写入数据到bram
+static void WriteDataToBRAM(char* _pData, int _Len)
+{
+	for(int i = BRAM_DATA_BYTE * BRAM_START_ADDR;
+			i < BRAM_DATA_BYTE * (BRAM_START_ADDR + _Len);
+			i += BRAM_DATA_BYTE)
+	{
+		XBram_WriteReg(XPAR_BRAM_0_BASEADDR, i, _pData[i / BRAM_DATA_BYTE]);
+	}
+}
+
+static void ReadDataToBRAM(char* _pData, int _Len)
+{
+	for(int i = BRAM_DATA_BYTE * BRAM_START_ADDR;
+				i < BRAM_DATA_BYTE * (BRAM_START_ADDR + _Len);
+				i += BRAM_DATA_BYTE)
+	{
+		_pData[i / BRAM_DATA_BYTE] = XBram_ReadReg(XPAR_BRAM_0_BASEADDR, i);
+	}
+}
+
