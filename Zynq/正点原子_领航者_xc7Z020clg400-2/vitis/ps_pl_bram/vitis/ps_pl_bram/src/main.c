@@ -33,12 +33,13 @@ static void ReadDataToBRAM(char* _pData, int _Len);
 
 int main()
 {
+	int i = 0;
 	char chWriteBuf[1025] = { 0 };
 	char chReadBuf[1025] = { 0 };
 
 	while(1)
 	{
-		xil_printf("Please enter the parameters and write them into bram");
+		xil_printf("Please enter the parameters and write them into bram\r\n");
 
 		memset(chWriteBuf, 0, sizeof chWriteBuf);
 		scanf("%1024s", chWriteBuf);
@@ -46,6 +47,11 @@ int main()
 		WriteDataToBRAM(chWriteBuf, strlen(chWriteBuf));
 
 		ReadDataToBRAM(chReadBuf, strlen(chWriteBuf));
+
+		for(i = 0; i < strlen(chWriteBuf); i++)
+		{
+			xil_printf("chReadBuf[%d] = %c\r\n", i, chReadBuf[i]);
+		}
 	}
 
 	return 0;
