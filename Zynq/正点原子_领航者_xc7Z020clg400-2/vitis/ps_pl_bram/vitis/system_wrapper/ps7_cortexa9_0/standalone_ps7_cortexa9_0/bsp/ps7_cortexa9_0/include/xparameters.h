@@ -221,6 +221,17 @@
 
 /******************************************************************/
 
+/* Definitions for driver PL_BRAM_RD */
+#define XPAR_PL_BRAM_RD_NUM_INSTANCES 1
+
+/* Definitions for peripheral PL_BRAM_RD_0 */
+#define XPAR_PL_BRAM_RD_0_DEVICE_ID 0
+#define XPAR_PL_BRAM_RD_0_S00_AXI_BASEADDR 0x43C00000
+#define XPAR_PL_BRAM_RD_0_S00_AXI_HIGHADDR 0x43C00FFF
+
+
+/******************************************************************/
+
 /* Definitions for driver SCUGIC */
 #define XPAR_XSCUGIC_NUM_INSTANCES 1U
 
@@ -323,4 +334,10 @@
 
 /******************************************************************/
 
+/* Xilinx FAT File System Library (XilFFs) User Settings */
+#define FILE_SYSTEM_USE_MKFS
+#define FILE_SYSTEM_NUM_LOGIC_VOL 2
+#define FILE_SYSTEM_USE_STRFUNC 0
+#define FILE_SYSTEM_SET_FS_RPATH 0
+#define FILE_SYSTEM_WORD_ACCESS
 #endif  /* end of protection macro */

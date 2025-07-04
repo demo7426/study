@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Thu Jul  3 09:44:48 2025
+| Date             : Fri Jul  4 18:26:43 2025
 | Host             : DESKTOP-D3LRDNP running 64-bit major release  (build 9200)
 | Command          : report_power -file system_wrapper_power_routed.rpt -pb system_wrapper_power_summary_routed.pb -rpx system_wrapper_power_routed.rpx
 | Design           : system_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.537        |
+| Total On-Chip Power (W)  | 1.550        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.403        |
-| Device Static (W)        | 0.134        |
+| Dynamic (W)              | 1.415        |
+| Device Static (W)        | 0.135        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 67.3         |
-| Junction Temperature (C) | 42.7         |
+| Max Ambient (C)          | 67.1         |
+| Junction Temperature (C) | 42.9         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -49,22 +49,24 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+-------------------------+-----------+----------+-----------+-----------------+
-| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
-+-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.002 |        3 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1267 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      365 |     53200 |            0.69 |
-|   CARRY4                |    <0.001 |       18 |     13300 |            0.14 |
-|   Register              |    <0.001 |      511 |    106400 |            0.48 |
-|   LUT as Shift Register |    <0.001 |       60 |     17400 |            0.34 |
-|   Others                |     0.000 |      191 |       --- |             --- |
-| Signals                 |    <0.001 |      960 |       --- |             --- |
-| Block RAM               |    <0.001 |        2 |       140 |            1.43 |
-| PS7                     |     1.399 |        1 |       --- |             --- |
-| Static Power            |     0.134 |          |           |                 |
-| Total                   |     1.537 |          |           |                 |
-+-------------------------+-----------+----------+-----------+-----------------+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.007 |        4 |       --- |             --- |
+| Slice Logic              |     0.002 |     5929 |       --- |             --- |
+|   LUT as Logic           |     0.001 |     1768 |     53200 |            3.32 |
+|   Register               |    <0.001 |     2912 |    106400 |            2.74 |
+|   LUT as Shift Register  |    <0.001 |      112 |     17400 |            0.64 |
+|   CARRY4                 |    <0.001 |       74 |     13300 |            0.56 |
+|   LUT as Distributed RAM |    <0.001 |       24 |     17400 |            0.14 |
+|   F7/F8 Muxes            |    <0.001 |        8 |     53200 |            0.02 |
+|   Others                 |     0.000 |      579 |       --- |             --- |
+| Signals                  |     0.002 |     4425 |       --- |             --- |
+| Block RAM                |     0.005 |        7 |       140 |            5.00 |
+| PS7                      |     1.399 |        1 |       --- |             --- |
+| Static Power             |     0.135 |          |           |                 |
+| Total                    |     1.550 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -73,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.004 |      0.014 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.030 |       0.015 |      0.014 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.015 |       0.000 |      0.015 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -82,11 +84,11 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.752 |       0.724 |      0.028 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.752 |       0.724 |      0.029 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.061 |       0.050 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.019 |       0.016 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.350 |     0.413 |       0.411 |      0.002 |       NA    | Unspecified | NA         |
@@ -133,11 +135,12 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+------------+-----------------------------------------------------------+-----------------+
-| Clock      | Domain                                                    | Constraint (ns) |
-+------------+-----------------------------------------------------------+-----------------+
-| clk_fpga_0 | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0] |            20.0 |
-+------------+-----------------------------------------------------------+-----------------+
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
+| Clock                                                                                      | Domain                                                               | Constraint (ns) |
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
+| clk_fpga_0                                                                                 | system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]            |            20.0 |
+| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/tck_bs |            33.0 |
++--------------------------------------------------------------------------------------------+----------------------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -149,12 +152,20 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| system_wrapper           |     1.403 |
-|   system_i               |     1.403 |
-|     axi_mem_intercon     |     0.003 |
-|       s00_couplers       |     0.003 |
+| system_wrapper           |     1.415 |
+|   dbg_hub                |     0.002 |
+|     inst                 |     0.002 |
+|       BSCANID.u_xsdbm_id |     0.002 |
+|   system_i               |     1.405 |
+|     axi_smc              |     0.003 |
+|       inst               |     0.003 |
+|     blk_mem_gen_0        |     0.002 |
+|       U0                 |     0.002 |
 |     processing_system7_0 |     1.399 |
 |       inst               |     1.399 |
+|   u_ila_0                |     0.008 |
+|     inst                 |     0.008 |
+|       ila_core_inst      |     0.008 |
 +--------------------------+-----------+
 
 

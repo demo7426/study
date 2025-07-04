@@ -1,5 +1,5 @@
-2025-07-03T13:33:10.400135900255-13:33:10 **** Clean-only build of project system_wrapper ****
-000-buildplatform.bat 52837 system_wrapper clean 
+2025-07-04T18:41:59.019183900255-18:41:59 **** Clean-only build of project system_wrapper ****
+000-buildplatform.bat 55340 system_wrapper clean 
 000-XSDB Server Channel: tcfchan#2
 000-Cleaning the zynq_fsbl application.
 000-rm -rf  sd.o  nand.o  image_mover.o  md5.o  fsbl_hooks.o  main.o  nor.o  qspi.o  rsa.o  ps7_init.o  pcap.o  fsbl_handoff.o zynq
@@ -17,6 +17,8 @@
 000-make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s clean 
 000-
 000-make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s clean 
+000-
+000-make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s clean 
 000-
 000-make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s clean 
 000-
@@ -49,6 +51,8 @@
 000-
 000-make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s clean 
 000-
+000-make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s clean 
+000-
 000-make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s clean 
 000-
 000-make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s clean 
@@ -61,8 +65,12 @@
 000-
 000-make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s clean 
 000-
+000-make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s clean 
+000-
+000-make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s clean 
+000-
 000-rm -f ps7_cortexa9_0/lib/libxil.a
 000-
 00255-
-13:33:18 Build Finished (took 8s.50ms)
+18:42:24 Build Finished (took 25s.567ms)
 

@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-2
 
@@ -80,23 +79,60 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.cache/wt [current_project]
 set_property parent.project_path D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property ip_repo_paths d:/Zynq/vitis/ps_pl_bram/ip_repo/pl_bram_rd_1.0 [current_project]
+update_ip_catalog
 set_property ip_output_repo d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/hdl/system_wrapper.v
+read_verilog -library xil_defaultlib D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/hdl/system_wrapper.v
 add_files D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/system.bd
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_blk_mem_gen_0_0/system_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.gen/sources_1/bd/system/system_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_blk_mem_gen_0_0/system_blk_mem_gen_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_1/bd_44e3_psr_aclk_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_1/bd_44e3_psr_aclk_0.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_2/bd_44e3_arinsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_3/bd_44e3_rinsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_4/bd_44e3_awinsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_5/bd_44e3_winsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_6/bd_44e3_binsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_7/bd_44e3_aroutsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_8/bd_44e3_routsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_9/bd_44e3_awoutsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_10/bd_44e3_woutsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_11/bd_44e3_boutsw_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_12/bd_44e3_arni_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_13/bd_44e3_rni_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_14/bd_44e3_awni_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_15/bd_44e3_wni_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_16/bd_44e3_bni_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_20/bd_44e3_s00a2s_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_21/bd_44e3_sarn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_22/bd_44e3_srn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_23/bd_44e3_sawn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_24/bd_44e3_swn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_25/bd_44e3_sbn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_26/bd_44e3_m00s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_27/bd_44e3_m00arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_28/bd_44e3_m00rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_29/bd_44e3_m00awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_30/bd_44e3_m00wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_31/bd_44e3_m00bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_33/bd_44e3_m01s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_34/bd_44e3_m01arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_35/bd_44e3_m01rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_36/bd_44e3_m01awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_37/bd_44e3_m01wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/bd_0/ip/ip_38/bd_44e3_m01bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_axi_smc_0/ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0.xdc]
+set_property used_in_implementation false [get_files -all d:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/ip/system_rst_ps7_0_50M_0/system_rst_ps7_0_50M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/system_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -107,6 +143,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/constrs_1/new/system_wrapper.xdc
+set_property used_in_implementation false [get_files D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/constrs_1/new/system_wrapper.xdc]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1

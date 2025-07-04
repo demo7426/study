@@ -17,3 +17,25 @@
 12:09:37 INFO  : Checking for BSP changes to sync application flags for project 'ps_pl_bram'...
 12:10:19 INFO  : Checking for BSP changes to sync application flags for project 'ps_pl_bram'...
 12:11:41 INFO  : Checking for BSP changes to sync application flags for project 'ps_pl_bram'...
+18:27:36 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Zynq\vitis\ps_pl_bram\vitis\temp_xsdb_launch_script.tcl
+18:27:38 INFO  : XSCT server has started successfully.
+18:27:38 INFO  : plnx-install-location is set to ''
+18:27:38 INFO  : Successfully done setting XSCT server connection channel  
+18:27:38 INFO  : Successfully done setting workspace for the tool. 
+18:27:40 ERROR : Error encountered while initializing user repository paths
+Reason: No Platforms Found.
+
+
+18:27:40 INFO  : Platform repository initialization has completed.
+18:27:40 INFO  : Successfully done query RDI_DATADIR 
+18:27:40 INFO  : Registering command handlers for Vitis TCF services
+18:27:52 INFO  : Hardware specification for platform project 'system_wrapper' is updated.
+18:28:06 ERROR : (XSDB Server)rm: lstat¡®*.o¡¯Ê§°Ü: Invalid argument
+
+18:28:06 ERROR : (XSDB Server)make: *** [Makefile:42: clean] Error 1
+
+18:29:04 INFO  : Result from executing command 'getProjects': system_wrapper
+18:29:04 INFO  : Result from executing command 'getPlatforms': 
+18:30:38 INFO  : Checking for BSP changes to sync application flags for project 'ps_pl_bram'...
+18:30:39 INFO  : Updating application flags with new BSP settings...
+18:30:40 INFO  : Successfully updated application flags for project ps_pl_bram.

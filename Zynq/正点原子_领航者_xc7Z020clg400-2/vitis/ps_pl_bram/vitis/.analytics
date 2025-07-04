@@ -9,3 +9,10 @@ timestamp=[2025-07-03 12:10:21], mode=BUILD, duration=0:00:01.709, duration_ms=1
 timestamp=[2025-07-03 12:11:42], mode=BUILD, duration=0:00:01.724, duration_ms=1724, data={name=ps_pl_bram, configuration=Debug, clean_build=false}
 timestamp=[2025-07-03 13:33:18], mode=PLATFORM_GENERATION, duration=0:00:08.104, duration_ms=8104, data={name=system_wrapper}
 timestamp=[2025-07-03 13:33:18], mode=BUILD, duration=0:00:00.409, duration_ms=409, data={name=ps_pl_bram, configuration=Debug, clean_build=true}
+timestamp=[2025-07-04 18:27:39], mode=WORKBENCH_START, duration=0:00:06.871, duration_ms=6871, data={}
+timestamp=[2025-07-04 18:27:40], mode=WORKBENCH_UI_INIT, duration=0:00:00.759, duration_ms=759, data={editors_count=7, platform_editors_count=3, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,ps_pl_bram,ps_pl_bram_system,system_wrapper}
+timestamp=[2025-07-04 18:27:40], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.020, duration_ms=20, data={}
+timestamp=[2025-07-04 18:29:04], mode=PLATFORM_GENERATION, duration=0:00:46.623, duration_ms=46623, data={name=system_wrapper}
+timestamp=[2025-07-04 18:30:42], mode=BUILD, duration=0:00:02.142, duration_ms=2142, data={name=ps_pl_bram, configuration=Debug, clean_build=false}
+timestamp=[2025-07-04 18:42:24], mode=PLATFORM_GENERATION, duration=0:00:25.640, duration_ms=25640, data={name=system_wrapper}
+timestamp=[2025-07-04 18:42:25], mode=BUILD, duration=0:00:00.463, duration_ms=463, data={name=ps_pl_bram, configuration=Debug, clean_build=true}

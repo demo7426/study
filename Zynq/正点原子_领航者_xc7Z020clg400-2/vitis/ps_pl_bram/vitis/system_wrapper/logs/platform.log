@@ -2265,3 +2265,1737 @@ TRACE::2025-07-03.13:33:18::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/
 
 TRACE::2025-07-03.13:33:18::SCWMssOS::rm -f ps7_cortexa9_0/lib/libxil.a
 
+TRACE::2025-07-04.18:27:45::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:45::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:45::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:47::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:47::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:47::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:47::SCWPlatform::Do not have an existing db opened. 
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened new HwDB with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWReader::Active system found as  system_wrapper
+TRACE::2025-07-04.18:27:48::SCWReader::Handling sysconfig system_wrapper
+TRACE::2025-07-04.18:27:48::SCWDomain::checking for install qemu data   : 
+TRACE::2025-07-04.18:27:48::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2025-07-04.18:27:48::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2025-07-04.18:27:48::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:27:48::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:27:48::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:48::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS:: library already available in sw design:  xilffs:4.4
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:48::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS:: library already available in sw design:  xilrsa:1.6
+TRACE::2025-07-04.18:27:48::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:48::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:48::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:48::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2025-07-04.18:27:48::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:48::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWReader::No isolation master present  
+TRACE::2025-07-04.18:27:48::SCWDomain::checking for install qemu data   : 
+TRACE::2025-07-04.18:27:48::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2025-07-04.18:27:48::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:48::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system_0
+TRACE::2025-07-04.18:27:48::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:27:48::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:48::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:48::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:48::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2025-07-04.18:27:48::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:48::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:48::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:48::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:48::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:48::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:48::SCWReader::No isolation master present  
+TRACE::2025-07-04.18:27:50::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:50::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:50::SCWPlatform:: Platform location is D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa
+TRACE::2025-07-04.18:27:50::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:50::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWMssOS::Doing hw sync for the mss in domain: zynq_fsbl
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:51::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::update - Opened existing hwdb system_wrapper_0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWMssOS::Doing hw sync for the mss in domain: standalone_ps7_cortexa9_0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to set the existing hwdb with name system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Opened existing hwdb system_wrapper
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:51::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/tempdsa/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::update - Opened existing hwdb system_wrapper_0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:51::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Completed hw sync for the mss in domain: zynq_fsbl
+TRACE::2025-07-04.18:27:51::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:51::SCWMssOS::Completed hw sync for the mss in domain: standalone_ps7_cortexa9_0
+TRACE::2025-07-04.18:27:51::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:51::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:51::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:51::SCWPlatform::Do not have an existing db opened. 
+TRACE::2025-07-04.18:27:52::SCWPlatform::Opened new HwDB with name system_wrapper_1
+TRACE::2025-07-04.18:27:52::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::Adding the swdes entry, mss present, able to open swdb D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:27:52::SCWMssOS::Writing the mss file completed D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:52::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::Adding the swdes entry, mss present, able to open swdb D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system_0
+TRACE::2025-07-04.18:27:52::SCWMssOS::Writing the mss file completed D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:52::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:52::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:52::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_1
+TRACE::2025-07-04.18:27:52::SCWPlatform::Opened existing hwdb system_wrapper_1
+TRACE::2025-07-04.18:27:52::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:52::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:52::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:52::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:52::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:52::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_1
+TRACE::2025-07-04.18:27:52::SCWPlatform::Opened existing hwdb system_wrapper_1
+TRACE::2025-07-04.18:27:52::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:52::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:52::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:52::SCWWriter::formatted JSON is {
+	"platformName":	"system_wrapper",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"system_wrapper",
+	"platHandOff":	"<platformDir>.xsa",
+	"platIntHandOff":	"<platformDir>/hw/system_wrapper.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"fsblExtraCompilerFlags":	"-MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard ",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"system_wrapper",
+	"systems":	[{
+			"systemName":	"system_wrapper",
+			"systemDesc":	"system_wrapper",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"system_wrapper",
+			"sysActiveDom":	"standalone_ps7_cortexa9_0",
+			"sysDefaultDom":	"standalone_ps7_cortexa9_0",
+			"domains":	[{
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.3",
+					"mssFile":	"",
+					"md5Digest":	"fc3a7119e4cf3afc67c600a40bd35d7a",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:4.4", "xilrsa:1.6"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"standalone_ps7_cortexa9_0",
+					"domainDispName":	"standalone_ps7_cortexa9_0",
+					"domainDesc":	"standalone_ps7_cortexa9_0",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"qemuArgs":	"C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt",
+					"qemuData":	"C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.3",
+					"mssFile":	"",
+					"md5Digest":	"b95f601be401f8a6b2e0f6270226b9c0",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+TRACE::2025-07-04.18:27:57::SCWPlatform::Clearing the existing platform
+TRACE::2025-07-04.18:27:57::SCWSystem::Clearing the existing sysconfig
+TRACE::2025-07-04.18:27:57::SCWBDomain::clearing the fsbl build
+TRACE::2025-07-04.18:27:57::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:57::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:57::SCWSystem::Clearing the domains completed.
+TRACE::2025-07-04.18:27:57::SCWPlatform::Clearing the opened hw db.
+TRACE::2025-07-04.18:27:57::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform:: Platform location is D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:57::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:57::SCWPlatform::Removing the HwDB with name D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:57::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:57::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:57::SCWPlatform::Do not have an existing db opened. 
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened new HwDB with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWReader::Active system found as  system_wrapper
+TRACE::2025-07-04.18:27:58::SCWReader::Handling sysconfig system_wrapper
+TRACE::2025-07-04.18:27:58::SCWDomain::checking for install qemu data   : 
+TRACE::2025-07-04.18:27:58::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2025-07-04.18:27:58::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWReader::Boot application domain added for zynq_fsbl
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2025-07-04.18:27:58::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:27:58::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:27:58::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:58::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS:: library already available in sw design:  xilffs:4.4
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:58::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS:: library already available in sw design:  xilrsa:1.6
+TRACE::2025-07-04.18:27:58::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:58::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:58::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:58::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2025-07-04.18:27:58::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:58::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWReader::No isolation master present  
+TRACE::2025-07-04.18:27:58::SCWDomain::checking for install qemu data   : 
+TRACE::2025-07-04.18:27:58::SCWDomain:: Using the QEMU Data from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/
+TRACE::2025-07-04.18:27:58::SCWDomain:: Using the QEMU args  from install at  : C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:58::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system_0
+TRACE::2025-07-04.18:27:58::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:27:58::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:27:58::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:27:58::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:27:58::SCWReader::Adding prebuilt librarypaths as   
+TRACE::2025-07-04.18:27:58::SCWReader::Adding prebuilt incpaths  as   
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:27:58::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:27:58::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:27:58::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:27:58::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:27:58::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:27:58::SCWReader::No isolation master present  
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:00::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:00::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::In reload Mss file.
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:00::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+KEYINFO::2025-07-04.18:28:00::SCWMssOS::Could not open the swdb for system
+KEYINFO::2025-07-04.18:28:00::SCWMssOS::Could not open the sw design at  system
+ERROR: [Hsi 55-1558] Software Design system is not found
+
+TRACE::2025-07-04.18:28:00::SCWMssOS::Cleared the swdb table entry
+TRACE::2025-07-04.18:28:00::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:00::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:00::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:00::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:00::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS:: library already available in sw design:  xilffs:4.4
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:00::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:00::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS:: library already available in sw design:  xilrsa:1.6
+TRACE::2025-07-04.18:28:00::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:28:00::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:28:00::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:00::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:00::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:00::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:00::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:00::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:00::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:02::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:02::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:02::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:02::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:02::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:02::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:02::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:02::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:02::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+
+TRACE::2025-07-04.18:28:02::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:02::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:02::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:02::SCWBDomain::Completed writing the mss file at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp
+TRACE::2025-07-04.18:28:02::SCWBDomain::Forcing BSP Sources regeneration.
+TRACE::2025-07-04.18:28:03::SCWBDomain::Updating the makefile used for building the Application zynq_fsbl
+TRACE::2025-07-04.18:28:03::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:03::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:03::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:03::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:03::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:03::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:03::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:03::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:03::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:03::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:03::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+KEYINFO::2025-07-04.18:28:03::SCWMssOS::Could not open the swdb for system
+KEYINFO::2025-07-04.18:28:03::SCWMssOS::Could not open the sw design at  system
+ERROR: [Hsi 55-1558] Software Design system is not found
+
+TRACE::2025-07-04.18:28:03::SCWMssOS::Cleared the swdb table entry
+TRACE::2025-07-04.18:28:03::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:03::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:03::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:03::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:03::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:03::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:06::SCWBDomain::removing the temporary location in _platform.
+TRACE::2025-07-04.18:28:06::SCWBDomain::Makefile is Updated.
+TRACE::2025-07-04.18:28:06::SCWBDomain::doing clean.
+TRACE::2025-07-04.18:28:06::SCWBDomain::System Command Ran  D:&  cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl & make clean
+TRACE::2025-07-04.18:28:06::SCWBDomain::rm -rf  sd.o  nand.o  image_mover.o  md5.o  fsbl_hooks.o  main.o  rsa.o  nor.o  qspi.o  ps7_init.o  pcap.o  fsbl_handoff.o zynq
+TRACE::2025-07-04.18:28:06::SCWBDomain::_fsbl_bsp/ps7_cortexa9_0/lib/libxil.a fsbl.elf *.o
+
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:10::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:10::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::In reload Mss file.
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:10::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+KEYINFO::2025-07-04.18:28:10::SCWMssOS::Could not open the swdb for system_0
+KEYINFO::2025-07-04.18:28:10::SCWMssOS::Could not open the sw design at  system_0
+ERROR: [Hsi 55-1558] Software Design system_0 is not found
+
+TRACE::2025-07-04.18:28:10::SCWMssOS::Cleared the swdb table entry
+KEYINFO::2025-07-04.18:28:10::SCWMssOS::Could not open the swdb for system
+KEYINFO::2025-07-04.18:28:10::SCWMssOS::Could not open the sw design at  system
+ERROR: [Hsi 55-1558] Software Design system is not found
+
+TRACE::2025-07-04.18:28:10::SCWMssOS::Cleared the swdb table entry
+TRACE::2025-07-04.18:28:10::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:10::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:10::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:28:10::SCWMssOS::Completed writemss as part of save.
+TRACE::2025-07-04.18:28:10::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:10::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:10::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:10::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:10::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:10::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:10::SCWMssOS::Removing the swdes entry for  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:12::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:12::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:12::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:12::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:12::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:12::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:12::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:12::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:12::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWMssOS::DEBUG:  swdes dump  
+TRACE::2025-07-04.18:28:12::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:12::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:12::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:12::SCWMssOS::Completed writing the mss file at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp
+TRACE::2025-07-04.18:28:12::SCWMssOS::Forcing BSP Sources regeneration.
+LOG::2025-07-04.18:28:19::SCWPlatform::Started generating the artifacts platform system_wrapper
+TRACE::2025-07-04.18:28:19::SCWPlatform::Sanity checking of platform is completed
+LOG::2025-07-04.18:28:19::SCWPlatform::Started generating the artifacts for system configuration system_wrapper
+LOG::2025-07-04.18:28:19::SCWSystem::Checking the domain zynq_fsbl
+LOG::2025-07-04.18:28:19::SCWSystem::Doing application build for :  zynq_fsbl
+TRACE::2025-07-04.18:28:19::SCWBDomain::Not a forced makefile updation, No changes are present. 
+TRACE::2025-07-04.18:28:19::SCWDomain::Building the domain as part of full build :  zynq_fsbl
+TRACE::2025-07-04.18:28:19::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:19::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:19::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:19::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:19::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:19::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:19::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:19::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:19::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:19::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:19::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:19::SCWMssOS::No sw design opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:19::SCWMssOS::mss exists loading the mss file  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:19::SCWMssOS::Opened the sw design from mss  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:19::SCWMssOS::Adding the swdes entry D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:28:19::SCWMssOS::updating the scw layer about changes
+TRACE::2025-07-04.18:28:19::SCWMssOS::Opened the sw design.  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:28:19::SCWBDomain::Completed writing the mss file at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp
+TRACE::2025-07-04.18:28:19::SCWBDomain::bsp generated is upto date with the mss file. Skipping bsp generation.
+TRACE::2025-07-04.18:28:19::SCWBDomain::Not a forced makefile updation, No changes are present. 
+TRACE::2025-07-04.18:28:19::SCWBDomain::System Command Ran  D:&  cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl& make -C  zynq_fsbl_bsp & make 
+TRACE::2025-07-04.18:28:19::SCWBDomain::make: Entering directory 'D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp'
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::make --no-print-directory seq_libs
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:19::SCWBDomain::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:19::SCWBDomain::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2025-07-04.18:28:19::SCWBDomain::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2025-07-04.18:28:19::SCWBDomain::ard -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:19::SCWBDomain::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2025-07-04.18:28:19::SCWBDomain::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2025-07-04.18:28:19::SCWBDomain::d -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:20::SCWBDomain::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:20::SCWBDomain::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:20::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:20::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:20::SCWBDomain::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:20::SCWBDomain::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:20::SCWBDomain::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:20::SCWBDomain::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:20::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:20::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:20::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2025-07-04.18:28:20::SCWBDomain::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2025-07-04.18:28:20::SCWBDomain::startfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:21::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:21::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:21::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:21::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:21::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:21::SCWBDomain::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:21::SCWBDomain::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:21::SCWBDomain::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:23::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:23::SCWBDomain::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:23::SCWBDomain::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:23::SCWBDomain::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:23::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:23::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:23::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:23::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:24::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:24::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:24::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:24::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:24::SCWBDomain::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:24::SCWBDomain::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:24::SCWBDomain::"Compiling pl_bram_rd..."
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:25::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:25::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::'Finished building libraries sequentially.'
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -j --no-print-directory par_libs
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:25::SCWBDomain::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:25::SCWBDomain::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2025-07-04.18:28:25::SCWBDomain::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2025-07-04.18:28:25::SCWBDomain::ard -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2025-07-04.18:28:25::SCWBDomain::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2025-07-04.18:28:25::SCWBDomain::d -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:25::SCWBDomain::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:25::SCWBDomain::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:25::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:25::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:25::SCWBDomain::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:25::SCWBDomain::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:25::SCWBDomain::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:26::SCWBDomain::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:26::SCWBDomain::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:26::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:26::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2025-07-04.18:28:26::SCWBDomain::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2025-07-04.18:28:26::SCWBDomain::startfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:26::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:26::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:26::SCWBDomain::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:26::SCWBDomain::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:26::SCWBDomain::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:26::SCWBDomain::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:26::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:26::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:26::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:26::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:26::SCWBDomain:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:26::SCWBDomain::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "ARC
+TRACE::2025-07-04.18:28:26::SCWBDomain::HIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfi
+TRACE::2025-07-04.18:28:26::SCWBDomain::les -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-ea
+TRACE::2025-07-04.18:28:26::SCWBDomain::bi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard
+TRACE::2025-07-04.18:28:26::SCWBDomain:: -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:26::SCWBDomain::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:26::SCWBDomain::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:26::SCWBDomain::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2025-07-04.18:28:26::SCWBDomain::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2025-07-04.18:28:26::SCWBDomain::iles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:27::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:27::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2025-07-04.18:28:27::SCWBDomain::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2025-07-04.18:28:27::SCWBDomain::iles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:27::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:27::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:27::SCWBDomain::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:27::SCWBDomain::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:27::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:27::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:27::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:28::SCWBDomain::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:28::SCWBDomain::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:28::SCWBDomain::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:28::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:28::SCWBDomain::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:28::SCWBDomain::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:28::SCWBDomain::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:28::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:29::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:29::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:29::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:29::SCWBDomain::"Running Make libs in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:29::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:29::SCWBDomain::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:29::SCWBDomain::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:38::SCWBDomain::'Finished building libraries parallelly.'
+
+TRACE::2025-07-04.18:28:38::SCWBDomain::make --no-print-directory archive
+
+TRACE::2025-07-04.18:28:38::SCWBDomain::arm-none-eabi-ar -r  ps7_cortexa9_0/lib/libxil.a ps7_cortexa9_0/lib/xadcps_selftest.o ps7_cortexa9_0/lib/kill.o ps7_cortexa9_0/
+TRACE::2025-07-04.18:28:38::SCWBDomain::lib/xscuwdt_g.o ps7_cortexa9_0/lib/xplatform_info.o ps7_cortexa9_0/lib/print.o ps7_cortexa9_0/lib/_exit.o ps7_cortexa9_0/lib/xi
+TRACE::2025-07-04.18:28:38::SCWBDomain::l_testio.o ps7_cortexa9_0/lib/isatty.o ps7_cortexa9_0/lib/sleep.o ps7_cortexa9_0/lib/boot.o ps7_cortexa9_0/lib/xdevcfg_hw.o ps7
+TRACE::2025-07-04.18:28:38::SCWBDomain::_cortexa9_0/lib/xadcps_intr.o ps7_cortexa9_0/lib/xpm_counter.o ps7_cortexa9_0/lib/xdmaps_g.o ps7_cortexa9_0/lib/xscutimer_g.o p
+TRACE::2025-07-04.18:28:38::SCWBDomain::s7_cortexa9_0/lib/xdmaps_sinit.o ps7_cortexa9_0/lib/xscutimer_sinit.o ps7_cortexa9_0/lib/xil_cache.o ps7_cortexa9_0/lib/xil_uti
+TRACE::2025-07-04.18:28:38::SCWBDomain::l.o ps7_cortexa9_0/lib/inbyte.o ps7_cortexa9_0/lib/xdmaps_selftest.o ps7_cortexa9_0/lib/xbram_g.o ps7_cortexa9_0/lib/xil_misc_p
+TRACE::2025-07-04.18:28:38::SCWBDomain::sreset_api.o ps7_cortexa9_0/lib/cpputest_time.o ps7_cortexa9_0/lib/xbram_sinit.o ps7_cortexa9_0/lib/close.o ps7_cortexa9_0/lib/
+TRACE::2025-07-04.18:28:38::SCWBDomain::xuartps_g.o ps7_cortexa9_0/lib/xbram_selftest.o ps7_cortexa9_0/lib/xscugic_hw.o ps7_cortexa9_0/lib/translation_table.o ps7_cort
+TRACE::2025-07-04.18:28:38::SCWBDomain::exa9_0/lib/write.o ps7_cortexa9_0/lib/xil_mem.o ps7_cortexa9_0/lib/cpu_init.o ps7_cortexa9_0/lib/xscugic_g.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:28:38::SCWBDomain::/usleep.o ps7_cortexa9_0/lib/xuartps_sinit.o ps7_cortexa9_0/lib/xbram_intr.o ps7_cortexa9_0/lib/xil_sleepcommon.o ps7_cortexa9_
+TRACE::2025-07-04.18:28:38::SCWBDomain::0/lib/xil_printf.o ps7_cortexa9_0/lib/unlink.o ps7_cortexa9_0/lib/xadcps.o ps7_cortexa9_0/lib/xdmaps_hw.o ps7_cortexa9_0/lib/xs
+TRACE::2025-07-04.18:28:38::SCWBDomain::cugic_intr.o ps7_cortexa9_0/lib/xscugic_sinit.o ps7_cortexa9_0/lib/xil_sleeptimer.o ps7_cortexa9_0/lib/fcntl.o ps7_cortexa9_0/l
+TRACE::2025-07-04.18:28:38::SCWBDomain::ib/open.o ps7_cortexa9_0/lib/outbyte.o ps7_cortexa9_0/lib/xuartps_selftest.o ps7_cortexa9_0/lib/xuartps_hw.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:28:38::SCWBDomain::/xscutimer_selftest.o ps7_cortexa9_0/lib/read.o ps7_cortexa9_0/lib/xil_testmem.o ps7_cortexa9_0/lib/xtime_l.o ps7_cortexa9_0/li
+TRACE::2025-07-04.18:28:38::SCWBDomain::b/xl2cc_counter.o ps7_cortexa9_0/lib/xdmaps.o ps7_cortexa9_0/lib/asm_vectors.o ps7_cortexa9_0/lib/xdevcfg_intr.o ps7_cortexa9_0
+TRACE::2025-07-04.18:28:38::SCWBDomain::/lib/abort.o ps7_cortexa9_0/lib/xdevcfg_g.o ps7_cortexa9_0/lib/xuartps_intr.o ps7_cortexa9_0/lib/xuartps.o ps7_cortexa9_0/lib/g
+TRACE::2025-07-04.18:28:38::SCWBDomain::etpid.o ps7_cortexa9_0/lib/xil_testcache.o ps7_cortexa9_0/lib/xdevcfg_sinit.o ps7_cortexa9_0/lib/xscutimer.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:28:38::SCWBDomain::/xscuwdt.o ps7_cortexa9_0/lib/xdevcfg_selftest.o ps7_cortexa9_0/lib/xbram.o ps7_cortexa9_0/lib/xscuwdt_sinit.o ps7_cortexa9_0/l
+TRACE::2025-07-04.18:28:38::SCWBDomain::ib/sbrk.o ps7_cortexa9_0/lib/fstat.o ps7_cortexa9_0/lib/errno.o ps7_cortexa9_0/lib/lseek.o ps7_cortexa9_0/lib/xuartps_options.o
+TRACE::2025-07-04.18:28:38::SCWBDomain:: ps7_cortexa9_0/lib/_sbrk.o ps7_cortexa9_0/lib/vectors.o ps7_cortexa9_0/lib/xil_exception.o ps7_cortexa9_0/lib/putnum.o ps7_cor
+TRACE::2025-07-04.18:28:38::SCWBDomain::texa9_0/lib/xil_clocking.o ps7_cortexa9_0/lib/xil_assert.o ps7_cortexa9_0/lib/xscuwdt_selftest.o ps7_cortexa9_0/lib/xcoresightp
+TRACE::2025-07-04.18:28:38::SCWBDomain::sdcc.o ps7_cortexa9_0/lib/xscugic.o ps7_cortexa9_0/lib/xadcps_g.o ps7_cortexa9_0/lib/xscugic_selftest.o ps7_cortexa9_0/lib/xil-
+TRACE::2025-07-04.18:28:38::SCWBDomain::crt0.o ps7_cortexa9_0/lib/xadcps_sinit.o ps7_cortexa9_0/lib/xil_mmu.o ps7_cortexa9_0/lib/_open.o ps7_cortexa9_0/lib/xdevcfg.o
+
+TRACE::2025-07-04.18:28:39::SCWBDomain::'Finished building libraries'
+
+TRACE::2025-07-04.18:28:39::SCWBDomain::make: Leaving directory 'D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp'
+
+TRACE::2025-07-04.18:28:39::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c sd.c -o sd.o -Izynq_fsbl_bsp/ps7_cort
+TRACE::2025-07-04.18:28:39::SCWBDomain::exa9_0/include -I.
+
+TRACE::2025-07-04.18:28:39::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c nand.c -o nand.o -Izynq_fsbl_bsp/ps7_
+TRACE::2025-07-04.18:28:39::SCWBDomain::cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:39::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c image_mover.c -o image_mover.o -Izynq
+TRACE::2025-07-04.18:28:39::SCWBDomain::_fsbl_bsp/ps7_cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:40::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c md5.c -o md5.o -Izynq_fsbl_bsp/ps7_co
+TRACE::2025-07-04.18:28:40::SCWBDomain::rtexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:40::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c fsbl_hooks.c -o fsbl_hooks.o -Izynq_f
+TRACE::2025-07-04.18:28:40::SCWBDomain::sbl_bsp/ps7_cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:40::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c main.c -o main.o -Izynq_fsbl_bsp/ps7_
+TRACE::2025-07-04.18:28:40::SCWBDomain::cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:41::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c rsa.c -o rsa.o -Izynq_fsbl_bsp/ps7_co
+TRACE::2025-07-04.18:28:41::SCWBDomain::rtexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:41::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c nor.c -o nor.o -Izynq_fsbl_bsp/ps7_co
+TRACE::2025-07-04.18:28:41::SCWBDomain::rtexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:41::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c qspi.c -o qspi.o -Izynq_fsbl_bsp/ps7_
+TRACE::2025-07-04.18:28:41::SCWBDomain::cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:42::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c ps7_init.c -o ps7_init.o -Izynq_fsbl_
+TRACE::2025-07-04.18:28:42::SCWBDomain::bsp/ps7_cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:42::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c pcap.c -o pcap.o -Izynq_fsbl_bsp/ps7_
+TRACE::2025-07-04.18:28:42::SCWBDomain::cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:42::SCWBDomain::arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -O2 -c -c fsbl_handoff.S -o fsbl_handoff.o -Izy
+TRACE::2025-07-04.18:28:42::SCWBDomain::nq_fsbl_bsp/ps7_cortexa9_0/include -I.
+
+TRACE::2025-07-04.18:28:43::SCWBDomain::arm-none-eabi-gcc -o fsbl.elf  sd.o  nand.o  image_mover.o  md5.o  fsbl_hooks.o  main.o  rsa.o  nor.o  qspi.o  ps7_init.o  pcap
+TRACE::2025-07-04.18:28:43::SCWBDomain::.o  fsbl_handoff.o -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:43::SCWBDomain::Wl,-build-id=none -specs=Xilinx.spec  -lrsa -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgc
+TRACE::2025-07-04.18:28:43::SCWBDomain::c,-lc,--end-group -Wl,--start-group,-lrsa,-lxil,-lgcc,-lc,--end-group                               -Wl,--gc-sections -Lzynq_fs
+TRACE::2025-07-04.18:28:43::SCWBDomain::bl_bsp/ps7_cortexa9_0/lib -L./ -Tlscript.ld
+
+LOG::2025-07-04.18:28:43::SCWSystem::Checking the domain standalone_ps7_cortexa9_0
+LOG::2025-07-04.18:28:43::SCWSystem::Not a boot domain 
+LOG::2025-07-04.18:28:43::SCWSystem::Started Processing the domain standalone_ps7_cortexa9_0
+TRACE::2025-07-04.18:28:43::SCWDomain::Generating domain artifcats
+TRACE::2025-07-04.18:28:43::SCWMssOS::Generating standalone artifcats
+TRACE::2025-07-04.18:28:43::SCWMssOS::Copying the qemu file from  C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt To D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/qemu/
+TRACE::2025-07-04.18:28:43::SCWMssOS::Copying the qemu file from  C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt To D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/export/system_wrapper/sw/system_wrapper/standalone_ps7_cortexa9_0/qemu/
+TRACE::2025-07-04.18:28:43::SCWMssOS:: Copying the user libraries. 
+TRACE::2025-07-04.18:28:43::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:43::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:43::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:43::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:28:43::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:28:43::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:28:43::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:28:43::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:28:43::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:28:43::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:43::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:28:43::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:43::SCWMssOS::Completed writing the mss file at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp
+TRACE::2025-07-04.18:28:43::SCWMssOS::Mss edits present, copying mssfile into export location D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:28:43::SCWMssOS::bsp generated is stale removing and regenerating. 
+TRACE::2025-07-04.18:28:44::SCWMssOS::doing bsp build ... 
+TRACE::2025-07-04.18:28:44::SCWMssOS::System Command Ran  D: & cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp & make 
+TRACE::2025-07-04.18:28:44::SCWMssOS::make --no-print-directory seq_libs
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:44::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:44::SCWMssOS::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2025-07-04.18:28:44::SCWMssOS::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2025-07-04.18:28:44::SCWMssOS::ard -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2025-07-04.18:28:44::SCWMssOS::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2025-07-04.18:28:44::SCWMssOS::d -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:44::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:44::SCWMssOS::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:44::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:44::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:44::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:45::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:45::SCWMssOS::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:45::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:45::SCWMssOS::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:45::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:45::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2025-07-04.18:28:45::SCWMssOS::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2025-07-04.18:28:45::SCWMssOS::startfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:45::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:45::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:45::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:46::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:46::SCWMssOS::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:46::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:46::SCWMssOS::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:48::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:48::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:48::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:48::SCWMssOS::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:48::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:48::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:48::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:48::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:49::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:49::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:49::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:49::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:49::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:49::SCWMssOS::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:49::SCWMssOS::"Compiling pl_bram_rd..."
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:50::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:50::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::'Finished building libraries sequentially.'
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -j --no-print-directory par_libs
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:50::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:50::SCWMssOS::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none
+TRACE::2025-07-04.18:28:50::SCWMssOS::-eabi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=h
+TRACE::2025-07-04.18:28:50::SCWMssOS::ard -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-e
+TRACE::2025-07-04.18:28:50::SCWMssOS::abi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=har
+TRACE::2025-07-04.18:28:50::SCWMssOS::d -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:50::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:50::SCWMssOS::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:50::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:50::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:50::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:50::SCWMssOS::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:50::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:50::SCWMssOS::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:50::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:50::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-a
+TRACE::2025-07-04.18:28:50::SCWMssOS::s" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -no
+TRACE::2025-07-04.18:28:50::SCWMssOS::startfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:50::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:51::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:51::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:51::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:51::SCWMssOS::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:51::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:51::SCWMssOS::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:51::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:51::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:51::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:51::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_6/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as"
+TRACE::2025-07-04.18:28:51::SCWMssOS:: "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nost
+TRACE::2025-07-04.18:28:51::SCWMssOS::artfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/bram_v4_5/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "ARC
+TRACE::2025-07-04.18:28:51::SCWMssOS::HIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfi
+TRACE::2025-07-04.18:28:51::SCWMssOS::les -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-ea
+TRACE::2025-07-04.18:28:51::SCWMssOS::bi-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard
+TRACE::2025-07-04.18:28:51::SCWMssOS:: -nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi
+TRACE::2025-07-04.18:28:51::SCWMssOS::-as" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -
+TRACE::2025-07-04.18:28:51::SCWMssOS::nostartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_2/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2025-07-04.18:28:51::SCWMssOS::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2025-07-04.18:28:51::SCWMssOS::iles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_7/src"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:51::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:51::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:51::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_7/src"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "AR
+TRACE::2025-07-04.18:28:52::SCWMssOS::CHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartf
+TRACE::2025-07-04.18:28:52::SCWMssOS::iles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v4_3/src"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:52::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:52::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_3/src"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" 
+TRACE::2025-07-04.18:28:52::SCWMssOS::"ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nosta
+TRACE::2025-07-04.18:28:52::SCWMssOS::rtfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_3/src"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:52::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:52::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v7_3/src"
+
+TRACE::2025-07-04.18:28:52::SCWMssOS::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as
+TRACE::2025-07-04.18:28:52::SCWMssOS::" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nos
+TRACE::2025-07-04.18:28:52::SCWMssOS::tartfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:53::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_10/src"
+
+TRACE::2025-07-04.18:28:53::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "
+TRACE::2025-07-04.18:28:53::SCWMssOS::ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostar
+TRACE::2025-07-04.18:28:53::SCWMssOS::tfiles -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:53::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_5/src"
+
+TRACE::2025-07-04.18:28:53::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:53::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:53::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:28:54::SCWMssOS::"Running Make libs in ps7_cortexa9_0/libsrc/xilffs_v4_4/src"
+
+TRACE::2025-07-04.18:28:54::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ASSEMBLER=arm-none-eabi-as" "A
+TRACE::2025-07-04.18:28:54::SCWMssOS::RCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostart
+TRACE::2025-07-04.18:28:54::SCWMssOS::files -g -Wall -Wextra"
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::'Finished building libraries parallelly.'
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::make --no-print-directory archive
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::arm-none-eabi-ar -r  ps7_cortexa9_0/lib/libxil.a ps7_cortexa9_0/lib/xadcps_selftest.o ps7_cortexa9_0/lib/kill.o ps7_cortexa9_0/
+TRACE::2025-07-04.18:29:04::SCWMssOS::lib/xscuwdt_g.o ps7_cortexa9_0/lib/xplatform_info.o ps7_cortexa9_0/lib/print.o ps7_cortexa9_0/lib/_exit.o ps7_cortexa9_0/lib/xi
+TRACE::2025-07-04.18:29:04::SCWMssOS::l_testio.o ps7_cortexa9_0/lib/isatty.o ps7_cortexa9_0/lib/sleep.o ps7_cortexa9_0/lib/boot.o ps7_cortexa9_0/lib/xdevcfg_hw.o ps7
+TRACE::2025-07-04.18:29:04::SCWMssOS::_cortexa9_0/lib/xadcps_intr.o ps7_cortexa9_0/lib/xpm_counter.o ps7_cortexa9_0/lib/xdmaps_g.o ps7_cortexa9_0/lib/xscutimer_g.o p
+TRACE::2025-07-04.18:29:04::SCWMssOS::s7_cortexa9_0/lib/xdmaps_sinit.o ps7_cortexa9_0/lib/xscutimer_sinit.o ps7_cortexa9_0/lib/xil_cache.o ps7_cortexa9_0/lib/xil_uti
+TRACE::2025-07-04.18:29:04::SCWMssOS::l.o ps7_cortexa9_0/lib/inbyte.o ps7_cortexa9_0/lib/xdmaps_selftest.o ps7_cortexa9_0/lib/xbram_g.o ps7_cortexa9_0/lib/xil_misc_p
+TRACE::2025-07-04.18:29:04::SCWMssOS::sreset_api.o ps7_cortexa9_0/lib/cpputest_time.o ps7_cortexa9_0/lib/xbram_sinit.o ps7_cortexa9_0/lib/close.o ps7_cortexa9_0/lib/
+TRACE::2025-07-04.18:29:04::SCWMssOS::xuartps_g.o ps7_cortexa9_0/lib/xbram_selftest.o ps7_cortexa9_0/lib/xscugic_hw.o ps7_cortexa9_0/lib/translation_table.o ps7_cort
+TRACE::2025-07-04.18:29:04::SCWMssOS::exa9_0/lib/write.o ps7_cortexa9_0/lib/xil_mem.o ps7_cortexa9_0/lib/cpu_init.o ps7_cortexa9_0/lib/xscugic_g.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:29:04::SCWMssOS::/usleep.o ps7_cortexa9_0/lib/xuartps_sinit.o ps7_cortexa9_0/lib/xbram_intr.o ps7_cortexa9_0/lib/xil_sleepcommon.o ps7_cortexa9_
+TRACE::2025-07-04.18:29:04::SCWMssOS::0/lib/xil_printf.o ps7_cortexa9_0/lib/unlink.o ps7_cortexa9_0/lib/xadcps.o ps7_cortexa9_0/lib/xdmaps_hw.o ps7_cortexa9_0/lib/xs
+TRACE::2025-07-04.18:29:04::SCWMssOS::cugic_intr.o ps7_cortexa9_0/lib/xscugic_sinit.o ps7_cortexa9_0/lib/xil_sleeptimer.o ps7_cortexa9_0/lib/fcntl.o ps7_cortexa9_0/l
+TRACE::2025-07-04.18:29:04::SCWMssOS::ib/open.o ps7_cortexa9_0/lib/outbyte.o ps7_cortexa9_0/lib/xuartps_selftest.o ps7_cortexa9_0/lib/xuartps_hw.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:29:04::SCWMssOS::/xscutimer_selftest.o ps7_cortexa9_0/lib/read.o ps7_cortexa9_0/lib/xil_testmem.o ps7_cortexa9_0/lib/xtime_l.o ps7_cortexa9_0/li
+TRACE::2025-07-04.18:29:04::SCWMssOS::b/xl2cc_counter.o ps7_cortexa9_0/lib/xdmaps.o ps7_cortexa9_0/lib/asm_vectors.o ps7_cortexa9_0/lib/xdevcfg_intr.o ps7_cortexa9_0
+TRACE::2025-07-04.18:29:04::SCWMssOS::/lib/abort.o ps7_cortexa9_0/lib/xdevcfg_g.o ps7_cortexa9_0/lib/xuartps_intr.o ps7_cortexa9_0/lib/xuartps.o ps7_cortexa9_0/lib/g
+TRACE::2025-07-04.18:29:04::SCWMssOS::etpid.o ps7_cortexa9_0/lib/xil_testcache.o ps7_cortexa9_0/lib/xdevcfg_sinit.o ps7_cortexa9_0/lib/xscutimer.o ps7_cortexa9_0/lib
+TRACE::2025-07-04.18:29:04::SCWMssOS::/xscuwdt.o ps7_cortexa9_0/lib/xdevcfg_selftest.o ps7_cortexa9_0/lib/xbram.o ps7_cortexa9_0/lib/xscuwdt_sinit.o ps7_cortexa9_0/l
+TRACE::2025-07-04.18:29:04::SCWMssOS::ib/sbrk.o ps7_cortexa9_0/lib/fstat.o ps7_cortexa9_0/lib/errno.o ps7_cortexa9_0/lib/lseek.o ps7_cortexa9_0/lib/xuartps_options.o
+TRACE::2025-07-04.18:29:04::SCWMssOS:: ps7_cortexa9_0/lib/_sbrk.o ps7_cortexa9_0/lib/vectors.o ps7_cortexa9_0/lib/xil_exception.o ps7_cortexa9_0/lib/putnum.o ps7_cor
+TRACE::2025-07-04.18:29:04::SCWMssOS::texa9_0/lib/xil_clocking.o ps7_cortexa9_0/lib/xil_assert.o ps7_cortexa9_0/lib/xscuwdt_selftest.o ps7_cortexa9_0/lib/xcoresightp
+TRACE::2025-07-04.18:29:04::SCWMssOS::sdcc.o ps7_cortexa9_0/lib/xscugic.o ps7_cortexa9_0/lib/xadcps_g.o ps7_cortexa9_0/lib/xscugic_selftest.o ps7_cortexa9_0/lib/xil-
+TRACE::2025-07-04.18:29:04::SCWMssOS::crt0.o ps7_cortexa9_0/lib/xadcps_sinit.o ps7_cortexa9_0/lib/xil_mmu.o ps7_cortexa9_0/lib/_open.o ps7_cortexa9_0/lib/xdevcfg.o
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::'Finished building libraries'
+
+TRACE::2025-07-04.18:29:04::SCWMssOS:: Checking if to create the Supporting Applications
+TRACE::2025-07-04.18:29:04::SCWMssOS:: No Linux domain exists, trying to generate FSBL 
+LOG::2025-07-04.18:29:04::SCWSystem::Completed Processing the domain standalone_ps7_cortexa9_0
+LOG::2025-07-04.18:29:04::SCWSystem::Completed Processing the sysconfig system_wrapper
+LOG::2025-07-04.18:29:04::SCWPlatform::Completed generating the artifacts for system configuration system_wrapper
+TRACE::2025-07-04.18:29:04::SCWPlatform::Started preparing the platform 
+TRACE::2025-07-04.18:29:04::SCWSystem::Writing the bif file for system config system_wrapper
+TRACE::2025-07-04.18:29:04::SCWSystem::dir created 
+TRACE::2025-07-04.18:29:04::SCWSystem::Writing the bif 
+TRACE::2025-07-04.18:29:04::SCWPlatform::Started writing the spfm file 
+TRACE::2025-07-04.18:29:04::SCWPlatform::Started writing the xpfm file 
+TRACE::2025-07-04.18:29:04::SCWPlatform::Completed generating the platform
+TRACE::2025-07-04.18:29:04::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::Found a swdesign opened with the mssfile.
+TRACE::2025-07-04.18:29:04::SCWMssOS::Running validate of swdbs.
+KEYINFO::2025-07-04.18:29:04::SCWMssOS::Could not open the swdb for system
+KEYINFO::2025-07-04.18:29:04::SCWMssOS::Could not open the sw design at  system
+ERROR: [Hsi 55-1558] Software Design system is not found
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::Cleared the swdb table entry
+KEYINFO::2025-07-04.18:29:04::SCWMssOS::Could not open the swdb for system
+KEYINFO::2025-07-04.18:29:04::SCWMssOS::Could not open the sw design at  system
+ERROR: [Hsi 55-1558] Software Design system is not found
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::Cleared the swdb table entry
+TRACE::2025-07-04.18:29:04::SCWMssOS::Adding the swdes entry, mss present, able to open swdb D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss with des name system
+TRACE::2025-07-04.18:29:04::SCWMssOS::Writing the mss file completed D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:29:04::SCWMssOS::Saving the mss changes D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::Adding the swdes entry, mss present, able to open swdb D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss with des name system_0
+TRACE::2025-07-04.18:29:04::SCWMssOS::Writing the mss file completed D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::Commit changes completed.
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:29:04::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:29:04::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWWriter::formatted JSON is {
+	"platformName":	"system_wrapper",
+	"sprVersion":	"2.0",
+	"mode":	"gui",
+	"dsaType":	"Fixed",
+	"platformDesc":	"system_wrapper",
+	"platHandOff":	"<platformDir>.xsa",
+	"platIntHandOff":	"<platformDir>/hw/system_wrapper.xsa",
+	"deviceType":	"zynq",
+	"platIsPrebuiltAutogen":	"false",
+	"platIsNoBootBsp":	"false",
+	"hasFsblMakeHasChanges":	"false",
+	"hasPmufwMakeHasChanges":	"false",
+	"fsblExtraCompilerFlags":	"-MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard ",
+	"platPreBuiltFlag":	false,
+	"platformSamplesDir":	"",
+	"platActiveSys":	"system_wrapper",
+	"systems":	[{
+			"systemName":	"system_wrapper",
+			"systemDesc":	"system_wrapper",
+			"sysIsBootAutoGen":	"true",
+			"systemDispName":	"system_wrapper",
+			"sysActiveDom":	"standalone_ps7_cortexa9_0",
+			"sysDefaultDom":	"standalone_ps7_cortexa9_0",
+			"domains":	[{
+					"domainName":	"zynq_fsbl",
+					"domainDispName":	"zynq_fsbl",
+					"domainDesc":	"FSBL Application BSP - Auto Generated.",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"debugEnable":	"",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.3",
+					"mssFile":	"",
+					"md5Digest":	"11ef8857867de34fcbfeea12ce15bfd1",
+					"compatibleApp":	"zynq_fsbl",
+					"domType":	"bootDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	["xilffs:4.4", "xilrsa:1.6"],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}, {
+					"domainName":	"standalone_ps7_cortexa9_0",
+					"domainDispName":	"standalone_ps7_cortexa9_0",
+					"domainDesc":	"standalone_ps7_cortexa9_0",
+					"processors":	"ps7_cortexa9_0",
+					"os":	"standalone",
+					"sdxOs":	"standalone",
+					"qemuArgs":	"C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/qemu_args.txt",
+					"qemuData":	"C:/Xilinx/Vitis/2020.2/data/emulation/platforms/zynq/sw/a9_standalone/qemu/",
+					"debugEnable":	"False",
+					"domRuntimes":	["cpp"],
+					"swRepo":	"",
+					"mssOsVer":	"7.3",
+					"mssFile":	"",
+					"md5Digest":	"11ef8857867de34fcbfeea12ce15bfd1",
+					"compatibleApp":	"",
+					"domType":	"mssDomain",
+					"arch":	"32-bit",
+					"appSettings":	{
+						"appCompilerFlags":	"",
+						"appLinkerFlags":	""
+					},
+					"addedLibs":	[],
+					"libOptions":	{
+						"libsContainingOptions":	[]
+					},
+					"prebuiltLibs":	{
+						"prebuiltIncPath":	[],
+						"prebuiltLibPath":	[]
+					},
+					"isolation":	{
+					}
+				}]
+		}]
+}
+KEYINFO::2025-07-04.18:29:04::SCWPlatform::updated the xpfm file.
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to open the hw design at D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA given D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA absoulate path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform::DSA directory D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Platform Path D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/hw/system_wrapper.xsa
+TRACE::2025-07-04.18:29:04::SCWPlatform:: Unique name xilinx:navigator-7010::0.0
+TRACE::2025-07-04.18:29:04::SCWPlatform::Trying to set the existing hwdb with name system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Opened existing hwdb system_wrapper_2
+TRACE::2025-07-04.18:29:04::SCWPlatform::Found the Hw Db part of the input DSA
+TRACE::2025-07-04.18:29:04::SCWMssOS::Checking the sw design at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:29:04::SCWMssOS::DEBUG:  swdes dump  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss|system_0||
+D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp/system.mss|system||
+
+TRACE::2025-07-04.18:29:04::SCWMssOS::Sw design exists and opened at  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/system.mss
+TRACE::2025-07-04.18:42:03::SCWBDomain::System Command Ran  D:&  cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl & make clean
+TRACE::2025-07-04.18:42:04::SCWBDomain::rm -rf  sd.o  nand.o  image_mover.o  md5.o  fsbl_hooks.o  main.o  nor.o  qspi.o  rsa.o  ps7_init.o  pcap.o  fsbl_handoff.o zynq
+TRACE::2025-07-04.18:42:04::SCWBDomain::_fsbl_bsp/ps7_cortexa9_0/lib/libxil.a fsbl.elf *.o
+
+TRACE::2025-07-04.18:42:05::SCWBDomain::System Command Ran  D:&  cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/zynq_fsbl/zynq_fsbl_bsp & make clean
+TRACE::2025-07-04.18:42:05::SCWBDomain::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s clean 
+
+TRACE::2025-07-04.18:42:06::SCWBDomain::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s clean 
+
+TRACE::2025-07-04.18:42:06::SCWBDomain::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s clean 
+
+TRACE::2025-07-04.18:42:07::SCWBDomain::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s clean 
+
+TRACE::2025-07-04.18:42:08::SCWBDomain::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s clean 
+
+TRACE::2025-07-04.18:42:09::SCWBDomain::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s clean 
+
+TRACE::2025-07-04.18:42:10::SCWBDomain::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s clean 
+
+TRACE::2025-07-04.18:42:10::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s clean 
+
+TRACE::2025-07-04.18:42:10::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s clean 
+
+TRACE::2025-07-04.18:42:12::SCWBDomain::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s clean 
+
+TRACE::2025-07-04.18:42:12::SCWBDomain::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s clean 
+
+TRACE::2025-07-04.18:42:14::SCWBDomain::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s clean 
+
+TRACE::2025-07-04.18:42:16::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s clean 
+
+TRACE::2025-07-04.18:42:16::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s clean 
+
+TRACE::2025-07-04.18:42:17::SCWBDomain::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s clean 
+
+TRACE::2025-07-04.18:42:18::SCWBDomain::rm -f ps7_cortexa9_0/lib/libxil.a
+
+TRACE::2025-07-04.18:42:18::SCWMssOS::cleaning the bsp 
+TRACE::2025-07-04.18:42:18::SCWMssOS::System Command Ran  D: & cd  D:/Zynq/vitis/ps_pl_bram/vitis/system_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp & make clean 
+TRACE::2025-07-04.18:42:19::SCWMssOS::make -C ps7_cortexa9_0/libsrc/bram_v4_5/src -s clean 
+
+TRACE::2025-07-04.18:42:20::SCWMssOS::make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_8/src -s clean 
+
+TRACE::2025-07-04.18:42:20::SCWMssOS::make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_10/src -s clean 
+
+TRACE::2025-07-04.18:42:20::SCWMssOS::make -C ps7_cortexa9_0/libsrc/ddrps_v1_2/src -s clean 
+
+TRACE::2025-07-04.18:42:21::SCWMssOS::make -C ps7_cortexa9_0/libsrc/devcfg_v3_7/src -s clean 
+
+TRACE::2025-07-04.18:42:21::SCWMssOS::make -C ps7_cortexa9_0/libsrc/dmaps_v2_7/src -s clean 
+
+TRACE::2025-07-04.18:42:21::SCWMssOS::make -C ps7_cortexa9_0/libsrc/pl_bram_rd_v1_0/src -s clean 
+
+TRACE::2025-07-04.18:42:22::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scugic_v4_3/src -s clean 
+
+TRACE::2025-07-04.18:42:22::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scutimer_v2_3/src -s clean 
+
+TRACE::2025-07-04.18:42:22::SCWMssOS::make -C ps7_cortexa9_0/libsrc/scuwdt_v2_3/src -s clean 
+
+TRACE::2025-07-04.18:42:22::SCWMssOS::make -C ps7_cortexa9_0/libsrc/standalone_v7_3/src -s clean 
+
+TRACE::2025-07-04.18:42:23::SCWMssOS::make -C ps7_cortexa9_0/libsrc/uartps_v3_10/src -s clean 
+
+TRACE::2025-07-04.18:42:23::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xadcps_v2_5/src -s clean 
+
+TRACE::2025-07-04.18:42:23::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilffs_v4_4/src -s clean 
+
+TRACE::2025-07-04.18:42:24::SCWMssOS::make -C ps7_cortexa9_0/libsrc/xilrsa_v1_6/src -s clean 
+
+TRACE::2025-07-04.18:42:24::SCWMssOS::rm -f ps7_cortexa9_0/lib/libxil.a
+

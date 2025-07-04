@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Thu Jul  3 09:40:34 2025
-| Host         : DESKTOP-D3LRDNP running 64-bit major release  (build 9200)
+| Date         : Sun May 14 19:31:34 2023
+| Host         : DESKTOP-KG2JVSE running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_rst_ps7_0_50M_0_utilization_synth.rpt -pb system_rst_ps7_0_50M_0_utilization_synth.pb
 | Design       : system_rst_ps7_0_50M_0
 | Device       : 7z020clg400-2

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Thu Jul  3 09:43:58 2025
+| Date         : Fri Jul  4 18:25:14 2025
 | Host         : DESKTOP-D3LRDNP running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -177,9 +177,10 @@ Table of Contents
 +-------------------------------+------+
 | system_rst_ps7_0_50M_0        |    1 |
 | system_processing_system7_0_0 |    1 |
+| system_pl_bram_rd_0_1         |    1 |
 | system_blk_mem_gen_0_0        |    1 |
+| system_axi_smc_0              |    1 |
 | system_axi_bram_ctrl_0_0      |    1 |
-| system_auto_pc_0              |    1 |
 +-------------------------------+------+
 
 

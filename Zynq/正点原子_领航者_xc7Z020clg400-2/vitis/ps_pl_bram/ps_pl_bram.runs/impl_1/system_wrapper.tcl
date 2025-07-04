@@ -131,9 +131,11 @@ OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.cache/wt [current_project]
   set_property parent.project_path D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.xpr [current_project]
+  set_property ip_repo_paths D:/Zynq/vitis/ps_pl_bram/ip_repo/pl_bram_rd_1.0 [current_project]
+  update_ip_catalog
   set_property ip_output_repo D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.runs/synth_1/system_wrapper.dcp
@@ -142,6 +144,7 @@ OPTRACE "add files" START { }
   add_files D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/sources_1/bd/system/system.bd
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
+  read_xdc D:/Zynq/vitis/ps_pl_bram/ps_pl_bram.srcs/constrs_1/new/system_wrapper.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
@@ -232,34 +235,6 @@ if {$rc} {
 }
 
 OPTRACE "Phase: Place Design" END { }
-OPTRACE "Phase: Physical Opt Design" START { ROLLUP_AUTO }
-start_step phys_opt_design
-set ACTIVE_STEP phys_opt_design
-set rc [catch {
-  create_msg_db phys_opt_design.pb
-OPTRACE "read constraints: phys_opt_design" START { }
-OPTRACE "read constraints: phys_opt_design" END { }
-OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
-OPTRACE "phys_opt_design" END { }
-OPTRACE "read constraints: phys_opt_design_post" START { }
-OPTRACE "read constraints: phys_opt_design_post" END { }
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force system_wrapper_physopt.dcp
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
-OPTRACE "phys_opt_design report" START { REPORT }
-OPTRACE "phys_opt_design report" END { }
-  close_msg_db -file phys_opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "Phase: Physical Opt Design" END { }
 OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
 start_step route_design
 set ACTIVE_STEP route_design
@@ -309,7 +284,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
   catch { write_mem_info -force -no_partial_mmi system_wrapper.mmi }
   catch { write_bmm -force system_wrapper_bd.bmm }
 OPTRACE "write_bitstream setup" END { }

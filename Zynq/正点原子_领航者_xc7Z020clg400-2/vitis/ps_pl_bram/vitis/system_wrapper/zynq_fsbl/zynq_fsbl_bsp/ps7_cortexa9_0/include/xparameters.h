@@ -221,6 +221,17 @@
 
 /******************************************************************/
 
+/* Definitions for driver PL_BRAM_RD */
+#define XPAR_PL_BRAM_RD_NUM_INSTANCES 1
+
+/* Definitions for peripheral PL_BRAM_RD_0 */
+#define XPAR_PL_BRAM_RD_0_DEVICE_ID 0
+#define XPAR_PL_BRAM_RD_0_S00_AXI_BASEADDR 0x43C00000
+#define XPAR_PL_BRAM_RD_0_S00_AXI_HIGHADDR 0x43C00FFF
+
+
+/******************************************************************/
+
 /* Definitions for driver SCUGIC */
 #define XPAR_XSCUGIC_NUM_INSTANCES 1U
 
