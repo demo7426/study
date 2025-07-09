@@ -1,2 +1,0 @@
-   text	   data	    bss	    dec	    hex	filename
-  33040	   1248	  27000	  61288	   ef68	qspi_flash_rw_bsp_xqspips_flash_polled_example_1.elf
