@@ -23,7 +23,7 @@ if __name__ == '__main__':
     parse_file_txt = parse_file.ParseFile_TXT()
     parse_file_json = parse_file.ParseFile_JSON()
 
-    list_record: list[parse_file.Record] = parse_file_txt.GetData("./案例数据/2011年1月销售数据.txt")
+    list_record = parse_file_txt.GetData("./案例数据/2011年1月销售数据.txt")
     #list_record: list[parse_file.Record] =  parse_file_json.GetData("./案例数据/2011年2月销售数据JSON.txt")
 
     dict_record: [str, int] = {}

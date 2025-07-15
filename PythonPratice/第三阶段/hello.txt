@@ -1,6 +1,5 @@
-itheima
-itcast
-hello
-world
-123
-python
+itheima itheima itcast itheima
+spark python spark python itheima
+itheima itcast itcast itheima python
+python python spark pyspark pyspark
+itheima python pyspark itcast spark

@@ -20,7 +20,7 @@ class ParseFile:
         pass
 
 class ParseFile_TXT(ParseFile):
-    def GetData(self, file_path: str) -> list[Record]:
+    def GetData(self, file_path: str):
         """
         解析传入的txt格式文本文件，并返回
         :param file_path:文件路径
@@ -51,14 +51,14 @@ class ParseFile_TXT(ParseFile):
 
 
 class ParseFile_JSON(ParseFile):
-    def GetData(self, file_path: str) -> list[Record]:
+    def GetData(self, file_path: str):
         """
         解析传入的json格式文本文件，并返回
         :param file_path:文件路径
         :return:Record链表
         """
 
-        record_list: list[Record] = []
+        record_list = []
 
         try:
             f = open(file_path, 'r', encoding='utf-8')
