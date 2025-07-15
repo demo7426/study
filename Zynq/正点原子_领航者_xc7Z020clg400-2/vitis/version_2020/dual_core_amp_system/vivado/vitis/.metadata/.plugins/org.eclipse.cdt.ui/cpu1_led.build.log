@@ -1,0 +1,7 @@
+16:51:59 **** Clean-only build of configuration Debug for project cpu1_led ****
+make clean 
+rm -rf  ./src/cpu1_led.o ./src/platform.o  ./src/cpu1_led.d ./src/platform.d  cpu1_led.elf.size  cpu1_led.elf
+' '
+
+16:51:59 Build Finished (took 309ms)
+

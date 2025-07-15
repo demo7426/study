@@ -1,0 +1,7 @@
+16:52:05 **** Clean-only build of configuration Debug for project cpu0_uart ****
+make clean 
+rm -rf  ./src/cpu0_uart.o ./src/platform.o  ./src/cpu0_uart.d ./src/platform.d  cpu0_uart.elf.size  cpu0_uart.elf
+' '
+
+16:52:05 Build Finished (took 297ms)
+

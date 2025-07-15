@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="cpu0_uart" location="D:/Zynq/vitis/version_2020/dual_core_amp_system/vivado/vitis/cpu0_uart" platform="D:/Zynq/vitis/version_2020/dual_core_amp_system/vivado/vitis/system_wrapper/export/system_wrapper/system_wrapper.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="cpu0_uart_amp_system" sysConfig="system_wrapper" runtime="cpp" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="1baca4d5e5656c5f714144883a779f09">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.302974934">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.1269386279" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>
