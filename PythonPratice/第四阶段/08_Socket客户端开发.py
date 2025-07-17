@@ -22,12 +22,12 @@ sock_client.connect(('127.0.0.1', 32888))
 while True:
     data = input("发送:")
 
+    sock_client.send(data.encode('UTF-8'))
+
     if data == "exit":
         break
 
-    sock_client.send(data.encode('gb2312'))
-
-    data = sock_client.recv(1024).decode('gb2312')
+    data = sock_client.recv(1024).decode('UTF-8')
     print(f"接收：{data}")
 
 sock_client.close()
