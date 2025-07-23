@@ -22,15 +22,17 @@ from apps.user import g_uesr_router
 from apps.regin import g_regin_router
 from apps.file import g_file_router
 from apps.request import g_request_router
+from apps.response_model import g_response_model_router
 
 app = FastAPI(debug=True)
 
-app.include_router(g_shop_router, prefix="/shop_router", tags=['shop接口'])
-app.include_router(g_jobs_router, prefix="/jobs_router", tags=['jobs接口'])
-app.include_router(g_uesr_router, prefix="/user_router", tags=['user接口'])
-app.include_router(g_regin_router, prefix="/regin_router", tags=['regin接口'])
-app.include_router(g_file_router, prefix="/file", tags=['file接口'])
-app.include_router(g_request_router, prefix="/request", tags=['request接口'])
+app.include_router(g_shop_router, prefix="/shop_router", tags=['路径参数'])
+app.include_router(g_jobs_router, prefix="/jobs_router", tags=['查询参数（请求参数）'])
+app.include_router(g_uesr_router, prefix="/user_router", tags=['请求体数据'])
+app.include_router(g_regin_router, prefix="/regin_router", tags=['form表单'])
+app.include_router(g_file_router, prefix="/file", tags=['文件上传'])
+app.include_router(g_request_router, prefix="/request", tags=['获取客户端相关ip、port、路由等信息'])
+app.include_router(g_response_model_router, prefix="/response_model", tags=['响应模型相关参数'])
 
 app.mount("/static", StaticFiles(directory="static"))
 
