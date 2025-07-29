@@ -12,7 +12,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
           1) 此为模板第一个版本；
       版本:V0.1.0
 """
-
+from http.client import HTTPException
 from typing import List, Union
 from pydantic import BaseModel
 
@@ -23,7 +23,7 @@ class StudentModel(BaseModel):
     name: str
     sno: int
     pwd: str
-    clas: Union[int, None] = None
+    clas_id: Union[int, None] = None
     course: List[int] = []
 
 
@@ -46,13 +46,36 @@ async def get_all_student():
     return students
 
 @g_student_router.post("/")
-async def add_student(student: StudentModel):
+async def add_student(stu: StudentModel):
     """添加学生信息"""
-    await Student.create(name=student.name, sno=student.sno, pwd=student.pwd, clas=student.clas, course=student.course)
+    print(stu)
+    student = await Student.create(name=stu.name, sno=stu.sno, pwd=stu.pwd, clas_id=stu.clas_id)
+
+    # 添加多对多关系记录
+    courses = await Course.filter(id__in=stu.course)
+    await student.course.add(*courses)
+
+    return student
+
+@g_student_router.put("/{student_id}")
+async def update_student(student_id: int, student: StudentModel):
+    data = student.dict(exclude_none=True)
+    courses = data.pop("course")
+
+    await Student.filter(id=student_id).update(**data)
+
+    courses = await Course.filter(id__in=student.course)
+    edit_student = await Student.get(id=student_id)
+    await  edit_student.course.clear()
+    await edit_student.course.add(*courses)
+
     return student
 
 @g_student_router.delete("/{student_id}")
 async def delete_student(student_id: int):
-    await Student.filter(id=student_id).delete()        #条件删除
+    deleted_count = await Student.filter(id=student_id).delete()        #条件删除
+    if not deleted_count:
+        raise HTTPException(status_code=404, detail=f"student {student_id} not found")
+
     return {}
 

@@ -41,7 +41,7 @@ class Student(Model):
     clas = fields.ForeignKeyField("models.Clas", related_name="students")
 
     # 多对多
-    course = fields.ForeignKeyField("models.Course", related_name="students", description="学生选课表")
+    course = fields.ManyToManyField("models.Course", related_name="students", description="学生选课表")
 
 class Course(Model):
     id = fields.IntField(pk=True)
