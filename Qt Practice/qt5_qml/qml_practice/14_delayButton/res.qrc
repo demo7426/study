@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/StartCapture.png</file>
+    </qresource>
+</RCC>
