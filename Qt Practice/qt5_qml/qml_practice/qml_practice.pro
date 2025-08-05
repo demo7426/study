@@ -15,4 +15,12 @@ SUBDIRS += \
     13_button \
     14_delayButton \
     15_switch \
-    16_radioButton
+    16_radioButton \
+    17_popup \
+    18_dialog \
+    19_fileDialog \
+    20_colorDialog_fontDialog_messageBox \
+    21_state_transition \
+    22_propertyAnimation \
+    23_behavior \
+    24_parallelAnimation_sequentialAnimation
