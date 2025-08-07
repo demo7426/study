@@ -23,4 +23,7 @@ SUBDIRS += \
     21_state_transition \
     22_propertyAnimation \
     23_behavior \
-    24_parallelAnimation_sequentialAnimation
+    24_parallelAnimation_sequentialAnimation \
+    25_gradient \
+    26_brightnessContrast \
+    27_hsl
