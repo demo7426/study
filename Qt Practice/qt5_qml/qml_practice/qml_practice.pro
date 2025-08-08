@@ -26,4 +26,8 @@ SUBDIRS += \
     24_parallelAnimation_sequentialAnimation \
     25_gradient \
     26_brightnessContrast \
-    27_hsl
+    27_hsl \
+    28_blur \
+    29_blend_colorOverlay \
+    30_dropShadow_innerShadow \
+    31_glow_rectangleGlow
