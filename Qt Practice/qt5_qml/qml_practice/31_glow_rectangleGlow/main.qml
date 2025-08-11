@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.qml
 作  者:	钱锐      版本: V0.1.0     新建日期: 2025.08.08
-描  述:	实现内外阴影
+描  述:	实现发光效果
 备  注:
 修改记录:
 
@@ -13,7 +13,6 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
       版本:V0.1.0
 
 *************************************************/
-
 
 import QtQuick 2.12
 import QtQuick.Window 2.12

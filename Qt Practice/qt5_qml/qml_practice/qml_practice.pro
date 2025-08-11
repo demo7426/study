@@ -30,4 +30,6 @@ SUBDIRS += \
     28_blur \
     29_blend_colorOverlay \
     30_dropShadow_innerShadow \
-    31_glow_rectangleGlow
+    31_glow_rectangleGlow \
+    32_listView \
+    33_layout
