@@ -32,4 +32,7 @@ SUBDIRS += \
     30_dropShadow_innerShadow \
     31_glow_rectangleGlow \
     32_listView \
-    33_layout
+    33_layout \
+    34_custom_components \
+    35_cpp_visit_qml \
+    39_mouse_penetration
