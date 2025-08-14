@@ -6,8 +6,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 备  注: 帧率控制使用的是 QElapsedTimer 计算的时间间隔，可以使用 clock 提高时间精度精确控制帧率，或者多线程发送信号精确控制帧率
 
         cmd终端执行以下指令
-            ffmpeg lu_fei.mp4 -s 400x300 lu_fei_400x300_30.yuv                      //可以生成 yuv 格式的文件
-            ffmpeg lu_fei.mp4 -s 800x400 -pix_fmt rgba lu_fei_800x400_30.rgb        //可以生成 rgba 格式的文件
+            ffmpeg -i lu_fei.mp4 -s 400x300 lu_fei_400x300_30.yuv                      //可以生成 yuv 格式的文件
+            ffmpeg -i lu_fei.mp4 -s 800x400 -pix_fmt rgba lu_fei_800x400_30.rgb        //可以生成 rgba 格式的文件
 修改记录:
 
   1.  日期: 2025.04.02
