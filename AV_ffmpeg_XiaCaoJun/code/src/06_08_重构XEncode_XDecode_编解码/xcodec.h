@@ -19,12 +19,13 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 struct AVCodecContext;
 struct AVFrame;
 struct AVPacket;
+struct AVCodecParserContext;
 
 class CXCodec
 {
 public:
 	CXCodec() = default;
-	virtual ~CXCodec();
+	virtual ~CXCodec() = 0;
 
 private:
 

@@ -21,11 +21,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="xcodec.cpp" />
+    <ClCompile Include="xdecode.cpp" />
     <ClCompile Include="xencode.cpp" />
+    <ClCompile Include="xsdl.cpp" />
+    <ClCompile Include="xvideo_view.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xcodec.h" />
+    <ClInclude Include="xdecode.h" />
     <ClInclude Include="xencode.h" />
+    <ClInclude Include="xsdl.h" />
+    <ClInclude Include="xvideo_view.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

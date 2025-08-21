@@ -17,14 +17,20 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <iostream>
 #include <iomanip> // 包含格式化控制符的头文件
 #include <fstream>
+#include <regex>
 
 #include "xencode.h"
+#include "xdecode.h"
+#include "xsdl.h"
 
 extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavutil/opt.h>
 }
 
+/// <summary>
+/// 编码测试
+/// </summary>
 static void Test_00() 
 {
 	CXEncode cXEncode;
@@ -107,9 +113,162 @@ static void Test_00()
 		ofs.close();
 }
 
+/// <summary>
+/// 解码测试
+/// </summary>
+static void Test_01() 
+{
+	CXDeCode cXDeCode;
+	char chReadBuf[4096] = { 0 };			//读取缓冲
+	int nReadValidLen = 0;					//读取有效长度
+	std::string strSrcFilePath = "06_05_ffmpeg软解码.h264";			//源文件路径
+	AVCodecID eAVCodecID = AV_CODEC_ID_NONE;						//格式ID
+
+	CXVideo_View* pcXVideo_View = nullptr;
+	CXVideo_View::Format eFmt = CXVideo_View::Format::YUV420P;
+
+	// 记录开始时间点
+	auto cStart_TimePoint = std::chrono::high_resolution_clock::now();
+	auto cEnd_TimePoint = cStart_TimePoint;
+
+	int nFrameCounter = 0;					//帧数计数
+
+	std::regex pattern(R"(\.([^.]+)$)");							//匹配最后一个点及其后的内容
+	std::smatch match;
+
+	if (std::regex_search(strSrcFilePath, match, pattern)) {
+		// match[1] 包含第一个捕获组，即后缀部分
+		if (strcmp(match[1].str().c_str(), "h264") == 0)
+			eAVCodecID = AV_CODEC_ID_H264;
+		else if (strcmp(match[1].str().c_str(), "h265") == 0)
+			eAVCodecID = AV_CODEC_ID_H265;
+		else
+		{
+			std::cout << "源文件：" << strSrcFilePath << " 格式错误" << std::endl;
+			return;
+		}
+	}
+	else {
+		std::cout << "未找到后缀" << std::endl;
+	}
+
+	std::ifstream ifs(strSrcFilePath, std::ios::binary | std::ios::in);
+	if (!ifs.is_open())
+	{
+		std::cout << "源文件打开失败" << std::endl;
+		return;
+	}
+
+	if (cXDeCode.Create_AVCodecContext(eAVCodecID, true) != 0)
+	{
+		ifs.close();
+		return;
+	}
+
+	AVFrame* ptAVFrame = nullptr;
+	std::vector<AVFrame*> vecAVFrame = {};
+	
+	if (cXDeCode.Open())
+	{
+		ifs.close();
+		return;
+	}
+
+	pcXVideo_View = CXVideo_View::Create();
+
+	while (!ifs.eof())		//循环读取源文件数据，并解码
+	{
+		static bool bInitFlag = false;
+
+		ifs.read(chReadBuf, sizeof(chReadBuf));
+		nReadValidLen = ifs.gcount();
+
+		if (nReadValidLen <= 0)
+			continue;
+
+		vecAVFrame = cXDeCode.SendData(chReadBuf, ifs.gcount());
+		
+		if (vecAVFrame.empty())
+			continue;
+
+		for (auto item : vecAVFrame)
+		{
+			if (!bInitFlag)
+			{
+				switch (item->format)
+				{
+				case AVPixelFormat::AV_PIX_FMT_RGBA:
+					eFmt = CXVideo_View::Format::RGBA;
+					break;
+				case AVPixelFormat::AV_PIX_FMT_ARGB:
+					eFmt = CXVideo_View::Format::ARGB;
+					break;
+				case AVPixelFormat::AV_PIX_FMT_YUV420P:
+					eFmt = CXVideo_View::Format::YUV420P;
+					break;
+				case AVPixelFormat::AV_PIX_FMT_NV12:
+					eFmt = CXVideo_View::Format::NV12;
+					break;
+				default:
+					break;
+				}
+
+				pcXVideo_View->Init(item->width, item->height, eFmt, nullptr);
+				bInitFlag = true;
+			}
+
+			pcXVideo_View->DrawFrame(item);
+
+			av_frame_unref(item);
+			av_frame_free(&item);
+			item = nullptr;
+
+			nFrameCounter++;
+
+			cEnd_TimePoint = std::chrono::high_resolution_clock::now();
+			if (std::chrono::duration_cast<std::chrono::milliseconds>(cEnd_TimePoint - cStart_TimePoint).count() >= 1000)
+			{
+				std::cout << "每秒帧数：" << nFrameCounter << std::endl;
+
+				nFrameCounter = 0;
+				cStart_TimePoint = cEnd_TimePoint;
+			}
+		}
+	}
+
+	vecAVFrame = cXDeCode.RecvAll_AVFrameData();
+
+	for (auto item : vecAVFrame)
+	{
+		if (!item)
+			continue;
+
+		pcXVideo_View->DrawFrame(item);
+
+		nFrameCounter++;
+
+		cEnd_TimePoint = std::chrono::high_resolution_clock::now();
+		if (std::chrono::duration_cast<std::chrono::milliseconds>(cEnd_TimePoint - cStart_TimePoint).count() >= 1000)
+		{
+			std::cout << "每秒帧数：" << nFrameCounter << std::endl;
+
+			nFrameCounter = 0;
+			cStart_TimePoint = cEnd_TimePoint;
+		}
+
+		av_frame_unref(item);
+		av_frame_free(&item);
+		item = nullptr;
+	}
+
+	if (ifs.is_open())
+		ifs.close();
+
+}
+
 int main()
 {
-	Test_00();
+	Test_01();
 
 	return 0;
 }
