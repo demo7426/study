@@ -132,9 +132,9 @@ int main()
 #ifdef __DEMUX
 	////////////////////////////////////重封装////////////////////////////////////
 	const char* pchOutURL = "07_09_重封装剪切中间10秒视频并重新计算pts_dts.mp4";
-	AVFormatContext* ptAVFormatContext_Demux = nullptr;
-	AVStream* ptAVStream_Video_Demux = nullptr;						//封装后的视频流
-	AVStream* ptAVStream_Audio_Demux = nullptr;						//封装后的音频流
+	AVFormatContext* ptAVFormatContext_Mux = nullptr;
+	AVStream* ptAVStream_Video_Mux = nullptr;						//封装后的视频流
+	AVStream* ptAVStream_Audio_Mux = nullptr;						//封装后的音频流
 
 	constexpr double dbBeginSec = 300.0;							//截取开始时间
 	constexpr double dbEndSec = dbBeginSec + 10;					//截取结束时间
@@ -143,41 +143,41 @@ int main()
 	long long llBegin_Audio_Pts = 0;								//音频开始的时间
 	long long llEnd_Audio_Pts = 0;									//视频结束的时间	
 
-	nRtn = avformat_alloc_output_context2(&ptAVFormatContext_Demux, nullptr, nullptr,
+	nRtn = avformat_alloc_output_context2(&ptAVFormatContext_Mux, nullptr, nullptr,
 		pchOutURL			//根据文件名推测其封装格式
 	);
 	PrintErr(nRtn);
 
 	//打开输出IO
-	nRtn = avio_open(&ptAVFormatContext_Demux->pb, pchOutURL, AVIO_FLAG_WRITE);
+	nRtn = avio_open(&ptAVFormatContext_Mux->pb, pchOutURL, AVIO_FLAG_WRITE);
 	PrintErr(nRtn);
 
 	//设置编码音视频流参数
 	if (ptAVStream_Video)
 	{
-		ptAVStream_Video_Demux = avformat_new_stream(ptAVFormatContext_Demux, NULL);		//处理有视频流的情况
+		ptAVStream_Video_Mux = avformat_new_stream(ptAVFormatContext_Mux, NULL);		//处理有视频流的情况
 
-		ptAVStream_Video_Demux->time_base = ptAVStream_Video->time_base;					//时间基数与原视频一致
+		ptAVStream_Video_Mux->time_base = ptAVStream_Video->time_base;					//时间基数与原视频一致
 
 		//从解封装复制参数
-		avcodec_parameters_copy(ptAVStream_Video_Demux->codecpar, ptAVStream_Video->codecpar);
+		avcodec_parameters_copy(ptAVStream_Video_Mux->codecpar, ptAVStream_Video->codecpar);
 	}
 
 	if (ptAVStream_Audio)
 	{
-		ptAVStream_Audio_Demux = avformat_new_stream(ptAVFormatContext_Demux, NULL);		//处理有音频流的情况
+		ptAVStream_Audio_Mux = avformat_new_stream(ptAVFormatContext_Mux, NULL);		//处理有音频流的情况
 
-		ptAVStream_Audio_Demux->time_base = ptAVStream_Audio->time_base;					//时间基数与原视频一致
+		ptAVStream_Audio_Mux->time_base = ptAVStream_Audio->time_base;					//时间基数与原视频一致
 
 		//从解封装复制参数
-		avcodec_parameters_copy(ptAVStream_Audio_Demux->codecpar, ptAVStream_Audio->codecpar);
+		avcodec_parameters_copy(ptAVStream_Audio_Mux->codecpar, ptAVStream_Audio->codecpar);
 	}
 
 	//写入文件头
-	nRtn = avformat_write_header(ptAVFormatContext_Demux, NULL);
+	nRtn = avformat_write_header(ptAVFormatContext_Mux, NULL);
 	PrintErr(nRtn);
 
-	av_dump_format(ptAVFormatContext_Demux, 0, pchOutURL, 
+	av_dump_format(ptAVFormatContext_Mux, 0, pchOutURL, 
 		1			//上下文时输入还是输出;0--输入;1--输出
 	);
 
@@ -235,7 +235,7 @@ int main()
 				break;
 			}
 
-			ptAVStream_Out = ptAVFormatContext_Demux->streams[0];
+			ptAVStream_Out = ptAVFormatContext_Mux->streams[0];
 			llPtsOffset = llBegin_Video_Pts;
 		}
 		else if (ptAVStream_Audio && tAVPacket.stream_index == ptAVStream_Audio->index)
@@ -252,7 +252,7 @@ int main()
 				continue;
 			}
 
-			ptAVStream_Out = ptAVFormatContext_Demux->streams[1];
+			ptAVStream_Out = ptAVFormatContext_Mux->streams[1];
 			llPtsOffset = llBegin_Audio_Pts;
 		}
 		else
@@ -276,7 +276,7 @@ int main()
 
 		std::cout << tAVPacket.pts << ", " << tAVPacket.dts << ", " << tAVPacket.size << std::endl;
 
-		nRtn = av_interleaved_write_frame(ptAVFormatContext_Demux, &tAVPacket);		//写入音视频帧，会自动av_packet_unref(&tAVPacket_Demux)
+		nRtn = av_interleaved_write_frame(ptAVFormatContext_Mux, &tAVPacket);		//写入音视频帧，会自动av_packet_unref(&tAVPacket_Demux)
 		PrintErr(nRtn);
 		av_packet_unref(&tAVPacket);
 #else
@@ -346,11 +346,11 @@ int main()
 	avformat_close_input(&ptAVFormatContext);
 
 #ifdef __DEMUX
-	av_write_trailer(ptAVFormatContext_Demux);			//写入结尾
+	av_write_trailer(ptAVFormatContext_Mux);			//写入结尾
 
-	avio_closep(&ptAVFormatContext_Demux->pb);
-	avformat_free_context(ptAVFormatContext_Demux);
-	ptAVFormatContext_Demux = nullptr;
+	avio_closep(&ptAVFormatContext_Mux->pb);
+	avformat_free_context(ptAVFormatContext_Mux);
+	ptAVFormatContext_Mux = nullptr;
 #endif // __DEMUX
 
 	av_frame_free(&ptAVFrame);
