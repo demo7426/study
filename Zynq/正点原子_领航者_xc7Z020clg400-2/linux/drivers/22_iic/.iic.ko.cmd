@@ -1,1 +1,0 @@
-cmd_/home/qianrui/linux/drivers/22_iic/iic.ko := arm-xilinx-linux-gnueabi-ld -r  -EL  --build-id  -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds -o /home/qianrui/linux/drivers/22_iic/iic.ko /home/qianrui/linux/drivers/22_iic/iic.o /home/qianrui/linux/drivers/22_iic/iic.mod.o;  true

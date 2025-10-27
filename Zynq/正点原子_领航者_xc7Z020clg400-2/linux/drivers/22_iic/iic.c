@@ -1,6 +1,6 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
-文件名:	Key.cpp
+文件名:	iic.c
 作  者:	钱锐      版本: V0.1.0     新建日期: 2025.10.21
 描  述: linux i2c总线框架，实现对外设时钟pcf8563数据的读取和写入
 备  注:	
@@ -182,7 +182,7 @@ static int PCF8563_Read_Reg(PPCF8563_DEV _ptPCF8563_Dev, u8 _Reg, u8* _pBuf, u8 
 int PCF8563_Open(struct inode* _pInode, struct file* _pFp)
 {
     _pFp->private_data = &g_tPCF8563_Dev;                                            //设置私有数据
-    printk(KERN_ALERT "New_Led_Open success.\n");
+    printk(KERN_ALERT "PCF8563_Open success.\n");
 
     return 0;
 }
@@ -222,8 +222,8 @@ ssize_t PCF8563_Read(struct file* _pFp, char __user* _pBuf, size_t _Len, loff_t*
     tPCF8563_Time.Hour = bcd2bin(uchReadBuf[PCF8563_VL_HOURS] & 0x3f);  
     tPCF8563_Time.Day = bcd2bin(uchReadBuf[PCF8563_VL_DAYS] & 0x3f);  
     tPCF8563_Time.WDay = bcd2bin(uchReadBuf[PCF8563_VL_WEEKDAYS] & 0x7);  
-    tPCF8563_Time.Month = bcd2bin(uchReadBuf[PCF8563_VL_WEEKDAYS] & 0x1f);  
-    tPCF8563_Time.Year = bcd2bin(uchReadBuf[PCF8563_VL_YEARS] & 0x1f) + PCF8563_YEAR_BASE;  
+    tPCF8563_Time.Month = bcd2bin(uchReadBuf[PCF8563_VL_MONTHS] & 0x1f);  
+    tPCF8563_Time.Year = bcd2bin(uchReadBuf[PCF8563_VL_YEARS] & 0x7f) + PCF8563_YEAR_BASE;  
 
     return copy_to_user(_pBuf, &tPCF8563_Time, _Len);
 }
@@ -255,10 +255,10 @@ ssize_t PCF8563_Write(struct file* _pFp, const char __user* _pBuf, size_t _Len, 
     uchWriteBuf[PCF8563_VL_DAYS] = bin2bcd(tPCF8563_Time.Day);
     uchWriteBuf[PCF8563_VL_WEEKDAYS] = bin2bcd(tPCF8563_Time.WDay);
     uchWriteBuf[PCF8563_VL_MONTHS] = bin2bcd(tPCF8563_Time.Month);
-    uchWriteBuf[PCF8563_VL_YEARS] = bin2bcd(tPCF8563_Time.Year) - PCF8563_YEAR_BASE;
+    uchWriteBuf[PCF8563_VL_YEARS] = bin2bcd(tPCF8563_Time.Year - PCF8563_YEAR_BASE);
 
     //将数据写入寄存器
-    nRet = PCF8563_Write_Reg(ptPCF8563_Dev, PCF8563_VL_SECONDS, uchWriteBuf, 7);
+    nRet = PCF8563_Write_Reg(ptPCF8563_Dev, PCF8563_VL_SECONDS, &(uchWriteBuf[PCF8563_VL_SECONDS]), 7);
     if(nRet)
     {
         dev_err(&ptI2C_Client->dev, "PCF8563_Write PCF8563_Write_Reg is err\n");
@@ -367,7 +367,7 @@ out2:
 
 out1:
 
-    return 0;
+    return -EPERM;
 }
 
 int PCF8563_Remove(struct i2c_client *client)
@@ -381,6 +381,8 @@ int PCF8563_Remove(struct i2c_client *client)
     cdev_del(&ptPCF8563_Dev->CharDev);                                       //删除cdev
 
     unregister_chrdev_region(ptPCF8563_Dev->DevID, 1);                       //注销设备号
+    
+    printk(KERN_ALERT "PCF8563_Remove success.\n");
 
     return 0;
 }

@@ -1,8 +1,8 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
-文件名:	led_app.cpp
+文件名:	iic_app.cpp
 作  者:	钱锐      版本: V0.1.0     新建日期: 2025.10.14
-描  述: 读取按键输入
+描  述: iic读写pcf8563时钟芯片
 备  注:	
 修改记录:
 
@@ -70,14 +70,14 @@ int main(int argc, char* argv[])
 			return RTN_FAILURE;
 		}
 
-		printf("%d-%d-%d %d:%d:%d %s", 
+		printf("%d-%d-%d %d:%d:%d %s\n", 
 			tPCF8563_Time.Year, 
 			tPCF8563_Time.Month, 
 			tPCF8563_Time.Day, 
 			tPCF8563_Time.Hour, 
 			tPCF8563_Time.Min, 
 			tPCF8563_Time.Sec,
-			vecWDay[tPCF8563_Time.WDay]
+			vecWDay[tPCF8563_Time.WDay - 1].c_str()
 			);
 	}
 	else if(strcmp(argv[1], "write") == 0)	//写入时间
