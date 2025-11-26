@@ -35,14 +35,17 @@ int main(void)
 	Key_Init();
 	MyCAN_Init();
 	
+	OLED_ShowString(1, 1, "TxID:");
 	OLED_ShowString(2, 1, "RxID:");
 	OLED_ShowString(3, 1, "Leng:");
 	OLED_ShowString(4, 1, "Data:");
 	
+	OLED_ShowHexNum(1, 6, unTxID, 3);
+	
 	while(1)
 	{
 		uchKeyNum = Key_GetCurKey();
-		
+			
 		if(uchKeyNum == 1)
 		{
 			MyCAN_Transmit(unTxID, uchTxData, 4);
