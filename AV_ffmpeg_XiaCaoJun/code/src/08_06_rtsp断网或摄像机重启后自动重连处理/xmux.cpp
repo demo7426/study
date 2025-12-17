@@ -19,6 +19,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavcodec/codec.h>
+#include <libavcodec/avcodec.h>
 }
 
 #include "xmux.h"
@@ -82,7 +83,7 @@ int CXMux::SetAudioParameters(const AVRational* _pAVRational, const AVCodecParam
 	avcodec_parameters_copy(m_ptAVStream_Audio->codecpar, _pAVCodecParameters);
 }
 
-int CXMux::Set_EncodeFormat(const AVRational* _pAVRational, const AVCodecContext* codec)
+int CXMux::Set_EncodeFormat(const AVRational* _pAVRational, const struct AVCodecContext* codec)
 {
 	if (!_pAVRational || !codec)
 	{

@@ -52,7 +52,7 @@ int CXDeCode::Create_AVCodecContext(int _AVCodecID, bool _IsEnable_HwDecode)
 	std::unique_lock<std::mutex> lock(m_mut);
 
 	//ÕÒµ½½âÂëÆ÷ 
-	AVCodec* ptAVCodec = avcodec_find_decoder(eAVCodecID);
+	AVCodec* ptAVCodec = (AVCodec*)avcodec_find_decoder(eAVCodecID);
 	if (!ptAVCodec)
 	{
 		std::cerr << "avcodec_find_encoder is err" << std::endl;

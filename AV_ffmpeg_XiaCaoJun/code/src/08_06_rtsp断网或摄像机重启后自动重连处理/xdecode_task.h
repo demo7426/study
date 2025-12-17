@@ -20,6 +20,9 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include "xdecode.h"
 #include "xavpacket_list.h"
 
+class CXEncode;
+class CXMux;
+
 class CXDecode_Task : public CXThread
 {
 public:
@@ -36,6 +39,13 @@ public:
     bool Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParameters _tAVCodecParameters);
 
     /// <summary>
+    /// 设置编码、封装对象
+    /// </summary>
+    /// <param name="_pcXEncode"></param>
+    /// <param name="_pcXMux"></param>
+    void SetXEncode_XMux(CXEncode* _pcXEncode, CXMux* _pcXMux);
+
+    /// <summary>
     /// 执行下一步
     /// </summary>
     /// <param name=""></param>
@@ -47,6 +57,8 @@ public:
     /// <param name=""></param>
     /// <returns>nullptr--暂时没有解码出AVFrame对象;</returns>
     AVFrame* GetCurAVFrame(void);
+
+    enum AVPixelFormat GetAVPixelFormat(void);
 
 private:
     void Main(void) override;
@@ -61,6 +73,9 @@ private:
     bool m_bAVFrameIsValid = false;     //AVFrame 是否有效
 
     std::mutex m_cMutAVFrame;
+
+    CXEncode* m_pcXEncode = nullptr;
+    CXMux* m_pcXMux = nullptr;
 };
 
 

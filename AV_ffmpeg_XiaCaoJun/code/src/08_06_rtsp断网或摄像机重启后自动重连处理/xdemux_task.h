@@ -18,8 +18,11 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include "xthread.h"
 #include "xdemux.h"
+#include "xencode.h"
 
 class CXDecode_Task;
+class CXEncode;
+class CXMux;
 
 class CXDemux_Task: public CXThread
 {
@@ -37,6 +40,13 @@ public:
     
     void SetNext(CXThread* _pcXThread) override;
 
+    /// <summary>
+    /// 设置编码、封装对象
+    /// </summary>
+    /// <param name="_pcXEncode"></param>
+    /// <param name="_pcXMux"></param>
+    void SetXEncode_XMux(CXEncode* _pcXEncode, CXMux* _pcXMux);
+
 private:
     void Main(void) override;
 
@@ -46,7 +56,10 @@ private:
     const char* m_pURL = "";
     int m_TimeoutMs = 0;
 
-    CXDecode_Task* m_pcXDecode_Task = nullptr;    //下一个数据处理对象
+    CXDecode_Task* m_pcXDecode_Task = nullptr;      //下一个数据处理对象
+
+    CXEncode* m_pcXEncode = nullptr;
+    CXMux* m_pcXMux = nullptr;
 };
 
 

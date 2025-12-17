@@ -17,6 +17,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #pragma once
 
 #include <format>
+extern "C" {
+#include <libavformat/avformat.h>
+#include <libavcodec/codec.h>
+}
 
 #include "xformat.h"
 
@@ -67,7 +71,7 @@ public:
     /// <param name="_pAVRational"></param>
     /// <param name="codec"></param>
     /// <returns></returns>
-    int Set_EncodeFormat(const AVRational* _pAVRational, const AVCodecContext* codec);
+    int Set_EncodeFormat(const AVRational* _pAVRational, const struct AVCodecContext* codec);
 
     /// <summary>
     /// 写入头
@@ -103,10 +107,10 @@ private:
     double m_dbBeginSec = 0;							//截取开始时间
     double m_dbEndSec = DBL_MAX;					    //截取结束时间
 
-    long long m_llBegin_Video_Pts = 0;								//视频开始的时间
-    long long m_llEnd_Video_Pts = 0;									//视频结束的时间	
-    long long m_llBegin_Audio_Pts = 0;								//音频开始的时间
-    long long m_llEnd_Audio_Pts = 0;									//视频结束的时间	
+    unsigned long long m_llBegin_Video_Pts = 0;								//视频开始的时间
+    unsigned long long m_llEnd_Video_Pts = 0;									//视频结束的时间	
+    unsigned long long m_llBegin_Audio_Pts = 0;								//音频开始的时间
+    unsigned long long m_llEnd_Audio_Pts = 0;									//视频结束的时间	
 
 
     AVFormatContext* m_ptAVFormatContext_Demux = nullptr;

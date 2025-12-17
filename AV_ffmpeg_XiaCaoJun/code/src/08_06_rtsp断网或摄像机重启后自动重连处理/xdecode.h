@@ -91,13 +91,13 @@ public:
 	/// <returns></returns>
 	bool Recv_AVFrame(AVFrame* _pAVFrame);
 
-	inline AVCodecContext* GetAVCodecContext(void)
+	inline struct AVCodecContext* GetAVCodecContext(void)
 	{
 		return m_ptAVCodecContext;
 	}
 
 private:
-	AVCodecContext* m_ptAVCodecContext = nullptr;				//编码器上下文
+	struct AVCodecContext* m_ptAVCodecContext = nullptr;				//编码器上下文
 	AVPacket* m_ptAVPacket = nullptr;
 
 

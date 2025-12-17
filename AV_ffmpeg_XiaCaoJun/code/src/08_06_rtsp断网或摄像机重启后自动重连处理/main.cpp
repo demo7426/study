@@ -128,8 +128,8 @@ int Test_00(void)
 	////////////////////////////////////重封装////////////////////////////////////
 	const char* pchOutURL = "07_13.mp4";
 
-	constexpr double dbBeginSec = 300.0;							//截取开始时间
-	constexpr double dbEndSec = dbBeginSec + 10;					//截取结束时间
+	constexpr double dbBeginSec = 00.0;							//截取开始时间
+	constexpr double dbEndSec = dbBeginSec + 300;					//截取结束时间
 
 	cXMux.Create_AVFormatContext(pchOutURL);
 
@@ -164,7 +164,10 @@ int Test_00(void)
 				break;		//读取结束或出错时退出
 
 			if (!cXDeCode.Recv_AVFrame(ptAVFrame))
+			{
+				av_packet_unref(&tAVPacket);
 				continue;
+			}
 
 			//编码
 			AVPacket* ptAVPacket_Tmp = nullptr;
@@ -178,11 +181,13 @@ int Test_00(void)
 					break;
 			}
 			av_frame_unref(ptAVFrame);
+			av_packet_unref(&tAVPacket);
 		}
 		else
 		{
 			if (cXMux.Write_Frame(&tAVPacket) != 0)
 				break;
+			av_packet_unref(&tAVPacket);
 		}
 
 #else
@@ -280,9 +285,13 @@ int Test_00(void)
 int Test_01(void)
 {
 	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
-	const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
+	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
+	//const char* pchURL = "剑士4k超高清_爱给网_aigei_com.mp4";						//媒体文件
+	const char* pchURL = "1.mp4";						//媒体文件
 	CXDemux_Task cDemux_Task;
 	CXDecode_Task cDecode_Task;
+	CXEncode cXEncode;
+	CXMux cXMux;
 	
 	CXVideo_View* pcXVideo_View = nullptr;
 	bool bInitFlag = false;
@@ -295,7 +304,6 @@ int Test_01(void)
 
 	int nFrameCounter = 0;					//帧数计数
 
-
 	while (cDemux_Task.Open(pchURL, 1000) != 0)
 	{
 		DEBUG(DEBUG_LEVEL_INFO, "重新连接:%s", pchURL);
@@ -305,6 +313,7 @@ int Test_01(void)
 	pcXVideo_View = CXVideo_View::Create();
 
 	cDemux_Task.SetNext(&cDecode_Task);
+	cDemux_Task.SetXEncode_XMux(&cXEncode, &cXMux);
 	
 	cDemux_Task.Start();
 	cDecode_Task.Start();
@@ -330,6 +339,7 @@ int Test_01(void)
 				eFmt = CXVideo_View::Format::ARGB;
 				break;
 			case AVPixelFormat::AV_PIX_FMT_YUV420P:
+			case AVPixelFormat::AV_PIX_FMT_YUVJ420P:
 				eFmt = CXVideo_View::Format::YUV420P;
 				break;
 			case AVPixelFormat::AV_PIX_FMT_NV12:
@@ -348,7 +358,6 @@ int Test_01(void)
 
 		av_frame_unref(ptAVFrame);
 
-
 		cEnd_TimePoint = std::chrono::high_resolution_clock::now();
 		if (std::chrono::duration_cast<std::chrono::milliseconds>(cEnd_TimePoint - cStart_TimePoint).count() >= 1000)
 		{
@@ -358,6 +367,9 @@ int Test_01(void)
 			cStart_TimePoint = cEnd_TimePoint;
 		}
 	}
+
+	cDemux_Task.Stop();
+	cDecode_Task.Stop();
 
 	return 0;
 }

@@ -48,7 +48,7 @@ int CXEncode::Create_AVCodecContext(int _AVCodecID)
 	std::unique_lock<std::mutex> lock(m_mut);
 
 	//ÕÒµ½±àÂëÆ÷
-	AVCodec* ptAVCodec = avcodec_find_encoder(eAVCodecID);
+	AVCodec* ptAVCodec = (AVCodec*)avcodec_find_encoder(eAVCodecID);
 	if (!ptAVCodec)
 	{
 		std::cerr << "avcodec_find_encoder is err" << std::endl;
