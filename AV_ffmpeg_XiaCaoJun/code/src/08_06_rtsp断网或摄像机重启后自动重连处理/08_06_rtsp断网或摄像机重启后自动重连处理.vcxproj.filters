@@ -48,6 +48,12 @@
     <ClCompile Include="xdemux_task.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="xdecode_task.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="xavpacket_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xcodec.h">
@@ -81,6 +87,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xdemux_task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xdecode_task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="xavpacket_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

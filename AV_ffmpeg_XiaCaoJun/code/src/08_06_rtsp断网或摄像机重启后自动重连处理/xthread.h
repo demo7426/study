@@ -19,6 +19,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <mutex>
 #include <thread>
 
+struct AVPacket; 
+
 class CXThread
 {
 public:
@@ -38,6 +40,18 @@ public:
 	/// <param name=""></param>
 	virtual void Stop(void);
 
+	/// <summary>
+	/// 责任链设计模式，设置下一个处理对象
+	/// </summary>
+	/// <param name="_pcXThread">下一个处理对象</param>
+	virtual void SetNext(CXThread* _pcXThread) {};
+
+	/// <summary>
+	/// 执行下一步
+	/// </summary>
+	/// <param name=""></param>
+	virtual void DoNext(AVPacket* _ptAVPacket) {};
+
 protected:
 	/// <summary>
 	/// 线程运行函数
@@ -52,5 +66,4 @@ protected:
 
 private:
 	std::thread m_cThread;
-
 };

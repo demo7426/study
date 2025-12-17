@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="xavpacket_list.cpp" />
     <ClCompile Include="xcodec.cpp" />
     <ClCompile Include="xdecode.cpp" />
+    <ClCompile Include="xdecode_task.cpp" />
     <ClCompile Include="xdemux.cpp" />
     <ClCompile Include="xdemux_task.cpp" />
     <ClCompile Include="xencode.cpp" />
@@ -33,8 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="xavpacket_list.h" />
     <ClInclude Include="xcodec.h" />
     <ClInclude Include="xdecode.h" />
+    <ClInclude Include="xdecode_task.h" />
     <ClInclude Include="xdemux.h" />
     <ClInclude Include="xdemux_task.h" />
     <ClInclude Include="xencode.h" />

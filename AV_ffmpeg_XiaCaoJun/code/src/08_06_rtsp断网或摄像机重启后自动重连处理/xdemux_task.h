@@ -19,9 +19,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include "xthread.h"
 #include "xdemux.h"
 
+class CXDecode_Task;
+
 class CXDemux_Task: public CXThread
 {
-public:
 public:
 	CXDemux_Task() = default;
 	~CXDemux_Task() = default;
@@ -33,6 +34,8 @@ public:
     /// <param name="_TimeoutMs">超时时间;单位:毫秒</param>
     /// <returns></returns>
     int Open(const char* _pURL, int _TimeoutMs = 1000);
+    
+    void SetNext(CXThread* _pcXThread) override;
 
 private:
     void Main(void) override;
@@ -42,6 +45,8 @@ private:
 
     const char* m_pURL = "";
     int m_TimeoutMs = 0;
+
+    CXDecode_Task* m_pcXDecode_Task = nullptr;    //下一个数据处理对象
 };
 
 

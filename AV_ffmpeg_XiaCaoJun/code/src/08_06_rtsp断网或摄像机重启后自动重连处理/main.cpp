@@ -29,7 +29,9 @@ extern "C" {
 #include "xmux.h"
 #include "xthread.h"
 #include "Debug.h"
+
 #include "xdemux_task.h"
+#include "xdecode_task.h"
 
 #pragma comment(lib, "avformat.lib")
 #pragma comment(lib, "avcodec.lib")
@@ -57,7 +59,7 @@ static void PrintErr(int _ErrCode)
 int Test_00(void)
 {
 	int nRtn = 0;
-	const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
+	const char* pchURL = "1.mp4";						//媒体文件
 	AVPacket tAVPacket = { 0 };
 
 	CXDeCode cXDeCode;			//解码对象
@@ -100,6 +102,7 @@ int Test_00(void)
 			return EXIT_FAILURE;
 		}
 
+#ifdef __MUX
 		cXEnCode.Create_AVCodecContext(AV_CODEC_ID_H265);
 		cXEnCode.Set_AVCodecContext_Param(ptAVCodecParameters->width, ptAVCodecParameters->height,
 			cXDemux.GetAVStream_Video()->avg_frame_rate.num / cXDemux.GetAVStream_Video()->avg_frame_rate.den,
@@ -116,6 +119,7 @@ int Test_00(void)
 		cXEnCode.AV_Opt_Set("level", "3.1");      // 添加level设置
 
 		cXEnCode.Open();
+#endif
 	}
 
 	pcXVideo_View = CXVideo_View::Create();
@@ -268,22 +272,91 @@ int Test_00(void)
 	return EXIT_SUCCESS;
 }
 
+/// <summary>
+/// 线程异步解封装->解码->编码->重封装测试
+/// </summary>
+/// <param name=""></param>
+/// <returns></returns>
 int Test_01(void)
 {
-	const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
+	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
+	const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
 	CXDemux_Task cDemux_Task;
+	CXDecode_Task cDecode_Task;
+	
+	CXVideo_View* pcXVideo_View = nullptr;
+	bool bInitFlag = false;
+	AVFrame* ptAVFrame = nullptr;
+	CXVideo_View::Format eFmt = CXVideo_View::Format::YUV420P;
+
+	// 记录开始时间点
+	auto cStart_TimePoint = std::chrono::high_resolution_clock::now();
+	auto cEnd_TimePoint = cStart_TimePoint;
+
+	int nFrameCounter = 0;					//帧数计数
+
 
 	while (cDemux_Task.Open(pchURL, 1000) != 0)
 	{
 		DEBUG(DEBUG_LEVEL_INFO, "重新连接:%s", pchURL);
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
+
+	pcXVideo_View = CXVideo_View::Create();
+
+	cDemux_Task.SetNext(&cDecode_Task);
 	
 	cDemux_Task.Start();
+	cDecode_Task.Start();
 
 	while (1)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		ptAVFrame = cDecode_Task.GetCurAVFrame();
+
+		if (!ptAVFrame)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
+		}
+
+		if (!bInitFlag)
+		{
+			switch (ptAVFrame->format)
+			{
+			case AVPixelFormat::AV_PIX_FMT_RGBA:
+				eFmt = CXVideo_View::Format::RGBA;
+				break;
+			case AVPixelFormat::AV_PIX_FMT_ARGB:
+				eFmt = CXVideo_View::Format::ARGB;
+				break;
+			case AVPixelFormat::AV_PIX_FMT_YUV420P:
+				eFmt = CXVideo_View::Format::YUV420P;
+				break;
+			case AVPixelFormat::AV_PIX_FMT_NV12:
+				eFmt = CXVideo_View::Format::NV12;
+				break;
+			default:
+				break;
+			}
+
+			pcXVideo_View->Init(ptAVFrame->width, ptAVFrame->height, eFmt, nullptr);
+			bInitFlag = true;
+		}
+
+		pcXVideo_View->DrawFrame(ptAVFrame);
+		nFrameCounter++;
+
+		av_frame_unref(ptAVFrame);
+
+
+		cEnd_TimePoint = std::chrono::high_resolution_clock::now();
+		if (std::chrono::duration_cast<std::chrono::milliseconds>(cEnd_TimePoint - cStart_TimePoint).count() >= 1000)
+		{
+			std::cout << "每秒帧数：" << nFrameCounter << std::endl;
+
+			nFrameCounter = 0;
+			cStart_TimePoint = cEnd_TimePoint;
+		}
 	}
 
 	return 0;
