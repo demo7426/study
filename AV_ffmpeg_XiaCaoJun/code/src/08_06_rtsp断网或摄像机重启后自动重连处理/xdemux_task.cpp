@@ -144,7 +144,7 @@ void CXDemux_Task::Main(void)
 		}
 
 		//std::cout << ".";
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
 		//if (m_cXDemux.GetAVStream_Video() && tAVPacket.stream_index == m_cXDemux.GetAVStream_Video()->index && m_pcXDecode_Task)	//TODO:暂时只处理视频流
 		if (m_pcXDecode_Task)	//处理音视频流

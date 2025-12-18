@@ -63,6 +63,8 @@ int CXMux::SetVideoParameters(const AVRational* _pAVRational, const AVCodecParam
 
 	//从解封装复制参数
 	avcodec_parameters_copy(m_ptAVStream_Video->codecpar, _pAVCodecParameters);
+
+	return 0;
 }
 
 int CXMux::SetAudioParameters(const AVRational* _pAVRational, const AVCodecParameters* _pAVCodecParameters)
@@ -81,6 +83,8 @@ int CXMux::SetAudioParameters(const AVRational* _pAVRational, const AVCodecParam
 
 	//从解封装复制参数
 	avcodec_parameters_copy(m_ptAVStream_Audio->codecpar, _pAVCodecParameters);
+
+	return 0;
 }
 
 int CXMux::Set_EncodeFormat(const AVRational* _pAVRational, const struct AVCodecContext* codec)
@@ -130,21 +134,21 @@ int CXMux::Write_Header(AVFormatContext* _pAVFormatContext, AVStream* _pAVStream
 	if (m_ptAVStream_Video_Demux && m_ptAVStream_Video_Demux->time_base.num > 0)
 	{
 		double t = m_ptAVStream_Video_Demux->time_base.den / m_ptAVStream_Video_Demux->time_base.num;		//den分母/num分子
-		m_llBegin_Video_Pts = m_dbBeginSec * t;
-		m_llEnd_Video_Pts = m_dbEndSec * t;
+		m_ullBegin_Video_Pts = m_dbBeginSec * t;
+		m_ullEnd_Video_Pts = m_dbEndSec * t;
 	}
 
 	if (m_ptAVStream_Audio_Demux && m_ptAVStream_Audio_Demux->time_base.num > 0)
 	{
 		double t = m_ptAVStream_Audio_Demux->time_base.den / m_ptAVStream_Audio_Demux->time_base.num;		//den分母/num分子
-		m_llBegin_Audio_Pts = m_dbBeginSec * t;
-		m_llEnd_Audio_Pts = m_dbEndSec * t;
+		m_ullBegin_Audio_Pts = m_dbBeginSec * t;
+		m_ullEnd_Audio_Pts = m_dbEndSec * t;
 	}
 
 	//seek输入媒体 移动到第10秒的关键帧位置
 	if (m_ptAVStream_Video_Demux)
 	{
-		nRtn = av_seek_frame((AVFormatContext*)m_ptAVFormatContext_Demux, m_ptAVStream_Video_Demux->index, m_llBegin_Video_Pts, (int)AVSEEK_FLAG_FRAME | (int)AVSEEK_FLAG_BACKWARD);
+		nRtn = av_seek_frame((AVFormatContext*)m_ptAVFormatContext_Demux, m_ptAVStream_Video_Demux->index, m_ullBegin_Video_Pts, (int)AVSEEK_FLAG_FRAME | (int)AVSEEK_FLAG_BACKWARD);
 		PrintErr(nRtn);
 	}
 	return 0;
@@ -161,37 +165,37 @@ int CXMux::RescaleTime(AVPacket* _pAVPacket)
 
 	if (m_ptAVStream_Video_Demux && _pAVPacket->stream_index == m_ptAVStream_Video_Demux->index)
 	{
-		if (_pAVPacket->pts < m_llBegin_Video_Pts)		//过滤dbBeginSec秒前的残留视频包
+		if (_pAVPacket->pts < m_ullBegin_Video_Pts)		//过滤dbBeginSec秒前的残留视频包
 		{
 			//av_packet_unref(_pAVPacket);
 			return -2;
 		}
 
-		if (_pAVPacket->pts > m_llEnd_Video_Pts)		//超过第dbEndSec秒退出，只存dbBeginSec~dbEndSec秒
+		if (_pAVPacket->pts > m_ullEnd_Video_Pts)		//超过第dbEndSec秒退出，只存dbBeginSec~dbEndSec秒
 		{
 			//av_packet_unref(_pAVPacket);
 			return -2;
 		}
 
 		ptAVStream_Out = m_ptAVFormatContext->streams[0];
-		llPtsOffset = m_llBegin_Video_Pts;
+		llPtsOffset = m_ullBegin_Video_Pts;
 	}
 	else if (m_ptAVStream_Audio_Demux && _pAVPacket->stream_index == m_ptAVStream_Audio_Demux->index)
 	{
-		if (_pAVPacket->pts < m_llBegin_Audio_Pts)		//过滤dbBeginSec秒前的残留音频包
+		if (_pAVPacket->pts < m_ullBegin_Audio_Pts)		//过滤dbBeginSec秒前的残留音频包
 		{
 			//av_packet_unref(_pAVPacket);
 			return -2;
 		}
 
-		if (_pAVPacket->pts > m_llEnd_Audio_Pts)		//超过第dbEndSec秒退出，只存dbBeginSec~dbEndSec秒
+		if (_pAVPacket->pts > m_ullEnd_Audio_Pts)		//超过第dbEndSec秒退出，只存dbBeginSec~dbEndSec秒
 		{
 			//av_packet_unref(_pAVPacket);
 			return -2;
 		}
 
 		ptAVStream_Out = m_ptAVFormatContext->streams[1];
-		llPtsOffset = m_llBegin_Audio_Pts;
+		llPtsOffset = m_ullBegin_Audio_Pts;
 	}
 	else
 	{

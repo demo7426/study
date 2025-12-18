@@ -107,10 +107,10 @@ private:
     double m_dbBeginSec = 0;							//截取开始时间
     double m_dbEndSec = DBL_MAX;					    //截取结束时间
 
-    unsigned long long m_llBegin_Video_Pts = 0;								//视频开始的时间
-    unsigned long long m_llEnd_Video_Pts = 0;									//视频结束的时间	
-    unsigned long long m_llBegin_Audio_Pts = 0;								//音频开始的时间
-    unsigned long long m_llEnd_Audio_Pts = 0;									//视频结束的时间	
+    unsigned long long m_ullBegin_Video_Pts = 0;								//视频开始的时间
+    unsigned long long m_ullEnd_Video_Pts = 0;									//视频结束的时间	
+    unsigned long long m_ullBegin_Audio_Pts = 0;								//音频开始的时间
+    unsigned long long m_ullEnd_Audio_Pts = 0;									//视频结束的时间	
 
 
     AVFormatContext* m_ptAVFormatContext_Demux = nullptr;

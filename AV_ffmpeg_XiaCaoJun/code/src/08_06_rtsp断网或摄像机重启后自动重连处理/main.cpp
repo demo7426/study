@@ -59,8 +59,11 @@ static void PrintErr(int _ErrCode)
 int Test_00(void)
 {
 	int nRtn = 0;
-	//const char* pchURL = "1.mp4";						//媒体文件
-	const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
+	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
+	const char* pchURL = "1.mp4";						//媒体文件
+	//const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
+	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
+	//const char* pchURL = "8k 山西晋祠_爱给网_aigei_com.mp4";						//媒体文件
 	AVPacket tAVPacket = { 0 };
 
 	CXDeCode cXDeCode;			//解码对象
@@ -288,8 +291,8 @@ int Test_01(void)
 	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
 	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
 	//const char* pchURL = "剑士4k超高清_爱给网_aigei_com.mp4";						//媒体文件
-	//const char* pchURL = "1.mp4";						//媒体文件
-	const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
+	const char* pchURL = "1.mp4";						//媒体文件
+	//const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
 	CXDemux_Task cDemux_Task;
 	CXDecode_Task cDecode_Task;
 	CXEncode cXEncode;
@@ -326,7 +329,7 @@ int Test_01(void)
 
 		if (!ptAVFrame)
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(10));
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 			continue;
 		}
 

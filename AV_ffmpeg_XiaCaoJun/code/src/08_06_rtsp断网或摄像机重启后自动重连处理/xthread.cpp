@@ -36,6 +36,8 @@ int CXThread::Start(void)
 	m_cThread = std::thread(&CXThread::Main, this);
 	
 	DEBUG(DEBUG_LEVEL_INFO, "CXThread::Start()");
+
+	return 0;
 }
 
 void CXThread::Stop(void)
