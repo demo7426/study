@@ -59,7 +59,8 @@ static void PrintErr(int _ErrCode)
 int Test_00(void)
 {
 	int nRtn = 0;
-	const char* pchURL = "1.mp4";						//媒体文件
+	//const char* pchURL = "1.mp4";						//媒体文件
+	const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
 	AVPacket tAVPacket = { 0 };
 
 	CXDeCode cXDeCode;			//解码对象
@@ -126,15 +127,15 @@ int Test_00(void)
 
 #ifdef __MUX
 	////////////////////////////////////重封装////////////////////////////////////
-	const char* pchOutURL = "07_13.mp4";
+	const char* pchOutURL = "08_06_rtsp断网或摄像机重启后自动重连处理.mp4";
 
 	constexpr double dbBeginSec = 00.0;							//截取开始时间
 	constexpr double dbEndSec = dbBeginSec + 300;					//截取结束时间
 
 	cXMux.Create_AVFormatContext(pchOutURL);
 
-	cXMux.SetBeginSec(dbBeginSec);
-	cXMux.SetEndSec(dbEndSec);
+	/*cXMux.SetBeginSec(dbBeginSec);
+	cXMux.SetEndSec(dbEndSec);*/
 
 	//cXMux.SetVideoParameters(&cXDemux.GetAVStream_Video()->time_base, (const AVCodecParameters*)cXDemux.GetAVStream_Video()->codecpar);
 	cXMux.Set_EncodeFormat(&cXDemux.GetAVStream_Video()->time_base, cXEnCode.GetAVCodecContext());		//必须使用这个，上一行代码在重编码时，不可用
@@ -287,7 +288,8 @@ int Test_01(void)
 	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
 	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
 	//const char* pchURL = "剑士4k超高清_爱给网_aigei_com.mp4";						//媒体文件
-	const char* pchURL = "1.mp4";						//媒体文件
+	//const char* pchURL = "1.mp4";						//媒体文件
+	const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
 	CXDemux_Task cDemux_Task;
 	CXDecode_Task cDecode_Task;
 	CXEncode cXEncode;
@@ -324,7 +326,7 @@ int Test_01(void)
 
 		if (!ptAVFrame)
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 			continue;
 		}
 

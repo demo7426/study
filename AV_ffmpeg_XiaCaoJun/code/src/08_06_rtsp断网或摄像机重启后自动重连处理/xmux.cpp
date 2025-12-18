@@ -93,12 +93,14 @@ int CXMux::Set_EncodeFormat(const AVRational* _pAVRational, const struct AVCodec
 
 	std::unique_lock<std::mutex> lock(m_mut);
 
-	m_ptAVStream_Audio = avformat_new_stream(m_ptAVFormatContext, NULL);		//处理有视频流的情况
+	m_ptAVStream_Video = avformat_new_stream(m_ptAVFormatContext, NULL);		//处理有视频流的情况
 
-	m_ptAVStream_Audio->time_base = *_pAVRational;								//时间基数与原视频一致
+	m_ptAVStream_Video->time_base = *_pAVRational;								//时间基数与原视频一致
 
 	// 复制编码器格式
-	avcodec_parameters_from_context(m_ptAVStream_Audio->codecpar, codec);
+	avcodec_parameters_from_context(m_ptAVStream_Video->codecpar, codec);
+
+	return 0;
 }
 
 int CXMux::Write_Header(AVFormatContext* _pAVFormatContext, AVStream* _pAVStream_Video, AVStream* _pAVStream_Audio)
@@ -113,7 +115,11 @@ int CXMux::Write_Header(AVFormatContext* _pAVFormatContext, AVStream* _pAVStream
 
 	//写入文件头
 	nRtn = avformat_write_header(m_ptAVFormatContext, NULL);
-	PrintErr(nRtn);
+	if (nRtn < 0)
+	{
+		PrintErr(nRtn);
+		return nRtn;
+	}
 
 	av_dump_format(m_ptAVFormatContext, 0, m_pchURL,
 		1			//上下文时输入还是输出;0--输入;1--输出

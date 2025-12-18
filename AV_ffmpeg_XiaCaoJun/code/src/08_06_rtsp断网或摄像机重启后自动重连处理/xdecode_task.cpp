@@ -70,8 +70,14 @@ void CXDecode_Task::DoNext(AVPacket* _ptAVPacket)
 	}
 
 	//音频流不可以直接封装，mp4文件对音频流、视频流存储是有顺序要求的
-	//if(m_pcXMux)
-	//	m_pcXMux->Write_Frame(_ptAVPacket);
+	if (m_pcXMux)
+	{
+		if (m_pcXMux->RescaleTime(_ptAVPacket) != 0)
+			return;
+
+		m_pcXMux->Write_Frame(_ptAVPacket);
+		av_packet_unref(_ptAVPacket);
+	}
 
 	//std::cout << "#";
 }
@@ -130,7 +136,7 @@ void CXDecode_Task::Main(void)
 		}
 
 		av_packet_unref(ptAVPacket);
-		av_packet_free(&ptAVPacket);		//释放之前 av_packet_alloc 分配出的对象
+		//av_packet_free(&ptAVPacket);		//释放之前 av_packet_alloc 分配出的对象
 
 		{
 			std::lock_guard<std::mutex> lock(m_cMutAVFrame);

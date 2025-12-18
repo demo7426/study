@@ -117,7 +117,7 @@ bool CXSDL::Init(int _Width, int _Height, Format _Fmt, void* _pWinID)
         return false;
     }
 
-    return false;
+    return true;
 }
 
 bool CXSDL::Draw(char* _pData, int _LineSize)
