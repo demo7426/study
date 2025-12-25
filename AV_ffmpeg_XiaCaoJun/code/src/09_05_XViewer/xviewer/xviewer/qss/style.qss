@@ -1,0 +1,105 @@
+QWidget
+{
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #f0f4f8, stop:1 #d9e2ec);
+    color:back;
+    font-size: 12px;
+}
+
+QPushButton
+{
+    color: #2E8B57; 
+    border: none;
+    font-size: 14px;
+}
+
+/* 禁用（不可选中）状态样式 */
+QPushButton:disabled
+{
+    color: #A9A9A9;    /* 禁用态文本：暗灰色（可根据需求调整） */
+    /* 可选扩展：添加背景/边框区分禁用态 */
+    /* background: #F5F5F5; */
+    /* border: 1px solid #DCDCDC; */
+}
+
+/* 可选：hover/按下状态（增强交互） */
+QPushButton:hover
+{
+    color: #236B43;    /* hover时文本加深 */
+    background: #F0FFF0; /* 浅绿背景 */
+}
+
+QPushButton:pressed
+{
+    color: #1E5E40;    /* 按下时文本更深 */
+    background: #E0EEE0;
+}
+
+QGroupBox#groupBox_computer 
+{
+    border: none; 
+    padding-top: 20px;
+}
+
+ QGroupBox#groupBox_data {
+    border: none; 
+    padding-top: 20px;
+}
+
+ QGroupBox#groupBox_A {
+    border: none; 
+    padding-top: 20px;
+} 
+
+QGroupBox#groupBox_B {
+    border: none; 
+    padding-top: 20px;
+}
+
+
+QGroupBox#groupBox_api_data {
+    border: 1px solid gray;
+    border-top: 0px;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+QGroupBox#groupBox_api_A {
+    border: 1px solid gray;
+    border-top: 0px;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+QGroupBox#groupBox_api_B {
+    border: 1px solid gray;
+    border-top: 0px;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+ QGroupBox#groupBox_computer::title,
+ QGroupBox#groupBox_data::title,
+ QGroupBox#groupBox_A::title,
+ QGroupBox#groupBox_B::title
+ {
+     left: 10px;
+     background-image: url(:/qss/image/computer.svg);
+     background-repeat: no-repeat;
+     background-position: left center;
+     padding-left: 15px;
+ }
+  
+ QGroupBox#groupBox_api_data::title,
+ QGroupBox#groupBox_api_A::title,
+ QGroupBox#groupBox_api_B::title
+ {
+     left: 10px;
+     background-image: url(:/qss/image/lightIcn.svg);
+     background-repeat: no-repeat;
+     background-position: left center;
+     padding-left: 15px;
+ }
+
+ QToolButton#toolButton_refresh{
+  border-image:url(:/qss/image/refreshIcn.svg);
+ }

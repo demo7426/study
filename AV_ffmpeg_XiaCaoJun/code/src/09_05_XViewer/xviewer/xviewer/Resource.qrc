@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qss/style.qss</file>
+        <file>qss/image/1.png</file>
+        <file>qss/image/algorithmIcn.svg</file>
+        <file>qss/image/computer.svg</file>
+        <file>qss/image/hardwareIcn.svg</file>
+        <file>qss/image/lightIcn.svg</file>
+        <file>qss/image/logsIcn.svg</file>
+        <file>qss/image/logUsrIcn.svg</file>
+        <file>qss/image/logUsrPassword.svg</file>
+        <file>qss/image/network.svg</file>
+        <file>qss/image/refreshIcn.svg</file>
+        <file>qss/image/searchIcn.svg</file>
+        <file>qss/image/serialPort.svg</file>
+        <file>qss/image/system_topology.png</file>
+        <file>qss/image/systermIcn.svg</file>
+        <file>qss/image/taskIcn.svg</file>
+        <file>qss/image/userIcn.svg</file>
+        <file>qss/image/videoIcn.svg</file>
+        <file>qss/image/xvc.png</file>
+        <file>qss/image/Camera.png</file>
+    </qresource>
+</RCC>
