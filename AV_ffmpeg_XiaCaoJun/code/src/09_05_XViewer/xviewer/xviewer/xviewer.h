@@ -23,6 +23,8 @@ private:
 
     QGridLayout m_cGridLayout;
 
+    const char* m_pchCameraConfigPaths = "xv_camera_config.json";   //相机默认配置文件路径
+
 protected:
     void mouseMoveEvent(QMouseEvent* event) override;
 
@@ -50,11 +52,5 @@ private:
     /// </summary>
     /// <param name="_ViewCount">窗口数量</param>
     void ShowViews(qint32 _ViewCount);
-
-    /// <summary>
-    /// 添加相机到列表
-    /// </summary>
-    /// <param name=""></param>
-    void AddCameraToListWidget(void);
 };
 

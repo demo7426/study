@@ -21,16 +21,20 @@ find_package(Qt${QT_VERSION_MAJOR}
 )
 qt_standard_project_setup()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cjson ${CMAKE_CURRENT_SOURCE_DIR}/camera_config)
+list(APPEND CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR})
 
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/cjson PROJECT_SOURCES)
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/camera_config PROJECT_SOURCES)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cjson ${CMAKE_CURRENT_SOURCE_DIR}/camera_config ${CMAKE_CURRENT_SOURCE_DIR}/debug)
+
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/cjson CJSON_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/camera_config CAMERA_CONFIG_SOURCES)
 
 set(PROJECT_SOURCES
     main.cpp
     xviewer.ui
     xviewer.h
     xviewer.cpp
+    ${CJSON_SOURCES}                # 合并cjson源码
+    ${CAMERA_CONFIG_SOURCES}        # 合并camera_config源码（关键：包含xcamera_config.cpp）
 )
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
@@ -43,7 +47,7 @@ qt_add_resources(${PROJECT_NAME} "APP_Resource"
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
-        WIN32_EXECUTABLE TRUE
+        WIN32_EXECUTABLE FALSE
 )
 
 target_link_libraries(${PROJECT_NAME}
