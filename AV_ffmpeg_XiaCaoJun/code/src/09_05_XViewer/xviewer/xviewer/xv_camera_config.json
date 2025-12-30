@@ -1,16 +1,28 @@
 {
-    "camera_config_list": [
-        {
-            "name": "前门相机",
-            "url": "rtsp://admin:123456@192.168.1.100:554/stream1",
-            "sub_url": "rtsp://admin:123456@192.168.1.100:554/stream2",
-            "save_dir": "D:/record/front_door"
-        },
-        {
-            "name": "后门相机",
-            "url": "rtsp://admin:123456@192.168.1.101:554/stream1",
-            "sub_url": "rtsp://admin:123456@192.168.1.101:554/stream2",
-            "save_dir": "D:/record/back_door"
-        }
-    ]
+	"camera_config_list":	[{
+			"name":	"Camera_00",
+			"url":	"1.mp4",
+			"sub_url":	"rtsp://admin:123456@192.168.1.100:554/stream2",
+			"save_dir":	"./record_video/"
+		}, {
+			"name":	"Camera_01",
+			"url":	"2.mp4",
+			"sub_url":	"rtsp://admin:123456@192.168.1.101:554/stream2",
+			"save_dir":	"./record_video/"
+		}, {
+			"name":	"Camera_02",
+			"url":	"1.mp4",
+			"sub_url":	"rtsp://admin:123456@192.168.1.101:554/stream2",
+			"save_dir":	"./record_video/"
+		}, {
+			"name":	"Camera_03",
+			"url":	"2.mp4",
+			"sub_url":	"rtsp://admin:123456@192.168.1.100:554/sub/stream",
+			"save_dir":	"./record_video/"
+		}, {
+			"name":	"Camera_04",
+			"url":	"rtsp://admin:123456@192.168.1.100:554/main/stream",
+			"sub_url":	"rtsp://admin:123456@192.168.1.100:554/sub/stream",
+			"save_dir":	"./record_video/"
+		}]
 }

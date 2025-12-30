@@ -23,21 +23,50 @@ qt_standard_project_setup()
 
 list(APPEND CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR})
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cjson ${CMAKE_CURRENT_SOURCE_DIR}/camera_config ${CMAKE_CURRENT_SOURCE_DIR}/debug)
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/cjson 
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/camera_config 
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/debug 
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/camera_widget
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/video
+    ${CMAKE_CURRENT_SOURCE_DIR}/xv
+    ${CMAKE_CURRENT_SOURCE_DIR}/include 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/ffmpeg 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/sdl 
+)
 
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/cjson CJSON_SOURCES)
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/camera_config CAMERA_CONFIG_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/app/cjson PROJECT_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/app/camera_config PROJECT_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/app/camera_widget PROJECT_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/app/video PROJECT_SOURCES)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/xv PROJECT_SOURCES)  
 
-set(PROJECT_SOURCES
+
+link_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/ffmpeg/lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/sdl
+)
+
+link_libraries(
+    avcodec
+    avdevice
+    avfilter
+    avformat
+    avutil
+    postproc
+    swresample
+    swscale
+    SDL2
+)
+
+qt_add_executable(
+    ${PROJECT_NAME}
     main.cpp
     xviewer.ui
     xviewer.h
     xviewer.cpp
-    ${CJSON_SOURCES}                # 合并cjson源码
-    ${CAMERA_CONFIG_SOURCES}        # 合并camera_config源码（关键：包含xcamera_config.cpp）
+    ${PROJECT_SOURCES}
 )
-
-qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 
 qt_add_resources(${PROJECT_NAME} "APP_Resource"
     PREFIX "/"
