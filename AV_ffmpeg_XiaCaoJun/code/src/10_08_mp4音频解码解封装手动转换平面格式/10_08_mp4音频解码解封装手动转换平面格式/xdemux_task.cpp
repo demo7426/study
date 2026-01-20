@@ -84,13 +84,17 @@ void CXDemux_Task::SetNext(CXThread* _pcXThread)
 		return;
 	}
 
-	//m_pcXDecode_Task
-	AVCodecID eVideoID = m_cXDemux.GetAVStream_Video()->codecpar->codec_id;							//视频编码器ID
+#ifdef _AUDIO_TEST
+	AVCodecID eVideoID = m_cXDemux.GetAVStream_Audio()->codecpar->codec_id;								//视频编码器ID
+	AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Audio()->codecpar;					//视频编码参数
+#else
+	AVCodecID eVideoID = m_cXDemux.GetAVStream_Video()->codecpar->codec_id;								//视频编码器ID
 	AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Video()->codecpar;					//视频编码参数
+#endif
 
 	m_pcXDecode_Task = dynamic_cast<CXDecode_Task*>(_pcXThread);
 
-	m_pcXDecode_Task->Open(eVideoID, false, *ptAVCodecParameters);
+	m_pcXDecode_Task->Open(eVideoID, false, *ptAVCodecParameters, m_cXDemux.GetVideoId(), m_cXDemux.GetAudioId());
 }
 
 void CXDemux_Task::Main(void)

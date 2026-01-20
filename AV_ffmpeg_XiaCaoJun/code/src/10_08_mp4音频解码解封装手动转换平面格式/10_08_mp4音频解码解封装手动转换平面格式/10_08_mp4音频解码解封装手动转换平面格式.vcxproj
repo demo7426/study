@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="debug.h" />
+    <ClInclude Include="singleton.h" />
+    <ClInclude Include="xaudio_play.h" />
     <ClInclude Include="xavpacket_list.h" />
     <ClInclude Include="xcodec.h" />
     <ClInclude Include="xdecode.h" />
@@ -37,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="xaudio_play.cpp" />
     <ClCompile Include="xavpacket_list.cpp" />
     <ClCompile Include="xcodec.cpp" />
     <ClCompile Include="xdecode.cpp" />
@@ -135,7 +138,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_AUDIO_TEST;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../../../include/x64;../../../include/x64/ffmpeg;</AdditionalIncludeDirectories>
     </ClCompile>

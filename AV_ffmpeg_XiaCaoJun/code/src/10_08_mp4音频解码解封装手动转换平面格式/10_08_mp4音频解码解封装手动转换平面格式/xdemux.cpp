@@ -1,7 +1,7 @@
 /*************************************************
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	xdemux.cpp
-作  者:	钱锐      版本: V0.1.0     新建日期: 2025.08.29
+作  者:	钱锐      版本: V0.1.1     新建日期: 2025.08.29
 描  述: 实现解封装
 备  注:
 修改记录:
@@ -11,6 +11,12 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 	  内容:
 		  1) 此为模板第一个版本;
 	  版本:V0.1.0
+
+  2.  日期: 2026.01.20
+	  作者: 钱锐
+	  内容:
+		  1) 新增 GetVideoId、GetAudioId 函数接口，保证使用流id索引时的正确性;
+	  版本:V0.1.1
 
 *************************************************/
 
@@ -77,6 +83,8 @@ int CXDemux::Create_AVFormatContext(const char* _pURL)
 		{
 			m_ptAVStream_Video = m_ptAVFormatContext->streams[i];
 
+			m_nVideoId = i;
+
 			std::cout << "------视频------" << std::endl;
 			std::cout << "	width：" << m_ptAVStream_Video->codecpar->width << std::endl;
 			std::cout << "	height：" << m_ptAVStream_Video->codecpar->height << std::endl;
@@ -84,6 +92,8 @@ int CXDemux::Create_AVFormatContext(const char* _pURL)
 		else if (m_ptAVFormatContext->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_AUDIO)
 		{
 			m_ptAVStream_Audio = m_ptAVFormatContext->streams[i];
+
+			m_nAudioId = i;
 
 			std::cout << "------音频------" << std::endl;
 			std::cout << "	sample_rate：" << m_ptAVStream_Audio->codecpar->sample_rate << std::endl;

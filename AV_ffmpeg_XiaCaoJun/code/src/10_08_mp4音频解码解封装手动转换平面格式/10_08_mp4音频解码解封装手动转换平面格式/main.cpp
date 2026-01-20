@@ -34,6 +34,7 @@ extern "C" {
 #include "xdemux_task.h"
 #include "xdecode_task.h"
 #include "xencode_mux_task.h"
+#include "xaudio_play.h"
 
 #pragma comment(lib, "avformat.lib")
 #pragma comment(lib, "avcodec.lib")
@@ -375,11 +376,23 @@ int Test_01(void)
 	pcXVideo_View = CXVideo_View::Create();
 
 	cDemux_Task.SetNext(&cDecode_Task_Video);
+
+#ifdef _AUDIO_TEST
+	auto ptAVStream_Audio = cDemux_Task.GetCXDemux()->GetAVStream_Audio();
+
+	CXAudioPlay::GetInstance()->Open(ptAVStream_Audio->codecpar);
+#endif
+
+#ifndef _AUDIO_TEST 
 	cXEncode_Mux_Task.Open(AV_CODEC_ID_H265, "08_06_rtsp断网或摄像机重启后自动重连处理.mp4", cDemux_Task.GetCXDemux(), cDecode_Task_Video.GetCXDecode());
-	
+#endif
+
 	cDemux_Task.Start();
 	cDecode_Task_Video.Start();
+
+#ifndef _AUDIO_TEST 
 	cXEncode_Mux_Task.Start();
+#endif
 
 	while (1)
 	{
@@ -391,6 +404,9 @@ int Test_01(void)
 			continue;
 		}
 
+#ifdef _AUDIO_TEST 
+		CXAudioPlay::GetInstance()->Push(ptAVFrame);
+#else
 		if (!bInitFlag)
 		{
 			switch (ptAVFrame->format)
@@ -422,6 +438,7 @@ int Test_01(void)
 		cXEncode_Mux_Task.Send_AVFrame(ptAVFrame);
 
 		pcXVideo_View->DrawFrame(ptAVFrame);
+#endif
 		nFrameCounter++;
 
 		av_frame_unref(ptAVFrame);
@@ -430,8 +447,11 @@ int Test_01(void)
 		cEnd_TimePoint = std::chrono::high_resolution_clock::now();
 		if (std::chrono::duration_cast<std::chrono::milliseconds>(cEnd_TimePoint - cStart_TimePoint).count() >= 1000)
 		{
+#ifdef _AUDIO_TEST 
+			std::cout << "音频正在解码...." << "\n";
+#else
 			std::cout << "每秒帧数：" << nFrameCounter << "\n";
-
+#endif
 			nFrameCounter = 0;
 			cStart_TimePoint = cEnd_TimePoint;
 		}
@@ -439,7 +459,10 @@ int Test_01(void)
 
 	cDemux_Task.Stop();
 	cDecode_Task_Video.Stop();
+
+#ifndef _AUDIO_TEST 
 	cXEncode_Mux_Task.Stop();
+#endif
 
 	if (pcXVideo_View)
 	{

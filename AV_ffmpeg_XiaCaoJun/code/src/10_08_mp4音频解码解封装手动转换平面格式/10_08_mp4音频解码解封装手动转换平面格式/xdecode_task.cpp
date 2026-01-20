@@ -49,7 +49,7 @@ CXDecode_Task::~CXDecode_Task()
 	}
 }
 
-bool CXDecode_Task::Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParameters _tAVCodecParameters)
+bool CXDecode_Task::Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParameters _tAVCodecParameters, int _VideoId, int _AudioId)
 {
 	//视频解码初始化，因为后续解码是直接发送的AVPacket数据，在此处只能使用cpu解码
 	m_cXDeCode.Create_AVCodecContext(_AVCodecID, _IsEnable_HwDecode);
@@ -63,12 +63,19 @@ bool CXDecode_Task::Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParamet
 		return false;
 	}
 
+	m_nVideoId = _VideoId;
+	m_nAudioId = _AudioId;
+
 	return true;
 }
 
 void CXDecode_Task::DoNext(AVPacket* _ptAVPacket)
 {
-	if (_ptAVPacket->stream_index == 0)			//只有视频流需要解码，TODO:注意视频流索引不一定是0
+#ifdef _AUDIO_TEST 
+	if (_ptAVPacket->stream_index == m_nAudioId)
+#else
+	if (_ptAVPacket->stream_index == m_nVideoId)				//只有视频流需要解码，TODO:注意视频流索引不一定是0
+#endif
 	{
 		m_cXAVPacket_List.Push(_ptAVPacket);
 		return;
