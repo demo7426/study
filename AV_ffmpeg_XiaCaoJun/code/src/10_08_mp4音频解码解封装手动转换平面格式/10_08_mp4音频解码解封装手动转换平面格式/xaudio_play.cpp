@@ -140,11 +140,15 @@ int CXAudioPlay::Push(AVFrame* _ptAVFrame)
 	}
 
 	std::vector<unsigned char> vecBuf;
-	int nSampleSize = 0;							//采样大小
-	int nChannels = _ptAVFrame->channels;			//音频通道数量
-	unsigned char* uchL = _ptAVFrame->data[0];
-	unsigned char* uchR = _ptAVFrame->data[1];
-	unsigned char* data = nullptr;
+	int nSampleSize = 0;								//采样大小
+	int nChannels = _ptAVFrame->channels;				//音频通道数量
+
+	unsigned char* puchLF = _ptAVFrame->data[0];		//左前声道
+	unsigned char* puchRF = _ptAVFrame->data[1];		//右前声道
+	unsigned char* puchLR = _ptAVFrame->data[2];		//左后声道
+	unsigned char* puchRR = _ptAVFrame->data[3];		//右后声道
+
+	unsigned char* puchData = nullptr;
 
 	switch (_ptAVFrame->format)
 	{
@@ -170,20 +174,27 @@ int CXAudioPlay::Push(AVFrame* _ptAVFrame)
 	case AVSampleFormat::AV_SAMPLE_FMT_S32P:
 	case AVSampleFormat::AV_SAMPLE_FMT_FLTP:
 	{
-		//TODO:暂时只支持双通道音频数据
+		//TODO:暂时只支持双、四通道音频数据
 		vecBuf.resize(_ptAVFrame->linesize[0]);
-		data = vecBuf.data();
+		puchData = vecBuf.data();
 
 		//LLLL 
 		//RRRR			
 		//LR LR LR LR	4
 		for (size_t i = 0; i < _ptAVFrame->nb_samples; i++)			//_ptAVFrame->nb_samples -- 所有通道的采样数量
 		{
-			memcpy(data + i * nSampleSize * nChannels, uchL + i * nSampleSize, nSampleSize);
-			memcpy(data + i * nSampleSize * nChannels, uchR + i * nSampleSize + nSampleSize, nSampleSize);
+			memcpy(puchData + i * nSampleSize * nChannels, puchLF + i * nSampleSize, nSampleSize);
+			memcpy(puchData + i * nSampleSize * nChannels + nSampleSize, puchRF + i * nSampleSize, nSampleSize);
+
+			// 4声道额外处理左后（BL）、右后（BR）
+			if (nChannels == 4)
+			{
+				memcpy(puchData + nSampleSize * nChannels + 2 * nSampleSize, puchLR + i * nSampleSize, nSampleSize);
+				memcpy(puchData + nSampleSize * nChannels + 3 * nSampleSize, puchRR + i * nSampleSize, nSampleSize);
+			}
 		}
 	}
-	return this->Push(data, _ptAVFrame->linesize[0]);
+	return this->Push(puchData, _ptAVFrame->linesize[0]);
 	default:
 		break;
 	}

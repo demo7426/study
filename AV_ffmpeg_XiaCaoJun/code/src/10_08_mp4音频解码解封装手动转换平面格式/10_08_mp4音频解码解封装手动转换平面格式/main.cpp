@@ -346,7 +346,8 @@ int Test_01(void)
 	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
 	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
 	//const char* pchURL = "剑士4k超高清_爱给网_aigei_com.mp4";						//媒体文件
-	const char* pchURL = "1.mp4";						//媒体文件
+	//const char* pchURL = "1.mp4";						//媒体文件
+	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
 	//const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
 	CXDemux_Task cDemux_Task;
 	CXDecode_Task cDecode_Task_Video;
