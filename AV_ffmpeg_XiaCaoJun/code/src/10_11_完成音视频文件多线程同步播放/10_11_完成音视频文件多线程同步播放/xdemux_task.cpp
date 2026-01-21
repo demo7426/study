@@ -76,25 +76,33 @@ int CXDemux_Task::Open(const char* _pURL, int _TimeoutMs)
 	return 0;
 }
 
-void CXDemux_Task::SetNext(CXThread* _pcXThread)
+void CXDemux_Task::SetNext(CXThread* _pcXThread_Video, CXThread* _pcXThread_Audio)
 {
-	if (!_pcXThread)
+	if (!_pcXThread_Video && !_pcXThread_Audio)
 	{
 		DEBUG(DEBUG_LEVEL_ERROR, "SetNext input paramter is err.");
 		return;
 	}
 
-#ifdef _AUDIO_TEST
-	AVCodecID eVideoID = m_cXDemux.GetAVStream_Audio()->codecpar->codec_id;								//视频编码器ID
-	AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Audio()->codecpar;					//视频编码参数
-#else
-	AVCodecID eVideoID = m_cXDemux.GetAVStream_Video()->codecpar->codec_id;								//视频编码器ID
-	AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Video()->codecpar;					//视频编码参数
-#endif
+	m_pcXDecode_Task_Video = dynamic_cast<CXDecode_Task*>(_pcXThread_Video);
+	m_pcXDecode_Task_Audio = dynamic_cast<CXDecode_Task*>(_pcXThread_Audio);
 
-	m_pcXDecode_Task = dynamic_cast<CXDecode_Task*>(_pcXThread);
+	{
+		AVCodecID eVideoID = m_cXDemux.GetAVStream_Video()->codecpar->codec_id;								//视频编码器ID
+		AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Video()->codecpar;					//视频编码参数
 
-	m_pcXDecode_Task->Open(eVideoID, false, *ptAVCodecParameters, m_cXDemux.GetVideoId(), m_cXDemux.GetAudioId());
+		if(m_pcXDecode_Task_Video)
+			m_pcXDecode_Task_Video->Open(eVideoID, false, *ptAVCodecParameters);
+	}
+
+	{
+		AVCodecID eVideoID = m_cXDemux.GetAVStream_Audio()->codecpar->codec_id;								//音频编码器ID
+		AVCodecParameters* ptAVCodecParameters = m_cXDemux.GetAVStream_Audio()->codecpar;					//音频编码参数
+
+		if (m_pcXDecode_Task_Audio)
+			m_pcXDecode_Task_Audio->Open(eVideoID, false, *ptAVCodecParameters);
+	}
+
 }
 
 void CXDemux_Task::Main(void)
@@ -134,8 +142,11 @@ void CXDemux_Task::Main(void)
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
 		//if (m_cXDemux.GetAVStream_Video() && tAVPacket.stream_index == m_cXDemux.GetAVStream_Video()->index && m_pcXDecode_Task)	//TODO:暂时只处理视频流
-		if (m_pcXDecode_Task)	//处理音视频流
-			m_pcXDecode_Task->DoNext(&tAVPacket);
+		if (m_pcXDecode_Task_Video && tAVPacket.stream_index == m_cXDemux.GetAVStream_Video()->index)	//处理视频流
+			m_pcXDecode_Task_Video->DoNext(&tAVPacket);		
+
+		if (m_pcXDecode_Task_Audio && tAVPacket.stream_index == m_cXDemux.GetAVStream_Audio()->index)	//处理音频流
+			m_pcXDecode_Task_Audio->DoNext(&tAVPacket);
 
 		av_packet_unref(&tAVPacket);
 	}

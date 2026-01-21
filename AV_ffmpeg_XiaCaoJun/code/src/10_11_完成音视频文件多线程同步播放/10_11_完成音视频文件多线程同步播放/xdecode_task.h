@@ -34,7 +34,7 @@ public:
     /// <param name="_IsEnable_HwDecode">是否使能硬件解码;false--不使能;true--使能;</param>
     /// <param name="_tAVCodecParameters"></param>
     /// <returns></returns>
-    bool Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParameters _tAVCodecParameters, int _VideoId, int _AudioId);
+    bool Open(int _AVCodecID, bool _IsEnable_HwDecode, AVCodecParameters _tAVCodecParameters);
 
     /// <summary>
     /// 执行下一步
@@ -63,9 +63,6 @@ private:
     CXAVPacket_List m_cXAVPacket_List;      //解码后的AVPacket数据
 
     CXList<AVFrame> m_cAVFrame_List;        //解码后的AVFrame数据
-
-    int m_nVideoId = 0;                     //视频流id
-    int m_nAudioId = 0;                     //音频流id
 };
 
 

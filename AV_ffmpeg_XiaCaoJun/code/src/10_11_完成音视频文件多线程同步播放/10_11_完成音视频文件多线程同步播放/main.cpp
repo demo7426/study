@@ -349,13 +349,14 @@ int Test_01(void)
 {
 	//const char* pchURL = "rtsp://127.0.0.1:8554/test";						//媒体文件
 	//const char* pchURL = "4K故宫紫禁城建筑宫殿古城皇宫城楼北京城日出日落高清视频素材_爱给网_aigei_com.mp4";						//媒体文件
-	const char* pchURL = "许飞 - 父亲写的散文诗.mp4";						//媒体文件
+	//const char* pchURL = "许飞 - 父亲写的散文诗.mp4";						//媒体文件
 	//const char* pchURL = "剑士4k超高清_爱给网_aigei_com.mp4";						//媒体文件
 	//const char* pchURL = "1.mp4";						//媒体文件
-	//const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
+	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
 	//const char* pchURL = "rtsp://admin:qr13419484865.@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0";						//大华相机
 	CXDemux_Task cDemux_Task;
 	CXDecode_Task cDecode_Task_Video;
+	CXDecode_Task cDecode_Task_Audio;
 	CXEncode_Mux_Task cXEncode_Mux_Task;
 	
 	CXVideo_View* pcXVideo_View = nullptr;
@@ -381,7 +382,11 @@ int Test_01(void)
 
 	pcXVideo_View = CXVideo_View::Create();
 
-	cDemux_Task.SetNext(&cDecode_Task_Video);
+#ifdef _AUDIO_TEST
+	cDemux_Task.SetNext(nullptr, &cDecode_Task_Audio);
+#else
+	cDemux_Task.SetNext(&cDecode_Task_Video, nullptr);
+#endif
 
 #ifdef _AUDIO_TEST
 	auto ptAVStream_Audio = cDemux_Task.GetCXDemux()->GetAVStream_Audio();
@@ -395,6 +400,7 @@ int Test_01(void)
 
 	cDemux_Task.Start();
 	cDecode_Task_Video.Start();
+	cDecode_Task_Audio.Start();
 
 #ifndef _AUDIO_TEST 
 	cXEncode_Mux_Task.Start();
@@ -402,7 +408,11 @@ int Test_01(void)
 
 	while (1)
 	{
+#ifdef _AUDIO_TEST 
+		ptAVFrame = cDecode_Task_Audio.GetCurAVFrame();
+#else
 		ptAVFrame = cDecode_Task_Video.GetCurAVFrame();
+#endif
 
 		if (!ptAVFrame)
 		{

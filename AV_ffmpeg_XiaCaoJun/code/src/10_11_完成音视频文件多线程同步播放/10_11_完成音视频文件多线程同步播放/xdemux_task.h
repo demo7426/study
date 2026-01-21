@@ -38,7 +38,12 @@ public:
     /// <returns></returns>
     int Open(const char* _pURL, int _TimeoutMs = 1000);
     
-    void SetNext(CXThread* _pcXThread) override;
+    /// <summary>
+    /// 设置责任链下一阶段的解码任务
+    /// </summary>
+    /// <param name="_pcXThread_Video">视频解码任务;nullptr--代表后续不解码</param>
+    /// <param name="_pcXThread_Audio">音频解码任务;nullptr--代表后续不解码</param>
+    void SetNext(CXThread* _pcXThread_Video, CXThread* _pcXThread_Audio);
 
     inline CXDemux* GetCXDemux()
     {
@@ -56,7 +61,8 @@ private:
 
     int m_nFrameRate = 1000;                        //当前视频的帧率
 
-    CXDecode_Task* m_pcXDecode_Task = nullptr;      //下一个数据处理对象
+    CXDecode_Task* m_pcXDecode_Task_Video = nullptr;      //下一个数据处理对象
+    CXDecode_Task* m_pcXDecode_Task_Audio = nullptr;      //下一个数据处理对象
 };
 
 
