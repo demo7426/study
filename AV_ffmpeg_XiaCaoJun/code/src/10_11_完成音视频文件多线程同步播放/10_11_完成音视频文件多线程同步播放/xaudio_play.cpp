@@ -24,6 +24,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include "xaudio_play.h"
 
+extern "C" {
+#include <libavutil/time.h>
+}
+
 #include "sdl/SDL.h"
 
 #undef main
@@ -34,7 +38,7 @@ CXAudioPlay::CXAudioPlay(): m_uchAudioVolume(SDL_MIX_MAXVOLUME)
 {
 }
 
-int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo)
+int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo, double _AudioTimeBaseDescend)
 {
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);			//退出之前已经打开的音频
 
@@ -57,6 +61,8 @@ int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo)
 	tSDL_AudioSpec.callback = AudioCallback;								//回调函数
 	tSDL_AudioSpec.userdata = this;
 
+	m_dbAudioTimeBaseDescend = _AudioTimeBaseDescend;
+
 	if (SDL_OpenAudio(&tSDL_AudioSpec, nullptr) != 0)
 	{
 		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
@@ -71,7 +77,7 @@ int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo)
 	return 0;
 }
 
-int CXAudioPlay::Open(AVCodecParameters* _ptPara_Audio)
+int CXAudioPlay::Open(AVCodecParameters* _ptPara_Audio, double _AudioTimeBase)
 {
 	if (!_ptPara_Audio)
 	{
@@ -109,12 +115,10 @@ int CXAudioPlay::Open(AVCodecParameters* _ptPara_Audio)
 		return -2;
 	}
 
-	CXAudioPlay::GetInstance()->Open(tAudio_Spec_Info);
-
-	return this->Open(tAudio_Spec_Info);
+	return this->Open(tAudio_Spec_Info, _AudioTimeBase);
 }
 
-int CXAudioPlay::Push(uint8_t* _pData, int32_t _Len)
+int CXAudioPlay::Push(uint8_t* _pData, int32_t _Len, int64_t _Pts)
 {
 	std::unique_lock<std::mutex> lock(m_mut);
 
@@ -126,7 +130,8 @@ int CXAudioPlay::Push(uint8_t* _pData, int32_t _Len)
 	m_deqAudioDataNode.push_back(AUDIO_DATA_NODE());
 
 	m_deqAudioDataNode.back().Data.assign(_pData, _pData + _Len);		//防止出现多次拷贝数据的情况
-	m_deqAudioDataNode.back().nStartIndex = 0;
+	m_deqAudioDataNode.back().StartIndex = 0;
+	m_deqAudioDataNode.back().Pts = _Pts;
 
 	return 0;
 }
@@ -194,12 +199,12 @@ int CXAudioPlay::Push(AVFrame* _ptAVFrame)
 			}
 		}
 	}
-	return this->Push(puchData, _ptAVFrame->linesize[0]);
+	return this->Push(puchData, _ptAVFrame->linesize[0], _ptAVFrame->pts);
 	default:
 		break;
 	}
-
-	return this->Push(_ptAVFrame->data[0], _ptAVFrame->linesize[0]);
+	
+	return this->Push(_ptAVFrame->data[0], _ptAVFrame->linesize[0], _ptAVFrame->pts);
 }
 
 void CXAudioPlay::SetPalyVolume(uint8_t _Volume)
@@ -217,6 +222,13 @@ void CXAudioPlay::SetPalyRate(float _Rate)
 	this->Open(tCurAudioSpecInfo);
 
 	m_tAudioSpecInfo = tOldAudioSpecInfo;
+}
+
+int64_t CXAudioPlay::GetCurPts(void)
+{
+	std::unique_lock<std::mutex> lock(m_mutPts);
+
+	return m_llCurPts;
 }
 
 void CXAudioPlay::Close(void)
@@ -239,6 +251,7 @@ void CXAudioPlay::AudioCallback(uint8_t* stream, int len)
 	AUDIO_DATA_NODE tAudioDataNode;
 
 	int nStreamSumLen = 0;
+	int64_t llStartTimeUs = 0;					//开始us
 
 	SDL_memset(stream, 0, len);
 
@@ -250,17 +263,30 @@ void CXAudioPlay::AudioCallback(uint8_t* stream, int len)
 				break;
 
 			tAudioDataNode = m_deqAudioDataNode.front();
+
+			llStartTimeUs = av_gettime_relative();
+
+			std::unique_lock<std::mutex> lockPts(m_mutPts);
+			m_llCurPts = tAudioDataNode.Pts;
 		}
 
-		if (tAudioDataNode.Data.size() - tAudioDataNode.nStartIndex <= len)		//当前节点数据小于len，直接拷贝即可
+		if (m_dbAudioTimeBaseDescend > 0)
+		{
+			std::unique_lock<std::mutex> lock(m_mutPts);
+			m_llCurPts = m_llCurPts + (av_gettime_relative() - llStartTimeUs) / 1000000 / m_dbAudioTimeBaseDescend;
+
+			llStartTimeUs = av_gettime_relative();
+		}
+
+		if (tAudioDataNode.Data.size() - tAudioDataNode.StartIndex <= len)		//当前节点数据小于len，直接拷贝即可
 		{
 			SDL_MixAudio(stream + nStreamSumLen,
-				tAudioDataNode.Data.data() + tAudioDataNode.nStartIndex,
-				tAudioDataNode.Data.size() - tAudioDataNode.nStartIndex, 
+				tAudioDataNode.Data.data() + tAudioDataNode.StartIndex,
+				tAudioDataNode.Data.size() - tAudioDataNode.StartIndex, 
 				m_uchAudioVolume);
 
-			len -= tAudioDataNode.Data.size() - tAudioDataNode.nStartIndex;
-			nStreamSumLen += tAudioDataNode.Data.size() - tAudioDataNode.nStartIndex;
+			len -= tAudioDataNode.Data.size() - tAudioDataNode.StartIndex;
+			nStreamSumLen += tAudioDataNode.Data.size() - tAudioDataNode.StartIndex;
 
 			std::unique_lock<std::mutex> lock(m_mut);
 
@@ -272,14 +298,14 @@ void CXAudioPlay::AudioCallback(uint8_t* stream, int len)
 		else
 		{
 			SDL_MixAudio(stream + nStreamSumLen, 
-				tAudioDataNode.Data.data() + tAudioDataNode.nStartIndex, 
+				tAudioDataNode.Data.data() + tAudioDataNode.StartIndex, 
 				len, 
 				m_uchAudioVolume);
 
 			nStreamSumLen += len;
 
 			std::unique_lock<std::mutex> lock(m_mut);
-			m_deqAudioDataNode[0].nStartIndex += len;
+			m_deqAudioDataNode[0].StartIndex += len;
 
 			len = 0;
 		}

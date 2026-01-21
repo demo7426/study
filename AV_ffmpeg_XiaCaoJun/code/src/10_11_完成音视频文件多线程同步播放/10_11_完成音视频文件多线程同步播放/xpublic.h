@@ -20,6 +20,6 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #define XPUBLIC_LIST_MAX_NODE_NUM	    4096		                        //链表最大节点数量
 
 //以下参数，直接影响到ddr和帧率的平衡关系
-#define XPUBLIC_DEMUX_MAX_NODE_NUM	    4		                            //解封装后数据，链表缓存的最大节点数量
-#define XPUBLIC_ENCODE_MAX_NODE_NUM	    4		    //待编码数据，链表缓存的最大节点数量
+#define XPUBLIC_DEMUX_MAX_NODE_NUM	    256		                            //解封装后数据，链表缓存的最大节点数量
+#define XPUBLIC_ENCODE_MAX_NODE_NUM	    256		                            //待编码数据，链表缓存的最大节点数量
 

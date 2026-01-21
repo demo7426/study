@@ -47,7 +47,8 @@ public:
 	typedef struct _AUDIO_DATA_NODE
 	{
 		std::vector<uint8_t> Data;				//数据
-		int32_t nStartIndex;					//数据的起始索引
+		int32_t StartIndex;						//数据的起始索引
+		int64_t Pts;							//pts
 	}AUDIO_DATA_NODE, *PAUDIO_DATA_NODE;
 
 	typedef struct _AUDIO_SPEC_INFO
@@ -100,23 +101,26 @@ public:
 	/// 打开音频播放器
 	/// </summary>
 	/// <param name="_tAudioSpecInfo"></param>
+	/// <param name="_AudioTimeBaseReciprocal">音频时间基数倒数</param>
 	/// <returns>-2--失败;0--成功</returns>
-	int Open(const AUDIO_SPEC_INFO _tAudioSpecInfo);
+	int Open(const AUDIO_SPEC_INFO _tAudioSpecInfo, double _AudioTimeBaseDescend = 0);
 	
 	/// <summary>
 	/// 打开音频播放器
 	/// </summary>
 	/// <param name="_ptPara_Audio">音频参数信息</param>
+	/// <param name="_AudioTimeBaseReciprocal">音频时间基数倒数</param>
 	/// <returns></returns>
-	int Open(AVCodecParameters* _ptPara_Audio);
+	int Open(AVCodecParameters* _ptPara_Audio, double _AudioTimeBaseDescend = 0);
 
 	/// <summary>
 	/// 添加新的数据节点
 	/// </summary>
 	/// <param name="_pData"></param>
 	/// <param name="_Len"></param>
+	/// <param name="_Pts"></param>
 	/// <returns></returns>
-	int Push(uint8_t* _pData, int32_t _Len);
+	int Push(uint8_t* _pData, int32_t _Len, int64_t _Pts = 0);
 
 	/// <summary>
 	/// 添加新的数据节点
@@ -138,6 +142,13 @@ public:
 	void SetPalyRate(float _Rate);
 
 	/// <summary>
+	/// 获取当前音频的pts
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	int64_t GetCurPts(void);
+
+	/// <summary>
 	/// 关闭音频播放器
 	/// </summary>
 	/// <param name=""></param>
@@ -153,6 +164,9 @@ private:
 
 	AUDIO_SPEC_INFO m_tAudioSpecInfo;								//音频参数信息
 
+	double m_dbAudioTimeBaseDescend = 0;							//音频的时间基数倒数
+	int64_t m_llCurPts = 0;											//音频的当前pts
+	std::mutex m_mutPts;											//pts互斥锁
 private:
 	/// <summary>
 	/// 音频回调函数，用于静态函数和类方法之间的转换调用

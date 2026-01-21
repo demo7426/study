@@ -35,6 +35,7 @@ extern "C" {
 #include "xdecode_task.h"
 #include "xencode_mux_task.h"
 #include "xaudio_play.h"
+#include "xplayer.h"
 
 #pragma comment(lib, "avformat.lib")
 #pragma comment(lib, "avcodec.lib")
@@ -456,7 +457,7 @@ int Test_01(void)
 		pcXVideo_View->DrawFrame(ptAVFrame);
 #endif
 		nFrameCounter++;
-
+		
 		av_frame_unref(ptAVFrame);
 		av_frame_free(&ptAVFrame);
 
@@ -489,8 +490,24 @@ int Test_01(void)
 	return 0;
 }
 
+/// <summary>
+/// 音、视频同步测试
+/// </summary>
+/// <param name=""></param>
+/// <returns></returns>
+int Test_02(void)
+{
+	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
+
+	CXPlayer cXPlayer;
+
+	cXPlayer.Start(pchURL);
+
+	return 0;
+}
+
 int main()
 {
-	return Test_01();
+	return Test_02();
 }
 

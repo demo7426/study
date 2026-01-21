@@ -33,6 +33,7 @@
     <ClInclude Include="xformat.h" />
     <ClInclude Include="xlist.h" />
     <ClInclude Include="xmux.h" />
+    <ClInclude Include="xplayer.h" />
     <ClInclude Include="xpublic.h" />
     <ClInclude Include="xsdl.h" />
     <ClInclude Include="xthread.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="xencode_mux_task.cpp" />
     <ClCompile Include="xformat.cpp" />
     <ClCompile Include="xmux.cpp" />
+    <ClCompile Include="xplayer.cpp" />
     <ClCompile Include="xsdl.cpp" />
     <ClCompile Include="xthread.cpp" />
     <ClCompile Include="xvideo_view.cpp" />
@@ -139,7 +141,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_AUDIO_TEST;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../../../include/x64;../../../include/x64/ffmpeg;</AdditionalIncludeDirectories>
     </ClCompile>
