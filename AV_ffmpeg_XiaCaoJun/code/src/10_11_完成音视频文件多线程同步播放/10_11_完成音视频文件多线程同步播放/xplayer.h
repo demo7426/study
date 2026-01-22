@@ -32,14 +32,54 @@ public:
 	/// </summary>
 	/// <param name="_pURL">rtsp地址/本地文件</param>
     /// <param name="_pWinID">窗口句柄;如果为空,创建新窗口</param>
-	/// <returns>0--成功</returns>
+	/// <returns>-2--失败;-1--参数错误;0--成功</returns>
 	int Open(const char* _pURL, void* _pWinID = nullptr);
+
+	/// <summary>
+	/// 暂停播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns>-2--失败;-1--参数错误;0--成功</returns>
+	int Pause(void);
+
+	/// <summary>
+	/// 继续播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns>-2--失败;-1--参数错误;0--成功</returns>
+	int Resume(void);
+
+	/// <summary>
+	/// 设置音频的播放速率
+	/// </summary>
+	/// <param name="_Rate">速率;数值范围:0~10</param>
+	void SetPalyRate(float _Rate);
+
+	/// <summary>
+	/// 获取视频总时长;单位:us
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	inline long long GetVideoTotalDuration(void)
+	{
+		return m_llVideoTotalDuration;
+	}
+	
+	/// <summary>
+	/// 虎丘当前播放的时间戳;单位:us
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	inline long long GetCurPlayTimestamp(void)
+	{
+		return m_llCurPlayTimestamp;
+	}
 
 	/// <summary>
 	/// 关闭对应的源数据，并进行资源回收
 	/// </summary>
 	/// <param name=""></param>
-	/// <returns>0--成功</returns>
+	/// <returns>-2--失败;-1--参数错误;0--成功</returns>
 	int Close(void);
 
 protected:
@@ -55,6 +95,9 @@ private:
 	CXDecode_Task m_cDecode_Task_Audio;
 
 	CXVideo_View* m_pcXVideo_View = nullptr;
+
+	long long m_llVideoTotalDuration = 0;						//视频总时长;单位us
+	std::atomic_int64_t m_llCurPlayTimestamp = 0;				//当前播放的时间戳;单位us
 };
 
 

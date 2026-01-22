@@ -231,6 +231,18 @@ int64_t CXAudioPlay::GetCurPts(void)
 	return m_llCurPts;
 }
 
+int CXAudioPlay::Pause(void)
+{
+	SDL_PauseAudio(1);			//‘›Õ£≤•∑≈“Ù∆µ
+	return 0;
+}
+
+int CXAudioPlay::Resume(void)
+{
+	SDL_PauseAudio(0);			//ø™ º≤•∑≈“Ù∆µ
+	return 0;
+}
+
 void CXAudioPlay::Close(void)
 {
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);

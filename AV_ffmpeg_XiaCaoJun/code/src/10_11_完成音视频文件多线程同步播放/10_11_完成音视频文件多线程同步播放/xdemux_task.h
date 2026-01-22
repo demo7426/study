@@ -50,6 +50,13 @@ public:
         return &m_cXDemux;
     }
 
+    /// <summary>
+    /// 获取时长;单位为:us
+    /// </summary>
+    /// <param name=""></param>
+    /// <returns></returns>
+    long long GetDuration(void);
+
 private:
     void Main(void) override;
 

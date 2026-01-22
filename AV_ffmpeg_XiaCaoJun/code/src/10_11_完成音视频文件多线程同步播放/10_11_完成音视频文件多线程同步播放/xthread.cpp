@@ -40,6 +40,19 @@ int CXThread::Start(void)
 	return 0;
 }
 
+int CXThread::Pause(void)
+{
+	m_bIsPause = true;
+
+	return 0;
+}
+
+int CXThread::Resume(void)
+{
+	m_bIsPause = false;
+	return 0;
+}
+
 void CXThread::Stop(void)
 {
 	{

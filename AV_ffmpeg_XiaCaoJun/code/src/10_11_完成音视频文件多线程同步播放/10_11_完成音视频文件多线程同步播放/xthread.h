@@ -35,6 +35,20 @@ public:
 	virtual int Start(void);
 
 	/// <summary>
+	/// 暂停播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	virtual int Pause(void);
+
+	/// <summary>
+	/// 继续播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	virtual int Resume(void);
+
+	/// <summary>
 	/// 停止线程
 	/// </summary>
 	/// <param name=""></param>
@@ -61,6 +75,7 @@ protected:
 
 protected:
 	bool m_IsExit = true;		//线程是否退出标志位;true--退出线程;false--不退出线程
+	std::atomic_bool m_bIsPause = false;	//线程是否暂停;true--暂停;false--恢复运行
 
 	std::mutex m_cMut;
 

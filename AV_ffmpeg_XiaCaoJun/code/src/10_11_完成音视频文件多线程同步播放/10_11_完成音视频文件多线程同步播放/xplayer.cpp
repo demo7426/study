@@ -49,6 +49,8 @@ int CXPlayer::Open(const char* _pURL, void* _pWinID)
 	auto ptAVStream_Video = m_cDemux_Task.GetCXDemux()->GetAVStream_Video();
 	auto ptAVStream_Audio = m_cDemux_Task.GetCXDemux()->GetAVStream_Audio();
 
+	m_llVideoTotalDuration = m_cDemux_Task.GetDuration();
+	
 	CXAudioPlay::GetInstance()->Open(ptAVStream_Audio->codecpar, ptAVStream_Audio->time_base.den / ptAVStream_Audio->time_base.num);
 
 	m_cDemux_Task.Start();
@@ -56,6 +58,25 @@ int CXPlayer::Open(const char* _pURL, void* _pWinID)
 	m_cDecode_Task_Audio.Start();
 
 	return CXThread::Start();
+}
+
+int CXPlayer::Pause(void)
+{
+	CXAudioPlay::GetInstance()->Pause();
+
+	return CXThread::Pause();
+}
+
+int CXPlayer::Resume(void)
+{
+	CXAudioPlay::GetInstance()->Resume();
+
+	return CXThread::Resume();
+}
+
+void CXPlayer::SetPalyRate(float _Rate)
+{
+	CXAudioPlay::GetInstance()->SetPalyRate(_Rate);
 }
 
 int CXPlayer::Close(void)
@@ -106,6 +127,12 @@ void CXPlayer::Main(void)
 			}
 		}
 
+		if (m_bIsPause)			//暂停
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
+		}
+
 		//获取视频
 
 		ptAVFrame = m_cDecode_Task_Video.GetCurAVFrame();
@@ -142,6 +169,8 @@ void CXPlayer::Main(void)
 			m_pcXVideo_View->Init(ptAVFrame->width, ptAVFrame->height, eFmt, nullptr);
 			bInitFlag = true;
 		}
+
+		m_llCurPlayTimestamp = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, { 1, AV_TIME_BASE });
 
 		auto llVideoPtsTrans = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, ptAVStream_Audio->time_base);			//必须将pts统一到音频的时间基数上，才可以正常比较
 		while (llVideoPtsTrans > CXAudioPlay::GetInstance()->GetCurPts())		//保证音画同步

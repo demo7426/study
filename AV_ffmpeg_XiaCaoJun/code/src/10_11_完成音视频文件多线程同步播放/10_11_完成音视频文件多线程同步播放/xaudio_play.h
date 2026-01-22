@@ -149,6 +149,20 @@ public:
 	int64_t GetCurPts(void);
 
 	/// <summary>
+	/// 暂停播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	int Pause(void);
+
+	/// <summary>
+	/// 继续播放
+	/// </summary>
+	/// <param name=""></param>
+	/// <returns></returns>
+	int Resume(void);
+
+	/// <summary>
 	/// 关闭音频播放器，并且释放资源
 	/// </summary>
 	/// <param name=""></param>
@@ -167,6 +181,7 @@ private:
 	double m_dbAudioTimeBaseDescend = 0;							//音频的时间基数倒数
 	int64_t m_llCurPts = 0;											//音频的当前pts
 	std::mutex m_mutPts;											//pts互斥锁
+
 private:
 	/// <summary>
 	/// 音频回调函数，用于静态函数和类方法之间的转换调用

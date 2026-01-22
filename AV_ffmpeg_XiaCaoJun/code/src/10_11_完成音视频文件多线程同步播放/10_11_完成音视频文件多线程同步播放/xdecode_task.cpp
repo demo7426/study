@@ -112,6 +112,12 @@ void CXDecode_Task::Main(void)
 			}
 		}
 
+		if (m_bIsPause)			//ÔÝÍ£
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
+		}
+
 		ptAVPacket = m_cXAVPacket_List.Pop();
 		if (ptAVPacket == nullptr)
 			continue;

@@ -147,6 +147,12 @@ void CXEncode_Mux_Task::Main(void)
 			}
 		}
 
+		if (m_bIsPause)			//ÔÝÍ£
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
+		}
+
 		{
 			std::unique_lock<std::mutex> lock(m_mut);
 			m_cond.wait(lock, [&]() {

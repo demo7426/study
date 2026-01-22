@@ -504,16 +504,34 @@ int Test_02(void)
 	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
 
 	CXPlayer cXPlayer;
+	float fPalyRate = 0;
 
 	while (1)
 	{
 		cXPlayer.Open(pchURL);
+		DEBUG(DEBUG_LEVEL_INFO, "开始播放");
+
+		for (size_t i = 1; i < 3; i++)
+		{
+			fPalyRate = rand() % 4 / 2.0;
+			fPalyRate = fPalyRate == 0 ? 0.5 : fPalyRate;
+
+			cXPlayer.SetPalyRate(fPalyRate);				//设置播放速率
+			DEBUG(DEBUG_LEVEL_INFO, "播放速率 = %.2f倍", fPalyRate);
+
+			getchar();
+			cXPlayer.Pause();
+			DEBUG(DEBUG_LEVEL_INFO, "暂停播放");
+
+			getchar();
+			cXPlayer.Resume();
+			DEBUG(DEBUG_LEVEL_INFO, "继续播放");
+		}
 
 		getchar();
-
 		cXPlayer.Close();
+		DEBUG(DEBUG_LEVEL_INFO, "停止播放");
 	}
-
 
 	return 0;
 }

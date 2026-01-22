@@ -19,6 +19,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavcodec/codec.h>
+#include <libavutil/avutil.h>
 }
 
 #include "xdemux_task.h"
@@ -105,6 +106,20 @@ void CXDemux_Task::SetNext(CXThread* _pcXThread_Video, CXThread* _pcXThread_Audi
 
 }
 
+long long CXDemux_Task::GetDuration(void)
+{
+	auto ptAVStream_Video = m_cXDemux.GetAVStream_Video();
+	auto ptAVStream_Audio = m_cXDemux.GetAVStream_Audio();
+	
+	long long llDurationUs = av_rescale_q(
+		ptAVStream_Video->duration, 
+		ptAVStream_Video->time_base, 
+		{ 1, AV_TIME_BASE }					//AV_TIME_BASE_Q
+	);
+
+	return llDurationUs;
+}
+
 void CXDemux_Task::Main(void)
 {
 	int nRtn = 0;
@@ -119,6 +134,12 @@ void CXDemux_Task::Main(void)
 				DEBUG(DEBUG_LEVEL_INFO, "CXDemux_Task is end");
 				break;
 			}
+		}
+
+		if (m_bIsPause)			//ÔÝÍ£
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			continue;
 		}
 
 		nRtn = m_cXDemux.Read_Frame(&tAVPacket);
