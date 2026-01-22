@@ -44,13 +44,13 @@ do{																													\
 			case DEBUG_LEVEL_OFF:																					\
 					break;                      																	\
 			case DEBUG_LEVEL_FATAL:																					\
-					printf("DEBUG : %s: %s: %u %s:%s\n", __FILE__, __func__, __LINE__, __DATE__, __TIME__); 		\
+					printf("DEBUG : %s: %s: %u %s:%s\n", __FILE__, __FUNCTION__, __LINE__, __DATE__, __TIME__); 		\
 					break;                      																	\
 			case DEBUG_LEVEL_ERROR:																					\
-					printf("DEBUG : %s: %s: %u %s\n", __FILE__, __func__, __LINE__, __DATE__); 						\
+					printf("DEBUG : %s: %s: %u %s\n", __FILE__, __FUNCTION__, __LINE__, __DATE__); 						\
 					break;                      																	\
 			case DEBUG_LEVEL_WARN:																					\
-					printf("DEBUG : %s: %s\n", __FILE__, __func__); 												\
+					printf("DEBUG : %s: %s\n", __FILE__, __FUNCTION__); 												\
 					break;                      																	\
 			case DEBUG_LEVEL_INFO:																					\
 					break;                      																	\

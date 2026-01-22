@@ -96,6 +96,8 @@ public:
 		return m_ptAVCodecContext;
 	}
 
+	void Close(void);
+
 private:
 	struct AVCodecContext* m_ptAVCodecContext = nullptr;				//╠ЮбКфВиообнд
 	AVPacket* m_ptAVPacket = nullptr;

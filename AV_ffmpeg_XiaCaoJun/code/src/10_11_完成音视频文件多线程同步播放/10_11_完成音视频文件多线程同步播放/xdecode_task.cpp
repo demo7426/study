@@ -85,6 +85,16 @@ AVFrame* CXDecode_Task::GetCurAVFrame(void)
 	return m_cAVFrame_List.Pop();
 }
 
+void CXDecode_Task::Close(void)
+{
+	// 清理剩余的AVFrame
+	AVFrame* frame = nullptr;
+	while ((frame = m_cAVFrame_List.Pop()) != nullptr)
+	{
+		av_frame_free(&frame); // 释放结构体
+	}
+}
+
 void CXDecode_Task::Main(void)
 {
 	int nRtn = 0;
@@ -97,7 +107,7 @@ void CXDecode_Task::Main(void)
 			std::lock_guard<std::mutex> lock(m_cMut);
 			if (m_IsExit)
 			{
-				DEBUG(DEBUG_LEVEL_INFO, "CXDemux_Task is end");
+				DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
 				break;
 			}
 		}
@@ -148,4 +158,6 @@ void CXDecode_Task::Main(void)
 		}
 #endif
 	}
+
+	this->Close();
 }

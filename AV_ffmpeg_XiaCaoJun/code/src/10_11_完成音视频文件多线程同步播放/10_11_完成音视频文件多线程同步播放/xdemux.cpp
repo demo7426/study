@@ -30,6 +30,7 @@ extern "C" {
 }
 
 #include "xdemux.h"
+#include "debug.h"
 
 #pragma comment(lib, "avformat.lib")
 #pragma comment(lib, "avcodec.lib")
@@ -113,6 +114,12 @@ int CXDemux::Read_Frame(AVPacket* _pAVPacket)
 
 	m_llLastMs = std::chrono::duration_cast<std::chrono::milliseconds>(cDuration).count();
 
+	if (!m_ptAVFormatContext)
+	{
+		DEBUG(DEBUG_LEVEL_ERROR, "AVFormatContext is nullptr");
+		return -2;
+	}
+
 	nRtn = av_read_frame(m_ptAVFormatContext, _pAVPacket);			//
 	if (nRtn < 0)
 	{
@@ -127,6 +134,9 @@ void CXDemux::Close(void)
 {
 	std::unique_lock<std::mutex> lock(m_mut);
 
-	avformat_close_input(&m_ptAVFormatContext);
-	m_ptAVFormatContext = nullptr;
+	if (m_ptAVFormatContext)
+	{
+		avformat_close_input(&m_ptAVFormatContext);
+		m_ptAVFormatContext = nullptr;
+	}
 }

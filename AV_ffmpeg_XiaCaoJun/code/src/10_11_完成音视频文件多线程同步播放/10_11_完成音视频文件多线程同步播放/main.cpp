@@ -481,11 +481,15 @@ int Test_01(void)
 	cXEncode_Mux_Task.Stop();
 #endif
 
+	CXAudioPlay::GetInstance()->Close();
+	pcXVideo_View->Close();
+
 	if (pcXVideo_View)
 	{
 		delete pcXVideo_View;
 		pcXVideo_View = nullptr;
 	}
+
 
 	return 0;
 }
@@ -501,7 +505,15 @@ int Test_02(void)
 
 	CXPlayer cXPlayer;
 
-	cXPlayer.Start(pchURL);
+	while (1)
+	{
+		cXPlayer.Open(pchURL);
+
+		getchar();
+
+		cXPlayer.Close();
+	}
+
 
 	return 0;
 }

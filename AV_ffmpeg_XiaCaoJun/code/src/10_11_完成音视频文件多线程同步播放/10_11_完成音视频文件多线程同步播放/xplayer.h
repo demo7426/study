@@ -21,30 +21,35 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include "xdecode_task.h"
 #include "xaudio_play.h"
 
-class CXPlayer
+class CXPlayer :public CXThread
 {
 public:
-	CXPlayer() = default;
-	virtual ~CXPlayer() {}
+	using CXThread::CXThread;
+	virtual ~CXPlayer() = default;
 
 	/// <summary>
-	/// 播放对应的数据
+	/// 打开对应的源数据
 	/// </summary>
 	/// <param name="_pURL">rtsp地址/本地文件</param>
     /// <param name="_pWinID">窗口句柄;如果为空,创建新窗口</param>
 	/// <returns>0--成功</returns>
-	int Start(const char* _pURL, void* _pWinID = nullptr);
+	int Open(const char* _pURL, void* _pWinID = nullptr);
 
 	/// <summary>
-	/// 停止播放，并进行资源回收
+	/// 关闭对应的源数据，并进行资源回收
 	/// </summary>
 	/// <param name=""></param>
 	/// <returns>0--成功</returns>
-	int Stop(void);
+	int Close(void);
+
+protected:
+	/// <summary>
+	/// 线程运行函数
+	/// </summary>
+	/// <param name="_pArg"></param>
+	void Main(void) override;
 
 private:
-	std::atomic_bool m_bIsRun = false;
-
 	CXDemux_Task m_cDemux_Task;
 	CXDecode_Task m_cDecode_Task_Video;
 	CXDecode_Task m_cDecode_Task_Audio;

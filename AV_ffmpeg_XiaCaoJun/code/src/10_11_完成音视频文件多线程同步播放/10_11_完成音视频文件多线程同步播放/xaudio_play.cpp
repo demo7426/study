@@ -44,7 +44,7 @@ int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo, double _AudioTimeBa
 
 	if (SDL_Init(SDL_INIT_AUDIO) != 0)			//≥ı ºªØ
 	{
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
 
@@ -65,7 +65,7 @@ int CXAudioPlay::Open(const AUDIO_SPEC_INFO _tAudioSpecInfo, double _AudioTimeBa
 
 	if (SDL_OpenAudio(&tSDL_AudioSpec, nullptr) != 0)
 	{
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 
 		return -2;
 	}
@@ -81,7 +81,7 @@ int CXAudioPlay::Open(AVCodecParameters* _ptPara_Audio, double _AudioTimeBase)
 {
 	if (!_ptPara_Audio)
 	{
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 		return -1;
 	}
 
@@ -111,7 +111,7 @@ int CXAudioPlay::Open(AVCodecParameters* _ptPara_Audio, double _AudioTimeBase)
 		tAudio_Spec_Info.format = AUDIO_F32;
 		break;
 	default:
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 		return -2;
 	}
 
@@ -140,7 +140,7 @@ int CXAudioPlay::Push(AVFrame* _ptAVFrame)
 {
 	if (!_ptAVFrame || !_ptAVFrame->data[0])
 	{
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 		return -1;
 	}
 
@@ -168,7 +168,7 @@ int CXAudioPlay::Push(AVFrame* _ptAVFrame)
 		nSampleSize = 4;
 	break;
 	default:
-		std::cout << __func__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
+		std::cout << __FUNCTION__ << ", " << __LINE__ << ", " << SDL_GetError() << std::endl;
 		return -2;
 	}
 
@@ -235,8 +235,15 @@ void CXAudioPlay::Close(void)
 {
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 
-	std::unique_lock<std::mutex> lock(m_mut);
-	m_deqAudioDataNode.clear();
+	{
+		std::unique_lock<std::mutex> lock(m_mut);
+		m_deqAudioDataNode.clear();
+	}
+
+	{
+		std::unique_lock<std::mutex> lockPts(m_mutPts);
+		m_llCurPts = 0;
+	}
 }
 
 void CXAudioPlay::AudioCallback(void* userdata, uint8_t* stream, int len)

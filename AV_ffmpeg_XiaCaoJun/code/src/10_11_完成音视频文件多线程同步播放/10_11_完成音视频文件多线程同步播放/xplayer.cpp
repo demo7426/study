@@ -26,7 +26,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include "xplayer.h"
 
-int CXPlayer::Start(const char* _pURL, void* _pWinID)
+int CXPlayer::Open(const char* _pURL, void* _pWinID)
 {
 	if (!_pURL || _pURL[0] == '\0')
 	{
@@ -34,22 +34,10 @@ int CXPlayer::Start(const char* _pURL, void* _pWinID)
 		return -1;
 	}
 
-	bool bInitFlag = false;
-	AVFrame* ptAVFrame = nullptr;
-	CXVideo_View::Format eFmt;
-
-	// 记录开始时间点
-	auto cStart_TimePoint = std::chrono::high_resolution_clock::now();
-	auto cEnd_TimePoint = cStart_TimePoint;
-
-	int nFrameCounter = 0;					//帧数计数
-
-	int nFrameRate = 0;						//帧率
-
-	while (m_cDemux_Task.Open(_pURL, 1000) != 0)
+	if (m_cDemux_Task.Open(_pURL, 1000) != 0)
 	{
-		DEBUG(DEBUG_LEVEL_INFO, "重新连接:%s", _pURL);
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		DEBUG(DEBUG_LEVEL_INFO, "%s is not exist", _pURL);
+		return -2;
 	}
 
 	//nFrameRate = GetFrameRate(pchURL);
@@ -67,11 +55,59 @@ int CXPlayer::Start(const char* _pURL, void* _pWinID)
 	m_cDecode_Task_Video.Start();
 	m_cDecode_Task_Audio.Start();
 
-	m_bIsRun = true;
+	return CXThread::Start();
+}
 
-	while (m_bIsRun)
+int CXPlayer::Close(void)
+{
+	m_cDemux_Task.Stop();
+	m_cDecode_Task_Video.Stop();
+	m_cDecode_Task_Audio.Stop();
+
+	CXThread::Stop();
+
+	CXAudioPlay::GetInstance()->Close();
+	m_pcXVideo_View->Close();
+
+	if (m_pcXVideo_View)
 	{
+		delete m_pcXVideo_View;
+		m_pcXVideo_View = nullptr;
+	}
+
+	return 0;
+}
+
+void CXPlayer::Main(void)
+{
+	bool bInitFlag = false;
+	AVFrame* ptAVFrame = nullptr;
+	CXVideo_View::Format eFmt;
+
+	// 记录开始时间点
+	auto cStart_TimePoint = std::chrono::high_resolution_clock::now();
+	auto cEnd_TimePoint = cStart_TimePoint;
+
+	int nFrameCounter = 0;					//帧数计数
+
+	int nFrameRate = 0;						//帧率
+
+	auto ptAVStream_Video = m_cDemux_Task.GetCXDemux()->GetAVStream_Video();
+	auto ptAVStream_Audio = m_cDemux_Task.GetCXDemux()->GetAVStream_Audio();
+
+	while (1)
+	{
+		{
+			std::lock_guard<std::mutex> lock(m_cMut);
+			if (m_IsExit)
+			{
+				DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
+				break;
+			}
+		}
+
 		//获取视频
+
 		ptAVFrame = m_cDecode_Task_Video.GetCurAVFrame();
 		if (!ptAVFrame)
 		{
@@ -99,7 +135,7 @@ int CXPlayer::Start(const char* _pURL, void* _pWinID)
 			default:
 			{
 				DEBUG(DEBUG_LEVEL_INFO, "不支持的编码格式, format = %d", ptAVFrame->format);
-				return -2;
+				return;
 			}
 			}
 
@@ -110,8 +146,14 @@ int CXPlayer::Start(const char* _pURL, void* _pWinID)
 		auto llVideoPtsTrans = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, ptAVStream_Audio->time_base);			//必须将pts统一到音频的时间基数上，才可以正常比较
 		while (llVideoPtsTrans > CXAudioPlay::GetInstance()->GetCurPts())		//保证音画同步
 		{
-			if (!m_bIsRun)
-				break;
+			{
+				std::lock_guard<std::mutex> lock(m_cMut);
+				if (m_IsExit)
+				{
+					DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
+					break;
+				}
+			}
 
 			//获取音频
 			auto ptAVFrameTmp = m_cDecode_Task_Audio.GetCurAVFrame();
@@ -142,36 +184,4 @@ int CXPlayer::Start(const char* _pURL, void* _pWinID)
 			cStart_TimePoint = cEnd_TimePoint;
 		}
 	}
-
-	m_bIsRun = false;
-
-	m_cDemux_Task.Stop();
-	m_cDecode_Task_Video.Stop();
-	m_cDecode_Task_Audio.Stop();
-
-	if (m_pcXVideo_View)
-	{
-		delete m_pcXVideo_View;
-		m_pcXVideo_View = nullptr;
-	}
-
-	return 0;
-}
-
-int CXPlayer::Stop(void)
-{
-	if (m_bIsRun)
-	{
-		m_cDemux_Task.Stop();
-		m_cDecode_Task_Video.Stop();
-		m_cDecode_Task_Audio.Stop();
-
-		if (m_pcXVideo_View)
-		{
-			delete m_pcXVideo_View;
-			m_pcXVideo_View = nullptr;
-		}
-	}
-
-	return 0;
 }

@@ -292,6 +292,8 @@ std::vector<AVFrame*> CXDecode::RecvAll_AVFrameData(void)
 		vecAVFrame.push_back(ptAVFrame_Tmp);
 	}
 
+	this->Close();
+
 	return vecAVFrame;
 }
 
@@ -321,4 +323,13 @@ bool CXDecode::Recv_AVFrame(AVFrame* _pAVFrame)
 		return false;
 
 	return true;
+}
+
+void CXDecode::Close(void)
+{
+	if (m_ptAVCodecContext)
+	{
+		avcodec_free_context(&m_ptAVCodecContext);
+		m_ptAVCodecContext = nullptr;
+	}
 }
