@@ -62,6 +62,9 @@ int CXPlayer::Open(const char* _pURL, void* _pWinID)
 
 int CXPlayer::Pause(void)
 {
+	m_cDecode_Task_Video.Pause();
+	m_cDecode_Task_Audio.Pause();
+
 	CXAudioPlay::GetInstance()->Pause();
 
 	return CXThread::Pause();
@@ -69,14 +72,61 @@ int CXPlayer::Pause(void)
 
 int CXPlayer::Resume(void)
 {
+	m_cDecode_Task_Video.Resume();
+	m_cDecode_Task_Audio.Resume();
+
 	CXAudioPlay::GetInstance()->Resume();
 
 	return CXThread::Resume();
 }
 
+void CXPlayer::SetPalyVolume(uint8_t _Volume)
+{
+	CXAudioPlay::GetInstance()->SetPalyVolume(_Volume);
+}
+
 void CXPlayer::SetPalyRate(float _Rate)
 {
 	CXAudioPlay::GetInstance()->SetPalyRate(_Rate);
+}
+
+int CXPlayer::SetCurPlayTimestamp(long long _Timestamp)
+{
+	int nRtn = 0;
+
+	if (_Timestamp > m_llVideoTotalDuration)
+	{
+		DEBUG(DEBUG_LEVEL_ERROR, "Input parameter is err");
+		return -1;
+	}
+
+	nRtn = this->Pause();
+	if (nRtn != 0)
+	{
+		DEBUG(DEBUG_LEVEL_ERROR, "");
+		return nRtn;
+	}
+
+	m_cDecode_Task_Video.Clear();
+	m_cDecode_Task_Audio.Clear();
+
+	nRtn = m_cDemux_Task.SetCurPlayTimestamp(_Timestamp);
+	if (nRtn != 0)
+	{
+		DEBUG(DEBUG_LEVEL_ERROR, "SetCurPlayTimestamp is err");
+		return nRtn;
+	}
+
+	CXAudioPlay::GetInstance()->Clear();
+
+	nRtn = this->Resume();
+	if (nRtn != 0)
+	{
+		DEBUG(DEBUG_LEVEL_ERROR, "");
+		return nRtn;
+	}
+
+	return 0;
 }
 
 int CXPlayer::Close(void)
@@ -173,7 +223,8 @@ void CXPlayer::Main(void)
 		m_llCurPlayTimestamp = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, { 1, AV_TIME_BASE });
 
 		auto llVideoPtsTrans = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, ptAVStream_Audio->time_base);			//必须将pts统一到音频的时间基数上，才可以正常比较
-		while (llVideoPtsTrans > CXAudioPlay::GetInstance()->GetCurPts())		//保证音画同步
+		auto llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
+		while (llVideoPtsTrans > llAudioPlayPts)		//保证音画同步
 		{
 			{
 				std::lock_guard<std::mutex> lock(m_cMut);
@@ -182,6 +233,12 @@ void CXPlayer::Main(void)
 					DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
 					break;
 				}
+			}
+
+			if (m_bIsPause)			//暂停
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(1));
+				break;
 			}
 
 			//获取音频
@@ -195,6 +252,7 @@ void CXPlayer::Main(void)
 			}
 
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
 			continue;
 		}
 

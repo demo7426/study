@@ -106,6 +106,11 @@ void CXDemux_Task::SetNext(CXThread* _pcXThread_Video, CXThread* _pcXThread_Audi
 
 }
 
+int CXDemux_Task::SetCurPlayTimestamp(long long _Timestamp)
+{
+	return m_cXDemux.SetCurPlayTimestamp(_Timestamp);
+}
+
 long long CXDemux_Task::GetDuration(void)
 {
 	auto ptAVStream_Video = m_cXDemux.GetAVStream_Video();

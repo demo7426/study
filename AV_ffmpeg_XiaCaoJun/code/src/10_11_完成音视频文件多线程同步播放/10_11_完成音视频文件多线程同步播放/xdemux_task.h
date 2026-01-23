@@ -51,6 +51,13 @@ public:
     }
 
     /// <summary>
+    /// 设置当前播放的时间戳
+    /// </summary>
+    /// <param name="">时间戳;单位:us</param>
+    /// <returns></returns>
+    int SetCurPlayTimestamp(long long _Timestamp);
+
+    /// <summary>
     /// 获取时长;单位为:us
     /// </summary>
     /// <param name=""></param>

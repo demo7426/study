@@ -243,10 +243,8 @@ int CXAudioPlay::Resume(void)
 	return 0;
 }
 
-void CXAudioPlay::Close(void)
+void CXAudioPlay::Clear(void)
 {
-	SDL_QuitSubSystem(SDL_INIT_AUDIO);
-
 	{
 		std::unique_lock<std::mutex> lock(m_mut);
 		m_deqAudioDataNode.clear();
@@ -256,6 +254,13 @@ void CXAudioPlay::Close(void)
 		std::unique_lock<std::mutex> lockPts(m_mutPts);
 		m_llCurPts = 0;
 	}
+}
+
+void CXAudioPlay::Close(void)
+{
+	SDL_QuitSubSystem(SDL_INIT_AUDIO);
+
+	this->Clear();
 }
 
 void CXAudioPlay::AudioCallback(void* userdata, uint8_t* stream, int len)

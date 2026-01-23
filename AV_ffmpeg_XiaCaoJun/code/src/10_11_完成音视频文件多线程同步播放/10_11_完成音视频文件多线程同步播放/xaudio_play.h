@@ -163,6 +163,12 @@ public:
 	int Resume(void);
 
 	/// <summary>
+	/// 释放资源
+	/// </summary>
+	/// <param name=""></param>
+	void Clear(void);
+
+	/// <summary>
 	/// 关闭音频播放器，并且释放资源
 	/// </summary>
 	/// <param name=""></param>

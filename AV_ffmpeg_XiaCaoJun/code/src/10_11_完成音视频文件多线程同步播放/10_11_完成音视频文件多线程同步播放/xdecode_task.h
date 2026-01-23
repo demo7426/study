@@ -49,6 +49,15 @@ public:
     /// <returns>nullptr--暂时没有解码出AVFrame对象;</returns>
     AVFrame* GetCurAVFrame(void);
 
+    /// <summary>
+    /// 释放资源
+    /// </summary>
+    void Clear();
+
+    /// <summary>
+    /// 关闭且释放资源
+    /// </summary>
+    /// <param name=""></param>
     void Close(void);
 
     inline CXDecode* GetCXDecode()

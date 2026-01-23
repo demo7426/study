@@ -506,13 +506,16 @@ int Test_02(void)
 	CXPlayer cXPlayer;
 	float fPalyRate = 0;
 
+	srand(time(NULL));
+
 	while (1)
 	{
 		cXPlayer.Open(pchURL);
 		DEBUG(DEBUG_LEVEL_INFO, "开始播放");
 
-		for (size_t i = 1; i < 3; i++)
+		for (size_t i = 1; i < 1000; i++)
 		{
+#if 0
 			fPalyRate = rand() % 4 / 2.0;
 			fPalyRate = fPalyRate == 0 ? 0.5 : fPalyRate;
 
@@ -526,6 +529,16 @@ int Test_02(void)
 			getchar();
 			cXPlayer.Resume();
 			DEBUG(DEBUG_LEVEL_INFO, "继续播放");
+#else
+			long long llTimestamp = 30000000 + rand() % 200 * 1000000;
+
+			std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+			//getchar();
+			cXPlayer.SetCurPlayTimestamp(llTimestamp);
+			DEBUG(DEBUG_LEVEL_INFO, "第 %llu 跳转，跳转播放到 %lld us, ", i, llTimestamp);
+
+#endif
 		}
 
 		getchar();

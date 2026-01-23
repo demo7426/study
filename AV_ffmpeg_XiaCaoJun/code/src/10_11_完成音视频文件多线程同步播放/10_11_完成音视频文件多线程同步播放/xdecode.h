@@ -96,6 +96,9 @@ public:
 		return m_ptAVCodecContext;
 	}
 
+	void Clear(void);
+
+
 	void Close(void);
 
 private:

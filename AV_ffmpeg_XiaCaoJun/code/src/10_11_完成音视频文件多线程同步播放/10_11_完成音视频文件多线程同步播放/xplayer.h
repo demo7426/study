@@ -50,6 +50,12 @@ public:
 	int Resume(void);
 
 	/// <summary>
+	/// 设置音频的播放音量
+	/// </summary>
+	/// <param name="_Volume">音量;数值范围:0~128</param>
+	void SetPalyVolume(uint8_t _Volume);
+
+	/// <summary>
 	/// 设置音频的播放速率
 	/// </summary>
 	/// <param name="_Rate">速率;数值范围:0~10</param>
@@ -66,7 +72,7 @@ public:
 	}
 	
 	/// <summary>
-	/// 虎丘当前播放的时间戳;单位:us
+	/// 获取当前播放的时间戳;单位:us
 	/// </summary>
 	/// <param name=""></param>
 	/// <returns></returns>
@@ -74,6 +80,13 @@ public:
 	{
 		return m_llCurPlayTimestamp;
 	}
+
+	/// <summary>
+	/// 设置当前播放的是时间戳
+	/// </summary>
+	/// <param name="">时间戳;单位:us</param>
+	/// <returns></returns>
+	int SetCurPlayTimestamp(long long _Timestamp);
 
 	/// <summary>
 	/// 关闭对应的源数据，并进行资源回收

@@ -85,14 +85,40 @@ AVFrame* CXDecode_Task::GetCurAVFrame(void)
 	return m_cAVFrame_List.Pop();
 }
 
-void CXDecode_Task::Close(void)
+void CXDecode_Task::Clear()
 {
+	for (;;)
+	{
+		auto ptAVPacket = m_cXAVPacket_List.Pop();
+		if (ptAVPacket == nullptr)
+			break;
+
+		av_packet_unref(ptAVPacket);
+		av_packet_free(&ptAVPacket);		//释放之前 av_packet_alloc 分配出的对象
+	}
+
+	auto vecAVFrame = m_cXDeCode.RecvAll_AVFrameData();
+
+	for (auto var : vecAVFrame)
+	{
+		m_cAVFrame_List.Push(var);
+	}
+
 	// 清理剩余的AVFrame
 	AVFrame* frame = nullptr;
 	while ((frame = m_cAVFrame_List.Pop()) != nullptr)
 	{
 		av_frame_free(&frame); // 释放结构体
 	}
+
+	m_cXDeCode.Clear();
+}
+
+void CXDecode_Task::Close(void)
+{
+	this->Clear();
+
+	m_cXDeCode.Close();
 }
 
 void CXDecode_Task::Main(void)

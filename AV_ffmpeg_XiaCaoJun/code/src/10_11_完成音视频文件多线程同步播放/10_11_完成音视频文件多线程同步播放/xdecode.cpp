@@ -292,8 +292,6 @@ std::vector<AVFrame*> CXDecode::RecvAll_AVFrameData(void)
 		vecAVFrame.push_back(ptAVFrame_Tmp);
 	}
 
-	this->Close();
-
 	return vecAVFrame;
 }
 
@@ -325,8 +323,18 @@ bool CXDecode::Recv_AVFrame(AVFrame* _pAVFrame)
 	return true;
 }
 
+void CXDecode::Clear(void)
+{
+	std::unique_lock<std::mutex> lock(m_mut);
+
+	if(m_ptAVCodecContext)
+		avcodec_flush_buffers(m_ptAVCodecContext);
+}
+
 void CXDecode::Close(void)
 {
+	this->Clear();
+
 	if (m_ptAVCodecContext)
 	{
 		avcodec_free_context(&m_ptAVCodecContext);

@@ -130,6 +130,27 @@ int CXDemux::Read_Frame(AVPacket* _pAVPacket)
 	return 0;
 }
 
+int CXDemux::SetCurPlayTimestamp(long long _Timestamp)
+{
+	int nRtn = 0;
+
+	std::unique_lock<std::mutex> lock(m_mut);
+
+	if (m_ptAVFormatContext)
+	{
+		auto pts = av_rescale_q(_Timestamp, { 1, AV_TIME_BASE }, m_ptAVStream_Video->time_base);
+
+		/*移除AVSEEK_FLAG_FRAME：该 flag 仅用于「按帧索引 seek」（比如直接定位到第 100 帧），而你是按时间戳 seek，使用该 flag 会导致 seek 逻辑错误；
+			保留AVSEEK_FLAG_BACKWARD + 不添加AVSEEK_FLAG_ANY：这是保证 seek 到关键帧的核心 ——FFmpeg 默认（不加AVSEEK_FLAG_ANY）会自动定位到目标 PTS 之前最近的关键帧。*/
+		//nRtn = av_seek_frame(m_ptAVFormatContext, m_ptAVStream_Video->index, pts, (int)AVSEEK_FLAG_FRAME | (int)AVSEEK_FLAG_BACKWARD);
+		nRtn = av_seek_frame(m_ptAVFormatContext, m_ptAVStream_Video->index, pts, AVSEEK_FLAG_BACKWARD);
+
+		PrintErr(nRtn);
+	}
+
+	return nRtn;
+}
+
 void CXDemux::Close(void)
 {
 	std::unique_lock<std::mutex> lock(m_mut);
