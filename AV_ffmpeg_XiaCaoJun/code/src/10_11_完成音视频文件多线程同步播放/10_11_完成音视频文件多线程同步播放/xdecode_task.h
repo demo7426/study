@@ -74,6 +74,8 @@ private:
     CXAVPacket_List m_cXAVPacket_List;      //解码后的AVPacket数据
 
     CXList<AVFrame> m_cAVFrame_List;        //解码后的AVFrame数据
+
+    uint32_t m_unTimeoutCounter = 0;       //超时计数
 };
 
 

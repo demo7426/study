@@ -72,6 +72,13 @@ void CXDecode_Task::DoNext(AVPacket* _ptAVPacket)
 
 	while (m_cAVFrame_List.Size() >= XPUBLIC_DEMUX_MAX_NODE_NUM)						//反压，控制程序占用的ddr大小
 	{
+		//处理在跳转播放进度时，写音频数据-获取视频数据会互相锁死的问题
+		if (++m_unTimeoutCounter >= 10)													
+		{
+			m_unTimeoutCounter = 0;
+			break;
+		}
+
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 		continue;
 	}
