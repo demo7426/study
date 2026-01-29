@@ -16,6 +16,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <iostream>
 #include <chrono>
+#include <mutex>
 
 #include "xencode.h"
 #include "xdecode.h"
@@ -25,6 +26,10 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include "debug.h"
 
 #include "xplayer.h"
+
+extern "C" {
+#include <libavutil/time.h>
+}
 
 int CXPlayer::Open(const char* _pURL, void* _pWinID)
 {
@@ -51,7 +56,8 @@ int CXPlayer::Open(const char* _pURL, void* _pWinID)
 
 	m_llVideoTotalDuration = m_cDemux_Task.GetDuration();
 	
-	CXAudioPlay::GetInstance()->Open(ptAVStream_Audio->codecpar, ptAVStream_Audio->time_base.den / ptAVStream_Audio->time_base.num);
+	if(ptAVStream_Audio)
+		CXAudioPlay::GetInstance()->Open(ptAVStream_Audio->codecpar, ptAVStream_Audio->time_base.den / ptAVStream_Audio->time_base.num);
 
 	m_cDemux_Task.Start();
 	m_cDecode_Task_Video.Start();
@@ -65,17 +71,34 @@ int CXPlayer::Pause(void)
 	m_cDecode_Task_Video.Pause();
 	m_cDecode_Task_Audio.Pause();
 
+	//如果暂停解封装线程，会影响到进度跳转功能
+	//std::this_thread::sleep_for(std::chrono::milliseconds(300));
+	//m_cDemux_Task.Pause();
+
 	CXAudioPlay::GetInstance()->Pause();
+
+	m_llPuaseDurationUs = av_gettime_relative();
 
 	return CXThread::Pause();
 }
 
 int CXPlayer::Resume(void)
 {
+	//m_cDemux_Task.Resume();
+
 	m_cDecode_Task_Video.Resume();
 	m_cDecode_Task_Audio.Resume();
 
 	CXAudioPlay::GetInstance()->Resume();
+
+	m_llPuaseDurationUs = av_gettime_relative() - m_llPuaseDurationUs;
+
+	{	
+		//补上暂停的时间，否则会导致一瞬间刷新几百帧图像
+
+		std::unique_lock<std::mutex> lock(m_mut);
+		m_llStartTimeUs += m_llPuaseDurationUs;
+	}
 
 	return CXThread::Resume();
 }
@@ -88,6 +111,22 @@ void CXPlayer::SetPalyVolume(uint8_t _Volume)
 void CXPlayer::SetPalyRate(float _Rate)
 {
 	CXAudioPlay::GetInstance()->SetPalyRate(_Rate);
+
+	std::unique_lock<std::mutex> lock(m_mut);
+	//if (m_fPlayRate > _Rate)
+	//{
+	//	m_llPlayRateDurationUs = av_gettime_relative() - m_llPlayRateDurationUs;
+
+	//	m_llStartTimeUs += m_llPlayRateDurationUs;
+	//}
+	//else if (m_fPlayRate < _Rate)
+	//{
+	//	m_llPlayRateDurationUs = av_gettime_relative() - m_llPlayRateDurationUs;
+
+	//	m_llStartTimeUs -= m_llPlayRateDurationUs;		//将之前减慢的时间流逝消除掉
+	//}
+
+	m_fPlayRate = _Rate;
 }
 
 int CXPlayer::SetCurPlayTimestamp(long long _Timestamp)
@@ -118,6 +157,11 @@ int CXPlayer::SetCurPlayTimestamp(long long _Timestamp)
 	}
 
 	CXAudioPlay::GetInstance()->Clear();
+
+	{
+		std::unique_lock<std::mutex> lock(m_mut);
+		m_llStartTimeUs = av_gettime_relative() - _Timestamp;
+	}
 
 	nRtn = this->Resume();
 	if (nRtn != 0)
@@ -166,6 +210,9 @@ void CXPlayer::Main(void)
 	auto ptAVStream_Video = m_cDemux_Task.GetCXDemux()->GetAVStream_Video();
 	auto ptAVStream_Audio = m_cDemux_Task.GetCXDemux()->GetAVStream_Audio();
 
+	m_llStartTimeUs = av_gettime_relative();
+	m_llPlayRateDurationUs = m_llStartTimeUs;
+
 	while (1)
 	{
 		{
@@ -175,12 +222,12 @@ void CXPlayer::Main(void)
 				DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
 				break;
 			}
-		}
 
-		if (m_bIsPause)			//暂停
-		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
-			continue;
+			if (m_bIsPause)			//暂停
+			{
+				std::this_thread::sleep_for(std::chrono::milliseconds(1));
+				continue;
+			}
 		}
 
 		//获取视频
@@ -222,39 +269,67 @@ void CXPlayer::Main(void)
 
 		m_llCurPlayTimestamp = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, { 1, AV_TIME_BASE });
 
-		auto llVideoPtsTrans = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, ptAVStream_Audio->time_base);			//必须将pts统一到音频的时间基数上，才可以正常比较
-		auto llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
-		while (llVideoPtsTrans > llAudioPlayPts)		//保证音画同步
+		int64_t llVideoPtsTrans = 0;
+		int64_t llAudioPlayPts = 0;
+
+		if (ptAVStream_Audio)		//如果存在音频则使用音频同步，否则使用纯视频同步
 		{
+			llVideoPtsTrans = av_rescale_q(ptAVFrame->pts, ptAVStream_Video->time_base, ptAVStream_Audio->time_base);			//必须将pts统一到音频的时间基数上，才可以正常比较
+			llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
+
+			while (llVideoPtsTrans > llAudioPlayPts)		//保证音画同步
 			{
-				std::lock_guard<std::mutex> lock(m_cMut);
-				if (m_IsExit)
 				{
-					DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
+					std::lock_guard<std::mutex> lock(m_cMut);
+					if (m_IsExit)
+					{
+						DEBUG(DEBUG_LEVEL_INFO, "%s is end", __FUNCTION__);
+						break;
+					}
+				}
+
+				if (m_bIsPause)			//暂停
+				{
+					std::this_thread::sleep_for(std::chrono::milliseconds(1));
 					break;
 				}
-			}
 
-			if (m_bIsPause)			//暂停
-			{
+				//获取音频
+				auto ptAVFrameTmp = m_cDecode_Task_Audio.GetCurAVFrame();
+				if (ptAVFrameTmp)
+				{
+					CXAudioPlay::GetInstance()->Push(ptAVFrameTmp);
+
+					av_frame_unref(ptAVFrameTmp);
+					av_frame_free(&ptAVFrameTmp);
+				}
+
 				std::this_thread::sleep_for(std::chrono::milliseconds(1));
-				break;
+				llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
+				continue;
 			}
-
-			//获取音频
-			auto ptAVFrameTmp = m_cDecode_Task_Audio.GetCurAVFrame();
-			if (ptAVFrameTmp)
-			{
-				CXAudioPlay::GetInstance()->Push(ptAVFrameTmp);
-
-				av_frame_unref(ptAVFrameTmp);
-				av_frame_free(&ptAVFrameTmp);
-			}
-
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
-			llAudioPlayPts = CXAudioPlay::GetInstance()->GetCurPts();
-			continue;
 		}
+		else							//使用纯视频同步
+		{
+			double llElapsedUs = 0;		//时间间隙;单位:us
+
+			llVideoPtsTrans = ptAVFrame->pts;
+
+			std::unique_lock<std::mutex> lock(m_mut);
+
+			while (llVideoPtsTrans > llAudioPlayPts)							//纯视频同步
+			{
+				llElapsedUs = av_gettime_relative() - m_llStartTimeUs;
+				llElapsedUs = llElapsedUs < 0 ? 0 : llElapsedUs;				//防止系统时间跳变导致已流逝时间为负
+				llElapsedUs *= m_fPlayRate;										//支持倍速播放
+
+				llAudioPlayPts = llElapsedUs / AV_TIME_BASE * (ptAVStream_Video->time_base.den / ptAVStream_Video->time_base.num);
+
+				std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			}
+		}
+
+		//DEBUG(DEBUG_LEVEL_INFO, "llVideoPtsTrans = %d, llAudioPlayPts = %d", llVideoPtsTrans, llAudioPlayPts);
 
 		m_pcXVideo_View->DrawFrame(ptAVFrame);
 		av_frame_unref(ptAVFrame);

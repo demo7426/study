@@ -501,7 +501,8 @@ int Test_01(void)
 /// <returns></returns>
 int Test_02(void)
 {
-	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";						//媒体文件
+	//const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头.mp4";							//媒体文件
+	const char* pchURL = "G.E.M.邓紫棋 - 夜的尽头_only_video.mp4";						//媒体文件
 
 	CXPlayer cXPlayer;
 	float fPalyRate = 0;
@@ -515,7 +516,7 @@ int Test_02(void)
 
 		for (size_t i = 1; i < 1000; i++)
 		{
-#if 0
+#if 1
 			fPalyRate = rand() % 4 / 2.0;
 			fPalyRate = fPalyRate == 0 ? 0.5 : fPalyRate;
 

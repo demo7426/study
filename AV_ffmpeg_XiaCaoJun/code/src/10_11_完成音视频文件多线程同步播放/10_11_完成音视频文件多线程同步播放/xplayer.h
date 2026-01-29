@@ -111,6 +111,14 @@ private:
 
 	long long m_llVideoTotalDuration = 0;						//视频总时长;单位us
 	std::atomic_int64_t m_llCurPlayTimestamp = 0;				//当前播放的时间戳;单位us
+
+	std::mutex m_mut;
+	int64_t m_llStartTimeUs = 0;
+
+	int64_t m_llPuaseDurationUs = 0;							//暂停->恢复所持续的时间
+	int64_t m_llPlayRateDurationUs = 0;							//播放速率在转换后需要补充的时间
+
+	float m_fPlayRate = 1;										//播放速率
 };
 
 

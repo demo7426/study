@@ -74,7 +74,7 @@ protected:
 	virtual void Main(void) = 0;
 
 protected:
-	bool m_IsExit = true;		//线程是否退出标志位;true--退出线程;false--不退出线程
+	bool m_IsExit = true;					//线程是否退出标志位;true--退出线程;false--不退出线程
 	std::atomic_bool m_bIsPause = false;	//线程是否暂停;true--暂停;false--恢复运行
 
 	std::mutex m_cMut;

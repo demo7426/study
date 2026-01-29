@@ -17,6 +17,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #include <iostream>
 
 #include "xdecode.h"
+#include "debug.h"
 
 extern "C" {
 #include <libavcodec/avcodec.h>
@@ -236,6 +237,12 @@ std::vector<AVFrame*> CXDecode::RecvAll_AVFrameData(void)
 
 	std::unique_lock<std::mutex> lock(m_mut);
 	
+	if (!m_ptAVCodecContext)
+	{
+		DEBUG(DEBUG_LEVEL_INFO, "%s: m_ptAVCodecContext = nullptr", __FUNCTION__);
+		return vecAVFrame;
+	}
+
 	//解码
 	//发送编码后的数据到线程中解码
 	nRtn = avcodec_send_packet(m_ptAVCodecContext, NULL);

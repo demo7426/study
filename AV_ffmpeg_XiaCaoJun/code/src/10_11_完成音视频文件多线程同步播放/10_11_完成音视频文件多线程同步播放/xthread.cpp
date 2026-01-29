@@ -42,6 +42,7 @@ int CXThread::Start(void)
 
 int CXThread::Pause(void)
 {
+	std::lock_guard<std::mutex> lock(m_cMut);
 	m_bIsPause = true;
 
 	return 0;
@@ -49,7 +50,9 @@ int CXThread::Pause(void)
 
 int CXThread::Resume(void)
 {
+	std::lock_guard<std::mutex> lock(m_cMut);
 	m_bIsPause = false;
+
 	return 0;
 }
 
