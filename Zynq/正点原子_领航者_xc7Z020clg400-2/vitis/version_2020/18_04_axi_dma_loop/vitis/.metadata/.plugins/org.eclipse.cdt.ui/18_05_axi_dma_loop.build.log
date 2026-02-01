@@ -1,0 +1,7 @@
+11:08:32 **** Clean-only build of configuration Debug for project 18_05_axi_dma_loop ****
+make clean 
+rm -rf  ./src/main.o  ./src/main.d  18_05_axi_dma_loop.elf.size  18_05_axi_dma_loop.elf
+' '
+
+11:08:32 Build Finished (took 205ms)
+

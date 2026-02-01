@@ -1,0 +1,9 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Debugger_xaxidma_example_simple_intr_1-Default,org.eclipse.launchbar.core.descriptorType.default\:Debugger_18_05_axi_dma_loop-Default
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_18_05_axi_dma_loop-Default/activeLaunchMode=embdebug
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_18_05_axi_dma_loop-Default/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_xaxidma_example_simple_intr_1-Default/activeLaunchMode=embrun
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_xaxidma_example_simple_intr_1-Default/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

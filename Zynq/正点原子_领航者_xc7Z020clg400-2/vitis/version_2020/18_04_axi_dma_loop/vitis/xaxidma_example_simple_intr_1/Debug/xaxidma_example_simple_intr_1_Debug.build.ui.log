@@ -1,0 +1,7 @@
+2026-02-01T11:08:28.165772800255-11:08:28 **** Clean-only build of configuration Debug for project xaxidma_example_simple_intr_1 ****
+000-make clean 
+000-rm -rf  ./src/xaxidma_example_simple_intr.o  ./src/xaxidma_example_simple_intr.d  xaxidma_example_simple_intr_1.elf.size  xaxidma_example_simple_intr_1.elf
+000-' '
+00255-
+11:08:28 Build Finished (took 263ms)
+
