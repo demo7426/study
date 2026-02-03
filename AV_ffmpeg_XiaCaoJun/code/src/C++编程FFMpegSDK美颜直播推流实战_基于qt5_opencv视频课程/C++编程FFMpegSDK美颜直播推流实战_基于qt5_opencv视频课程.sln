@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_02_初始化封装和网络库打开音视频流并打印调试信息", "03_02_初始化封装和网络库打开音视频流并打印调试信息\03_02_初始化封装和网络库打开音视频流并打印调试信息.vcxproj", "{0F50C73E-ED97-42D1-B2BE-A534027F59A7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_02_windows上创建opencv示例项目", "04_02_windows上创建opencv示例项目\04_02_windows上创建opencv示例项目.vcxproj", "{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_03_遍历修改连续的Mat图像空间", "04_03_遍历修改连续的Mat图像空间\04_03_遍历修改连续的Mat图像空间.vcxproj", "{A9A1D371-2547-424A-97D9-F04F4D94E2AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_01_opencv播放rtsp海康摄像头和播放系统摄像头", "05_01_opencv播放rtsp海康摄像头和播放系统摄像头\05_01_opencv播放rtsp海康摄像头和播放系统摄像头.vcxproj", "{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,30 @@ Global
 		{0F50C73E-ED97-42D1-B2BE-A534027F59A7}.Release|x64.Build.0 = Release|x64
 		{0F50C73E-ED97-42D1-B2BE-A534027F59A7}.Release|x86.ActiveCfg = Release|Win32
 		{0F50C73E-ED97-42D1-B2BE-A534027F59A7}.Release|x86.Build.0 = Release|Win32
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Debug|x64.ActiveCfg = Debug|x64
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Debug|x64.Build.0 = Debug|x64
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Debug|x86.ActiveCfg = Debug|Win32
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Debug|x86.Build.0 = Debug|Win32
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Release|x64.ActiveCfg = Release|x64
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Release|x64.Build.0 = Release|x64
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Release|x86.ActiveCfg = Release|Win32
+		{6C8BE7BC-BA0B-4CD5-ACF1-5EA4A076F3EF}.Release|x86.Build.0 = Release|Win32
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Debug|x64.ActiveCfg = Debug|x64
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Debug|x64.Build.0 = Debug|x64
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Debug|x86.ActiveCfg = Debug|Win32
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Debug|x86.Build.0 = Debug|Win32
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Release|x64.ActiveCfg = Release|x64
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Release|x64.Build.0 = Release|x64
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Release|x86.ActiveCfg = Release|Win32
+		{A9A1D371-2547-424A-97D9-F04F4D94E2AC}.Release|x86.Build.0 = Release|Win32
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Debug|x64.ActiveCfg = Debug|x64
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Debug|x64.Build.0 = Debug|x64
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Debug|x86.ActiveCfg = Debug|Win32
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Debug|x86.Build.0 = Debug|Win32
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x64.ActiveCfg = Release|x64
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x64.Build.0 = Release|x64
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x86.ActiveCfg = Release|Win32
+		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
