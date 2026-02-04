@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_03_遍历修改连续的
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_01_opencv播放rtsp海康摄像头和播放系统摄像头", "05_01_opencv播放rtsp海康摄像头和播放系统摄像头\05_01_opencv播放rtsp海康摄像头和播放系统摄像头.vcxproj", "{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_02_opencv获取摄像头的原始数据_并手动转换为YUV420P格式", "05_02_opencv获取摄像头的原始数据_并手动转换为YUV420P格式\05_02_opencv获取摄像头的原始数据_并手动转换为YUV420P格式.vcxproj", "{E328D9D2-667F-4FE9-B30D-39932897CB3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x64.Build.0 = Release|x64
 		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x86.ActiveCfg = Release|Win32
 		{62D31107-6DA1-45BC-A8D6-4E06BDF5BCAE}.Release|x86.Build.0 = Release|Win32
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Debug|x64.ActiveCfg = Debug|x64
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Debug|x64.Build.0 = Debug|x64
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Debug|x86.ActiveCfg = Debug|Win32
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Debug|x86.Build.0 = Debug|Win32
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Release|x64.ActiveCfg = Release|x64
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Release|x64.Build.0 = Release|x64
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Release|x86.ActiveCfg = Release|Win32
+		{E328D9D2-667F-4FE9-B30D-39932897CB3F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
