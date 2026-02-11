@@ -1,0 +1,30 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名: main.c
+作    者: 钱锐      版本: V0.1.0     新建日期: 2026.01.30
+描    述: 实现一个播放类
+备    注:
+修改记录:
+
+  1. 日期: 2026.01.30
+	  作者: 钱锐
+	  内容:
+		  1) 此为模板第一个版本；
+	  版本:V0.1.0
+
+*************************************************/
+
+#include <stdio.h>
+#include "platform.h"
+#include "xil_printf.h"
+
+
+int main()
+{
+    init_platform();
+
+    print("Hello World\n\r");
+    print("Successfully ran Hello World application");
+    cleanup_platform();
+    return 0;
+}

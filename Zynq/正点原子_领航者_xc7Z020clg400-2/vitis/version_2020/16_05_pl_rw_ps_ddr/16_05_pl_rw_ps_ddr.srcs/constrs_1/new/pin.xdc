@@ -1,0 +1,6 @@
+set_property PACKAGE_PIN H15 [get_ports compare_done]
+set_property PACKAGE_PIN L15 [get_ports error_tag]
+set_property PACKAGE_PIN L14 [get_ports key_init]
+set_property IOSTANDARD LVCMOS33 [get_ports compare_done]
+set_property IOSTANDARD LVCMOS33 [get_ports error_tag]
+set_property IOSTANDARD LVCMOS33 [get_ports key_init]

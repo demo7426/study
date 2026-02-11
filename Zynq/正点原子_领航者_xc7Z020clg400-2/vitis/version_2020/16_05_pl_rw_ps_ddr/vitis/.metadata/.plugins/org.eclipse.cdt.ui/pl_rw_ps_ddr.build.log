@@ -1,0 +1,7 @@
+13:49:43 **** Clean-only build of configuration Debug for project pl_rw_ps_ddr ****
+make clean 
+rm -rf  ./src/main.o ./src/platform.o  ./src/main.d ./src/platform.d  pl_rw_ps_ddr.elf.size  pl_rw_ps_ddr.elf
+' '
+
+13:49:43 Build Finished (took 173ms)
+
