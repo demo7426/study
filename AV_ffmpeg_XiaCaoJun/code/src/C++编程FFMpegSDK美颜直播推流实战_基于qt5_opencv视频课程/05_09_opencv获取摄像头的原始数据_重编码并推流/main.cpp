@@ -48,7 +48,8 @@ static void PrintErr(int _ErrCode)
 int main()
 {
 	int nRtn = 0;
-	std::string strSrcUrl = "rtsp://admin:level@12@10.0.0.170:554/Stream";
+	//std::string strSrcUrl = "rtsp://admin:level@12@10.0.0.170:554/Stream";
+	std::string strSrcUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
 	const std::string strWinName = "video";
 	std::string strDesUrl = "rtsp://127.0.0.1:8554/output";			//输出url
 
