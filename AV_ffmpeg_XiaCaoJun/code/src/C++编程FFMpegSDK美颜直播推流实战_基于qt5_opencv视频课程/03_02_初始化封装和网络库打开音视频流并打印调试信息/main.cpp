@@ -230,7 +230,7 @@ int Test01()
 {
 	int nRtn = 0;
 	//const char* pchInUrl = "../01-斗地主项目介绍.mp4";											//输入文件
-	const char* pchInUrl = "../G.E.M.邓紫棋 - 夜的尽头.mp4";											//输入文件
+	const char* pchInUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
 	const char* pchOutUrl = "rtmp://127.0.0.1:1935/live/test";									//输出文件；rtmp url必须是 rtmp://server/app/stream_name
 	//const char* pchOutUrl = "rtsp://127.0.0.1:8554/test";										//输出文件	
 
@@ -634,6 +634,6 @@ int Test02()
 
 int main()
 {
-	return Test02();
+	return Test01();
 }
 

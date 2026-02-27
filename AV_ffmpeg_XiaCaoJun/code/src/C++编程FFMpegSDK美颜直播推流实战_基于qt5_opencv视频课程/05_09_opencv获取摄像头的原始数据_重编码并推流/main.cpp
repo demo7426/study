@@ -128,6 +128,7 @@ int main()
 
 		ptAVCodecContext->bit_rate = 1000000;	// 码率：1Mbps（可根据需求调整）
 		ptAVCodecContext->gop_size = 10;		// 每10帧一个I帧
+		ptAVCodecContext->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;	//GLOBAL_HEADER 是为了让编码参数（SPS/PPS）脱离帧流，放入封装头部，以适配非裸流封装格式
 		ptAVCodecContext->max_b_frames = 1;		// B帧数量
 		ptAVCodecContext->qmin = 18;			// 最小量化值
 		ptAVCodecContext->qmax = 40;			// 最大量化值

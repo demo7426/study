@@ -17,6 +17,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_09_opencv获取摄像头
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_03_Qt音频录制接口讲解并编写录制音频程序", "06_03_Qt音频录制接口讲解并编写录制音频程序\06_03_Qt音频录制接口讲解并编写录制音频程序.vcxproj", "{8504C9AD-F5C7-4139-BD07-30B985D95BB5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_05_音频重采样空间分配并完成重采样", "06_05_音频重采样空间分配并完成重采样\06_05_音频重采样空间分配并完成重采样.vcxproj", "{47A6ACDE-F756-430F-8E4D-86572059FA25}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_06_音频编码器创建和参数配置", "06_06_音频编码器创建和参数配置\06_06_音频编码器创建和参数配置.vcxproj", "{7A56655D-4894-4D16-94B6-E83AA638FE0B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_08_完成音视频推流并测试", "06_08_完成音视频推流并测试\06_08_完成音视频推流并测试.vcxproj", "{2F74157E-7BA7-4C40-9BD0-6289682A38AA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_15_完成编码器_封装器接口封装", "05_15_完成编码器_封装器接口封装\05_15_完成编码器_封装器接口封装.vcxproj", "{95149587-6D94-40D9-9B46-8DFFC409CA0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +89,38 @@ Global
 		{8504C9AD-F5C7-4139-BD07-30B985D95BB5}.Release|x64.Build.0 = Release|x64
 		{8504C9AD-F5C7-4139-BD07-30B985D95BB5}.Release|x86.ActiveCfg = Release|x64
 		{8504C9AD-F5C7-4139-BD07-30B985D95BB5}.Release|x86.Build.0 = Release|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Debug|x64.ActiveCfg = Debug|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Debug|x64.Build.0 = Debug|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Debug|x86.ActiveCfg = Debug|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Debug|x86.Build.0 = Debug|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Release|x64.ActiveCfg = Release|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Release|x64.Build.0 = Release|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Release|x86.ActiveCfg = Release|x64
+		{47A6ACDE-F756-430F-8E4D-86572059FA25}.Release|x86.Build.0 = Release|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Debug|x64.ActiveCfg = Debug|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Debug|x64.Build.0 = Debug|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Debug|x86.ActiveCfg = Debug|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Debug|x86.Build.0 = Debug|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Release|x64.ActiveCfg = Release|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Release|x64.Build.0 = Release|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Release|x86.ActiveCfg = Release|x64
+		{7A56655D-4894-4D16-94B6-E83AA638FE0B}.Release|x86.Build.0 = Release|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Debug|x64.ActiveCfg = Debug|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Debug|x64.Build.0 = Debug|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Debug|x86.ActiveCfg = Debug|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Debug|x86.Build.0 = Debug|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Release|x64.ActiveCfg = Release|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Release|x64.Build.0 = Release|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Release|x86.ActiveCfg = Release|x64
+		{2F74157E-7BA7-4C40-9BD0-6289682A38AA}.Release|x86.Build.0 = Release|x64
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Debug|x64.ActiveCfg = Debug|x64
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Debug|x64.Build.0 = Debug|x64
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Debug|x86.Build.0 = Debug|Win32
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Release|x64.ActiveCfg = Release|x64
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Release|x64.Build.0 = Release|x64
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Release|x86.ActiveCfg = Release|Win32
+		{95149587-6D94-40D9-9B46-8DFFC409CA0B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
