@@ -23,6 +23,8 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 
 #include <iostream>
 #include <mutex>
+#include <regex>
+#include <stdexcept>
 
 extern "C"
 {
@@ -93,6 +95,26 @@ void releaseFFmpegResources(SwrContext* swrCtx, AVCodecContext* codecCtx)
 	}
 }
 
+// 提取RTSP字符串的函数
+std::string ExtractRtmpRtspUrl(const std::string& input_str) {
+	// 正则表达式说明：
+	// ^rtsp://  匹配以rtsp://开头
+	// .+        匹配任意字符（至少一个），覆盖IP、端口、路径等部分
+	// $         匹配字符串结尾
+	std::regex rtsp_regex(R"(^(rtsp|rtmp)://.+$)");
+	std::smatch match_result;
+
+	// 执行正则匹配
+	if (std::regex_match(input_str, match_result, rtsp_regex)) {
+		// match_result[0] 是整个匹配到的字符串
+		return match_result[1].str();
+	}
+	else {
+		return std::string();
+	}
+}
+
+
 int main(int argc, char* argv[])
 {
 	enumerateAudioInputDevices();
@@ -104,8 +126,11 @@ int main(int argc, char* argv[])
 	int nSampleByte = 2;				//采样大小;单位:字节
 
 	int nNbSamples = 1024;
-
+	
+	//std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";									//输出文件；rtmp url必须是 rtmp://server/app/stream_name
 	std::string strDesUrl = "rtsp://127.0.0.1:8554/output";			//输出url
+
+	std::string strUrlHeader = ExtractRtmpRtspUrl(strDesUrl);
 
 	//qt音频录制
 	QAudioFormat cAudioFmt;
@@ -196,16 +221,35 @@ int main(int argc, char* argv[])
 
 	AVFormatContext* ptAVFormatContext = nullptr;
 
-	nRtn = avformat_alloc_output_context2(&ptAVFormatContext, nullptr, "rtsp", strDesUrl.data());
-	if (nRtn)
+
+	if (strUrlHeader == "rtsp")
 	{
-		throw std::exception("avformat_alloc_output_context2 is err");
+		nRtn = avformat_alloc_output_context2(&ptAVFormatContext, nullptr, "rtsp", strDesUrl.data());
+	}
+	else if (strUrlHeader == "rtmp")
+	{
+		nRtn = avformat_alloc_output_context2(&ptAVFormatContext, nullptr, "flv", strDesUrl.data());
+	}
+	else
+	{
+		nRtn = avformat_alloc_output_context2(&ptAVFormatContext, nullptr, nullptr, strDesUrl.data());
 	}
 
 	AVStream* ptAVStream = avformat_new_stream(ptAVFormatContext, nullptr);
 	if (!ptAVStream)
 	{
 		throw std::exception("avformat_new_stream is err");
+	}
+
+	if (strUrlHeader != "rtsp")
+	{
+		//打开输出IO
+		nRtn = avio_open(&ptAVFormatContext->pb, strDesUrl.data(), AVIO_FLAG_WRITE);
+		if (nRtn < 0)
+		{
+			std::cout << "avio_open is err" << std::endl;
+			return -2;
+		}
 	}
 
 	//复制配置信息
@@ -218,20 +262,12 @@ int main(int argc, char* argv[])
 	//打印输出封装信息
 	av_dump_format(ptAVFormatContext, 0, strDesUrl.data(), 1);
 
-	AVDictionary* opt = nullptr;
-
-	// 强制使用 TCP 推流（推荐）
-	av_dict_set(&opt, "rtsp_transport", "tcp", 0);
-
-	// 最大延迟
-	av_dict_set(&opt, "max_delay", "500000", 0);
-
 	//写入文件头
-	nRtn = avformat_write_header(ptAVFormatContext, &opt);
-	av_dict_free(&opt);
+	nRtn = avformat_write_header(ptAVFormatContext, nullptr);
 	if (nRtn < 0)
 	{
-		throw std::exception("avformat_write_header is err");
+		qDebug() << "avformat_write_header is err";
+		return -2;
 	}
 
 	QObject::connect(pcIODevice, &QIODevice::readyRead, [pcIODevice]() {
