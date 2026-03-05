@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_12_完成音频推流接
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_05_封装音频_视频采集接口", "07_05_封装音频_视频采集接口\07_05_封装音频_视频采集接口.vcxproj", "{0D8ECF7B-2CCC-4CAB-9B3E-8A15B2FA8400}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_02_opencv双边滤波磨皮算法调用并测试性能", "08_02_opencv双边滤波磨皮算法调用并测试性能\08_02_opencv双边滤波磨皮算法调用并测试性能.vcxproj", "{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{0D8ECF7B-2CCC-4CAB-9B3E-8A15B2FA8400}.Release|x64.Build.0 = Release|x64
 		{0D8ECF7B-2CCC-4CAB-9B3E-8A15B2FA8400}.Release|x86.ActiveCfg = Release|x64
 		{0D8ECF7B-2CCC-4CAB-9B3E-8A15B2FA8400}.Release|x86.Build.0 = Release|x64
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Debug|x64.ActiveCfg = Debug|x64
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Debug|x64.Build.0 = Debug|x64
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Debug|x86.ActiveCfg = Debug|Win32
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Debug|x86.Build.0 = Debug|Win32
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Release|x64.ActiveCfg = Release|x64
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Release|x64.Build.0 = Release|x64
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Release|x86.ActiveCfg = Release|Win32
+		{49BF9D26-FF8D-4D8C-8C49-8ECAC2A9FCEA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
