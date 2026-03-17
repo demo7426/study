@@ -41,6 +41,7 @@ extern "C"
 #include "libavcodec/avcodec.h"
 #include "libswscale/swscale.h"
 #include "libavcodec/codec.h"
+#include "libavutil/time.h"
 }
 
 #pragma comment(lib, "swresample.lib")
@@ -254,7 +255,7 @@ static int VideoRecord_PushStream(int argc, char* argv[])
 	std::string strSrcUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
 	const std::string strWinName = "video";
 	//std::string strDesUrl = "rtsp://127.0.0.1:8554/output";				//输出url
-	std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";;			//输出url
+	std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";			//输出url
 
 	cv::Mat cMat;
 	cv::VideoCapture cVideoCapture;
@@ -277,8 +278,8 @@ static int VideoRecord_PushStream(int argc, char* argv[])
 
 	try
 	{
-		if (!cVideoCapture.open(strSrcUrl))										//打开对应的流
-			//if (!cVideoCapture.open(0))										//打开对应的摄像头
+		//if (!cVideoCapture.open(strSrcUrl))										//打开对应的流
+		if (!cVideoCapture.open(0))										//打开对应的摄像头
 		{
 			throw std::exception("open is err");
 		}
@@ -449,7 +450,7 @@ static int AVRecord_PushStream(int argc, char* argv[])
 	std::string strSrcUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
 	//const std::string strWinName = "video";
 	//std::string strDesUrl = "rtsp://127.0.0.1:8554/output";				//输出url
-	std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";;			//输出url
+	std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";			//输出url
 
 	cv::Mat cMat;
 	cv::VideoCapture cVideoCapture;
@@ -592,6 +593,8 @@ static int AVRecord_PushStream(int argc, char* argv[])
 	}
 
 	std::thread thAudio([&]() {
+		int64_t llStartTimeUs = 0;					//开始us
+		int64_t llCurTimeUs = 0;					//当前的us
 		AVPacket* ptAVPacket = nullptr;
 
 		AVFrame* ptAVFrame_Video = av_frame_alloc();
@@ -601,67 +604,65 @@ static int AVRecord_PushStream(int argc, char* argv[])
 			return -2;
 		}
 
+#ifdef _AUDIO
+		AVFrame* ptAVFrame_Audio = av_frame_alloc();
+		ptAVFrame_Audio->format = AV_SAMPLE_FMT_FLTP;
+		ptAVFrame_Audio->channels = nChannels;
+		ptAVFrame_Audio->channel_layout = av_get_default_channel_layout(nChannels);
+		ptAVFrame_Audio->nb_samples = nNbSamples;		//一帧音频一通道的采样数量
+
+		nRtn = av_frame_get_buffer(ptAVFrame_Audio, 0);
+		if (nRtn)
+		{
+			qDebug() << "av_frame_get_buffer failed";
+			PrintErr(nRtn);
+			return -2;
+		}
+#endif
+
+		llStartTimeUs = av_gettime_relative();
+
 		while (g_bRunning)
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
 #ifdef _AUDIO
-			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize))
-				continue;
-
-			AVFrame* ptAVFrame = av_frame_alloc();
-			ptAVFrame->format = AV_SAMPLE_FMT_FLTP;
-			ptAVFrame->channels = nChannels;
-			ptAVFrame->channel_layout = av_get_default_channel_layout(nChannels);
-			ptAVFrame->nb_samples = nNbSamples;		//一帧音频一通道的采样数量
-
-			nRtn = av_frame_get_buffer(ptAVFrame, 0);
-			if (nRtn)
+			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize) == 0)
 			{
-				qDebug() << "av_frame_get_buffer failed";
-				PrintErr(nRtn);
-				return -2;
+				const uint8_t* uchInData[AV_NUM_DATA_POINTERS] = { nullptr };
+				uchInData[0] = (const uint8_t*)chAudioBuf.get();
+
+				//重采样这一帧源数据
+				int nSwrConvertLen = swr_convert(ptSwrContext,
+					ptAVFrame_Audio->data, ptAVFrame_Audio->nb_samples,			//输出参数
+					uchInData, ptAVFrame_Audio->nb_samples				//输入参数
+				);
+				//std::cout << nSwrConvertLen << " ";
+
+				ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame_Audio);
+				if (ptAVPacket)
+				{
+					std::cout << "a：size=" << ptAVPacket->size << ", pts=" << ptAVPacket->pts << "\n";
+
+					//写入音视频帧，会自动av_packet_unref(&tAVPacket_Demux)
+					ptAVPacket->stream_index = 1;
+					nRtn = cSMux.Write_Packet(ptAVPacket);
+					if (nRtn != 0)
+					{
+						std::cout << "# ";
+					}
+
+					//av_packet_unref(&tAVPacket);
+				}
+
 			}
 
-			const uint8_t* uchInData[AV_NUM_DATA_POINTERS] = { nullptr };
-			uchInData[0] = (const uint8_t*)chAudioBuf.get();
-
-			//重采样这一帧源数据
-			int nSwrConvertLen = swr_convert(ptSwrContext,
-				ptAVFrame->data, ptAVFrame->nb_samples,			//输出参数
-				uchInData, ptAVFrame->nb_samples				//输入参数
-			);
-			//std::cout << nSwrConvertLen << " ";
-
-			ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame);
-			if (!ptAVPacket)
-			{
-				av_packet_free(&ptAVPacket);
-				ptAVPacket = nullptr;
-				continue;
-			}
-
-			std::cout << "a：size=" << ptAVPacket->size << ", pts=" << ptAVPacket->pts << "\n";
-
-			//写入音视频帧，会自动av_packet_unref(&tAVPacket_Demux)
-			ptAVPacket->stream_index = 1;
-			nRtn = cSMux.Write_Packet(ptAVPacket);
-			if (nRtn != 0)
-			{
-				std::cout << "# ";
-				continue;
-			}
-
-			//av_packet_unref(&tAVPacket);
-
-			av_frame_unref(ptAVFrame);
-
-			av_frame_free(&ptAVFrame);
-			ptAVFrame = nullptr;
 #endif
 
 			if (!cVideoCapture.grab())					//获取当前帧
 				continue;
+
+			llCurTimeUs = av_gettime_relative();
 
 			//对当前帧进行解码操作
 			//cMat的数据为解码后BGR24格式的原始数据，可以理解为AVFrame
@@ -701,6 +702,7 @@ static int AVRecord_PushStream(int argc, char* argv[])
 				ptAVFrame_Video->linesize
 			);
 
+			ptAVFrame_Video->pts = llCurTimeUs - llStartTimeUs;
 			ptAVPacket = cSVideoEncode.SendFrame(ptAVFrame_Video);
 			if (!ptAVPacket)		//发送未压缩数据到线程中压缩
 			{
@@ -737,6 +739,14 @@ static int AVRecord_PushStream(int argc, char* argv[])
 		}
 
 #ifdef _AUDIO
+		if (ptAVFrame_Audio)
+		{
+			av_frame_unref(ptAVFrame_Audio);
+
+			av_frame_free(&ptAVFrame_Audio);
+			ptAVFrame_Audio = nullptr;
+		}
+		
 		cSVideoEncode.Close();
 		cSMux.Close();
 #endif

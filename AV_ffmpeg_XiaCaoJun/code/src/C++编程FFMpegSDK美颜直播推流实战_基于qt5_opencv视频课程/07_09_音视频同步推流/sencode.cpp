@@ -59,7 +59,7 @@ int CSVideoEncode::Open(int _Width, int _Height, int _FrameRate, SAVPixelFormat 
 
 	m_ptAVCodecContext->width = _Width;
 	m_ptAVCodecContext->height = _Height;
-	m_ptAVCodecContext->time_base = { 1, _FrameRate };
+	m_ptAVCodecContext->time_base = { 1, AV_TIME_BASE };			//使用微秒时间基数进行推流
 	m_ptAVCodecContext->pix_fmt = (AVPixelFormat)_PixFmt;
 
 	m_ptAVCodecContext->bit_rate = 1000000;		// 码率：1Mbps（可根据需求调整）
@@ -204,8 +204,8 @@ CSVideoEncode::CSVideoEncode()
 
 AVPacket* CSVideoEncode::SendFrame(AVFrame* _pAVFrame)
 {
-	_pAVFrame->pts = m_llPts;
-	m_llPts += 1;
+	/*_pAVFrame->pts = m_llPts;
+	m_llPts += 1;*/
 
 	return CSEncode::SendFrame(_pAVFrame);
 }
