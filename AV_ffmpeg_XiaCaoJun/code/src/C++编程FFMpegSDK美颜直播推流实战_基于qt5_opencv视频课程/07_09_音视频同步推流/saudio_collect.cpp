@@ -117,6 +117,7 @@ int CSAudio_Collect_Qt::GetData(char* _pBuf, int _BufSize, int64_t& _TimeStamp)
 
 	if(m_cDeqCollectAudioInfo.empty() || m_nDeqCollectAudioInfo_Sum < _BufSize)		//缓冲区数据不足，不可以取出当前数据
 	{
+		//qDebug() << __func__ << ", not exist audio data.";
 		return -3;
 	}
 

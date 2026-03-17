@@ -211,7 +211,7 @@ static int AudioRecord_PushStream(int argc, char* argv[])
 			);
 			//std::cout << nSwrConvertLen << " ";
 
-			ptAVFrame->pts = llCurTimeUs - llStartTimeUs;
+			//ptAVFrame->pts = llCurTimeUs - llStartTimeUs;
 			ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame);
 			if (!ptAVPacket)
 			{
@@ -451,10 +451,11 @@ static int AVRecord_PushStream(int argc, char* argv[])
 {
 	int nRtn = 0;
 	//std::string strSrcUrl = "rtsp://admin:level@12@10.0.0.170:554/Stream";
-	std::string strSrcUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
+	//std::string strSrcUrl = "D:/BaiduNetdiskDownload/mksz279-2022年经典再升级-FFmpeg5.0核心技术精讲，打造音视频播放器【完结】/{1}--第1章学习指南【课程提供200+问题与答案库】/[1.1]--1-2FFmpeg5.0-课程导学【瑞客论坛 www.ruike1.com】.mp4";
+	std::string strSrcUrl = "D:/BaiduNetdiskDownload/大丙-学习视频/【爱编程的大炳】欢乐斗地主游戏【项目】/1.视频/01-斗地主项目介绍.mp4";
 	//const std::string strWinName = "video";
-	//std::string strDesUrl = "rtsp://127.0.0.1:8554/output";				//输出url
-	std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";			//输出url
+	std::string strDesUrl = "rtsp://127.0.0.1:8554/output";				//输出url
+	//std::string strDesUrl = "rtmp://127.0.0.1:1935/live/test";			//输出url
 
 	cv::Mat cMat;
 	cv::VideoCapture cVideoCapture;
@@ -530,8 +531,8 @@ static int AVRecord_PushStream(int argc, char* argv[])
 	}
 #endif // _AUDIO
 
-	if (!cVideoCapture.open(strSrcUrl))										//打开对应的流
-	//if (!cVideoCapture.open(0))										//打开对应的摄像头
+	//if (!cVideoCapture.open(strSrcUrl))										//打开对应的流
+	if (!cVideoCapture.open(0))										//打开对应的摄像头
 	{
 		qDebug() << __func__ << "open is err";
 		return -2;
@@ -596,19 +597,12 @@ static int AVRecord_PushStream(int argc, char* argv[])
 		return -2;
 	}
 
-	std::thread thAudio([&]() {
-		int64_t llStartTimeUs = 0;					//开始us
-		int64_t llCurTimeUs = 0;					//当前的us
-		AVPacket* ptAVPacket = nullptr;
-
-		AVFrame* ptAVFrame_Video = av_frame_alloc();
-		if (!ptAVFrame_Video)
-		{
-			std::cout << "av_frame_alloc is err" << std::endl;
-			return -2;
-		}
+	int64_t llStartTimeUs = av_gettime_relative();					//开始的us
 
 #ifdef _AUDIO
+	std::thread thAudio([&]() {
+		int64_t llCurTimeUs = 0;						//当前的us
+
 		AVFrame* ptAVFrame_Audio = av_frame_alloc();
 		ptAVFrame_Audio->format = AV_SAMPLE_FMT_FLTP;
 		ptAVFrame_Audio->channels = nChannels;
@@ -622,16 +616,11 @@ static int AVRecord_PushStream(int argc, char* argv[])
 			PrintErr(nRtn);
 			return -2;
 		}
-#endif
-
-		llStartTimeUs = av_gettime_relative();
 
 		while (g_bRunning)
 		{
-			//全力推流，不要加延时
-			//std::this_thread::sleep_for(std::chrono::milliseconds(1));		
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-#ifdef _AUDIO
 			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize, llCurTimeUs) == 0)
 			{
 				const uint8_t* uchInData[AV_NUM_DATA_POINTERS] = { nullptr };
@@ -644,7 +633,7 @@ static int AVRecord_PushStream(int argc, char* argv[])
 				);
 				//std::cout << nSwrConvertLen << " ";
 
-				ptAVFrame_Audio->pts = llCurTimeUs - llStartTimeUs;
+				//ptAVFrame_Audio->pts = llCurTimeUs - llStartTimeUs;
 				ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame_Audio);
 				if (ptAVPacket)
 				{
@@ -658,12 +647,30 @@ static int AVRecord_PushStream(int argc, char* argv[])
 						std::cout << "# ";
 					}
 
+					av_packet_free(&ptAVPacket);
+					ptAVPacket = nullptr;
 					//av_packet_unref(&tAVPacket);
 				}
 
 			}
-
+		}
+		});
 #endif
+
+	std::thread thVideo([&]() {
+		int64_t llCurTimeUs = 0;						//当前的us
+		AVPacket* ptAVPacket = nullptr;
+
+		AVFrame* ptAVFrame_Video = av_frame_alloc();
+		if (!ptAVFrame_Video)
+		{
+			std::cout << "av_frame_alloc is err" << std::endl;
+			return -2;
+		}
+
+		while (g_bRunning)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(1));		
 
 			if (!cVideoCapture.grab())					//获取当前帧
 				continue;
@@ -744,18 +751,8 @@ static int AVRecord_PushStream(int argc, char* argv[])
 			}
 		}
 
-#ifdef _AUDIO
-		if (ptAVFrame_Audio)
-		{
-			av_frame_unref(ptAVFrame_Audio);
-
-			av_frame_free(&ptAVFrame_Audio);
-			ptAVFrame_Audio = nullptr;
-		}
-		
 		cSVideoEncode.Close();
 		cSMux.Close();
-#endif
 
 		if (ptAVFrame_Video)
 		{

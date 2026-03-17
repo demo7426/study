@@ -59,7 +59,7 @@ int CSVideoEncode::Open(int _Width, int _Height, int _FrameRate, SAVPixelFormat 
 
 	m_ptAVCodecContext->width = _Width;
 	m_ptAVCodecContext->height = _Height;
-	m_ptAVCodecContext->time_base = { 1, AV_TIME_BASE };			//使用微秒时间基数进行推流
+	m_ptAVCodecContext->time_base = { 1, _FrameRate };			//使用微秒时间基数进行推流
 	m_ptAVCodecContext->pix_fmt = (AVPixelFormat)_PixFmt;
 
 	m_ptAVCodecContext->bit_rate = 1000000;		// 码率：1Mbps（可根据需求调整）
@@ -206,7 +206,15 @@ AVPacket* CSVideoEncode::SendFrame(AVFrame* _pAVFrame)
 {
 	/*_pAVFrame->pts = m_llPts;
 	m_llPts += 1;*/
-	_pAVFrame->pts += av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
+ 	_pAVFrame->pts = av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
+
+	if (m_llLastPts >= _pAVFrame->pts)
+	{
+		m_llLastPts += 1;
+		_pAVFrame->pts = m_llLastPts;
+	}
+	else
+		m_llLastPts = _pAVFrame->pts;
 
 	return CSEncode::SendFrame(_pAVFrame);
 }
@@ -237,12 +245,12 @@ int CSAudioEncode::Open(int _SampleRate, int _Channels)
 
 AVPacket* CSAudioEncode::SendFrame(AVFrame* _pAVFrame)
 {
-	//_pAVFrame->pts = m_llPts;
-
+	_pAVFrame->pts = m_llPts;
 	{
 		std::unique_lock<std::mutex> lock(m_mut);
-		//_pAVFrame->pts = av_rescale_q(_pAVFrame->nb_samples, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
-		_pAVFrame->pts = av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
+		m_llPts += av_rescale_q(_pAVFrame->nb_samples, { 1, m_ptAVCodecContext->sample_rate }, m_ptAVCodecContext->time_base);
+
+		//_pAVFrame->pts = av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
 	}
 
 	return CSEncode::SendFrame(_pAVFrame);

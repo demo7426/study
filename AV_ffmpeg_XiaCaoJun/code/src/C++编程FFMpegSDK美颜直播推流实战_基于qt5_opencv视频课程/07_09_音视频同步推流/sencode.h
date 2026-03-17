@@ -112,6 +112,7 @@ public:
 
 private:
 	int64_t m_llPts = 0;
+	int64_t m_llLastPts = 0;			//上一次的pts值
 };
 
 class CSAudioEncode: public CSEncode
