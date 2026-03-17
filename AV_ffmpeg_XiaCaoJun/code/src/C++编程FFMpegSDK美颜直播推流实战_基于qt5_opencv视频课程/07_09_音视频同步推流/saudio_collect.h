@@ -17,6 +17,7 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #pragma once
 
 #include <mutex>
+#include <deque>
 
 class QAudioInput;
 class QIODevice;
@@ -48,8 +49,9 @@ public:
 	/// </summary>
 	/// <param name="_pBuf">缓冲区</param>
 	/// <param name="_BufSize">缓冲区大小;(只有>=_BufSize时，才能成功取走数据)</param>
+	/// <param name="_TimeStamp">当前帧采集时的时间戳;单位:us</param>
 	/// <returns>-3--当前有效数据小于_BufSize;-2--失败;-1--参数错误;0--成功</returns>
-	virtual int GetData(char* _pBuf, int _BufSize) = 0;
+	virtual int GetData(char* _pBuf, int _BufSize, int64_t& _TimeStamp) = 0;
 
 	/// <summary>
 	/// 停止采集
@@ -57,20 +59,23 @@ public:
 	/// <returns></returns>
 	virtual int Stop() = 0;
 
-private:
+protected:
 	/// <summary>
 	/// 采集的音频信息
 	/// </summary>
 	typedef struct _COLLECT_AUDIO_INFO
 	{
-		char CollectAudioBuf[64 * 1024];		//采集的音频缓冲
-		int BufValidLen;						//采集音频缓冲的有效长度
-		std::mutex MutCollectAudioBuf;
+		std::vector<uint8_t> Data;				//数据
+		int32_t StartIndex;						//数据的起始索引
+		int64_t Pts;							//pts
 	}COLLECT_AUDIO_INFO, * PCOLLECT_AUDIO_INFO;
 
 protected:
-	COLLECT_AUDIO_INFO m_tCollectAudioInfo;
+	std::mutex m_cMutCollectAudioBuf;
+	std::deque<COLLECT_AUDIO_INFO> m_cDeqCollectAudioInfo;
+	int m_nDeqCollectAudioInfo_Sum = 0;			//音频总数据大小
 
+	static constexpr int m_nMaxDeqSize = 1024;	//队列最大节点数量
 };
 
 class CSAudio_Collect_Qt : public CSAudio_Collect
@@ -99,8 +104,9 @@ public:
 	/// </summary>
 	/// <param name="_pBuf">缓冲区</param>
 	/// <param name="_BufSize">缓冲区大小;(只有>=_BufSize时，才能成功取走数据)</param>
+	/// <param name="_TimeStamp">当前帧采集时的时间戳;单位:us</param>
 	/// <returns>-3--当前有效数据小于_BufSize;-2--失败;-1--参数错误;0--成功</returns>
-	int GetData(char* _pBuf, int _BufSize) override;
+	int GetData(char* _pBuf, int _BufSize, int64_t& _TimeStamp) override;
 
 	/// <summary>
 	/// 停止采集

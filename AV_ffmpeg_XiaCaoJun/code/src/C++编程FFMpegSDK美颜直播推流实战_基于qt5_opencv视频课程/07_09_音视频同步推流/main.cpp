@@ -172,7 +172,10 @@ static int AudioRecord_PushStream(int argc, char* argv[])
 		qDebug() << __func__ << ", avformat_write_header failed";
 		return -2;
 	}
-	
+
+	int64_t llStartTimeUs = av_gettime_relative(); 
+	int64_t llCurTimeUs = 0;
+
 	std::thread th([&]() {
 		int64_t llPts = 0;
 		AVPacket* ptAVPacket = nullptr;
@@ -181,7 +184,7 @@ static int AudioRecord_PushStream(int argc, char* argv[])
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize))
+			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize, llCurTimeUs))
 				continue;
 
 			AVFrame* ptAVFrame = av_frame_alloc();
@@ -208,6 +211,7 @@ static int AudioRecord_PushStream(int argc, char* argv[])
 			);
 			//std::cout << nSwrConvertLen << " ";
 
+			ptAVFrame->pts = llCurTimeUs - llStartTimeUs;
 			ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame);
 			if (!ptAVPacket)
 			{
@@ -624,10 +628,11 @@ static int AVRecord_PushStream(int argc, char* argv[])
 
 		while (g_bRunning)
 		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
+			//全力推流，不要加延时
+			//std::this_thread::sleep_for(std::chrono::milliseconds(1));		
 
 #ifdef _AUDIO
-			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize) == 0)
+			if (pcSAudio_Collect->GetData(chAudioBuf.get(), nAudioFrameSize, llCurTimeUs) == 0)
 			{
 				const uint8_t* uchInData[AV_NUM_DATA_POINTERS] = { nullptr };
 				uchInData[0] = (const uint8_t*)chAudioBuf.get();
@@ -639,6 +644,7 @@ static int AVRecord_PushStream(int argc, char* argv[])
 				);
 				//std::cout << nSwrConvertLen << " ";
 
+				ptAVFrame_Audio->pts = llCurTimeUs - llStartTimeUs;
 				ptAVPacket = cSAudioEncode.SendFrame(ptAVFrame_Audio);
 				if (ptAVPacket)
 				{

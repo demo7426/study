@@ -206,6 +206,7 @@ AVPacket* CSVideoEncode::SendFrame(AVFrame* _pAVFrame)
 {
 	/*_pAVFrame->pts = m_llPts;
 	m_llPts += 1;*/
+	_pAVFrame->pts += av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
 
 	return CSEncode::SendFrame(_pAVFrame);
 }
@@ -236,11 +237,12 @@ int CSAudioEncode::Open(int _SampleRate, int _Channels)
 
 AVPacket* CSAudioEncode::SendFrame(AVFrame* _pAVFrame)
 {
-	_pAVFrame->pts = m_llPts;
+	//_pAVFrame->pts = m_llPts;
 
 	{
 		std::unique_lock<std::mutex> lock(m_mut);
-		m_llPts += av_rescale_q(_pAVFrame->nb_samples, { 1, m_ptAVCodecContext->sample_rate }, m_ptAVCodecContext->time_base);
+		//_pAVFrame->pts = av_rescale_q(_pAVFrame->nb_samples, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
+		_pAVFrame->pts = av_rescale_q(_pAVFrame->pts, { 1, AV_TIME_BASE }, m_ptAVCodecContext->time_base);
 	}
 
 	return CSEncode::SendFrame(_pAVFrame);
