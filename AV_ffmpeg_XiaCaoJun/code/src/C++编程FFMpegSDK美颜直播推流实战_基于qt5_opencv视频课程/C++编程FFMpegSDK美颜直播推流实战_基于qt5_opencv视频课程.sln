@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_02_opencv双边滤波磨
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_09_音视频同步推流", "07_09_音视频同步推流\07_09_音视频同步推流.vcxproj", "{002FE38B-2684-4585-8316-5EAD572EDD75}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_04_直播框架添加美颜磨皮", "08_04_直播框架添加美颜磨皮\08_04_直播框架添加美颜磨皮.vcxproj", "{A21CE6D5-69A2-4C46-8860-52942D32F497}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{002FE38B-2684-4585-8316-5EAD572EDD75}.Release|x64.Build.0 = Release|x64
 		{002FE38B-2684-4585-8316-5EAD572EDD75}.Release|x86.ActiveCfg = Release|x64
 		{002FE38B-2684-4585-8316-5EAD572EDD75}.Release|x86.Build.0 = Release|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Debug|x64.ActiveCfg = Debug|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Debug|x64.Build.0 = Debug|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Debug|x86.ActiveCfg = Debug|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Debug|x86.Build.0 = Debug|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Release|x64.ActiveCfg = Release|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Release|x64.Build.0 = Release|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Release|x86.ActiveCfg = Release|x64
+		{A21CE6D5-69A2-4C46-8860-52942D32F497}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
