@@ -2,7 +2,7 @@
 Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 文件名:	main.cpp
 作  者:	钱锐      版本: V0.1.0     新建日期: 2026.03.18
-描  述: 图像的读取和显示
+描  述: 图像色彩空间转换
 备  注: 使用的是opencv4.12.0版本
 修改记录:
 
@@ -32,8 +32,8 @@ int main()
 		return -1;
 	}
 
-	cv::Mat cMatHSV;			//hsv图像
 	cv::Mat cMatGray;			//gray图像
+	cv::Mat cMatHSV;			//hsv图像
 
 	cv::cvtColor(cMat, cMatHSV, cv::ColorConversionCodes::COLOR_BGR2HSV);
 	cv::cvtColor(cMat, cMatGray, cv::ColorConversionCodes::COLOR_BGR2GRAY);
@@ -51,6 +51,9 @@ int main()
 	cv::imshow(strWinName, cMat);
 	cv::imshow(strWinNameGray, cMatGray);
 	cv::imshow(strWinNameHSV, cMatHSV);
+
+	cv::imwrite("./灰度图.png", cMatGray);
+	cv::imwrite("./色调-饱和度-亮度图.png", cMatHSV);
 
 	cv::waitKey(0);
 
