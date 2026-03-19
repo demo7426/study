@@ -654,6 +654,23 @@ static int AVRecord_PushStream(int argc, char* argv[])
 
 			}
 		}
+
+		auto vecAVPacket = cSAudioEncode.RecvAll_AVPacketData();			//接收残留的所有数据
+		for (auto it : vecAVPacket)
+		{
+			std::cout << it->size << " ";
+
+			cSMux.Write_Packet(it);
+
+			if (it)
+			{
+				av_packet_free(&it);
+				it = nullptr;
+			}
+		}
+
+		cSAudioEncode.Close();
+
 		});
 #endif
 
@@ -672,7 +689,7 @@ static int AVRecord_PushStream(int argc, char* argv[])
 		cv::Mat cMatProc;		//过滤后的图像数据
 		std::shared_ptr<CSFilter> pcSFilter(new CSBilateralFilter);
 
-		pcSFilter->SetValue(9);
+		pcSFilter->SetValue(6);
 
 		while (g_bRunning)
 		{
@@ -780,12 +797,22 @@ static int AVRecord_PushStream(int argc, char* argv[])
 		});
 
 #ifdef _AUDIO
-	return pcSAudio_Collect->Start();
+	pcSAudio_Collect->Start();
 #else
 	while (1) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 #endif
+
+	if (ptSwsContext)
+	{
+		sws_freeContext(ptSwsContext);
+		ptSwsContext = nullptr;
+	}
+
+	cSMux.Close();
+
+	return 0;
 }
 
 
