@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_图像色彩空间转换
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_图像对象的创建与赋值", "03_图像对象的创建与赋值\03_图像对象的创建与赋值.vcxproj", "{AC34A8F8-12E4-4E22-A9A0-B02CE023712E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_图像像素的读写操作", "04_图像像素的读写操作\04_图像像素的读写操作.vcxproj", "{EB442612-15E8-4023-A2D2-2015DDA4D37A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05_图像像素的算术操作", "05_图像像素的算术操作\05_图像像素的算术操作.vcxproj", "{E040D05E-92ED-4D13-8D81-E83799B2AE52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +45,22 @@ Global
 		{AC34A8F8-12E4-4E22-A9A0-B02CE023712E}.Release|x64.Build.0 = Release|x64
 		{AC34A8F8-12E4-4E22-A9A0-B02CE023712E}.Release|x86.ActiveCfg = Release|Win32
 		{AC34A8F8-12E4-4E22-A9A0-B02CE023712E}.Release|x86.Build.0 = Release|Win32
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Debug|x64.ActiveCfg = Debug|x64
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Debug|x64.Build.0 = Debug|x64
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Debug|x86.Build.0 = Debug|Win32
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Release|x64.ActiveCfg = Release|x64
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Release|x64.Build.0 = Release|x64
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Release|x86.ActiveCfg = Release|Win32
+		{EB442612-15E8-4023-A2D2-2015DDA4D37A}.Release|x86.Build.0 = Release|Win32
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Debug|x64.ActiveCfg = Debug|x64
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Debug|x64.Build.0 = Debug|x64
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Debug|x86.ActiveCfg = Debug|Win32
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Debug|x86.Build.0 = Debug|Win32
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Release|x64.ActiveCfg = Release|x64
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Release|x64.Build.0 = Release|x64
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Release|x86.ActiveCfg = Release|Win32
+		{E040D05E-92ED-4D13-8D81-E83799B2AE52}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
