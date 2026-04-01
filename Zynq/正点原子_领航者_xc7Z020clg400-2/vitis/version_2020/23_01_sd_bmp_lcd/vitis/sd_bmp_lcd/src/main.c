@@ -201,17 +201,5 @@ int main()
 		sleep(1);
 	};
 
-	if(puchBuf_00)
-	{
-		free(puchBuf_00);
-		puchBuf_00 = NULL;
-	}
-
-	if(puchBuf_01)
-	{
-		free(puchBuf_01);
-		puchBuf_01 = NULL;
-	}
-
 	return 0;
 }
