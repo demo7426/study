@@ -1,0 +1,7 @@
+16:23:11 **** Clean-only build of configuration Debug for project sd_bmp_lcd ****
+make clean 
+rm -rf  ./src/vdma_api/vdma_api.o  ./src/display_ctrl/display_ctrl.o  ./src/clk_wiz/clk_wiz.o  ./src/main.o  ./src/vdma_api/vdma_api.d  ./src/display_ctrl/display_ctrl.d  ./src/clk_wiz/clk_wiz.d  ./src/main.d  sd_bmp_lcd.elf.size  sd_bmp_lcd.elf
+' '
+
+16:23:12 Build Finished (took 131ms)
+
