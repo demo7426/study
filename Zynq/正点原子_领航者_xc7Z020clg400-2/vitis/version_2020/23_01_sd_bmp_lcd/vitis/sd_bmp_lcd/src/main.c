@@ -32,40 +32,20 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #define LCD_HEIGHT 			480							//lcd屏幕的高度
 #define LCD_PIXEL_CHANNELS	3							//lcd通道数量
 
-
-
 //挂载SD卡
-static int Mount_SD(FATFS *_pFatFS, const char* _pPath)
+static int Mount_SD()
 {
-	BYTE uchWork[FF_MAX_SS] = { 0 };		//fatfs读写文件自己内部使用的缓冲
-
-	if(!_pFatFS || !_pPath)
-	{
-		xil_printf("%s: input param is err.\r\n", __FUNCTION__);
-		return -1;
-	}
+	static FATFS tFatFS = { 0 };						//注意FATFS对象不能被销毁，fatfs后台后续会使用这个对象的
+	const char* pchPath = "0:";
 
 	FRESULT eRes = FR_OK;
 
 	//立即挂载
-	eRes = f_mount(_pFatFS, _pPath, 1);
+	eRes = f_mount(&tFatFS, pchPath, 1);
 	if(eRes != FR_OK)
 	{
-		//挂载失败，格式设备，重新挂载
-		eRes = f_mkfs(_pPath, FM_FAT32, 0, uchWork, sizeof(uchWork));
-		if(eRes != FR_OK)
-		{
-			xil_printf("%s: f_mkfs is failed.\r\n", __FUNCTION__);
-			return -2;
-		}
-
-		//重新挂载设备
-		eRes = f_mount(_pFatFS, _pPath, 1);
-		if(eRes != FR_OK)
-		{
-			xil_printf("%s: f_mount is failed.\r\n", __FUNCTION__);
-			return -2;
-		}
+		xil_printf("%s: f_mount is failed.\r\n", __FUNCTION__);
+		return -2;
 	}
 
 	return 0;
@@ -74,9 +54,6 @@ static int Mount_SD(FATFS *_pFatFS, const char* _pPath)
 //加载bmp文件数据
 static int LoadBMPFileData(const char* _pFilePath, u8* _pStartBuf, int _Len)
 {
-	FATFS tFatFS = { 0 };
-	const char* pchPath = "0:";
-
 	char chBMPFileHeader[54] = { 0 };		//bmp文件头
 	u32 unBMPWidth = 0;						//bmp文件宽度
 	u32 unBMPHeight = 0;					//bmp文件高度
@@ -84,14 +61,11 @@ static int LoadBMPFileData(const char* _pFilePath, u8* _pStartBuf, int _Len)
 
 	s32 i = 0;
 
-	//挂载设备
-	Mount_SD(&tFatFS, pchPath);
-
 	FIL tFIL;
 	FRESULT eRes = FR_OK;
 	int nSucReadLen = 0;		//成功读取的字节数
 
-	eRes = f_open(&tFIL, _pFilePath, FA_WRITE | FA_CREATE_ALWAYS);
+	eRes = f_open(&tFIL, _pFilePath, FA_READ);
 	if(eRes != FR_OK)
 	{
 		xil_printf("%s: f_open is failed.\r\n", __FUNCTION__);
@@ -138,19 +112,8 @@ int main()
 
 	xil_printf("\n--- Entering main() --- \r\n");
 
-	u8* puchBuf_00 = (u8*)malloc(LCD_WIDTH * LCD_PIXEL_CHANNELS * LCD_HEIGHT);
-	if(!puchBuf_00)
-	{
-		xil_printf("malloc is err\r\n");
-		return -1;
-	}
-
-	u8* puchBuf_01 = (u8*)malloc(LCD_WIDTH * LCD_PIXEL_CHANNELS * LCD_HEIGHT);
-	if(!puchBuf_01)
-	{
-		xil_printf("malloc is err\r\n");
-		return -1;
-	}
+	u8* puchBuf_00 = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000;
+	u8* puchBuf_01 = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x4000000;
 
 	//根据器件ID查找器件的配置信息
 	ptXGpio_Config = XGpio_LookupConfig(XPAR_GPIO_0_DEVICE_ID);
@@ -189,7 +152,7 @@ int main()
 		break;
 	default:
 		xil_printf("lcd type not support\n\r");
-		break;
+		return 0;
 	}
 
 	//设置时钟ip和输出的时钟频率
@@ -202,8 +165,11 @@ int main()
 	DisplaySetMode(&tDisplayCtrl, &tVideoMode);
 	DisplayStart(&tDisplayCtrl);
 
+	//挂载设备
+	Mount_SD();
+
 	LoadBMPFileData("0:fengjing.bmp", puchBuf_00, LCD_WIDTH * LCD_HEIGHT * LCD_PIXEL_CHANNELS);
-	LoadBMPFileData("0:sponge_bob_square_pants.bmp", puchBuf_01, LCD_WIDTH * LCD_HEIGHT * LCD_PIXEL_CHANNELS);
+	LoadBMPFileData("0:fengjing_qianrui.bmp", puchBuf_01, LCD_WIDTH * LCD_HEIGHT * LCD_PIXEL_CHANNELS);
 
 	xil_printf("VDMA data transmit is success\n\r");
 
