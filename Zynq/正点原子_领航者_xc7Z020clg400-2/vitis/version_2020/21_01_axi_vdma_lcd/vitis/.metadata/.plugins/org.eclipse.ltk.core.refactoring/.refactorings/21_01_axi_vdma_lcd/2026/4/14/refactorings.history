@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;21_01_axi_vdma_lcd/src/clk_wiz&apos; to &apos;clk_wiz.c&apos;" description="Rename resource &apos;clk_wiz&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/clk_wiz" name="clk_wiz.c" stamp="1775012334340" updateReferences="true"/>
+</session>

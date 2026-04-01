@@ -1,0 +1,7 @@
+14:12:14 **** Clean-only build of configuration Debug for project 21_01_axi_vdma_lcd ****
+make clean 
+rm -rf  ./src/display_ctrl/display_ctrl.o  ./src/clk_wiz.o ./src/main.o ./src/vdma_api.o  ./src/display_ctrl/display_ctrl.d  ./src/clk_wiz.d ./src/main.d ./src/vdma_api.d  21_01_axi_vdma_lcd.elf.size  21_01_axi_vdma_lcd.elf
+' '
+
+14:12:14 Build Finished (took 118ms)
+

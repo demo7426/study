@@ -1,0 +1,34 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名: vdma_api.h
+作    者: 钱锐      版本: V0.1.0     新建日期: 2026.03.25
+描    述: 实现vdma的数据传输
+备    注:
+修改记录:
+
+  1. 日期: 2026.03.25
+	  作者: 钱锐
+	  内容:
+		  1) 此为模板第一个版本；
+	  版本:V0.1.0
+
+*************************************************/
+
+#ifndef VDMA_API
+#define VDMA_API
+
+#include "xaxivdma.h"
+
+//vdma数据操作类型
+enum VDMA_OPERATE_TYPE{
+	ONLY_READ = 1,			//只读
+	ONLY_WRITE,				//只写
+	READ_WRITE				//读写
+};
+
+int run_vdma_frame_buffer(XAxiVdma* InstancePtr, int DeviceId, int hsize,
+		int vsize, int buf_base_addr, int number_frame_count,
+		int enable_frm_cnt_intr, enum VDMA_OPERATE_TYPE _OpType);
+
+#endif
+
