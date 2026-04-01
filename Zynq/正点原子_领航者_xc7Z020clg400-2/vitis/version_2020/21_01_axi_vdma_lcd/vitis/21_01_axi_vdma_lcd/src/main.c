@@ -27,8 +27,6 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #define AXI_GPIO_CHANNEL1	1
 
 #define AXI_VDMA_DEVICE_ID 	XPAR_AXI_VDMA_0_DEVICE_ID
-#define LCD_WIDTH 			800							//lcd屏幕的宽度
-#define LCD_HEIGHT 			480							//lcd屏幕的高度
 #define LCD_PIXEL_CHANNELS	3							//lcd通道数量
 
 //产生彩条数据
@@ -47,7 +45,7 @@ static void MakeColorBar(u8* _pStartBuf, int _Width, int _Height)
 			// 计算当前像素属于第几个颜色条
 			int nColorIndex = j / nBarWidth;
 			// 计算当前像素在缓冲区的起始索引（BGR格式）
-			int nBufIndex = i * LCD_PIXEL_CHANNELS + j;
+			int nBufIndex = i * _Width * LCD_PIXEL_CHANNELS + j;
 
 			u8 r, g, b;
 			// 彩虹7色：BGR分量定义
@@ -102,12 +100,7 @@ int main()
 
 	xil_printf("\n--- Entering main() --- \r\n");
 
-	u8* puchBuf = (u8*)malloc(LCD_WIDTH * LCD_PIXEL_CHANNELS * LCD_HEIGHT);
-	if(!puchBuf)
-	{
-		xil_printf("malloc is err\r\n");
-		return -1;
-	}
+	u8* puchBuf = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000;
 
 	//根据器件ID查找器件的配置信息
 	ptXGpio_Config = XGpio_LookupConfig(XPAR_GPIO_0_DEVICE_ID);
@@ -146,7 +139,7 @@ int main()
 		break;
 	default:
 		xil_printf("lcd type not support\n\r");
-		break;
+		return 0;
 	}
 
 	//设置时钟ip和输出的时钟频率
@@ -159,14 +152,14 @@ int main()
 	DisplaySetMode(&tDisplayCtrl, &tVideoMode);
 	DisplayStart(&tDisplayCtrl);
 
-	MakeColorBar(puchBuf, LCD_WIDTH, LCD_HEIGHT);
+	MakeColorBar(puchBuf, tVideoMode.width, tVideoMode.height);
 
 	//配置和开始vdma数据传输
 	run_vdma_frame_buffer(
 			&InstancePtr,					//vmda
 			AXI_VDMA_DEVICE_ID,				//vdma设备id
-			LCD_WIDTH,						//lcd屏宽度
-			LCD_HEIGHT,						//lcd屏高度
+			tVideoMode.width,				//lcd屏宽度
+			tVideoMode.height,				//lcd屏高度
 			(int)puchBuf,					//ddr起始地址
 			0,
 			0,								//不使能中断
@@ -175,16 +168,11 @@ int main()
 
 	xil_printf("VDMA data transmit is success\n\r");
 
-	while(1)
-	{
-		sleep(10);
-	};
+//	while(1)
+//	{
+//		sleep(10);
+//	};
 
-	if(puchBuf)
-	{
-		free(puchBuf);
-		puchBuf = NULL;
-	}
 
 	return 0;
 }
