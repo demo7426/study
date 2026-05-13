@@ -26,9 +26,6 @@ Copyright (C), 2009-2012    , Level Chip Co., Ltd.
 #define AXI_GPIO_CHANNEL1	1
 
 #define AXI_VDMA_DEVICE_ID 	XPAR_AXI_VDMA_0_DEVICE_ID
-#define LCD_WIDTH 			800							//lcd屏幕的宽度
-#define LCD_HEIGHT 			480							//lcd屏幕的高度
-#define LCD_PIXEL_CHANNELS	3							//lcd通道数量
 
 //挂载SD卡
 static int Mount_SD()
@@ -50,7 +47,7 @@ static int Mount_SD()
 }
 
 //加载bmp文件数据
-static int LoadBMPFileData(const char* _pFilePath, u8* _pStartBuf, int _Len)
+static int LoadBMPFileData(const char* _pFilePath, u8* _pStartBuf)
 {
 	char chBMPFileHeader[54] = { 0 };		//bmp文件头
 	u32 unBMPWidth = 0;						//bmp文件宽度
@@ -77,12 +74,6 @@ static int LoadBMPFileData(const char* _pFilePath, u8* _pStartBuf, int _Len)
 	xil_printf("filepath = %s, width = %u, height = %u, size = %u\r\n",
 			_pFilePath, unBMPWidth, unBMPHeight, unBMPSize);
 
-	if(unBMPSize > _Len)
-	{
-		xil_printf("%s: buffer overflow.\r\n", __FUNCTION__);
-		return -1;
-	}
-
 	//读取图片，写入ddr
 	for(i = unBMPHeight - 1; i >= 0; --i)		//因为bmp图像数据的存储顺序是从左到右，从下到上的
 	{
@@ -106,7 +97,7 @@ int main()
 
 	xil_printf("\n--- Entering main() --- \r\n");
 
-	u8* puchBuf_00 = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000;
+	u8* puchBuf_00 = (u8*)(XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000);
 
 	tVideoMode = VMODE_1920x1080;		//1920*1080分辨率
 
@@ -120,7 +111,7 @@ int main()
 	//挂载设备
 	Mount_SD();
 
-	LoadBMPFileData("0:cartoon.bmp", puchBuf_00, LCD_WIDTH * LCD_HEIGHT * LCD_PIXEL_CHANNELS);
+	LoadBMPFileData("0:cartoon.bmp", puchBuf_00);
 
 	xil_printf("VDMA data transmit is success\n\r");
 
@@ -128,8 +119,8 @@ int main()
 	run_vdma_frame_buffer(
 			&InstancePtr,					//vmda
 			AXI_VDMA_DEVICE_ID,				//vdma设备id
-			LCD_WIDTH,						//lcd屏宽度
-			LCD_HEIGHT,						//lcd屏高度
+			tVideoMode.width,				//lcd屏宽度
+			tVideoMode.height,				//lcd屏高度
 			(int)puchBuf_00,				//ddr起始地址
 			0,
 			0,								//不使能中断
