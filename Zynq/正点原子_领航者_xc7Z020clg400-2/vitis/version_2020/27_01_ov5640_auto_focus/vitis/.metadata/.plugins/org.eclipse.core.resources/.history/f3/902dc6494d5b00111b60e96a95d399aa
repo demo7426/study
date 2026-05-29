@@ -1,0 +1,158 @@
+/*************************************************
+Copyright (C), 2009-2012    , Level Chip Co., Ltd.
+文件名: main.c
+作    者: 钱锐      版本: V0.1.0     新建日期: 2026.03.25
+描    述: 软件控制vdma ip核读取ps ddr中的数据，并显示到的lcd屏幕上
+备    注:
+修改记录:
+
+  1. 日期: 2026.03.25
+	  作者: 钱锐
+	  内容:
+		  1) 此为模板第一个版本；
+	  版本:V0.1.0
+
+*************************************************/
+
+#include <stdlib.h>
+
+#include "sleep.h"
+#include "vdma_api/vdma_api.h"
+#include "xparameters.h"
+#include "xil_cache.h"
+#include "xgpio.h"
+#include "clk_wiz/clk_wiz.h"
+#include "display_ctrl/display_ctrl.h"
+#include "emio_sccb_cfg/emio_sccb_cfg.h"
+#include "ov5640/ov5640_init.h"
+
+#define AXI_GPIO_CHANNEL1	1
+
+#define AXI_VDMA_DEVICE_ID 	XPAR_AXI_VDMA_0_DEVICE_ID
+#define LCD_PIXEL_CHANNELS	3							//lcd通道数量
+
+#define MIO_KEY 			12
+
+extern XGpioPs gpiops_inst; //PS 端 GPIO 驱动实例
+
+int main()
+{
+	XAxiVdma InstancePtr;
+	XGpio_Config* ptXGpio_Config = NULL;
+	XGpio tXGpio = { 0 };
+	s32 nStatus = 0;
+	u32 unLCD_ID = 0;
+	VideoMode tVideoMode = { 0 };
+
+	DisplayCtrl tDisplayCtrl = { 0 };
+
+	u16 ushTotal_H_Pixel = 0;
+	u16 ushTotal_V_Pixel = 0;
+
+	xil_printf("\n--- Entering main() --- \r\n");
+
+	u8* puchBuf = (u8*)(XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x1000000);
+
+	//根据器件ID查找器件的配置信息
+	ptXGpio_Config = XGpio_LookupConfig(XPAR_GPIO_0_DEVICE_ID);
+
+	//对GPIO的驱动配置进行初始化
+	nStatus = XGpio_CfgInitialize(&tXGpio, ptXGpio_Config, ptXGpio_Config->BaseAddress);
+	if (nStatus != XST_SUCCESS)
+	{
+		xil_printf("XGpio_CfgInitialize is failed\n\r");
+		return 0;
+	}
+
+	//设置axi gpio按键为输入，可以不用设置，其实在vivado工程中asi_gpio_ip核中已经默认配置为输入
+	XGpio_SetDataDirection(&tXGpio, AXI_GPIO_CHANNEL1, 0x7);
+
+	unLCD_ID = LTDC_PanelID_Read(&tXGpio, AXI_GPIO_CHANNEL1);
+
+	XGpio_SetDataDirection(&tXGpio, AXI_GPIO_CHANNEL1, 0);		//设置axi gpio按键为输出
+
+	switch(unLCD_ID)			//根据lcd的id，选择lcd对应的时钟频率
+	{
+	case 0x4342:				//4.3寸屏,480*272分辨率
+		tVideoMode = VMODE_480x272;
+
+		ushTotal_H_Pixel = 1800;
+		ushTotal_V_Pixel = 1000;
+		break;
+	case 0x7084:				//7寸屏,800*480分辨率
+		tVideoMode = VMODE_800x480;
+
+		ushTotal_H_Pixel = 1800;
+		ushTotal_V_Pixel = 1000;
+		break;
+	case 0x7016:				//7寸屏,1024*600分辨率
+		tVideoMode = VMODE_1024x600;
+
+		ushTotal_H_Pixel = 2000;
+		ushTotal_V_Pixel = 1000;
+		break;
+	case 0x4384:				//4.3寸屏,800*480分辨率
+		tVideoMode = VMODE_800x480;
+
+		ushTotal_H_Pixel = 1800;
+		ushTotal_V_Pixel = 1000;
+		break;
+	case 0x1018:				//10.1寸屏,1280*800分辨率
+		tVideoMode = VMODE_1280x800;
+
+		ushTotal_H_Pixel = 2570;
+		ushTotal_V_Pixel = 980;
+		break;
+	default:
+		xil_printf("lcd type not support\n\r");
+		return 0;
+	}
+
+	emio_init();		//初始化emio
+	ov5640_init(tVideoMode.width, tVideoMode.height, ushTotal_H_Pixel, ushTotal_V_Pixel);
+
+	//ov5640摄像头对焦初始化
+	ov5640_focus_init();
+
+	//ov5640摄像头持续对焦
+	//ov5640_focus_constant();
+
+	//设置mio按键为输入
+	XGpioPs_SetDirectionPin(&gpiops_inst, MIO_KEY, 0);
+
+	//设置时钟ip和输出的时钟频率
+	Clk_Wiz_Config(XPAR_CLK_WIZ_0_DEVICE_ID, tVideoMode.freq);
+
+	//初始化display controler
+	DisplayInitialize(&tDisplayCtrl, XPAR_VTC_0_DEVICE_ID);
+
+	//设置video model
+	DisplaySetMode(&tDisplayCtrl, &tVideoMode);
+	DisplayStart(&tDisplayCtrl);
+
+	//配置和开始vdma数据传输
+	run_vdma_frame_buffer(
+			&InstancePtr,					//vmda
+			AXI_VDMA_DEVICE_ID,				//vdma设备id
+			tVideoMode.width,				//lcd屏宽度
+			tVideoMode.height,				//lcd屏高度
+			(int)puchBuf,					//ddr起始地址
+			0,
+			0,								//不使能中断
+			READ_WRITE						//vdma读写通道选择，只使能读通道
+			);
+
+	xil_printf("VDMA data transmit is success\n\r");
+
+	while(1)
+	{
+		if(XGpioPs_ReadPin(&gpiops_inst, MIO_KEY) == 0)
+		{
+			usleep(20000);
+			ov5640_focus_single();
+		}
+		usleep(10);
+	};
+
+	return 0;
+}

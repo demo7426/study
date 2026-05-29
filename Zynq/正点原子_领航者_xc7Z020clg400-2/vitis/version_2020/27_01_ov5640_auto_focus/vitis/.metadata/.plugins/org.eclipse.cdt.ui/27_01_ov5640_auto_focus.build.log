@@ -1,0 +1,7 @@
+19:18:23 **** Clean-only build of configuration Debug for project 27_01_ov5640_auto_focus ****
+make clean 
+rm -rf  ./src/vdma_api/vdma_api.o  ./src/ov5640/ov5640_init.o  ./src/emio_sccb_cfg/emio_sccb_cfg.o  ./src/display_ctrl/display_ctrl.o  ./src/clk_wiz/clk_wiz.o  ./src/main.o  ./src/vdma_api/vdma_api.d  ./src/ov5640/ov5640_init.d  ./src/emio_sccb_cfg/emio_sccb_cfg.d  ./src/display_ctrl/display_ctrl.d  ./src/clk_wiz/clk_wiz.d  ./src/main.d  27_01_ov5640_auto_focus.elf.size  27_01_ov5640_auto_focus.elf
+' '
+
+19:18:23 Build Finished (took 249ms)
+
