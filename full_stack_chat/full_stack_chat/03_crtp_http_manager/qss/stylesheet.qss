@@ -1,0 +1,9 @@
+#label_err_tip[state='normal']{
+    color: green;
+}
+
+#label_err_tip[state='err']{
+    color: red;
+}
+
+
